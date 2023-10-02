@@ -18,4 +18,4 @@
   
 ### Tasks completed from board
 
-![Screenshot](https://github.com/xIssa11/COSC-499-W2023/blob/main/docs/weekly%20logs/Issa_Hashim_W4_SS.PNG)
+![Screenshot](https://github.com/xIssa11/COSC-499-W2023/blob/main/docs/weekly%20logs/Issa_Hashim_SS_W4.PNG)
