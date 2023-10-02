@@ -7,7 +7,7 @@
 - Accepted and distributed tasks
 - Established expectations about team coordination for coding and testing
 ## Number of tasks completed from board
-[Imgur](https://i.imgur.com/wcJCbUB.png)
+[Imgur](https://imgur.com/wcJCbUB)
 
 ## Week 3
 ## Features completed
@@ -18,4 +18,4 @@
 - confirmed that all tests pass
 
 ## Number of tasks completed from board
-[Imgur](https://i.imgur.com/BtmMEM0.png)
+[Imgur](https://imgur.com/BtmMEM0)
