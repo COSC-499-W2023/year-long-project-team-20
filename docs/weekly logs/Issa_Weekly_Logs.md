@@ -15,4 +15,4 @@
   
 ### Tasks completed from board
 
-![Screenshot](https://imgur.com/sIizYZw)
+![Screenshot](https://imgur.com/a/b8r4KcE)
