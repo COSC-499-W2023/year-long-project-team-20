@@ -9,7 +9,7 @@
 * Setup Kanban project
   
 ### Board Screenshot
-![Screenshot](https://github.com/xIssa11/COSC-499-W2023/blob/main/docs/weekly logs/Team_logs/Burnup_chart_W4.PNG)
+![Screenshot](https://github.com/xIssa11/COSC-499-W2023/blob/main/docs/weekly%20logs/Team_logs/Burnup_chart_W4.PNG)
 
 ### Goals for Next Week 
 * Brainstorm ideas for website design with team, create paper prototypes
@@ -18,4 +18,4 @@
   
 ### Tasks completed from board
 
-![Screenshot](https://github.com/xIssa11/COSC-499-W2023/blob/main/docs/weekly logs/Issa_Hashim_W4_SS.PNG)
+![Screenshot](https://github.com/xIssa11/COSC-499-W2023/blob/main/docs/weekly%20logs/Issa_Hashim_W4_SS.PNG)
