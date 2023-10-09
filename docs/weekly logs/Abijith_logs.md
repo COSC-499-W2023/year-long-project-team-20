@@ -1,4 +1,12 @@
 # Abijith Ashok Log
+## Week 5
+- Attended all team meetings
+- setting up admin access for our project on aws
+- linking github repo to our project
+- Refined the tech stack and tried setting up the project on aws(unsuccessful)
+- Accepted and distributed tasks
+![Imgur](https://imgur.com/4a9AxI0.png)
+
 ## Week 4
 ## Features Completed
 - Attended all team meetings
