@@ -24,3 +24,18 @@ Goal was to research an appropriate tech stack fo rthe project.
 - Website design (paper prototypes, initial design)
 - Save Video to db 
 - Saving video frontend
+
+## Week 5
+### Peer Eval Screenshot:
+ ![Alt text](<Screen Shot 2023-10-08 at 6.53.05 PM.png>)
+ ### Recap Goals this week
+Goal was to build the design of the website and start wokrking on the backend.
+### Tasks on board
+- Website design (paper prototypes, initial design)
+- Save Video to db
+- Saving video frontend
+### Tasks completed
+- Website design (paper prototypes, initial design)
+### Tasks in progress
+- Save Video to db
+- Saving video frontend
