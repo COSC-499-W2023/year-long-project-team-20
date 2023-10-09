@@ -1,4 +1,18 @@
 # Ryan Grant logs
+## Week 5
+## Overview of tasks completed:
+1. Research how videos are stored in amazon database
+2. Practice using video in html
+3. Review peer work to familiarize myself with their implementation
+## Goals for next week
+1. Upload video to database
+2. Display video from database
+## Overview of tasks to be completed by milestone
+1. Upload video to database
+2. Display video from database
+3. Mini-Presentation
+### Peer eval screenshot
+![week5](https://i.imgur.com/jdrc3Ep.png)
 ## Week 4
 ## Overview of tasks completed:
 1. Plan meeting during class for project plan
