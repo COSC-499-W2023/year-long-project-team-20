@@ -1,4 +1,22 @@
 # Maya Ayaviri Bacarreza's Logs 
+## Week 5 - Project 
+
+### Tasks Completed This Week
+* Created basic UI designs in figma for the record video view 
+* Disscused design ideas for the user home page and how shared videos will be accessed
+* Reviewed how AWS/Amplify works with team members 
+* Conducted research on how backend implementation of recording a video will work
+  
+### Next Week Goals
+* Expand upon figma prototype design in collaboration with other team members (edit video view, add contact view, profile view, login view, sign up view, welcome page view)
+  * Refine the record video view
+* After prototype is complete, modify tasks assigned if new features are added or removed
+* Help team members working on the aws/amplify set up
+  * If set up goes well, then begin working on the record video front end. Other wise, just focus on helping members with the set up
+  
+### Board Screenshot
+![week 5 board ](https://i.imgur.com/PaYmjQy.png)
+Other: Research on how aws/amp works & potential ways to implement recording video feature using an aws service
 
 ## Week 4 - Project Plan 
 
