@@ -1,4 +1,18 @@
 # Abijith Ashok Log
+
+## Week 6
+## Features Completed
+- set up amplify CLI on our project
+- designed database Schema
+- Tried Setting up AWS Amplify project using credentials and then User tokens
+- - Failed to run amplify init
+- - - error message: 🛑 Failed to get profile credentials; Cannot read properties of undefined (reading 'accessKeyId')
+- - - will talk to TA about this issue
+- -  build sample Node app with amplify
+- - - worked on sample project
+![Imgur](https://imgur.com/GB6HSPF.png)
+
+
 ## Week 5
 - Attended all team meetings
 - setting up admin access for our project on aws
