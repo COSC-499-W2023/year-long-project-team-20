@@ -36,6 +36,8 @@ Goal was to build the design of the website and start wokrking on the backend.
 - Saving video frontend
 ### Tasks completed
 - Website design (paper prototypes, initial design)
+- Initial backend setup
+- Some static pages in the frontend
 ### Tasks in progress
 - Save Video to db
 - Saving video frontend
