@@ -1,4 +1,14 @@
 # Ryan Grant logs
+## Week 6 Work period Oct 12 - Oct 18
+## Overview of tasks completed
+### Our team ran into some major hurdles revolving around the setup of certain amazon services. Because the issues were preventing the continuation of indvidual tasks we decided to meet on Oct 17 in person to progress on our project. Although I was struggling with my personal laptop issues I was there to help if anyone needed my assistance. 
+## Tasks to complete by milestone:
+1. Upload video to database
+2. Display video from database
+3. Mini-Presentation
+### With 2 weeks remaining until the mini presentation I should have my 2 features completed by next week. Leaving 1 week of work dedicated to the presentation. Including slides/video demonstration with prepared material. 
+### Peer eval screenshot
+![img](https://i.imgur.com/SileOQX.png)
 ## Week 5
 ## Overview of tasks completed:
 1. Research how videos are stored in amazon database
