@@ -1,4 +1,20 @@
 # Maya Ayaviri Bacarreza's Logs 
+
+## Week 6 - Project 
+<img width="614" alt="Screen Shot 2023-10-15 at 11 45 30 PM" src="https://github.com/COSC-499-W2023/year-long-project-team-20/assets/66889922/8ca5f512-2657-4eea-aca9-f0cfa2a174c5">
+
+
+### Tasks Completed This Week 
+**Work period October 12th - October 15th**
+* Researched TypeScript basics online 
+* Started experimenting with the sample Node.js/TypeScript project, implemented basic designs for the welcome page 
+* Attended amplify set up meeting with team members 
+  
+### Tasks in Progress
+* Begin working on record video back end now that amplify is set up 
+* Continue working on front end (record video page)
+
+
 ## Week 5 - Project 
 
 ### Tasks Completed This Week
