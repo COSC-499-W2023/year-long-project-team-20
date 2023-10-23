@@ -1,8 +1,29 @@
 # Maya Ayaviri Bacarreza's Logs 
 
-## Week 6 - Project 
+## Week 7 - Project Log
+**Work period October 16th - October 22nd**
+
 <img width="614" alt="Screen Shot 2023-10-15 at 11 45 30 PM" src="https://github.com/COSC-499-W2023/year-long-project-team-20/assets/66889922/8ca5f512-2657-4eea-aca9-f0cfa2a174c5">
 
+### Tasks Completed This Week 
+* Connect amplify to my local repository
+* Run website locally
+* Research how to set up amplify to work with multiple collaborators
+  
+### Tasks in Progress 
+* Set up video back end
+* Possibly modify amplify environment set up so that multiple people can work on it simultaneously, pending discussion with team members 
+
+
+### Context for week 7
+This week the team members in charge of setting up Amplify were able to complete this task which was demonstrated to the rest of the team on Tuesday. I began the set up process of connecting my local environment with our set up amplify environment to be able to run it and modify it. By thursday I was able to run the website locally but was having problems connecting it with amplify. I helped other team members with running the website locally. 
+
+Thursday we shifted the allocation of tasks. To set up Amplify we switched our front end from Next/ts to react. Due to this my record video front-end task was set aside for a later time. One member was having trouble with signing into aws/completing the amplify set up, so I was assigned to work on the video back end set up. For the rest of the week this is what I worked on. First I had to complete connecting my environment with the existing amplify backend, which I was able to do. 
+
+I tried to configure amplify so that I could test out the video back end feature on a seperate amplify environment (equivalent to a git branch) so that in case something went wrong it wouldn't impact the website we currently had running. However I had troubles with this, my environment would give me errors upon deploying the website using my git branch. I decided to just try and set up the video back end on the main environment running it locally, without pushing to amplify. 
+
+## Week 6 - Project Log
+<img width="614" alt="Screen Shot 2023-10-15 at 11 45 30 PM" src="https://github.com/COSC-499-W2023/year-long-project-team-20/assets/66889922/8ca5f512-2657-4eea-aca9-f0cfa2a174c5">
 
 ### Tasks Completed This Week 
 **Work period October 12th - October 15th**
