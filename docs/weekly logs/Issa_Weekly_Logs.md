@@ -71,5 +71,46 @@
 ![text](https://i.imgur.com/BzXHART.png)
 
 
+## Week 7 (Work Period October 16th - 23rd) 
+
+### Tasks Completed This Week
+* Troubleshooting problems configuring back end environment with next.js. This was proving to be very difficult, so we decided to switch our framework from next.js to react.
+* Mo Al-Maskari helped with the tasks listed below:
+    * Changed our app's framework from next.js to react
+    * Deployed the app with react frameowrk to amplify studio
+    * Initialized the app's back end environment
+    * Added service role for depolying app's back end environment
+    * Added authentication
+* Configured domain to be hosted on custom domain https://www.cosc499team20.com
+* Read AWS documentation regarding storage, adding apis, aws amplify video, aws kinesis, and aws rekognition.
+
+
+
+### Goals for Next Week 
+* Work on presentation video
+* Start learning figma in depth to design UI
+* Start learning react.js
+* Talk with TA and Professor to figure out how master branch can be protected without it affecting working with AWS services
+* Learn more about AWS Amplify Video, AWS Kinesis, and AWS rekognition.
+
+
+### Recap goals
+* Configure backend on amplify studio
+* Reroute hosting of front end to custom domain
+* Create basic authorization using amplify studio
+* Talk with TA and Professor to figure out how master branch can be protected without it affecting working with AWS services
+* Learn more about other aws services
+* Start learning amplify stuido in depth
+* Start learning figma in depth to design UI
+* Start learning react/next.js 
+
+### Task Completed (from Peer Eval Portal)
+![text](https://i.imgur.com/8VEP0HF.png)
+
+### Task Completed vs In Progress
+![text](https://i.imgur.com/4SnGAmA.png)
+
+
+
 
 
