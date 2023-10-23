@@ -1,0 +1,50 @@
+{
+  "providers": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-amplifya82b345e10314-staging-231903-authRole",
+      "UnauthRoleArn": "arn:aws:iam::908962261904:role/amplify-amplifya82b345e10314-staging-231903-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::908962261904:role/amplify-amplifya82b345e10314-staging-231903-authRole",
+      "Region": "ca-central-1",
+      "DeploymentBucketName": "amplify-amplifya82b345e10314-staging-231903-deployment",
+      "UnauthRoleName": "amplify-amplifya82b345e10314-staging-231903-unauthRole",
+      "StackName": "amplify-amplifya82b345e10314-staging-231903",
+      "StackId": "arn:aws:cloudformation:ca-central-1:908962261904:stack/amplify-amplifya82b345e10314-staging-231903/6598d9b0-6c7a-11ee-aadc-068dca625fb6",
+      "AmplifyAppId": "d3eqkd524bekj0"
+    }
+  },
+  "api": {
+    "yearlongprojectteam2": {
+      "dependsOn": [],
+      "output": {
+        "authConfig": {
+          "additionalAuthenticationProviders": [],
+          "defaultAuthentication": {
+            "apiKeyConfig": {
+              "apiKeyExpirationDays": 7
+            },
+            "authenticationType": "API_KEY"
+          }
+        }
+      },
+      "providerPlugin": "awscloudformation",
+      "service": "AppSync"
+    }
+  },
+  "function": {
+    "yearlongprojectteam29b4333edDefineAuthChallenge": {
+      "build": true,
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda"
+    },
+    "yearlongprojectteam29b4333edCreateAuthChallenge": {
+      "build": true,
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda"
+    },
+    "yearlongprojectteam29b4333edVerifyAuthChallengeResponse": {
+      "build": true,
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda"
+    }
+  }
+}
