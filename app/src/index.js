@@ -5,7 +5,7 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import config from './aws-exports';
 import { Amplify, Storage } from 'aws-amplify';
-Amplify.configure(awsconfig);
+Amplify.configure(config);
 
 //UPLOADING A VIDEO
 // Use the put method to upload the video file. No User Interface as of yet
