@@ -6,8 +6,8 @@ import { Auth } from 'aws-amplify';
 const VideoPlayer = () => {
   return (
     <div className="video-player">
-      {/* Your video player here */}
       <h2>Video Player</h2>
+      {/* Your video player here */}
     </div>
   );
 };
@@ -15,8 +15,8 @@ const VideoPlayer = () => {
 const VideoList = () => {
   return (
     <div className="video-list">
+      <h2>Received Videos</h2>
       {/* List of videos here */}
-      <h2>Video List</h2>
     </div>
   );
 };
@@ -32,10 +32,11 @@ function App() {
 
   return (
     <View className="App">
+      <Button onClick={() => console.log('Go to Settings')}>Settings</Button>
       <Button onClick={signOut}>Sign Out</Button>
       <div className="main-container">
-        <VideoPlayer />
         <VideoList />
+        <VideoPlayer />
       </div>
     </View>
   );
