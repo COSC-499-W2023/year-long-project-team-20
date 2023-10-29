@@ -1,5 +1,24 @@
 # Maya Ayaviri Bacarreza's Logs 
 
+## Week 8 - Project Log
+**Work period October 23rd - October 29th**
+
+<img width="1066" alt="Screen Shot 2023-10-29 at 1 28 20 PM" src="https://github.com/COSC-499-W2023/year-long-project-team-20/assets/66889922/ab17a14d-29a3-4a98-a413-7835e9141f6c">
+
+### Tasks Completed This Week 
+* Worked with team to discuss what we will each say for the presentation
+* Decided with team to pivot away from using amplify video due to its limited documentation and it no longer being maintained/upkept
+* Decided with team to switch video back end to AWS Kinesis, as it was suggested by the client
+* Had my git branch connected to amplify (as did the rest of the team so now we have the ability to work separately for the front end)
+
+### Tasks in Progress 
+* Research how Amazon kinesis can be integrated/implemented with our current project
+* Complete presentation
+
+### Context for week 7
+* In the process of trying to implement aws video, our website deployment began failing on amplify. With the help of another team member this issue was resolved, but set us back in terms of making progress
+
+
 ## Week 7 - Project Log
 **Work period October 16th - October 22nd**
 
