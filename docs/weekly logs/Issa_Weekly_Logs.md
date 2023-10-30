@@ -110,6 +110,38 @@
 ### Task Completed vs In Progress
 ![text](https://i.imgur.com/4SnGAmA.png)
 
+## Week 8 (Work Period October 23th - 29th) 
+
+### Tasks Completed This Week
+* Worked with team on presentation slides
+* Helped Ryan connect his branch to amplify studio
+* Configured a basic e2e test that tests user registration on my experimental branch issa-amplify2 using cypress.
+
+
+### Goals for Next Week 
+* Work on oral presentation with team
+* Review plan with team for milestone 2
+* Start learning figma in depth to design UI
+* Start learning react.js
+* Start learning more about cypress
+* Talk with TA and Professor to figure out how master branch can be protected without it affecting working with AWS services
+* Learn more about AWS Kinesis, and AWS rekognition.
+
+
+### Recap goals
+* Work on presentation video
+* Start learning figma in depth to design UI
+* Start learning react.js
+* Talk with TA and Professor to figure out how master branch can be protected without it affecting working with AWS services
+* Learn more about AWS Amplify Video, AWS Kinesis, and AWS rekognition.
+
+### Task Completed (from Peer Eval Portal)
+![text](https://i.imgur.com/hShpEjt.png)
+
+### Task Completed vs In Progress
+![text](https://i.imgur.com/1vF1BBn.png)
+
+
 
 
 
