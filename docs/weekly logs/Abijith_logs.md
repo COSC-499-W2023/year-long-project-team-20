@@ -1,4 +1,16 @@
 # Abijith Ashok Log
+
+## Week 6-7
+## Features Completed
+- set up amplify CLI on our project
+- set up storage on S3, configured S3 bucket to host videos
+- debugged issues with amplify init
+- designed starter database Schema (will be modified with each new feature we implement)
+- Set up AWS Amplify project using credentials and then User tokens
+- Debugged our project especially setting up amplify init
+![Imgur](https://imgur.com/GB6HSPF.png)
+
+
 ## Week 5
 - Attended all team meetings
 - setting up admin access for our project on aws
