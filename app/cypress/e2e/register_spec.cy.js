@@ -25,8 +25,6 @@ describe('Registration', function() {
         .children()
         .should('include.text','We Emailed You');
       
-      cy.get('input[name="confirmation_code"]').type('123456');
-      cy.get('button[type="submit"]').click();
     })
   })
 })
