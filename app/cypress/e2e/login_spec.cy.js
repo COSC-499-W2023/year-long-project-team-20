@@ -15,7 +15,7 @@ describe('Login', function() {
       cy.get('input[name="password"]').type('m1234567890');
       cy.get('button[type="submit"]').click();
 
-      // 
+      // wait once logged in for 3 second then check signout button is visible and click it
       cy.wait(3000);
       cy.get('.amplify-button').contains('Sign Out').should('be.visible');
       cy.get('.amplify-button').contains('Sign Out').click();
