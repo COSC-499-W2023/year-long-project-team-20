@@ -24,6 +24,7 @@ describe('Registration', function() {
         .should('be.visible')
         .children()
         .should('include.text','We Emailed You');
+      
     })
   })
 })
