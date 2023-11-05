@@ -73,7 +73,7 @@ Goal was to build the design of the website and start wokrking on the backend.
 * Learn more about other aws services
 
 
-## Week 8
+## Week 8 (October 23rd to october 29)
 ### Peer Eval Screenshot
 ![img](https://ibb.co/yPmbFnm)
 
@@ -85,3 +85,18 @@ Goal was to build the design of the website and start wokrking on the backend.
 ### Goals for next week
 * Build the routing on the homepage and settings page and make it ready for backend implementation.
 * Build more tests for the site.
+
+## Week 9 (October 30 to November 5)
+### Peer Eval 
+![img](https://ibb.co/FVXC7LK)
+
+### Tasks Completed this week
+* Worked on the presentation
+* Met with the team several time to prepare for the presentation
+* Set up Cypress tests
+* Manually tested our program
+
+### Goals for next week
+* Work on the design of the front end with Maya
+* Create the profile page
+* Create the homepage, as time allows
