@@ -1,4 +1,19 @@
 # Ryan Grant logs
+## Week 8 Work period Oct 30 - Nov 5
+## Overview of tasks completed
+1. Create slides for Presentation
+2. Create script for Presentation
+3. Practice script until memorized
+4. Coordinate 2 meetings for group practice. One on Wednesday night another on Thursday morning
+5. Saturday meeting to go over features for next milestone
+6. Assign features for next milestone
+## Tasks to complete by milestone:
+1. Create signal channel for KVS (WebRTC)
+2. Create stream for KVS (WebRTC)
+3. Front end get mic & camera
+4. JS capture a/v
+### Peer eval screenshot
+![img](https://i.imgur.com/OFQBitK.png)
 ## Week 7 Work period Oct 23 - Oct 29
 ## Overview of tasks completed
 1. Complete slides for Mini presentation
@@ -60,4 +75,6 @@ After reviewing many sources (most of which were in a unusable data format) I ca
 5. Finally I needed to document my work and push the python file and .csvs to the repo.
 
 ## Tasks completed from the board:
+![tasks from board](https://i.imgur.com/9CpaTJy.png)
+
 ![tasks from board](https://i.imgur.com/9CpaTJy.png)
