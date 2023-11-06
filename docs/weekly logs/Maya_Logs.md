@@ -1,5 +1,23 @@
 # Maya Ayaviri Bacarreza's Logs 
 
+## Week 9 - Project Log
+**Work period October 30th - November 5th**
+<img width="793" alt="Screen Shot 2023-11-05 at 4 56 37 PM" src="https://github.com/COSC-499-W2023/year-long-project-team-20/assets/66889922/9138b8d6-944c-4ea8-84a7-9bdb8409a199">
+
+
+### Tasks Completed This Week
+* Completed mini presentation (worked on my slides/script, added graphics) & Reviewed other team presentations
+* Experimented with amplify's figma react component generator 
+  
+### Tasks in Progress 
+* Decide on website branding/theme/colour scheme and implement it for the home page 
+* Utilize amplify's figma react component generator
+* Grab user data to display personalized webpage content
+
+### Context for week 8
+This week we switched up who is working on what after we decided to put some more focus on the front end side of our website. We spent a lot of time this week focused on the presentations and seeing what we could do differently after seeing what other groups have done, that is why we switched up assigned tasks. 
+
+
 ## Week 8 - Project Log
 **Work period October 23rd - October 29th**
 
@@ -15,7 +33,7 @@
 * Research how Amazon kinesis can be integrated/implemented with our current project
 * Complete presentation
 
-### Context for week 7
+### Context for week 8
 * In the process of trying to implement aws video, our website deployment began failing on amplify. With the help of another team member this issue was resolved, but set us back in terms of making progress
 
 
