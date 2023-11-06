@@ -141,6 +141,35 @@
 ### Task Completed vs In Progress
 ![text](https://i.imgur.com/1vF1BBn.png)
 
+## Week 8 (Work Period Oct 30th - Nov 5th) 
+
+### Tasks Completed This Week
+* Milestone presentation
+* Presentation evaluation of other teams
+* Team meeting regarding next steps forward 
+* Worked with Ryan on AWS Kinesis with WebRTC
+
+
+### Goals for Next Week 
+* Make progress on AWS Kinesis with WebRTC
+
+
+
+### Recap goals
+* Work on oral presentation with team
+* Review plan with team for milestone 2
+* Start learning figma in depth to design UI
+* Start learning react.js
+* Start learning more about cypress
+* Talk with TA and Professor to figure out how master branch can be protected without it affecting working with AWS services
+* Learn more about AWS Kinesis, and AWS rekognition.
+
+### Task Completed (from Peer Eval Portal)
+![text](https://i.imgur.com/J1xEpLS.png)
+
+### Task Completed vs In Progress
+![text](https://i.imgur.com/n63TgoO.png)
+
 
 
 
