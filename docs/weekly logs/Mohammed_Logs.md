@@ -39,3 +39,64 @@ Goal was to build the design of the website and start wokrking on the backend.
 ### Tasks in progress
 - Save Video to db
 - Saving video frontend
+
+## Week 6
+### Peer Eval Screenshot
+![img](https://ibb.co/yPmbFnm)
+## Recap Goals this week
+**Work period October 12th - October 15th**
+- Experimented with react frontend coding.
+- attended team meeting on amplify set up
+- Worked on amplify setup with Issa
+
+## Work in progress
+- building a fully functional react homepage skeleton for video viewing
+
+## Week 7 (Work Period October 16th - 23rd) 
+
+### Tasks Completed This Week
+* Changed the next.js framework we were trying to use for the dafault react aws recommends 
+* Read AWS documentation on front end implementation and how amplify can be used for the UI.
+
+
+
+### Goals for Next Week 
+* Work on presentation video
+* Start learning react.js especially for front end development
+* Learn more about AWS Amplify Video, AWS Kinesis, and AWS rekognition.
+
+
+### Recap goals
+* Configure backend on amplify studio
+* Reroute hosting of front end to custom domain on personal branch
+* Create basic authorization using amplify studio
+* Learn more about other aws services
+
+
+## Week 8 (October 23rd to october 29)
+### Peer Eval Screenshot
+![img](https://ibb.co/yPmbFnm)
+
+### Tasks Completed this week
+* Run app on localhost for fast front-end development
+* Tests for login page
+* Work on presentation
+
+### Goals for next week
+* Build the routing on the homepage and settings page and make it ready for backend implementation.
+* Build more tests for the site.
+
+## Week 9 (October 30 to November 5)
+### Peer Eval 
+![img](https://ibb.co/FVXC7LK)
+
+### Tasks Completed this week
+* Worked on the presentation
+* Met with the team several time to prepare for the presentation
+* Set up Cypress tests
+* Manually tested our program
+
+### Goals for next week
+* Work on the design of the front end with Maya
+* Create the profile page
+* Create the homepage, as time allows

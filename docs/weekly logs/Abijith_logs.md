@@ -1,5 +1,14 @@
 # Abijith Ashok Log
 
+## Week 8
+## Features Completed
+- Set up Cypress for automatic testing of cypress
+- Set up pull request review on AWS amplify
+- Created feature branches for testing storage
+- Set up canary with CloudWatch to monitor uptime and downtime of website
+- Solved issues with framework and platform settings on amplify through CLI
+![Imgur](https://imgur.com/FqltdKJ.png) 
+
 ## Week 6-7
 ## Features Completed
 - set up amplify CLI on our project
