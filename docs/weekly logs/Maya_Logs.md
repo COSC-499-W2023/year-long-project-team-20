@@ -1,4 +1,78 @@
 # Maya Ayaviri Bacarreza's Logs 
+
+## Week 9 - Project Log
+**Work period October 30th - November 5th**
+<img width="793" alt="Screen Shot 2023-11-05 at 4 56 37 PM" src="https://github.com/COSC-499-W2023/year-long-project-team-20/assets/66889922/9138b8d6-944c-4ea8-84a7-9bdb8409a199">
+
+
+### Tasks Completed This Week
+* Completed mini presentation (worked on my slides/script, added graphics) & Reviewed other team presentations
+* Experimented with amplify's figma react component generator 
+  
+### Tasks in Progress 
+* Decide on website branding/theme/colour scheme and implement it for the home page 
+* Utilize amplify's figma react component generator
+* Grab user data to display personalized webpage content
+
+### Context for week 8
+This week we switched up who is working on what after we decided to put some more focus on the front end side of our website. We spent a lot of time this week focused on the presentations and seeing what we could do differently after seeing what other groups have done, that is why we switched up assigned tasks. 
+
+
+## Week 8 - Project Log
+**Work period October 23rd - October 29th**
+
+<img width="1066" alt="Screen Shot 2023-10-29 at 1 28 20 PM" src="https://github.com/COSC-499-W2023/year-long-project-team-20/assets/66889922/ab17a14d-29a3-4a98-a413-7835e9141f6c">
+
+### Tasks Completed This Week 
+* Worked with team to discuss what we will each say for the presentation
+* Decided with team to pivot away from using amplify video due to its limited documentation and it no longer being maintained/upkept
+* Decided with team to switch video back end to AWS Kinesis, as it was suggested by the client
+* Had my git branch connected to amplify (as did the rest of the team so now we have the ability to work separately for the front end)
+
+### Tasks in Progress 
+* Research how Amazon kinesis can be integrated/implemented with our current project
+* Complete presentation
+
+### Context for week 8
+* In the process of trying to implement aws video, our website deployment began failing on amplify. With the help of another team member this issue was resolved, but set us back in terms of making progress
+
+
+## Week 7 - Project Log
+**Work period October 16th - October 22nd**
+
+<img width="614" alt="Screen Shot 2023-10-15 at 11 45 30 PM" src="https://github.com/COSC-499-W2023/year-long-project-team-20/assets/66889922/8ca5f512-2657-4eea-aca9-f0cfa2a174c5">
+
+### Tasks Completed This Week 
+* Connect amplify to my local repository
+* Run website locally
+* Research how to set up amplify to work with multiple collaborators
+  
+### Tasks in Progress 
+* Set up video back end
+* Possibly modify amplify environment set up so that multiple people can work on it simultaneously, pending discussion with team members 
+
+
+### Context for week 7
+This week the team members in charge of setting up Amplify were able to complete this task which was demonstrated to the rest of the team on Tuesday. I began the set up process of connecting my local environment with our set up amplify environment to be able to run it and modify it. By thursday I was able to run the website locally but was having problems connecting it with amplify. I helped other team members with running the website locally. 
+
+Thursday we shifted the allocation of tasks. To set up Amplify we switched our front end from Next/ts to react. Due to this my record video front-end task was set aside for a later time. One member was having trouble with signing into aws/completing the amplify set up, so I was assigned to work on the video back end set up. For the rest of the week this is what I worked on. First I had to complete connecting my environment with the existing amplify backend, which I was able to do. 
+
+I tried to configure amplify so that I could test out the video back end feature on a seperate amplify environment (equivalent to a git branch) so that in case something went wrong it wouldn't impact the website we currently had running. However I had troubles with this, my environment would give me errors upon deploying the website using my git branch. I decided to just try and set up the video back end on the main environment running it locally, without pushing to amplify. 
+
+## Week 6 - Project Log
+<img width="614" alt="Screen Shot 2023-10-15 at 11 45 30 PM" src="https://github.com/COSC-499-W2023/year-long-project-team-20/assets/66889922/8ca5f512-2657-4eea-aca9-f0cfa2a174c5">
+
+### Tasks Completed This Week 
+**Work period October 12th - October 15th**
+* Researched TypeScript basics online 
+* Started experimenting with the sample Node.js/TypeScript project, implemented basic designs for the welcome page 
+* Attended amplify set up meeting with team members 
+  
+### Tasks in Progress
+* Begin working on record video back end now that amplify is set up 
+* Continue working on front end (record video page)
+
+
 ## Week 5 - Project 
 
 ### Tasks Completed This Week

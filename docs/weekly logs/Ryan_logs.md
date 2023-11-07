@@ -1,4 +1,43 @@
 # Ryan Grant logs
+## Week 8 Work period Oct 30 - Nov 5
+## Overview of tasks completed
+1. Create slides for Presentation
+2. Create script for Presentation
+3. Practice script until memorized
+4. Coordinate 2 meetings for group practice. One on Wednesday night another on Thursday morning
+5. Saturday meeting to go over features for next milestone
+6. Assign features for next milestone
+## Tasks to complete by milestone:
+1. Create signal channel for KVS (WebRTC)
+2. Create stream for KVS (WebRTC)
+3. Front end get mic & camera
+4. JS capture a/v
+### Peer eval screenshot
+![img](https://i.imgur.com/OFQBitK.png)
+## Week 7 Work period Oct 23 - Oct 29
+## Overview of tasks completed
+1. Complete slides for Mini presentation
+2. Create, edit, publish video demonstration for the presentation
+### Although a major setback with not being able to use AWS video, considerable effor has been spent on Kinesis Video Stream (KVS) implementation. The use of WebRTC with associcated libraries in React has been reasearched. 
+## Currently working on implementing these features:
+1. Display video from database
+
+## Tasks to complete by milestone:
+1. Upload video to database
+2. Display video from database
+3. Mini-Presentation
+### Peer eval screenshot
+![img](https://i.imgur.com/SileOQX.png)
+## Week 6 Work period Oct 16 - Oct 22
+## Overview of tasks completed
+### Our team ran into some major hurdles revolving around the setup of certain amazon services. Because the issues were preventing the continuation of indvidual tasks we decided to meet on Oct 17 in person to progress on our project. Although I was struggling with my personal laptop issues I was there to help if anyone needed my assistance. 
+## Tasks to complete by milestone:
+1. Upload video to database
+2. Display video from database
+3. Mini-Presentation
+### With 2 weeks remaining until the mini presentation I should have my 2 features completed by next week. Leaving 1 week of work dedicated to the presentation. Including slides/video demonstration with prepared material. 
+### Peer eval screenshot
+![img](https://i.imgur.com/SileOQX.png)
 ## Week 5
 ## Overview of tasks completed:
 1. Research how videos are stored in amazon database
@@ -36,4 +75,6 @@ After reviewing many sources (most of which were in a unusable data format) I ca
 5. Finally I needed to document my work and push the python file and .csvs to the repo.
 
 ## Tasks completed from the board:
+![tasks from board](https://i.imgur.com/9CpaTJy.png)
+
 ![tasks from board](https://i.imgur.com/9CpaTJy.png)
