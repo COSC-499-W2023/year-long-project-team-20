@@ -13,7 +13,7 @@ import {
   Flex
 } from "@aws-amplify/ui-react";
 
-function App({ signOut }) {
+function App() {
   const [user, setUser] = useState(null);
 
   useEffect(() => {
@@ -21,6 +21,23 @@ function App({ signOut }) {
       .then(user => setUser(user))
       .catch(err => console.log(err));
   }, []);
+
+  const deleteUser = async () => {
+    try {
+      await Auth.currentAuthenticatedUser();
+      await Auth.deleteUser();
+    } catch (error) {
+      console.error("Error deleting user", error);
+    }
+  };
+
+  const signOut = async () => {
+    try {
+      await Auth.signOut();
+    } catch (error) {
+      console.error("Error signing out", error);
+    }
+  };
 
   return (
     <View padding="all" className="App">
@@ -34,9 +51,11 @@ function App({ signOut }) {
             </>
           )}
           <Button onClick={signOut} variant="brand">Sign Out</Button>
+          <Button onClick={deleteUser} variant="destructive">Delete Profile</Button>
         </Flex>
       </Card>
     </View>
   );
 }
+
 export default withAuthenticator(App);
