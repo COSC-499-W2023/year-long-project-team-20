@@ -1,5 +1,16 @@
 import React from "react";
-
+import {
+    withAuthenticator,
+    Button,
+    Heading,
+    Image,
+    View,
+    Card,
+    Text,
+    Flex,
+    AmplifyProvider
+  } from "@aws-amplify/ui-react";
+  
 
 const Record = () => {
 
@@ -11,4 +22,4 @@ const Record = () => {
   );
 };
 
-export default Record;
+export default withAuthenticator(Record);

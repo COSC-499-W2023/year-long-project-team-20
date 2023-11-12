@@ -39,4 +39,4 @@ const Home = ({ signOut }) => {
   );
 };
 
-export default Home;
+export default withAuthenticator (Home);

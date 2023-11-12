@@ -89,17 +89,6 @@ const Home = ({ signOut }) => {
          overrides = {navbarOverrides}/>
 
          <Outlet></Outlet>
-{/*        
-           <Heading level={1}>Profile</Heading>
-           {user && (
-             <>
-               <Text variant="h2">Username: {user.username}</Text>
-               <Text variant="h2">Email: {user.attributes.email}</Text>
-               
-             </>
-           )}
-           <Button onClick={signOut} variant="brand">Sign Out</Button> */}
-
            
          </Flex>
        </Card>
@@ -111,4 +100,4 @@ const Home = ({ signOut }) => {
   
 };
 
-export default Home;
+export default withAuthenticator (Home);

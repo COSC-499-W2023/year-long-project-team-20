@@ -27,4 +27,4 @@ const About = () => {
   );
 };
 
-export default About;
+export default withAuthenticator(About);

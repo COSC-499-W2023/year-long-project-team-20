@@ -41,4 +41,4 @@ const Profile = ({ signOut }) => {
   );
 };
 
-export default Profile;
+export default withAuthenticator(Profile);
