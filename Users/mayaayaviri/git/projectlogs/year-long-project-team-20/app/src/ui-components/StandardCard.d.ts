@@ -17,17 +17,16 @@ export declare type Variant = {
     overrides: EscapeHatchProps;
 };
 export declare type PrimitiveOverrideProps<T> = Partial<T> & React.DOMAttributes<HTMLDivElement>;
-export declare type NavBarHeader2OverridesProps = {
-    NavBarHeader2?: PrimitiveOverrideProps<FlexProps>;
-    "Frame 5"?: PrimitiveOverrideProps<FlexProps>;
-    "logo1 1"?: PrimitiveOverrideProps<ImageProps>;
-    Home?: PrimitiveOverrideProps<TextProps>;
-    Profile?: PrimitiveOverrideProps<TextProps>;
-    Record?: PrimitiveOverrideProps<TextProps>;
-    About?: PrimitiveOverrideProps<TextProps>;
-    actions?: PrimitiveOverrideProps<FlexProps>;
+export declare type StandardCardOverridesProps = {
+    StandardCard?: PrimitiveOverrideProps<FlexProps>;
+    image?: PrimitiveOverrideProps<ImageProps>;
+    "Card Area"?: PrimitiveOverrideProps<FlexProps>;
+    "Text Group"?: PrimitiveOverrideProps<FlexProps>;
+    "$99 USD"?: PrimitiveOverrideProps<TextProps>;
+    "4bds 3 ba 2,530 sqft - Active"?: PrimitiveOverrideProps<TextProps>;
+    "832 34th Ave, Seattle, WA 98122"?: PrimitiveOverrideProps<TextProps>;
 } & EscapeHatchProps;
-export declare type NavBarHeader2Props = React.PropsWithChildren<Partial<FlexProps> & {
-    overrides?: NavBarHeader2OverridesProps | undefined | null;
+export declare type StandardCardProps = React.PropsWithChildren<Partial<FlexProps> & {
+    overrides?: StandardCardOverridesProps | undefined | null;
 }>;
-export default function NavBarHeader2(props: NavBarHeader2Props): React.ReactElement;
+export default function StandardCard(props: StandardCardProps): React.ReactElement;

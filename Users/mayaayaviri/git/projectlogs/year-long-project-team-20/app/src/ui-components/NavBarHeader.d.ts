@@ -5,7 +5,9 @@
  **************************************************************************/
 
 import * as React from "react";
+import { LogoWithTextProps } from "./LogoWithText";
 import { FlexProps, ImageProps, TextProps } from "@aws-amplify/ui-react";
+import { MyIconProps } from "./MyIcon";
 export declare type EscapeHatchProps = {
     [elementHierarchy: string]: Record<string, unknown>;
 } | null;
@@ -17,17 +19,19 @@ export declare type Variant = {
     overrides: EscapeHatchProps;
 };
 export declare type PrimitiveOverrideProps<T> = Partial<T> & React.DOMAttributes<HTMLDivElement>;
-export declare type NavBarHeader2OverridesProps = {
-    NavBarHeader2?: PrimitiveOverrideProps<FlexProps>;
-    "Frame 5"?: PrimitiveOverrideProps<FlexProps>;
-    "logo1 1"?: PrimitiveOverrideProps<ImageProps>;
-    Home?: PrimitiveOverrideProps<TextProps>;
-    Profile?: PrimitiveOverrideProps<TextProps>;
-    Record?: PrimitiveOverrideProps<TextProps>;
-    About?: PrimitiveOverrideProps<TextProps>;
-    actions?: PrimitiveOverrideProps<FlexProps>;
+export declare type NavBarHeaderOverridesProps = {
+    NavBarHeader?: PrimitiveOverrideProps<FlexProps>;
+    LogoWithText?: LogoWithTextProps;
+    "Frame 32129767076"?: PrimitiveOverrideProps<FlexProps>;
+    Dashboard?: PrimitiveOverrideProps<TextProps>;
+    Jobs?: PrimitiveOverrideProps<TextProps>;
+    Applicants?: PrimitiveOverrideProps<TextProps>;
+    Company?: PrimitiveOverrideProps<TextProps>;
+    "Frame 32129767081"?: PrimitiveOverrideProps<FlexProps>;
+    MyIcon?: MyIconProps;
+    image?: PrimitiveOverrideProps<ImageProps>;
 } & EscapeHatchProps;
-export declare type NavBarHeader2Props = React.PropsWithChildren<Partial<FlexProps> & {
-    overrides?: NavBarHeader2OverridesProps | undefined | null;
+export declare type NavBarHeaderProps = React.PropsWithChildren<Partial<FlexProps> & {
+    overrides?: NavBarHeaderOverridesProps | undefined | null;
 }>;
-export default function NavBarHeader2(props: NavBarHeader2Props): React.ReactElement;
+export default function NavBarHeader(props: NavBarHeaderProps): React.ReactElement;

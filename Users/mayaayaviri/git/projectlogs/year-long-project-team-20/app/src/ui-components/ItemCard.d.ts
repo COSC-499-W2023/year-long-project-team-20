@@ -5,7 +5,7 @@
  **************************************************************************/
 
 import * as React from "react";
-import { FlexProps, ImageProps, TextProps } from "@aws-amplify/ui-react";
+import { BadgeProps, FlexProps, TextProps } from "@aws-amplify/ui-react";
 export declare type EscapeHatchProps = {
     [elementHierarchy: string]: Record<string, unknown>;
 } | null;
@@ -17,17 +17,16 @@ export declare type Variant = {
     overrides: EscapeHatchProps;
 };
 export declare type PrimitiveOverrideProps<T> = Partial<T> & React.DOMAttributes<HTMLDivElement>;
-export declare type NavBarHeader2OverridesProps = {
-    NavBarHeader2?: PrimitiveOverrideProps<FlexProps>;
-    "Frame 5"?: PrimitiveOverrideProps<FlexProps>;
-    "logo1 1"?: PrimitiveOverrideProps<ImageProps>;
-    Home?: PrimitiveOverrideProps<TextProps>;
-    Profile?: PrimitiveOverrideProps<TextProps>;
-    Record?: PrimitiveOverrideProps<TextProps>;
-    About?: PrimitiveOverrideProps<TextProps>;
-    actions?: PrimitiveOverrideProps<FlexProps>;
+export declare type ItemCardOverridesProps = {
+    ItemCard?: PrimitiveOverrideProps<FlexProps>;
+    Badge?: PrimitiveOverrideProps<BadgeProps>;
+    "Frame 417"?: PrimitiveOverrideProps<FlexProps>;
+    "Product Title"?: PrimitiveOverrideProps<FlexProps>;
+    "T-Shirt"?: PrimitiveOverrideProps<TextProps>;
+    "Classic Long Sleeve"?: PrimitiveOverrideProps<TextProps>;
+    $99?: PrimitiveOverrideProps<TextProps>;
 } & EscapeHatchProps;
-export declare type NavBarHeader2Props = React.PropsWithChildren<Partial<FlexProps> & {
-    overrides?: NavBarHeader2OverridesProps | undefined | null;
+export declare type ItemCardProps = React.PropsWithChildren<Partial<FlexProps> & {
+    overrides?: ItemCardOverridesProps | undefined | null;
 }>;
-export default function NavBarHeader2(props: NavBarHeader2Props): React.ReactElement;
+export default function ItemCard(props: ItemCardProps): React.ReactElement;
