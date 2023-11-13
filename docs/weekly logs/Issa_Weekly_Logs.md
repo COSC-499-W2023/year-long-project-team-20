@@ -171,6 +171,31 @@
 ![text](https://i.imgur.com/n63TgoO.png)
 
 
+## Week 8 (Work Period Nov 6th - Nov 12th) 
+
+### Tasks Completed This Week
+* Team meetings
+* Currently learning WebRTC courses on udemy as this a topic that requires a lot of knowledge. A significant progress was not made due to workload from other courses and due to the high learning curve associated with the topic.
+* Planning to use reading break/upcoming weeks to make more progress
+
+
+
+
+### Goals for Next Week (after reading break)
+* My goals for the next week remains the same as last week which is to make progress on AWS kinesis with WebRTC.
+* We assigned three people to learn AWS Kinesis with WebRTC so we will work together and pool our knowledge to make progress.
+
+
+
+### Recap goals
+* * Make progress on AWS Kinesis with WebRTC
+
+### Task Completed (from Peer Eval Portal)
+![text](https://i.imgur.com/GCa6JFt.png)
+
+### Task Completed vs In Progress
+![text](https://i.imgur.com/n63TgoO.png)
+
 
 
 
