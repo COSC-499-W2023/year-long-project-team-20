@@ -23,7 +23,8 @@ import {
  import { useNavigate } from 'react-router-dom';
 
 
-const Home = ({ signOut }) => {
+ //Components that are in root will show up in all pages of our website, such as the navigation bar
+const Root = ({ signOut }) => {
     const [user, setUser] = useState(null);
 
     useEffect(() => {
@@ -33,6 +34,8 @@ const Home = ({ signOut }) => {
     }, []);
 
     const navigate = useNavigate();
+
+    //Override amplify component so that nav bar buttons lead to the correct page
     const navbarOverrides = {
         "Home" : {
           style: {
@@ -80,16 +83,12 @@ const Home = ({ signOut }) => {
 
   return (
     <AmplifyProvider>
-      
- 
      <View padding="all" className="App">
        <Card>
          <Flex direction="column" align="center" gap="1rem">
          <NavBarHeader2 width={"100"} 
-         overrides = {navbarOverrides}/>
-
+         overrides = {navbarOverrides}/> 
          <Outlet></Outlet>
-           
          </Flex>
        </Card>
      </View>
@@ -100,4 +99,4 @@ const Home = ({ signOut }) => {
   
 };
 
-export default withAuthenticator (Home);
+export default withAuthenticator (Root);
