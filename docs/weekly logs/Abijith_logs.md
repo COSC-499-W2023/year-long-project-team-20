@@ -1,5 +1,23 @@
 # Abijith Ashok Log
 
+## Week 10 (November 6th to November 12th)
+## Features Worked on
+- Tried using the amplify video package to initialize the backend environment with amplify studio
+- - Amplify push/Buiding resources failed ( error logs are attached in the docs folder) 
+- - cannot figure out how to make it work with the current tech stack
+- - will have to rebuild after researching about new backend tech stack
+- - all work done with this approach can be seen on the branch (ullattil-video-trial)
+
+- Building in progress with cloudformation for video service
+- - it shows create complete, but untested as of the time of writing
+- - will test setting up S3 bucket to pull video for each user
+- - still shows create in progress (after running it for 2 hours). I will update log once the build is complete
+
+## Goals for next week
+- Finish building the backend resources for creating and uploading video for each user
+- Test the new build by uploading and downloading video for each user
+![Week 10 Logs](https://imgur.com/XycbV02.png)
+
 ## Week 8
 ## Features Completed
 - Set up Cypress for automatic testing of cypress
