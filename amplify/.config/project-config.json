@@ -1,0 +1,17 @@
+{
+  "providers": [
+    "awscloudformation"
+  ],
+  "projectName": "yearlongprojectteam2",
+  "version": "3.1",
+  "frontend": "javascript",
+  "javascript": {
+    "framework": "react",
+    "config": {
+      "SourceDir": "/Users/mayaayaviri/git/projectlogs/year-long-project-team-20/app/src",
+      "DistributionDir": "/Users/mayaayaviri/git/projectlogs/year-long-project-team-20/app",
+      "BuildCommand": "npm start",
+      "StartCommand": "npm start"
+    }
+  }
+}

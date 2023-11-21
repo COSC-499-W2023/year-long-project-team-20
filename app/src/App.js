@@ -10,9 +10,33 @@ import {
   View,
   Card,
   Text,
-  Flex
+  Flex,
+  AmplifyProvider
 } from "@aws-amplify/ui-react";
-import "./App.css";
+
+
+import Home from "./pages/Home";
+import Profile from "./pages/Profile";
+import About from "./pages/About";
+import Record from "./pages/Record";
+import Root from "./pages/Root"
+import { RouterProvider, createBrowserRouter } from "react-router-dom";
+
+//Set up paths for the different pages shown in the nav bar
+const router = createBrowserRouter([
+  {
+    path: '/', 
+    element: <Root/>, 
+    children: [
+      {path: '/', element: <Home />}, //initially user will be sent to the home page
+      {path: '/profile', element: <Profile/>},
+      {path: '/record', element: <Record/>},
+      {path: '/about', element: <About/>}
+    ],
+  },
+
+]);
+
 
 function App() {
   const [user, setUser] = useState(null);
