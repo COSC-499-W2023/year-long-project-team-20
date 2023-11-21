@@ -18,6 +18,18 @@
 - Test the new build by uploading and downloading video for each user
 ![Week 10 Logs](https://imgur.com/XycbV02.png)
 
+## Week 9 (October 30th to November 5th)
+## Features Completed
+- Helped make the team presentation
+- Researched about alternatives to amplify video
+- Started working on AWS kinesis and rekognition
+
+## Goals for next week
+- Set up AWS kinesis
+- Set up Video Upload
+- Integrate with frontend
+![Week 9 Logs](https://i.imgur.com/l1S3MO4.png)
+
 ## Week 8
 ## Features Completed
 - Set up Cypress for automatic testing of cypress
