@@ -1,0 +1,588 @@
+Last login: Sun Nov 12 14:32:26 on ttys000
+ ~ ───────────────────────────────────────────────────────────── 02:44:44 pm ─╮
+❯ cd Projects                                                                ─╯
+
+ ~/Projects ──────────────────────────────────────────────────── 02:44:52 pm ─╮
+❯ git clone https://github.com/COSC-499-W2023/year-long-project-team-20.git  ─╯
+Cloning into 'year-long-project-team-20'...
+remote: Enumerating objects: 739, done.
+remote: Counting objects: 100% (399/399), done.
+remote: Compressing objects: 100% (204/204), done.
+remote: Total 739 (delta 226), reused 308 (delta 184), pack-reused 340
+Receiving objects: 100% (739/739), 3.38 MiB | 546.00 KiB/s, done.
+Resolving deltas: 100% (389/389), done.
+
+ ~/Projects ─────────────────────────────────────────────── 12s  02:45:08 pm ─╮
+❯ gitn checkout ullattil-milestone                                           ─╯
+zsh: command not found: gitn
+
+ ~/Projects ──────────────────────────────────────────────────── 02:45:17 pm ─╮
+❯ git checkout ullattil-milestone                                            ─╯
+fatal: not a git repository (or any of the parent directories): .git
+
+ ~/Projects ──────────────────────────────────────────────────── 02:45:22 pm ─╮
+❯ cd year-long-project-team-20/app                                           ─╯
+
+ ~/Projects/year-long-project-team-20/app  master ────────────── 02:45:29 pm ─╮
+❯ git checkout ullattil-milestone                                            ─╯
+branch 'ullattil-milestone' set up to track 'origin/ullattil-milestone'.
+Switched to a new branch 'ullattil-milestone'
+
+ ~/Projects/year-long-project-team-20/app  ullattil-milestone ── 02:45:30 pm ─╮
+❯ git pull                                                                   ─╯
+Already up to date.
+
+ ~/Projects/year-long-project-team-20/app  ullattil-milestone ── 02:45:34 pm ─╮
+❯ amplify pull --appId d2z50th821pl3w --envName staging                      ─╯
+Opening link: https://ca-central-1.admin.amplifyapp.com/admin/d2z50th821pl3w/staging/verify/?loginVersion=1
+Successfully received Amplify Studio tokens.
+Amplify AppID found: d2z50th821pl3w. Amplify App name is: year-long-project-team-20-app
+Backend environment staging found in Amplify Console app: year-long-project-team-20-app
+? Choose your default editor: Visual Studio Code
+✔ Choose the type of app that you're building · javascript
+Please tell us about your project
+? What javascript framework are you using react
+? Source Directory Path:  src
+? Distribution Directory Path: build
+? Build Command:  npm run-script build
+? Start Command: npm run-script start
+No AppSync API configured. Please add an API
+✔ Synced UI components.
+? Do you plan on modifying this backend? Yes
+⠧ Fetching updates to backend environment: staging from the cloud.⠋ Building res✔ Successfully pulled backend environment staging from the cloud.
+✅ 
+
+✅ Successfully pulled backend environment staging from the cloud.
+Run 'amplify pull' to sync future upstream changes.
+
+No AppSync API configured. Please add an API
+✔ Synced UI components.
+
+ ~/Pr/year-long-project-team-20/app  ullattil-milestone !1 ?1 
+❯ sudo amplify video add                                                     ─╯
+Password:
+Sorry, try again.
+Password:
+? Select from one of the below mentioned services: Video-On-Demand
+? Provide a friendly name for your resource to be used as a label for this 
+category in the project: myvodservice
+? Select a system-provided encoding template, specify an already-created 
+template name:  Default HLS+DASH Adaptive Bitrate
+? Do you want to get notifications on the video processing job? Yes
+? Do you want a custom function executed for notifications? No
+? Is this a production enviroment? No
+? Do you want Amplify to create a new GraphQL API to manage your videos? (Beta) 
+Yes
+Video On Demand only supports GraphQL right now.
+If you want to only use API for CMS then choose the default ToDo and don't edit it until later.
+? Select from one of the below mentioned services: GraphQL
+? Here is the GraphQL API that we will create. Select a setting to edit or conti
+nue Authorization modes: API key (default, expiration time: 7 days from now)
+? Choose the default authorization type for the API Amazon Cognito User Pool
+Use a Cognito user pool configured as a part of this project.
+? Configure additional auth types? No
+? Here is the GraphQL API that we will create. Select a setting to edit or conti
+nue Conflict detection (required for DataStore): Disabled
+? Enable conflict detection? Yes
+? Select the default resolution strategy Optimistic Concurrency
+? Here is the GraphQL API that we will create. Select a setting to edit or conti
+nue Continue
+? Choose a schema template: One-to-many relationship (e.g., “Blogs” with “Posts”
+ and “Comments”)
+
+⚠️  WARNING: Some types do not have authorization rules configured. That means all create, read, update, and delete operations are denied on these types:
+	 - Blog
+	 - Post
+	 - Comment
+Learn more about "@auth" authorization rules here: https://docs.amplify.aws/cli/graphql/authorization-rules
+✅ GraphQL schema compiled successfully.
+
+Edit your schema at /Users/abijithashok/Projects/year-long-project-team-20/app/amplify/backend/api/yearlongprojectteam2/schema.graphql or place .graphql files in a directory at /Users/abijithashok/Projects/year-long-project-team-20/app/amplify/backend/api/yearlongprojectteam2/schema
+✔ Do you want to edit the schema now? (Y/n) · yes
+Edit the file in your editor: /Users/abijithashok/Projects/year-long-project-team-20/app/amplify/backend/api/yearlongprojectteam2/schema.graphql
+✅ Successfully added resource yearlongprojectteam2 locally
+
+✅ Some next steps:
+"amplify push" will build all your local backend resources and provision it in the cloud
+"amplify publish" will build all your local backend and frontend resources (if you have hosting category added) and provision it in the cloud
+
+? Define your permission schema Any authenticated user can upload videos
+? Do you want to override your GraphQL schema? No
+? Do you want to edit your newly created model? Yes
+Edit the file in your editor: /Users/abijithashok/Projects/year-long-project-team-20/app/amplify/backend/api/yearlongprojectteam2/schema.graphql
+? Press enter to continue 
+
+⚠️  WARNING: Some types do not have authorization rules configured. That means all create, read, update, and delete operations are denied on these types:
+	 - Blog
+	 - Post
+	 - Comment
+Learn more about "@auth" authorization rules here: https://docs.amplify.aws/cli/graphql/authorization-rules
+Failed compiling GraphQL schema:
+Schema validation failed.
+
+The directive "@auth" can only be used once at this location.
+
+GraphQL request:29:25
+29 | type VideoObject @model @auth(rules: [{allow: public}]) @auth(rules: [{allow: ow
+   |                         ^
+   | ner, ownerField: "owner", operations: [create, update, delete, read]}, {allow: p
+
+GraphQL request:29:57
+29 | type VideoObject @model @auth(rules: [{allow: public}]) @auth(rules: [{allow: ow
+   |                                                         ^
+   | ner, ownerField: "owner", operations: [create, update, delete, read]}, {allow: p 
+? Correct the errors in schema.graphql and press Enter to re-compile.
+
+Path to schema.graphql:
+/Users/abijithashok/Projects/year-long-project-team-20/app/amplify/backend/api/yearlongp
+rojectteam2/schema.graphql 
+
+⚠️  WARNING: Some types do not have authorization rules configured. That means all create, read, update, and delete operations are denied on these types:
+	 - Blog
+	 - Post
+	 - Comment
+Learn more about "@auth" authorization rules here: https://docs.amplify.aws/cli/graphql/authorization-rules
+⚠️ WARNING: owners may reassign ownership for the following model(s) and role(s): VodAsset: [owner], VideoObject: [owner]. If this is not intentional, you may want to apply field-level authorization rules to these fields. To read more: https://docs.amplify.aws/cli/graphql/authorization-rules/#per-user--owner-based-data-access.
+✅ GraphQL schema compiled successfully.
+
+Edit your schema at /Users/abijithashok/Projects/year-long-project-team-20/app/amplify/backend/api/yearlongprojectteam2/schema.graphql or place .graphql files in a directory at /Users/abijithashok/Projects/year-long-project-team-20/app/amplify/backend/api/yearlongprojectteam2/schema
+✔ All resources built.
+
+ ~/Pr/year-long-project-team-20/app  ullattil-milestone !2 ?3 ── 15m 1s  03:03:13 pm ─╮
+❯ amplify push                                                                       ─╯
+⠋ Copying video resources. This may take a few minutes...🛑 EACCES: permission denied, open '/Users/abijithashok/Projects/year-long-project-team-20/app/amplify/backend/video/myvodservice/build/vod-helpers/SnsSetup.template'
+
+Resolution: Try running 'sudo chown -R $(whoami):$(id -gn) <your amplify app directory>' to fix this
+Learn more at: https://docs.amplify.aws/cli/project/troubleshooting/
+⠼ Copying video resources. This may take a few minutes...
+Session Identifier: 47504512-6e05-43ab-8a7b-49492ae0d475
+✖ An unexpected error has occurred, opt in to send an error report to AWS Amplify with non-sensitive project configuration files. Confirm  (y/N) · 
+
+🛑 Failed to report error: 
+
+ ~/Pr/year-long-project-team-20/app  ullattil-milestone !3 ?3 ───── 14s  03:18:34 pm ─╮
+❯ sudo amplify push                                                                  ─╯
+Password:
+BSorry, try again.
+Password:
+Sorry, try again.
+Password:
+✔ All resources copied.
+⠙ Fetching updates to backend environment: staging from the cloud.⠋ Building resource au⠇ Building resource api/yearlongprojectteam2
+⚠️  WARNING: Some types do not have authorization rules configured. That means all create, read, update, and delete operations are denied on these types:
+	 - Blog
+	 - Post
+	 - Comment
+Learn more about "@auth" authorization rules here: https://docs.amplify.aws/cli/graphql/authorization-rules
+⠋ Building resource api/yearlongprojectteam2⚠️ WARNING: owners may reassign ownership for the following model(s) and role(s): VodAsset: [owner], VideoObject: [owner]. If this is not intentional, you may want to apply field-level authorization rules to these fields. To read more: https://docs.amplify.aws/cli/graphql/authorization-rules/#per-user--owner-based-data-access.
+✅ GraphQL schema compiled successfully.
+
+Edit your schema at /Users/abijithashok/Projects/year-long-project-team-20/app/amplify/backend/api/yearlongprojectteam2/schema.graphql or place .graphql files in a directory at /Users/abijithashok/Projects/year-long-project-team-20/app/amplify/backend/api/yearlongprojectteam2/schema
+✔ Successfully pulled backend environment staging from the cloud.
+⠏ Building resource api/yearlongprojectteam2
+⚠️  WARNING: Some types do not have authorization rules configured. That means all create, read, update, and delete operations are denied on these types:
+	 - Blog
+	 - Post
+	 - Comment
+Learn more about "@auth" authorization rules here: https://docs.amplify.aws/cli/graphql/authorization-rules
+⠇ Building resource api/yearlongprojectteam2⚠️ WARNING: owners may reassign ownership for the following model(s) and role(s): VodAsset: [owner], VideoObject: [owner]. If this is not intentional, you may want to apply field-level authorization rules to these fields. To read more: https://docs.amplify.aws/cli/graphql/authorization-rules/#per-user--owner-based-data-access.
+✅ GraphQL schema compiled successfully.
+
+Edit your schema at /Users/abijithashok/Projects/year-long-project-team-20/app/amplify/backend/api/yearlongprojectteam2/schema.graphql or place .graphql files in a directory at /Users/abijithashok/Projects/year-long-project-team-20/app/amplify/backend/api/yearlongprojectteam2/schema
+
+    Current Environment: staging
+    
+┌──────────┬──────────────────────────────┬───────────┬───────────────────┐
+│ Category │ Resource name                │ Operation │ Provider plugin   │
+├──────────┼──────────────────────────────┼───────────┼───────────────────┤
+│ Api      │ yearlongprojectteam2         │ Create    │ awscloudformation │
+├──────────┼──────────────────────────────┼───────────┼───────────────────┤
+│ Video    │ myvodservice                 │ Create    │ awscloudformation │
+├──────────┼──────────────────────────────┼───────────┼───────────────────┤
+│ Storage  │ yearlongprojectteam283b2362f │ No Change │ awscloudformation │
+├──────────┼──────────────────────────────┼───────────┼───────────────────┤
+│ Auth     │ yearlongprojectteam293285ce2 │ No Change │ awscloudformation │
+└──────────┴──────────────────────────────┴───────────┴───────────────────┘
+✔ Are you sure you want to continue? (Y/n) · yes
+
+⚠️  WARNING: Global Sandbox Mode has been enabled, which requires a valid API key. If
+you'd like to disable, remove "input AMPLIFY { globalAuthRule: AuthRule = { allow: public } }"
+from your GraphQL schema and run 'amplify push' again. If you'd like to proceed with
+sandbox mode disabled, do not create an API Key.
+
+✔ Would you like to create an API Key? (y/N) · yes
+✔ Enter a description for the API key: · ullattil
+✔ After how many days from now the API key should expire (1-365): · 7
+⚠️ The API_KEY auth type has been added to the API.
+⚠️ If other resources depend on this API and need access to the API key, run "amplify update <category>" and reselect this API as a dependency to add the API key dependency.
+
+⚠️  WARNING: Some types do not have authorization rules configured. That means all create, read, update, and delete operations are denied on these types:
+	 - Blog
+	 - Post
+	 - Comment
+Learn more about "@auth" authorization rules here: https://docs.amplify.aws/cli/graphql/authorization-rules
+⚠️ WARNING: owners may reassign ownership for the following model(s) and role(s): VodAsset: [owner], VideoObject: [owner]. If this is not intentional, you may want to apply field-level authorization rules to these fields. To read more: https://docs.amplify.aws/cli/graphql/authorization-rules/#per-user--owner-based-data-access.
+✅ GraphQL schema compiled successfully.
+
+Edit your schema at /Users/abijithashok/Projects/year-long-project-team-20/app/amplify/backend/api/yearlongprojectteam2/schema.graphql or place .graphql files in a directory at /Users/abijithashok/Projects/year-long-project-team-20/app/amplify/backend/api/yearlongprojectteam2/schema
+⠴ Building resource api/yearlongprojectteam2
+⚠️  WARNING: your GraphQL API currently allows public create, read, update, and delete access to all models via an API Key. To configure PRODUCTION-READY authorization rules, review: https://docs.amplify.aws/cli/graphql/authorization-rules
+
+⠸ Building resource api/yearlongprojectteam2⚠️ WARNING: owners may reassign ownership for the following model(s) and role(s): VodAsset: [owner], VideoObject: [owner]. If this is not intentional, you may want to apply field-level authorization rules to these fields. To read more: https://docs.amplify.aws/cli/graphql/authorization-rules/#per-user--owner-based-data-access.
+✅ GraphQL schema compiled successfully.
+
+Edit your schema at /Users/abijithashok/Projects/year-long-project-team-20/app/amplify/backend/api/yearlongprojectteam2/schema.graphql or place .graphql files in a directory at /Users/abijithashok/Projects/year-long-project-team-20/app/amplify/backend/api/yearlongprojectteam2/schema
+? Do you want to generate code for your newly created GraphQL API Yes
+? Choose the code generation language target javascript
+? Enter the file name pattern of graphql queries, mutations and subscriptions src/graphql/**/*.js
+? Do you want to generate/update all possible GraphQL operations - queries, mutations and subscriptions Ye
+s
+? Enter maximum statement depth [increase from default if your schema is deeply nested] 2
+
+Deploying resources into staging environment. This will take a few minutes. ⠸
+Deploying rooDeploying resources into staging environment. This will take a few minutes. ⠼
+Deploying roDeploying resources into staging environment. This will take a few minutes. ⠴
+Deploying rDeploying resources into staging environment. This will take a few minutes. ⠦
+DeployingDeploying resources into staging environment. This will take a few minutes. ⠧
+Deploying resources into staging environment. This will take a few minutes. ⠋
+DeplDeploying resources into staging environment. This will take a few minutes. ⠙
+DeDeploying resources into staging environment. This will take a few minutes. ⠹
+Deployment failed.
+Deploying root stack yearlongprojectteam2 [ ================------------------------ ] 2/5
+	amplify-amplify31cdaed310284-… AWS::CloudFormation::Stack     UPDATE_ROLLBACK_COMPLETE_CLEA… Sun Nov 12 2023 15:25:34…     
+	authyearlongprojectteam293285… AWS::CloudFormation::Stack     UPDATE_COMPLETE                Sun Nov 12 2023 15:25:33…     
+	apiyearlongprojectteam2        AWS::CloudFormation::Stack     DELETE_IN_PROGRESS             Sun Nov 12 2023 15:28:38…     
+	videomyvodservice              AWS::CloudFormation::Stack     CREATE_FAILED                  Sun Nov 12 2023 15:25:30…     
+Deploying api yearlongprojectteam2 [ ========================================------------------------------------- ] 14/13
+	GraphQLAPI                     AWS::AppSync::GraphQLApi       CREATE_COMPLETE                Sun Nov 12 2023 15:20:30…     
+	AmplifyDataStoreIAMRole8DE05A… AWS::IAM::Role                 DELETE_COMPLETE                Sun Nov 12 2023 15:28:55…     
+	GraphQLAPINONEDS95A13CF0       AWS::AppSync::DataSource       DELETE_IN_PROGRESS             Sun Nov 12 2023 15:31:00…     
+	DataStore                      AWS::DynamoDB::Table           DELETE_COMPLETE                Sun Nov 12 2023 15:29:03…     
+	GraphQLAPITransformerSchema3C… AWS::AppSync::GraphQLSchema    DELETE_IN_PROGRESS             Sun Nov 12 2023 15:31:00…     
+	Blog                           AWS::CloudFormation::Stack     DELETE_COMPLETE                Sun Nov 12 2023 15:31:00…     
+	DynamoDBAccess71ABE5AE         AWS::IAM::Policy               DELETE_COMPLETE                Sun Nov 12 2023 15:30:17…     
+	Comment                        AWS::CloudFormation::Stack     DELETE_COMPLETE                Sun Nov 12 2023 15:29:38…     
+	Post                           AWS::CloudFormation::Stack     DELETE_COMPLETE                Sun Nov 12 2023 15:29:38…     
+	VodAsset                       AWS::CloudFormation::Stack     DELETE_COMPLETE                Sun Nov 12 2023 15:30:12…     
+	VideoObject                    AWS::CloudFormation::Stack     DELETE_COMPLETE                Sun Nov 12 2023 15:29:38…     
+	ConnectionStack                AWS::CloudFormation::Stack     DELETE_COMPLETE                Sun Nov 12 2023 15:29:03…     
+	CustomResourcesjson            AWS::CloudFormation::Stack     DELETE_COMPLETE                Sun Nov 12 2023 15:28:52…     
+Deploying video myvodservice [ =================----------------------- ] 3/7
+	rSnsInvokeLambdaSetup          AWS::CloudFormation::Stack     CREATE_FAILED                  Sun Nov 12 2023 15:24:09…     
+	rMediaConvertTemplate          AWS::CloudFormation::Stack     CREATE_FAILED                  Sun Nov 12 2023 15:24:09…     
+	rS3InputBucket                 AWS::CloudFormation::Stack     DELETE_COMPLETE                Sun Nov 12 2023 15:25:47…     
+	rS3OutputBucket                AWS::CloudFormation::Stack     DELETE_COMPLETE                Sun Nov 12 2023 15:26:10…     
+	rOutputLambdaTriggerFunction   AWS::CloudFormation::Stack     DELETE_COMPLETE                Sun Nov 12 2023 15:25:59…     
+
+🛑 The following resources failed to deploy:
+🛑 Resource is not in the state stackUpdateComplete
+
+Learn more at: https://docs.amplify.aws/cli/project/troubleshooting/
+
+✔ An unexpected error has occurred, opt in to send an error report to AWS Amplify with non-sensitive project configuration files. Confirm  (y/N) · yes
+ › 
+
+Learn more at https://docs.amplify.aws/cli/reference/diagnose/
+
+This project has been opted in automatically to share non-sensitive project configuration files. you can opt out by running 'amplify diagnose --auto-send-off'
+
+✅ Report saved: /tmp/yearlongprojectteam2/report-1699831976655.zip
+
+✔ Done
+
+Project Identifier: 5f0056430bf2c3a1fb0b5071fdb16a99
+
+
+ ~/Projects/year-long-project-team-20/app  ullattil-milestone !5 ?3 ─────────────────────────────────────────────────────────────────────────── 14m 23s  03:33:01 pm ─╮
+❯ sudo amplify push                                                                                                                                                  ─╯
+Password:
+Sorry, try again.
+Password:
+✔ All resources copied.
+⠇ Building resource api/yearlongprojectteam2
+⚠️  WARNING: your GraphQL API currently allows public create, read, update, and delete access to all models via an API Key. To configure PRODUCTION-READY authorization rules, review: https://docs.amplify.aws/cli/graphql/authorization-rules
+
+⠋ Building resource api/yearlongprojectteam2⚠️ WARNING: owners may reassign ownership for the following model(s) and role(s): VodAsset: [owner], VideoObject: [owner]. If this is not intentional, you may want to apply field-level authorization rules to these fields. To read more: https://docs.amplify.aws/cli/graphql/authorization-rules/#per-user--owner-based-data-access.
+✅ GraphQL schema compiled successfully.
+
+Edit your schema at /Users/abijithashok/Projects/year-long-project-team-20/app/amplify/backend/api/yearlongprojectteam2/schema.graphql or place .graphql files in a directory at /Users/abijithashok/Projects/year-long-project-team-20/app/amplify/backend/api/yearlongprojectteam2/schema
+✔ Successfully pulled backend environment staging from the cloud.
+⠇ Building resource api/yearlongprojectteam2
+⚠️  WARNING: your GraphQL API currently allows public create, read, update, and delete access to all models via an API Key. To configure PRODUCTION-READY authorization rules, review: https://docs.amplify.aws/cli/graphql/authorization-rules
+
+⠧ Building resource api/yearlongprojectteam2⚠️ WARNING: owners may reassign ownership for the following model(s) and role(s): VodAsset: [owner], VideoObject: [owner]. If this is not intentional, you may want to apply field-level authorization rules to these fields. To read more: https://docs.amplify.aws/cli/graphql/authorization-rules/#per-user--owner-based-data-access.
+✅ GraphQL schema compiled successfully.
+
+Edit your schema at /Users/abijithashok/Projects/year-long-project-team-20/app/amplify/backend/api/yearlongprojectteam2/schema.graphql or place .graphql files in a directory at /Users/abijithashok/Projects/year-long-project-team-20/app/amplify/backend/api/yearlongprojectteam2/schema
+
+    Current Environment: staging
+    
+┌──────────┬──────────────────────────────┬───────────┬───────────────────┐
+│ Category │ Resource name                │ Operation │ Provider plugin   │
+├──────────┼──────────────────────────────┼───────────┼───────────────────┤
+│ Api      │ yearlongprojectteam2         │ Create    │ awscloudformation │
+├──────────┼──────────────────────────────┼───────────┼───────────────────┤
+│ Video    │ myvodservice                 │ Create    │ awscloudformation │
+├──────────┼──────────────────────────────┼───────────┼───────────────────┤
+│ Storage  │ yearlongprojectteam283b2362f │ No Change │ awscloudformation │
+├──────────┼──────────────────────────────┼───────────┼───────────────────┤
+│ Auth     │ yearlongprojectteam293285ce2 │ No Change │ awscloudformation │
+└──────────┴──────────────────────────────┴───────────┴───────────────────┘
+✔ Are you sure you want to continue? (Y/n) · yes
+
+⚠️  WARNING: your GraphQL API currently allows public create, read, update, and delete access to all models via an API Key. To configure PRODUCTION-READY authorization rules, review: https://docs.amplify.aws/cli/graphql/authorization-rules
+
+⚠️ WARNING: owners may reassign ownership for the following model(s) and role(s): VodAsset: [owner], VideoObject: [owner]. If this is not intentional, you may want to apply field-level authorization rules to these fields. To read more: https://docs.amplify.aws/cli/graphql/authorization-rules/#per-user--owner-based-data-access.
+✅ GraphQL schema compiled successfully.
+
+Edit your schema at /Users/abijithashok/Projects/year-long-project-team-20/app/amplify/backend/api/yearlongprojectteam2/schema.graphql or place .graphql files in a directory at /Users/abijithashok/Projects/year-long-project-team-20/app/amplify/backend/api/yearlongprojectteam2/schema
+⠋ Building resource api/yearlongprojectteam2
+⚠️  WARNING: your GraphQL API currently allows public create, read, update, and delete access to all models via an API Key. To configure PRODUCTION-READY authorization rules, review: https://docs.amplify.aws/cli/graphql/authorization-rules
+
+⠋ Building resource api/yearlongprojectteam2⚠️ WARNING: owners may reassign ownership for the following model(s) and role(s): VodAsset: [owner], VideoObject: [owner]. If this is not intentional, you may want to apply field-level authorization rules to these fields. To read more: https://docs.amplify.aws/cli/graphql/authorization-rules/#per-user--owner-based-data-access.
+✅ GraphQL schema compiled successfully.
+
+Edit your schema at /Users/abijithashok/Projects/year-long-project-team-20/app/amplify/backend/api/yearlongprojectteam2/schema.graphql or place .graphql files in a directory at /Users/abijithashok/Projects/year-long-project-team-20/app/amplify/backend/api/yearlongprojectteam2/schema
+? Do you want to generate code for your newly created GraphQL API No
+
+Deployment failed.
+Deploying root stack yearlongprojectteam2 [ ================------------------------ ] 2/5
+	amplify-amplify31cdaed310284-… AWS::CloudFormation::Stack     UPDATE_ROLLBACK_COMPLETE_CLEA… Sun Nov 12 2023 15:45:53…     
+	authyearlongprojectteam293285… AWS::CloudFormation::Stack     UPDATE_COMPLETE                Sun Nov 12 2023 15:45:52…     
+	apiyearlongprojectteam2        AWS::CloudFormation::Stack     DELETE_IN_PROGRESS             Sun Nov 12 2023 15:48:57…     
+	videomyvodservice              AWS::CloudFormation::Stack     CREATE_FAILED                  Sun Nov 12 2023 15:45:49…     
+Deploying api yearlongprojectteam2 [ ========================================------------------------------------- ] 15/14
+	GraphQLAPI                     AWS::AppSync::GraphQLApi       CREATE_COMPLETE                Sun Nov 12 2023 15:42:02…     
+	AmplifyDataStoreIAMRole8DE05A… AWS::IAM::Role                 DELETE_COMPLETE                Sun Nov 12 2023 15:49:13…     
+	DataStore                      AWS::DynamoDB::Table           DELETE_COMPLETE                Sun Nov 12 2023 15:49:31…     
+	GraphQLAPITransformerSchema3C… AWS::AppSync::GraphQLSchema    DELETE_COMPLETE                Sun Nov 12 2023 15:51:33…     
+	GraphQLAPINONEDS95A13CF0       AWS::AppSync::DataSource       DELETE_COMPLETE                Sun Nov 12 2023 15:51:34…     
+	GraphQLAPIDefaultApiKey215A6D… AWS::AppSync::ApiKey           DELETE_COMPLETE                Sun Nov 12 2023 15:49:01…     
+	Blog                           AWS::CloudFormation::Stack     DELETE_COMPLETE                Sun Nov 12 2023 15:51:32…     
+	DynamoDBAccess71ABE5AE         AWS::IAM::Policy               DELETE_COMPLETE                Sun Nov 12 2023 15:51:02…     
+	Comment                        AWS::CloudFormation::Stack     DELETE_COMPLETE                Sun Nov 12 2023 15:50:09…     
+	Post                           AWS::CloudFormation::Stack     DELETE_COMPLETE                Sun Nov 12 2023 15:50:09…     
+	VodAsset                       AWS::CloudFormation::Stack     DELETE_COMPLETE                Sun Nov 12 2023 15:50:57…     
+	VideoObject                    AWS::CloudFormation::Stack     DELETE_COMPLETE                Sun Nov 12 2023 15:49:56…     
+	ConnectionStack                AWS::CloudFormation::Stack     DELETE_COMPLETE                Sun Nov 12 2023 15:49:21…     
+	CustomResourcesjson            AWS::CloudFormation::Stack     DELETE_COMPLETE                Sun Nov 12 2023 15:49:10…     
+Deploying video myvodservice [ ---------------------------------------- ] 0/7
+	rSnsInvokeLambdaSetup          AWS::CloudFormation::Stack     CREATE_FAILED                  Sun Nov 12 2023 15:45:41…     
+	rMediaConvertTemplate          AWS::CloudFormation::Stack     CREATE_FAILED                  Sun Nov 12 2023 15:45:41…     
+	rS3OutputBucket                AWS::CloudFormation::Stack     CREATE_FAILED                  Sun Nov 12 2023 15:45:41…     
+	rS3InputBucket                 AWS::CloudFormation::Stack     CREATE_FAILED                  Sun Nov 12 2023 15:45:41…     
+
+🛑 The following resources failed to deploy:
+🛑 Resource is not in the state stackUpdateComplete
+
+Learn more at: https://docs.amplify.aws/cli/project/troubleshooting/
+
+Session Identifier: 2be9cad0-4e8c-4d82-bb41-d435d96f98d4
+
+✅ Report saved: /tmp/yearlongprojectteam2/report-1699833126275.zip
+
+✔ Done
+
+Project Identifier: 5f0056430bf2c3a1fb0b5071fdb16a99
+
+
+ ~/Projects/year-long-project-team-20/app  ullattil-milestone !5 ?3 ─────────────────────────────────────────────────────────────────────────── 11m 42s  03:52:08 pm ─╮
+❯ git checkout -b ullattil-video-trial                                                                                                                               ─╯
+Switched to a new branch 'ullattil-video-trial'
+
+ ~/Projects/year-long-project-team-20/app  ullattil-video-trial !5 ?3 ────────────────────────────────────────────────────────────────────────────────── 04:15:20 pm ─╮
+❯ git push --set-upstream origin ullattil-video-trial                                                                                                                ─╯
+Total 0 (delta 0), reused 0 (delta 0), pack-reused 0
+remote: 
+remote: Create a pull request for 'ullattil-video-trial' on GitHub by visiting:
+remote:      https://github.com/COSC-499-W2023/year-long-project-team-20/pull/new/ullattil-video-trial
+remote: 
+remote: GitHub found 3 vulnerabilities on COSC-499-W2023/year-long-project-team-20's default branch (1 high, 2 moderate). To find out more, visit:
+remote:      https://github.com/COSC-499-W2023/year-long-project-team-20/security/dependabot
+remote: 
+To https://github.com/COSC-499-W2023/year-long-project-team-20.git
+ * [new branch]      ullattil-video-trial -> ullattil-video-trial
+branch 'ullattil-video-trial' set up to track 'origin/ullattil-video-trial'.
+
+ ~/Projects/year-long-project-team-20/app  ullattil-video-trial !5 ?3 ────────────────────────────────────────────────────────────────────────────────── 04:15:37 pm ─╮
+❯ git add .                                                                                                                                                          ─╯
+
+ ~/Projects/year-long-project-team-20/app  ullattil-video-trial +96 ──────────────────────────────────────────────────────────────────────────────────── 04:15:42 pm ─╮
+❯ git commit -m "tried to add amplify video"                                                                                                                         ─╯
+[ullattil-video-trial b604751] tried to add amplify video
+ Committer: Abijith Ashok <abijithashok@Abijiths-MacBook-Air.local>
+Your name and email address were configured automatically based
+on your username and hostname. Please check that they are accurate.
+You can suppress this message by setting them explicitly. Run the
+following command and follow the instructions in your editor to edit
+your configuration file:
+
+    git config --global --edit
+
+After doing this, you may fix the identity used for this commit with:
+
+    git commit --amend --reset-author
+
+ 96 files changed, 16812 insertions(+), 60 deletions(-)
+ create mode 100644 app/amplify/backend/api/yearlongprojectteam2/cli-inputs.json
+ create mode 100644 app/amplify/backend/api/yearlongprojectteam2/parameters.json
+ create mode 100644 app/amplify/backend/api/yearlongprojectteam2/resolvers/README.md
+ create mode 100644 app/amplify/backend/api/yearlongprojectteam2/schema.graphql
+ create mode 100644 app/amplify/backend/api/yearlongprojectteam2/stacks/CustomResources.json
+ create mode 100644 app/amplify/backend/api/yearlongprojectteam2/transform.conf.json
+ create mode 100644 app/amplify/backend/video/myvodservice/mediaconvert-job-temp.json
+ create mode 100644 app/amplify/backend/video/myvodservice/parameters.json
+ create mode 100644 app/amplify/backend/video/myvodservice/props.json
+ create mode 100644 app/src/ui-components/ActionCard.d.ts
+ create mode 100644 app/src/ui-components/ActionCard.jsx
+ create mode 100644 app/src/ui-components/Ampligram.d.ts
+ create mode 100644 app/src/ui-components/Ampligram.jsx
+ create mode 100644 app/src/ui-components/Badge.d.ts
+ create mode 100644 app/src/ui-components/Badge.jsx
+ create mode 100644 app/src/ui-components/CTASection.d.ts
+ create mode 100644 app/src/ui-components/CTASection.jsx
+ create mode 100644 app/src/ui-components/Card.d.ts
+ create mode 100644 app/src/ui-components/Card.jsx
+ create mode 100644 app/src/ui-components/CheckoutPayment.d.ts
+ create mode 100644 app/src/ui-components/CheckoutPayment.jsx
+ create mode 100644 app/src/ui-components/CommentCard.d.ts
+ create mode 100644 app/src/ui-components/CommentCard.jsx
+ create mode 100644 app/src/ui-components/ContactUs.d.ts
+ create mode 100644 app/src/ui-components/ContactUs.jsx
+ create mode 100644 app/src/ui-components/DataRow.d.ts
+ create mode 100644 app/src/ui-components/DataRow.jsx
+ create mode 100644 app/src/ui-components/Divider.d.ts
+ create mode 100644 app/src/ui-components/Divider.jsx
+ create mode 100644 app/src/ui-components/EditProfile.d.ts
+ create mode 100644 app/src/ui-components/EditProfile.jsx
+ create mode 100644 app/src/ui-components/Features2x2.d.ts
+ create mode 100644 app/src/ui-components/Features2x2.jsx
+ create mode 100644 app/src/ui-components/Filters.d.ts
+ create mode 100644 app/src/ui-components/Filters.jsx
+ create mode 100644 app/src/ui-components/FormCheckout.d.ts
+ create mode 100644 app/src/ui-components/FormCheckout.jsx
+ create mode 100644 app/src/ui-components/Heading.d.ts
+ create mode 100644 app/src/ui-components/Heading.jsx
+ create mode 100644 app/src/ui-components/HeroLayout1.d.ts
+ create mode 100644 app/src/ui-components/HeroLayout1.jsx
+ create mode 100644 app/src/ui-components/HeroLayout2.d.ts
+ create mode 100644 app/src/ui-components/HeroLayout2.jsx
+ create mode 100644 app/src/ui-components/ItemCard.d.ts
+ create mode 100644 app/src/ui-components/ItemCard.jsx
+ create mode 100644 app/src/ui-components/Logo.d.ts
+ create mode 100644 app/src/ui-components/Logo.jsx
+ create mode 100644 app/src/ui-components/LogoWithText.d.ts
+ create mode 100644 app/src/ui-components/LogoWithText.jsx
+ create mode 100644 app/src/ui-components/MarketingFooter.d.ts
+ create mode 100644 app/src/ui-components/MarketingFooter.jsx
+ create mode 100644 app/src/ui-components/MarketingFooterBrand.d.ts
+ create mode 100644 app/src/ui-components/MarketingFooterBrand.jsx
+ create mode 100644 app/src/ui-components/MarketingPricing.d.ts
+ create mode 100644 app/src/ui-components/MarketingPricing.jsx
+ create mode 100644 app/src/ui-components/Mission.d.ts
+ create mode 100644 app/src/ui-components/Mission.jsx
+ create mode 100644 app/src/ui-components/MyIcon.d.ts
+ create mode 100644 app/src/ui-components/MyIcon.jsx
+ create mode 100644 app/src/ui-components/NavBarHeader.d.ts
+ create mode 100644 app/src/ui-components/NavBarHeader.jsx
+ create mode 100644 app/src/ui-components/NavBarHeader2.d.ts
+ create mode 100644 app/src/ui-components/NavBarHeader2.jsx
+ create mode 100644 app/src/ui-components/NavBarSide.d.ts
+ create mode 100644 app/src/ui-components/NavBarSide.jsx
+ create mode 100644 app/src/ui-components/Placeholder.d.ts
+ create mode 100644 app/src/ui-components/Placeholder.jsx
+ create mode 100644 app/src/ui-components/ProductCard.d.ts
+ create mode 100644 app/src/ui-components/ProductCard.jsx
+ create mode 100644 app/src/ui-components/ProductDetail.d.ts
+ create mode 100644 app/src/ui-components/ProductDetail.jsx
+ create mode 100644 app/src/ui-components/ProfileCard.d.ts
+ create mode 100644 app/src/ui-components/ProfileCard.jsx
+ create mode 100644 app/src/ui-components/ReviewCard.d.ts
+ create mode 100644 app/src/ui-components/ReviewCard.jsx
+ create mode 100644 app/src/ui-components/SideBar.d.ts
+ create mode 100644 app/src/ui-components/SideBar.jsx
+ create mode 100644 app/src/ui-components/SocialPost.d.ts
+ create mode 100644 app/src/ui-components/SocialPost.jsx
+ create mode 100644 app/src/ui-components/StandardCard.d.ts
+ create mode 100644 app/src/ui-components/StandardCard.jsx
+ create mode 100644 app/src/ui-components/Stat.d.ts
+ create mode 100644 app/src/ui-components/Stat.jsx
+ create mode 100644 app/src/ui-components/TallCard.d.ts
+ create mode 100644 app/src/ui-components/TallCard.jsx
+ create mode 100644 app/src/ui-components/TextField.d.ts
+ create mode 100644 app/src/ui-components/TextField.jsx
+ create mode 100644 app/src/ui-components/index.js
+ create mode 100644 app/src/ui-components/studioTheme.js
+ create mode 100644 app/src/ui-components/studioTheme.js.d.ts
+ create mode 100644 app/src/ui-components/utils.js
+
+ ~/Projects/year-long-project-team-20/app  ullattil-video-trial ⇡1 ───────────────────────────────────────────────────────────────────────────────────── 04:16:00 pm ─╮
+❯ git push                                                                                                                                                           ─╯
+Enumerating objects: 123, done.
+Counting objects: 100% (123/123), done.
+Delta compression using up to 8 threads
+Compressing objects: 100% (51/51), done.
+Writing objects: 100% (111/111), 78.28 KiB | 26.09 MiB/s, done.
+Total 111 (delta 80), reused 67 (delta 55), pack-reused 0
+remote: Resolving deltas: 100% (80/80), completed with 6 local objects.
+remote: 
+remote: GitHub found 3 vulnerabilities on COSC-499-W2023/year-long-project-team-20's default branch (1 high, 2 moderate). To find out more, visit:
+remote:      https://github.com/COSC-499-W2023/year-long-project-team-20/security/dependabot
+remote: 
+To https://github.com/COSC-499-W2023/year-long-project-team-20.git
+   db3be7c..b604751  ullattil-video-trial -> ullattil-video-trial
+
+ ~/Projects/year-long-project-team-20/app  ullattil-video-trial ──────────────────────────────────────────────────────────────────────────────────────── 04:16:07 pm ─╮
+❯ cd ..                                                                                                                                                              ─╯
+
+ ~/Projects/year-long-project-team-20  ullattil-video-trial ──────────────────────────────────────────────────────────────────────────────────────────── 04:44:15 pm ─╮
+❯ cd ..                                                                                                                                                              ─╯
+
+ ~/Projects ──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────── 04:44:18 pm ─╮
+❯ cd ..                                                                                                                                                              ─╯
+
+ ~ ───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────── 04:44:21 pm ─╮
+❯ cd Desktop                                                                                                                                                         ─╯
+
+ ~/Desktop ───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────── 06:28:14 pm ─╮
+❯ git clone https://github.com/COSC-499-W2023/year-long-project-team-20.git                                                                                          ─╯
+Cloning into 'year-long-project-team-20'...
+remote: Enumerating objects: 836, done.
+remote: Counting objects: 100% (495/495), done.
+remote: Compressing objects: 100% (254/254), done.
+remote: Total 836 (delta 287), reused 377 (delta 224), pack-reused 341
+Receiving objects: 100% (836/836), 3.44 MiB | 4.58 MiB/s, done.
+Resolving deltas: 100% (450/450), done.
+
+ ~/Desktop ───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────── 06:28:26 pm ─╮
+❯ git checkout ullattil-milestone                                                                                                                                    ─╯
+fatal: not a git repository (or any of the parent directories): .git
+
+ ~/Desktop ───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────── 06:28:33 pm ─╮
+❯ cd year-long-project-team-20/app                                                                                                                                   ─╯
+
+ ~/Desktop/year-long-project-team-20/app  master ─────────────────────────────────────────────────────────────────────────────────────────────────────── 06:28:38 pm ─╮
+❯ git checkout ullattil-milestone                                                                                                                                    ─╯
+branch 'ullattil-milestone' set up to track 'origin/ullattil-milestone'.
+Switched to a new branch 'ullattil-milestone'
+
+ ~/Desktop/year-long-project-team-20/app  ullattil-milestone ─────────────────────────────────────────────────────────────────────────────────────────── 06:28:41 pm ─╮
+❯ ls                                                                                                                                                                 ─╯
+README.md         amplify           cypress           cypress.config.js package-lock.json package.json      public            src
+
+ ~/Desktop/year-long-project-team-20/app  ullattil-milestone ─────────────────────────────────────────────────────────────────────────────────────────── 06:28:49 pm ─╮
+❯ cd src                                                                                                                                                             ─╯
+
+ ~/Desktop/year-long-project-team-20/app/src  ullattil-milestone ─────────────────────────────────────────────────────────────────────────────────────── 06:29:08 pm ─╮
+❯ ls                                                                                                                                                                 ─╯
+App.css            App.js             App.test.js        index.css          index.js           logo.svg           reportWebVitals.js setupTests.js
+
+ ~/Desktop/year-long-project-team-20/app/src  ullattil-milestone ─────────────────────────────────────────────────────────────────────────────────────── 06:29:09 pm ─╮
+❯ cd ..                                                                                                                                                              ─╯
+
+ ~/Desktop/year-long-project-team-20/app  ullattil-milestone ─────────────────────────────────────────────────────────────────────────────────────────── 06:29:14 pm ─╮
+❯ ls                                                                                                                                                                 ─╯
+README.md         amplify           cypress           cypress.config.js package-lock.json package.json      public            src
+
+ ~/Desktop/year-long-project-team-20/app  ullattil-milestone ─────────────────────────────────────────────────────────────────────────────────────────── 06:29:16 pm ─╮
+❯                                                                                                                                                                    ─╯
