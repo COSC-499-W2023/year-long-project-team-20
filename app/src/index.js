@@ -5,6 +5,11 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import config from './aws-exports';
 import { Amplify, Storage } from 'aws-amplify';
+
+import { ThemeProvider } from "@aws-amplify/ui-react";
+import "@aws-amplify/ui-react/styles.css";
+import { studioTheme } from "./ui-components";
+
 Amplify.configure(config);
 
 //UPLOADING A VIDEO
@@ -101,9 +106,13 @@ removeVideo(videoKey);
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
+  
+  <ThemeProvider theme={studioTheme}>
   <React.StrictMode>
     <App />
   </React.StrictMode>
+  </ThemeProvider>
+  
 );
 
 // If you want to start measuring performance in your app, pass a function
