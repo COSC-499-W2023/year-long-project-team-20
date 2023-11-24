@@ -11,6 +11,8 @@ import {
   AmplifyProvider
 } from "@aws-amplify/ui-react";
 import { Storage } from 'aws-amplify';
+//import Recorder from "../components/Recorder";
+import Recorder2 from "../components/RecordVideo";
 
 const Record = () => {
   const fileInput = useRef();
@@ -32,9 +34,11 @@ const Record = () => {
 
   return (
     <div>
-      <h1>Record</h1>
+    <h1>Record</h1>
       <input type="file" accept="video/mp4" ref={fileInput} />
       <Button onClick={uploadVideo}>Upload Video</Button>
+
+      <Recorder2 />
     </div>
   );
 };
