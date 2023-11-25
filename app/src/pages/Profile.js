@@ -1,7 +1,10 @@
-import logo from "./logo.svg";
+
+import { Outlet } from "react-router-dom";
+import logo from "../logo.svg";
 import "@aws-amplify/ui-react/styles.css";
 import React, { useEffect, useState } from 'react';
 import { Auth } from 'aws-amplify';
+import "../App.css";
 import {
   withAuthenticator,
   Button,
@@ -13,30 +16,6 @@ import {
   Flex,
   AmplifyProvider
 } from "@aws-amplify/ui-react";
-
-
-import Home from "./pages/Home";
-import Profile from "./pages/Profile";
-import About from "./pages/About";
-import Record from "./pages/Record";
-import Root from "./pages/Root"
-import { RouterProvider, createBrowserRouter } from "react-router-dom";
-
-//Set up paths for the different pages shown in the nav bar
-const router = createBrowserRouter([
-  {
-    path: '/', 
-    element: <Root/>, 
-    children: [
-      {path: '/', element: <Home />}, //initially user will be sent to the home page
-      {path: '/profile', element: <Profile/>},
-      {path: '/record', element: <Record/>},
-      {path: '/about', element: <About/>}
-    ],
-  },
-
-]);
-
 
 function App() {
   const [user, setUser] = useState(null);
@@ -98,8 +77,34 @@ function App() {
     }
   };
 
-  return <RouterProvider router={router}/>;
-
+  return (
+    <View padding="all" className="App">
+      <Card>
+        <Flex direction="column" align="center" gap="1rem">
+          <Heading level={1}>Profile</Heading>
+          {user && (
+            <>
+              {isEditing ? (
+                <>
+                  <input name="username" value={editableUser.username} onChange={handleInputChange} />
+                  <input name="email" value={editableUser.email} onChange={handleInputChange} />
+                  <Button onClick={saveChanges}>Save Changes</Button>
+                </>
+              ) : (
+                <>
+                  <Text variant="h2">Username: {user.username}</Text>
+                  <Text variant="h2">Email: {user.attributes.email}</Text>
+                  <Button onClick={editUser}>Edit Profile</Button>
+                </>
+              )}
+              <Button onClick={signOut} variant="brand">Sign Out</Button>
+              <Button onClick={deleteUser} className="delete-button" variant="destructive">Delete Profile</Button>
+            </>
+          )}
+        </Flex>
+      </Card>
+    </View>
+  );
 }
 
 export default withAuthenticator(App);
