@@ -1,5 +1,23 @@
 # Maya Ayaviri Bacarreza's Logs 
 
+## Week 10 - Project Log
+**Work period November 6th - November 12th**
+<img width="767" alt="Screen Shot 2023-11-12 at 4 45 51 PM" src="https://github.com/COSC-499-W2023/year-long-project-team-20/assets/66889922/f6601826-5fe8-473b-8b95-8c843a3eb93f">
+
+### Tasks Completed This Week (found on maya-front-end branch)
+* Implemented a functional navigation bar using amplify components and react-router (which is compatible with the amplify's authentication setup)
+* Set up pages that the navigation bar redirects user to
+* Added information about our software to the about us page using amplify's figma component generator
+* Added a personalized welcome message on home page 
+  
+### Tasks in Progress 
+* Implement share video frontend
+* Implement share video frontend 
+* Research how the front end of record video will interact with the backend (using possibly either amazon kinesis or amazon ivs)
+* Research ways we will implement share video backend
+
+  
+
 ## Week 9 - Project Log
 **Work period October 30th - November 5th**
 <img width="793" alt="Screen Shot 2023-11-05 at 4 56 37 PM" src="https://github.com/COSC-499-W2023/year-long-project-team-20/assets/66889922/9138b8d6-944c-4ea8-84a7-9bdb8409a199">
