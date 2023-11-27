@@ -1,5 +1,23 @@
 # Maya Ayaviri Bacarreza's Logs 
 
+## Week 11 & 12 - Project Log
+**Work period November 13th - November 26th**
+
+<img width="870" alt="Screen Shot 2023-11-26 at 12 42 57 PM" src="https://github.com/COSC-499-W2023/year-long-project-team-20/assets/66889922/9f1765f6-0fb3-4418-b408-a97508244a51">
+
+### Tasks Completed This Work Period (found on maya-record-video branch)
+* Implemented the record video function, which asks users for camera/audio permissions and allows user to start and stop a recording
+* Added play video back function, which plays the recorded video for the user when play video button is pressed
+* Added download video function, which downloads the recorded video to the users computer when the video is played 
+
+### Tasks in Progress 
+* Improve design/appearance of the record video ui
+* Implement share video front end
+* Work on design milestone document/video submission
+
+### Context 
+Following a team meeting where AWS Kinesis challenges were discussed, we decided to change directions. Instead of using Kinesis and WebRTC for recordings of livestreams, we shifted to allowing users to record videos directly from their browsers (using WebRTC and MediaRecorder API). Then we would save these videos to an S3 bucket. This is why I shifted from focusing on the share video feature to the record video function.
+
 ## Week 10 - Project Log
 **Work period November 6th - November 12th**
 <img width="767" alt="Screen Shot 2023-11-12 at 4 45 51 PM" src="https://github.com/COSC-499-W2023/year-long-project-team-20/assets/66889922/f6601826-5fe8-473b-8b95-8c843a3eb93f">
@@ -12,7 +30,6 @@
   
 ### Tasks in Progress 
 * Implement share video frontend
-* Implement share video frontend 
 * Research how the front end of record video will interact with the backend (using possibly either amazon kinesis or amazon ivs)
 * Research ways we will implement share video backend
 
