@@ -1,7 +1,7 @@
 # Ryan Grant logs
 ## Week 12 Nov 20-26
 ## Assigning tasks for milestone 2
-### We orignialy assigned myself Issa and Abijith to work on KVS however none of us made progress. After Mo had figured out a solution we reassigned tasks to have enough features to the milestone.
+### We orignialy assigned myself, Issa and Abijith to work on KVS however none of us made progress. After Mo had figured out a solution, we reassigned tasks to have enough features to the milestone.
 ## Tasks I was assigned
 1. Create lambda functions to detect when a new video is uploaded.
 2. Create the bluring feature.
