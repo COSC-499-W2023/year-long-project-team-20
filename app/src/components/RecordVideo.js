@@ -50,7 +50,7 @@ const Recorder2 = () => {
 
       // Store the recorded video in blob
       const blob = new Blob(recordedChunks, {
-        type: 'video/webm',
+        type: 'video/mp4',
       });
 
       //let user download video 
@@ -59,7 +59,7 @@ const Recorder2 = () => {
       document.body.appendChild(a);
       a.style = 'display: none';
       a.href = url;
-      a.download = 'record.webm';
+      a.download = 'record.mp4';
       a.click();
     }
   };

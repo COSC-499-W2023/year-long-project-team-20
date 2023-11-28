@@ -15,6 +15,7 @@ import {
   AmplifyProvider
 } from "@aws-amplify/ui-react";
 
+
 //Once logged in, user will be sent here
 const Home = ({ signOut }) => {
     const [user, setUser] = useState(null);

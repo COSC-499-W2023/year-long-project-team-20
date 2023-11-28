@@ -11,6 +11,10 @@ import {
   AmplifyProvider
 } from "@aws-amplify/ui-react";
 import { Storage } from 'aws-amplify';
+import {
+    CTASection 
+   } from '../ui-components';
+
 //import Recorder from "../components/Recorder";
 import Recorder2 from "../components/RecordVideo";
 
@@ -39,6 +43,8 @@ const Record = () => {
       <Button onClick={uploadVideo}>Upload Video</Button>
 
       <Recorder2 />
+      
+      <CTASection></CTASection>
     </div>
   );
 };

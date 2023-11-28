@@ -52,27 +52,6 @@ export default function CTASection(props) {
         >
           <Text
             fontFamily="Inter"
-            fontSize="16px"
-            fontWeight="700"
-            color="rgba(191,64,191,1)"
-            lineHeight="24px"
-            textAlign="left"
-            display="block"
-            direction="column"
-            justifyContent="unset"
-            width="1120px"
-            height="unset"
-            gap="unset"
-            alignItems="unset"
-            shrink="0"
-            position="relative"
-            padding="0px 0px 0px 0px"
-            whiteSpace="pre-wrap"
-            children="Newsletter"
-            {...getOverrideProps(overrides, "Newsletter")}
-          ></Text>
-          <Text
-            fontFamily="Inter"
             fontSize="24px"
             fontWeight="600"
             color="rgba(13,26,38,1)"
@@ -89,10 +68,10 @@ export default function CTASection(props) {
             position="relative"
             padding="0px 0px 0px 0px"
             whiteSpace="pre-wrap"
-            children="Stay in touch and never miss an update"
+            children="Share your video with other users"
             {...getOverrideProps(
               overrides,
-              "Stay in touch and never miss an update"
+              "Share your video with other users"
             )}
           ></Text>
           <Text
@@ -113,10 +92,10 @@ export default function CTASection(props) {
             position="relative"
             padding="0px 0px 0px 0px"
             whiteSpace="pre-wrap"
-            children="Keep up to date on the latest and greatest in the frontend and fullstack community"
+            children="They’ll recieve an email notification"
             {...getOverrideProps(
               overrides,
-              "Keep up to date on the latest and greatest in the frontend and fullstack community"
+              "They\u2019ll recieve an email notification"
             )}
           ></Text>
         </Flex>
@@ -150,7 +129,7 @@ export default function CTASection(props) {
             size="default"
             isDisabled={false}
             variation="primary"
-            children="Sign me up"
+            children="Share video "
             {...getOverrideProps(overrides, "Button")}
           ></Button>
         </Flex>
