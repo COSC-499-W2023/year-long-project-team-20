@@ -141,7 +141,7 @@
 ### Task Completed vs In Progress
 ![text](https://i.imgur.com/1vF1BBn.png)
 
-## Week 8 (Work Period Oct 30th - Nov 5th) 
+## Week 9 (Work Period Oct 30th - Nov 5th) 
 
 ### Tasks Completed This Week
 * Milestone presentation
@@ -171,7 +171,7 @@
 ![text](https://i.imgur.com/n63TgoO.png)
 
 
-## Week 8 (Work Period Nov 6th - Nov 12th) 
+## Week 10 (Work Period Nov 6th - Nov 12th) 
 
 ### Tasks Completed This Week
 * Team meetings
@@ -195,6 +195,29 @@
 
 ### Task Completed vs In Progress
 ![text](https://i.imgur.com/n63TgoO.png)
+
+## Week 12 (Work Period Nov 20th - Nov 26th)
+* Team meetings
+* Code review(Mo and Maya's front end code)
+* Learning about Kinesis video streams(KVS) and webRTC. Unfortunately, this topic is significantly more overwhelming and difficult than anticipated and beyond my technical skill/knowledge. I spent a great deal of time reading documentation for the first half of the week. I looked for guides/documentation to help get started but none of the guides go past the basic concepts/steps. I finally found a workshop tutorial for KVS streams/webRTC on Saturday and spent 4-5 hours on Sunday trying to follow the tutorial. I was not able to get past a certain step due to a error when creating a cloudstack. This is usually the case when following AWS guides. Also even if I had made it past that step I we would not be able to figure out how to integrate the knowledge from the tutorial with our project in time for the milestone. Tutorial progress is entirely on AWS console and not on github.
+* We assigned 3 people (Abijit, Ryan, and I) to learn AWS Kinesis with WebRTC so we could work together and pool our knowledge to make progress; however, this didn't work out as none of us were able to make progress.
+
+### Goals for Next Week
+* Implement front end functionality of deleting uploaded video
+* Implement back end functionaly of deleting uploaded video
+* Documentation for design milestone
+
+### Recap goals
+* My goals for the next week remains the same as last week which is to make progress on AWS kinesis with WebRTC.
+* We assigned three people to learn AWS Kinesis with WebRTC so we will work together and pool our knowledge to make progress.
+
+
+### Task Completed (from Peer Eval Portal)
+![text](https://i.imgur.com/idCQasx.png)
+
+### Task Completed vs In Progress
+![text](https://i.imgur.com/c1jUQ4m.png)
+
 
 
 
