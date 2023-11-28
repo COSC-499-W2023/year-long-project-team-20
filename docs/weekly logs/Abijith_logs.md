@@ -1,5 +1,19 @@
 # Abijith Ashok Log
 
+## Week 12 (November 13th to November 27th)
+## Features Worked on
+- Attended team meetings
+- Held pair programming session with Mo, we tried to finish the upload feature
+- - failed with error permission denied
+- - tried multiple different fixes, and spent over 4 hours exploring different ways to fix this issue
+- - aws still doesn't recognize the cognito user pool as authorised users even after creating different policies and allocation roles accordingly. This issue will be posted on the discord as we have been unable to make progress for a week with the same error.
+
+## Goals for next week
+- Finish the upload video feature
+- Finish view video feature
+- Finish transcoding and download video feature
+![Week 12 Logs](https://imgur.com/tlWq9xc.png)
+
 ## Week 10 (November 6th to November 12th)
 ## Features Worked on
 - Tried using the amplify video package to initialize the backend environment with amplify studio
