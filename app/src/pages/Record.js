@@ -1,6 +1,5 @@
 import React, { useRef } from "react";
 import "@aws-amplify/ui-react/styles.css";
-
 import {
   withAuthenticator,
   Button,
@@ -55,7 +54,7 @@ const Record = () => {
       outerEndComponent={<Button>Share Video</Button>}
       />
     </div>
-  );
+  ); 
 };
 
 export default withAuthenticator(Record);
