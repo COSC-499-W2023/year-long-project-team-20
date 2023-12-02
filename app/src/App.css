@@ -2,3 +2,14 @@
   background-color: red;
   color: white;
 }
+
+.start-button:hover {
+  background-color: green;
+  color: white;
+}
+
+.stop-button:hover {
+  background-color: red;
+  color: white;
+}
+
