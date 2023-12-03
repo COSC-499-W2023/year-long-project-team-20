@@ -100,3 +100,43 @@ Goal was to build the design of the website and start wokrking on the backend.
 * Work on the design of the front end with Maya
 * Create the profile page
 * Create the homepage, as time allows
+
+## Week 10 (November 5-Nov 12)
+### Peer Eval
+![img](https://imgur.com/a/Hv68B3L)
+
+### Tasks Completed this week 
+* Pair programming with maya on the front-end
+* Sent some design ideas to team for review
+* Attended team meeting to plan for the tasks
+
+### Goals for next week
+* Complete the full design for the front end
+* Help with AWS integration for video storing and recording
+
+## Week 12 (Nov 19-Nov 26)
+### Peer Eval
+![img](https://imgur.com/a/1BoIznt)
+
+### Tasks Completed this week 
+* Built the front end pages for profile with some features like delete profile
+* Built the Upload video into the S3 bucket 
+* Contributed to design of the website as a whole
+
+### Goals for next week
+* Debug the issues with storing videos in S3 buckets (Minor permission issues)
+* Build tests
+* Final touches on the design of the website
+
+## Week 13 (Nov 27 - Dec 3)
+### Peer Eval 
+![img](https://imgur.com/a/H0E6F5f)
+
+### Tasks Completed this week 
+* Debugged the problem with saving videos into an S3 bucket
+* Improved the UI of with some minor thing like app logo, delete profile warning.
+
+### Goals for next week 
+* Build comprehensive tests for what we have so far
+* Adjust the login and signup pages to fit the theme of the website
+* About page improvements
