@@ -20,6 +20,9 @@
           "bucketName": "year-long-project-team-20-app-storage-ad95448c230842-staging",
           "region": "ca-central-1"
         }
+      },
+      "api": {
+        "Postagram": {}
       }
     }
   }
