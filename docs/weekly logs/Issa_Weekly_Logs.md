@@ -218,6 +218,39 @@
 ### Task Completed vs In Progress
 ![text](https://i.imgur.com/c1jUQ4m.png)
 
+## Week 13 (Work Period Nov 27th - Dec 3rd, 2023)
+* Team meetings 
+* My initial goal for this week was to implement the delete video front end/ui component and the backend functionality for it. However, that did not seem feasible due to my limited knowledge on how to code front end and the fact that Mo/Abhijit were not able to figure out how to upload videos to the S3 bucket due to the permission denied error.
+* So I decided to look into the permission denied error myself. My initial thoughts on the error was that it could be a matter of requiring some schema or GraphQl functionality to interact with the S3 bucket. So I decided to start tackling this error by setting out to learn GraphQL and trying to follow some online tutorials so that we could be sure that the error is not related to our AWS accounts.
+* (Friday)I spent 2-3 hours watching videos on GraphQL and how to use GraphQL to interact with a database. I dont quite understand if we will ever need to use GraphQL or not but it was good to get a start on learning GraphQL. I tried to create some schemas and queries on the AppSync dashboard but I didn't quite grasp how it all works together. This topic will take a lot more time for me to understand and learn properly. 
+* (Saturday) I decided to then look for tutorials that showed how to work with s3 buckets without GraphQl.
+* (Saturday) I spent 2-3 hours trying to work through this photo sharing workshop https://github.com/dabit3/amplify-photo-sharing-workshop. Reason being that if we can figure out how to upload images then we should be able to figure out how to upload videos. I created a branch issa-photoTutorial to follow along with the photo sharing workshop. However, I was not successful in implementing the photo sharing workshop due to some deprecated instructions being used. I tried to update the code but eventually decided to look for a newer tutorial. 
+* (Saturday) Spent 1-2 hours working with this tutorial that I found in this blog https://welearncode.com/get-started-s3/. I created a fresh public repo on my own account to follow the tutorial: https://github.com/xIssa11/musicShare. I then deployed the front end and back end for this repo on amplify by creating a new app called music share which can be accessed by this link: https://main.d1zwgz6w18v6dp.amplifyapp.com/. I was successfully able to create a s3 bucket and use my musicshare app to upload mp3 files to the s3 bucket from the front end functionality of the app. 
+* (Saturday) I shared my progress with the group on discord and Maya was excited to hear about the progress and wanted to get on a call to discuss. Maya and I thought that the access denied error was happening as a result of the bucket being initially created with improper access privileges. So we decided to delete our current s3 buckets and create a new bucket as we dont know how to edit the access privileges of a bucket after its already been created. With the newly created bucket we were able make the upload video functionality work for 1 video. Abhijit joined the discord call at this point. The upload video functionality bugged out as he joined the call and we were not able to upload any more videos due to the access denied error. This was a really strange error as it did upload one video. After spending a bit of time trouble shooting we decided to clean up all our s3 buckets and try creating a fresh s3 bucket and retracing our steps agian. This time the upload video functionality worked for multiple videos and did not bug out. We pushed our changes to the uploadVideo branch and merged it to main. Overall, this took around 2 hours. 
+* (Sunday) 1 hour team meeting discussing desgin milestone and dividing up tasks
+* (Sunday) 5 hours spent on design milestone. Created navigation flow of website and highlighted UI design choices. Helped others with their tasks such providing feedback on architecture design, overview content of design video etc.
+* (Sunday) Completed Team Log for the week.
+
+
+### Goals for Winter Break
+* Spend time over the break learing basics of react and javascript.
+* Spend time learning figma and importing UI react component using Amplify studio.
+* Spend time learning how to interact with s3 buckets to implement delete video feature.
+
+### Recap goals
+* Implement front end functionality of deleting uploaded video
+* Implement back end functionaly of deleting uploaded video
+* Documentation for design milestone
+
+
+
+### Task Completed (from Peer Eval Portal)
+![text](https://i.imgur.com/jhO3jeY.png)
+
+### Task Completed vs In Progress
+![text](https://i.imgur.com/veko6O0.png)
+
+
 
 
 
