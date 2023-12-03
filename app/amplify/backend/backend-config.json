@@ -25,30 +25,11 @@
       "service": "Cognito"
     }
   },
-  "parameters": {
-    "AMPLIFY_storage_yearlongprojectteam283b2362f_bucketName": {
-      "usedBy": [
-        {
-          "category": "storage",
-          "resourceName": "yearlongprojectteam283b2362f"
-        }
-      ]
-    },
-    "AMPLIFY_storage_yearlongprojectteam283b2362f_region": {
-      "usedBy": [
-        {
-          "category": "storage",
-          "resourceName": "yearlongprojectteam283b2362f"
-        }
-      ]
-    }
-  },
   "storage": {
-    "yearlongprojectteam283b2362f": {
+    "videoshare": {
       "dependsOn": [],
       "providerPlugin": "awscloudformation",
-      "service": "S3",
-      "serviceType": "imported"
+      "service": "S3"
     }
   }
 }
