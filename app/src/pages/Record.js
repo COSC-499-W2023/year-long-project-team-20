@@ -1,4 +1,5 @@
 import React, { useRef } from "react";
+import "@aws-amplify/ui-react/styles.css";
 import {
   withAuthenticator,
   Button,
@@ -8,9 +9,16 @@ import {
   Card,
   Text,
   Flex,
+  TextField,
   AmplifyProvider
 } from "@aws-amplify/ui-react";
 import { Storage } from 'aws-amplify';
+import {
+    CTASection 
+   } from '../ui-components';
+
+//import Recorder from "../components/Recorder";
+import Recorder from "../components/RecordVideo";
 
 const Record = () => {
   const fileInput = useRef();
@@ -31,12 +39,22 @@ const Record = () => {
   };
 
   return (
-    <div>
-      <h1>Record</h1>
+    <div style={{ paddingLeft: '35px' }}>
+    <h1>Record a Video or Upload a Video </h1>
       <input type="file" accept="video/mp4" ref={fileInput} />
-      <Button onClick={uploadVideo}>Upload Video</Button>
+      <Button onClick={uploadVideo} >Upload Video</Button>
+
+      <Recorder />
+      
+      <TextField
+      size="large" 
+      width="25%" 
+      placeholder="Enter a valid email"
+      label="Share your video"
+      outerEndComponent={<Button>Share Video</Button>}
+      />
     </div>
-  );
+  ); 
 };
 
 export default withAuthenticator(Record);
