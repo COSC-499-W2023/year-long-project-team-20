@@ -1,4 +1,5 @@
 # Ryan Grant logs
+# Week 13 Nov 27 - Dec 3
 # Time Spent
 ## **Meetings on:**
 ### Tuesday: We discussed how much we needed to get done this week in order to make the milestone deadline on Sunday
