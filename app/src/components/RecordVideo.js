@@ -11,6 +11,8 @@ import {
   AmplifyProvider
 } from "@aws-amplify/ui-react";
 import "@aws-amplify/ui-react/styles.css";
+import { Storage } from 'aws-amplify';
+
 
 const Recorder = () => {
   const [recording, setRecording] = useState(false);
@@ -40,6 +42,10 @@ const Recorder = () => {
       };
     });
 
+
+    //Mute preview (prevents echo sound)
+    videoRef.current.muted = true;
+
     return () => {
       // stop recording and release media stream 
       if (mediaRecorder.current) {
@@ -67,7 +73,7 @@ const Recorder = () => {
       mediaRecorder.current.stop();
       setRecording(false);
       videoRef.current.pause();
-      downloadVideo();
+      
     }
   };
 
@@ -87,6 +93,7 @@ const Recorder = () => {
       a.click();
   }
 
+
   
   const playRecording = () => {
     //Stop showing stream from user's camera
@@ -105,14 +112,49 @@ const Recorder = () => {
     }
   };
 
+  const uploadVideo = async () => {
+    try {
+      // Store the recorded video in blob
+      const blob = new Blob(recordedChunks, { type: 'video/mp4' });
+  
+      // Generate a unique name for the video
+      const fileName = `recorded_video_${new Date().toISOString()}.mp4`;
+  
+      // Upload the video to storage
+      await uploadToStorage(blob, fileName);
+  
+      console.log('Successfully uploaded video');
+    } catch (error) {
+      console.error('Error uploading video:', error);
+    }
+  };
+  
+  const uploadToStorage = async (blob, fileName) => {
+    try {
+      // Use the put method to upload the video file.
+      await Storage.put(fileName, blob, {
+        level: 'protected',
+        contentType: 'video/mp4',
+      });
+  
+      console.log('Successfully uploaded video to storage');
+    } catch (error) {
+      console.error('Error uploading video to storage:', error);
+    }
+  };
+
   return (
     <div style={{ paddingTop: '35px', paddingBottom: '35px' }} >
-      <video muted ref={videoRef} autoPlay />
+      <video ref={videoRef} autoPlay muted={recording} />
       
       <div>
         <Button onClick={startRecording} disabled={recording} className="start-button">Start Recording</Button>
         <Button onClick={stopRecording} disabled={!recording} className="stop-button">Stop Recording</Button>
+        
         <Button onClick={playRecording} disabled={recordedChunks.length === 0 || recording}>Play Video</Button>
+        <Button onClick={uploadVideo} disabled={recordedChunks.length === 0 || recording}>Save </Button>
+        <Button onClick={downloadVideo} disabled={recordedChunks.length === 0 || recording}>Download </Button>
+
       </div>
     </div>
   );
