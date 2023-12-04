@@ -1,5 +1,19 @@
 # Abijith Ashok Log
 
+## Week 13 ( November 28th to December 3rd)
+## Features worked on 
+- Troubleshooting Upload video feature with Issa and Mo, Issa fixed the major AccessDenied issue on Saturday and now the video are stored in their required S3 Buckets
+- Wrote Test Report for the features we currently have (tests/TestReportDec2.md)
+- build prototype for the new UI for better user experience
+- finished the upload video feature 
+- learned about formatting the HTTP request for uploading and downloading from s3 
+- started working on the download video from database feature
+ ## Goals for next week
+ - Finish the download from database feature
+ - Finish the new UI design 
+
+ ![Week 13 Logs](https://imgur.com/EfSDEHP.png)
+
 ## Week 12 (November 13th to November 27th)
 ## Features Worked on
 - Attended team meetings
