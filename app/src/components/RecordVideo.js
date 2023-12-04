@@ -151,9 +151,9 @@ const Recorder = () => {
         <Button onClick={startRecording} disabled={recording} className="start-button">Start Recording</Button>
         <Button onClick={stopRecording} disabled={!recording} className="stop-button">Stop Recording</Button>
         
-        <Button onClick={playRecording} disabled={recordedChunks.length === 0 || recording}>Play Video</Button>
-        <Button onClick={uploadVideo} disabled={recordedChunks.length === 0 || recording}>Save </Button>
-        <Button onClick={downloadVideo} disabled={recordedChunks.length === 0 || recording}>Download </Button>
+        <Button onClick={playRecording} disabled={recordedChunks.length === 0 || recording} className="play-button">Play Video</Button>
+        <Button onClick={uploadVideo} disabled={recordedChunks.length === 0 || recording} className="stop-button">Save </Button>
+        <Button onClick={downloadVideo} disabled={recordedChunks.length === 0 || recording} className="stop-button">Download </Button>
 
       </div>
     </div>
