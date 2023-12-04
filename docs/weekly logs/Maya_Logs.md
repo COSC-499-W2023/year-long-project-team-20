@@ -1,5 +1,22 @@
 # Maya Ayaviri Bacarreza's Logs 
 
+## Week 13 - Project Log
+**Work period November 27th - December 3rd**
+<img width="910" alt="Screen Shot 2023-12-03 at 8 43 28 PM" src="https://github.com/COSC-499-W2023/year-long-project-team-20/assets/66889922/43723443-cfad-432e-ada8-3c111bae0c7a">
+
+### Tasks Completed This Work Period (found on maya-record-video branch and master)
+* Fixed bugs in play video back function
+* Added some styling to the video buttons, and made download video its own button
+* Added save video button and functionality from the front end side, and called back end function which was implemented by another memeber so that video gets uploaded to an s3 bucket
+* Worked on design milestone document
+* Added tests in cypress for router and record video functions
+
+### Future Tasks
+* Expand on current tests 
+
+### Context 
+This week Issa was able to solve the issue that prevented us from being able to connect to the s3 bucket. Mo and Abijith also spent time trying to resolve this issue. After it was resolved I used their functions to combine it with the front end of side of saving a video using the media recorder api. 
+
 ## Week 11 & 12 - Project Log
 **Work period November 13th - November 26th**
 
