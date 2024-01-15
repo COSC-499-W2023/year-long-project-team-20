@@ -140,3 +140,16 @@ Goal was to build the design of the website and start wokrking on the backend.
 * Build comprehensive tests for what we have so far
 * Adjust the login and signup pages to fit the theme of the website
 * About page improvements
+
+# Term 2
+## Week 1 (Jan 8 - Jan 14)
+### Peer Eval 
+![img](https://imgur.com/a/uKEg45n)
+
+### Tasks Completed this week 
+* Met the team and planned next steps in our project 
+* Researched some ways to build the blurring feature on our website
+
+### Goals for next week 
+* Test video upload and makes sure it's organized in the S3 Buckets.
+* retrieve videos that the user filmed 
