@@ -251,6 +251,31 @@
 ![text](https://i.imgur.com/veko6O0.png)
 
 
+## Week 1 (Work Period Jan 8th - Jan 14th, 2023)
+
+### Tasks completed this week
+
+* Coordinate team meetings
+* Reviewed project plan with the team
+* Discuss client feedback with team and whether or not to incoporate request video feature
+* Assigned tasks for the upcoming weeks
+
+### Goals for Next Week
+* Spend time learning how to code front end to create button for delete video feature
+* Spend time learning how to interact with s3 buckets to implement delete video feature.
+
+### Recap goals
+* Spend time over the break learing basics of react and javascript.
+* Spend time learning figma and importing UI react component using Amplify studio.
+* Spend time learning how to interact with s3 buckets to implement delete video feature.
+
+### Task Completed (from Peer Eval Portal)
+![text](https://i.imgur.com/u8M4EnY.png)
+
+### Task Completed vs In Progress
+![text](https://i.imgur.com/veko6O0.png)
+
+
 
 
 
