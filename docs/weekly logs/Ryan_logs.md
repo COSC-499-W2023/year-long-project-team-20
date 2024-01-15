@@ -1,4 +1,23 @@
 # Ryan Grant logs
+# Week 14 Dec 4 - Jan 14
+# Time Spent
+### For all of the winter break I spent no time on the project.
+### After a well needed break, I picked up where I left off. Debugging the lambda functions for AWS Rekognition.
+
+### On Tuesday I was excited to learn how the other groups were finding rekognition, Unforetuntely, they were stuck at the same point as me, on the permissions error.
+### On the bright side I now have a group of peers that I can colobrorate with to help solve this problem. 
+
+## A few of the resources I tried to use with no avail:
+1. https://docs.aws.amazon.com/rekognition/latest/dg/security_iam_troubleshoot.html
+2. https://stackoverflow.com/questions/72462421/amazon-rekognition-accessdeniedexception-user-is-not-authorized-to-perform
+3. https://docs.aws.amazon.com/rekognition/latest/dg/security_iam_id-based-policy-examples.html
+
+# Group meetings
+### On Tuesday: Issa and Maya were still out of town so it was hard to plan a meeting.
+### On Sunday: I spoke with Maya breifly, (Issa joined the call but was traveling so his wifi was poor) about the tuesday class and how we were going to reach our MVP
+
+### Peer eval screenshot
+![img](https://i.imgur.com/6pgCKts.png)
 # Week 13 Nov 27 - Dec 3
 # Time Spent
 ## **Meetings on:**
