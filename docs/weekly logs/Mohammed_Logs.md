@@ -144,7 +144,7 @@ Goal was to build the design of the website and start wokrking on the backend.
 # Term 2
 ## Week 1 (Jan 8 - Jan 14)
 ### Peer Eval 
-![img](https://imgur.com/a/uKEg45n)
+![img](https://i.imgur.com/aTbI5NX.png)
 
 ### Tasks Completed this week 
 * Met the team and planned next steps in our project 
