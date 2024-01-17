@@ -1,4 +1,15 @@
 # Abijith Ashok Log
+## Week 14 (January 8th to January 14th)
+## Features worked on 
+- Fixing the build error bug (posted on aws-amplify discord and amplify hosting github issues page)
+- - Build fails even on older versions of the app having changed nothing (including code or build settings)
+- Started work on improving the UI
+- Building the Share Video Feature
+## Goals for next week 
+- finish the share video feature
+- collaborate with Mo to implement access controls for videos
+![Week 14 Logs](https://imgur.com/mvPRkwJ.png)
+
 
 ## Week 13 ( November 28th to December 3rd)
 ## Features worked on 
