@@ -1,5 +1,23 @@
 # Maya Ayaviri Bacarreza's Logs 
 
+## Week 15 - Project Log
+
+**Work period January 8th - January 14th**
+<img width="1133" alt="Screen Shot 2024-01-14 at 9 17 57 PM" src="https://github.com/COSC-499-W2023/year-long-project-team-20/assets/66889922/2721cc72-085b-49fd-93cf-488180202969">
+
+### Tasks Completed This Work Period
+* Attended team meeting to discuss MVP features to implement
+* Filled out team log report
+* Updated Kanban board
+* Began researching what back end approach we will take to allow users to share videos with other users
+  
+### Future Tasks
+* Complete impementation of the share video function
+* Add more automated tests
+
+### Context 
+The features I'm working on this semester are quite different from the ones I worked on last semester, which is why I am spending time now researching before starting the implementation. 
+  
 ## Week 13 - Project Log
 **Work period November 27th - December 3rd**
 <img width="910" alt="Screen Shot 2023-12-03 at 8 43 28 PM" src="https://github.com/COSC-499-W2023/year-long-project-team-20/assets/66889922/43723443-cfad-432e-ada8-3c111bae0c7a">
