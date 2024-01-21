@@ -275,6 +275,27 @@
 ### Task Completed vs In Progress
 ![text](https://i.imgur.com/veko6O0.png)
 
+## Week 2 (Work Period Jan 15th - Jan 21th, 2023)
+
+### Tasks completed this week
+
+* Team meetings
+* Unfortunately, this week I was ill with common cold / flu and was not able to get any work done at all. I have emailed professor for this week to be excused. This is the first time I am requesting a week be excused to health reasons.
+
+### Goals for Next Week
+* Spend time learning how to code front end to create button for delete video feature
+* Spend time learning how to interact with s3 buckets to implement delete video feature.
+
+### Recap goals
+* Spend time over the break learing basics of react and javascript.
+* Spend time learning figma and importing UI react component using Amplify studio.
+* Spend time learning how to interact with s3 buckets to implement delete video feature.
+
+### Task Completed (from Peer Eval Portal)
+![text](https://i.imgur.com/Sddfo3o.png)
+
+### Task Completed vs In Progress
+![text](https://i.imgur.com/veko6O0.png)
 
 
 
