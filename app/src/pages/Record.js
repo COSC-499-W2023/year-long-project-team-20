@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import "@aws-amplify/ui-react/styles.css";
 import {
   withAuthenticator,
@@ -22,6 +22,21 @@ import Recorder from "../components/RecordVideo";
 
 const Record = () => {
   const fileInput = useRef();
+  const [videos, setVideos] = useState([]);
+
+  useEffect(() => {
+    fetchVideos();
+  }, []);
+
+  const fetchVideos = async () => {
+    try {
+      const videoData = await Storage.list('');
+      const videoKeys = videoData.map(video => video.key);
+      setVideos(videoKeys);
+    } catch (error) {
+      console.error('Error fetching videos:', error);
+    }
+  };
 
   const uploadVideo = async () => {
     const file = fileInput.current.files[0];
@@ -38,6 +53,8 @@ const Record = () => {
     }
   };
 
+
+
   return (
     <div style={{ paddingLeft: '35px' }}>
     <h1>Record a Video or Upload a Video </h1>
@@ -53,6 +70,10 @@ const Record = () => {
       label="Share your video"
       outerEndComponent={<Button>Share Video</Button>}
       />
+      <h2>Video List</h2>
+      {videos.map((video, index) => (
+        <p key={index}>{video}</p>
+      ))}
     </div>
   ); 
 };
