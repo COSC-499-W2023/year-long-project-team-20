@@ -6,7 +6,7 @@
 
 <img width="714" alt="Screen Shot 2024-01-21 at 9 50 37 PM" src="https://github.com/COSC-499-W2023/year-long-project-team-20/assets/66889922/3df3c4dc-3b5a-4555-a6bf-143d6fb33aaf">
 
-### Tasks Completed This Work Period
+### Tasks Completed This Work Period (found on trim-video branch)
 * Added UI for the trim video function
 * Found library to allow for the implementation of the trim video function (ffmpeg)
 * Initialized and set up ffmpeg within the project, added a function that updates user on the amount of video processing completed
