@@ -12,6 +12,8 @@ import {
 } from "@aws-amplify/ui-react";
 import "@aws-amplify/ui-react/styles.css";
 import { Storage } from 'aws-amplify';
+import { FFmpeg } from '@ffmpeg/ffmpeg';
+
 
 
 const Recorder = () => {
@@ -24,8 +26,17 @@ const Recorder = () => {
 
   const [recordedVideoUrl, setRecordedVideoUrl] = useState(null);
 
+  const {fetchFile} = FFmpeg;
 
+  //Set up progress bar that loads while video gets trimmed
+  const ffmep = new FFmpeg({ progress: (e) => {
+    var button = document.getElementById("trim-button");
+    button.textContent = "Processing video" + e.time;
 
+    button.disabled = true;
+
+  }});
+  
   useEffect(() => {
     // Ask for permission to access user's camera and audio
     navigator.mediaDevices.getUserMedia({ audio: true, video: true }).then((stream) => {
@@ -144,7 +155,7 @@ const Recorder = () => {
   };
 
   return (
-    <div style={{ paddingTop: '35px', paddingBottom: '35px' }} >
+    <div style={{ paddingTop: '35px', paddingBottom: '35px'}} >
       <video ref={videoRef} autoPlay muted={recording} />
       
       <div>
@@ -154,8 +165,17 @@ const Recorder = () => {
         <Button onClick={playRecording} disabled={recordedChunks.length === 0 || recording} className="play-button">Play Video</Button>
         <Button onClick={uploadVideo} disabled={recordedChunks.length === 0 || recording} className="save-button">Save </Button>
         <Button onClick={downloadVideo} disabled={recordedChunks.length === 0 || recording} className="download-button">Download </Button>
-
+        
       </div>
+
+      <Button
+         disabled={recordedChunks.length === 0 || recording}
+         style={{fontSize: '1.25em', width: '30%', marginTop: '30px'  }}
+         className="trim-button"
+        > Trim Video </Button>
+         <input type="text" placeholder="Start" style={{ width: '100px', marginRight: '10px', marginLeft: '20px'}} />
+         <input type="text" placeholder="End" style={{ width: '100px', marginRight: '10px' }} />
+
     </div>
   );
 };
