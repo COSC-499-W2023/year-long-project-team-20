@@ -13,11 +13,11 @@ export default function CTASection(props) {
   return (
     <Flex
       gap="10px"
-      direction="column"
-      width="1440px"
-      height="unset"
-      justifyContent="center"
-      alignItems="flex-start"
+      direction="row"
+      width="616px"
+      height="166px"
+      justifyContent="flex-start"
+      alignItems="center"
       overflow="hidden"
       position="relative"
       padding="160px 160px 160px 160px"
@@ -28,12 +28,11 @@ export default function CTASection(props) {
       <Flex
         gap="24px"
         direction="column"
-        width="unset"
+        width="433px"
         height="unset"
         justifyContent="center"
         alignItems="flex-start"
         shrink="0"
-        alignSelf="stretch"
         position="relative"
         padding="0px 0px 0px 0px"
         {...getOverrideProps(overrides, "Type Lock Up")}

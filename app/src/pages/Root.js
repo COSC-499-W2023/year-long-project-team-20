@@ -66,6 +66,16 @@ const Root = ({ signOut }) => {
               navigate("/record");
             }
           },
+
+          "Upload" : {
+            style: {
+              cursor: "pointer",
+            },
+      
+            onClick: () => {
+              navigate("/upload");
+            }
+          },
         
         "About" : {
           style: {
@@ -76,8 +86,6 @@ const Root = ({ signOut }) => {
             navigate("/About");
           }
         }
-    
-    
     
       }
 
