@@ -19,7 +19,8 @@ import Home from "./pages/Home";
 import Profile from "./pages/Profile";
 import About from "./pages/About";
 import Record from "./pages/Record";
-import Root from "./pages/Root"
+import Root from "./pages/Root";
+import Upload from "./pages/Upload";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 
 //Set up paths for the different pages shown in the nav bar
@@ -29,9 +30,11 @@ const router = createBrowserRouter([
     element: <Root/>, 
     children: [
       {path: '/', element: <Home />}, //initially user will be sent to the home page
-      {path: '/profile', element: <Profile/>},
       {path: '/record', element: <Record/>},
-      {path: '/about', element: <About/>}
+      {path: '/upload', element: <Upload/>},
+      {path: '/about', element: <About/>},
+      {path: '/profile', element: <Profile/>}
+    
     ],
   },
 
