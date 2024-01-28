@@ -90,8 +90,8 @@ export default function NavBarHeader2(props) {
           position="relative"
           padding="0px 0px 0px 0px"
           whiteSpace="pre-wrap"
-          children="Profile"
-          {...getOverrideProps(overrides, "Profile")}
+          children="Record"
+          {...getOverrideProps(overrides, "Record")}
         ></Text>
         <Text
           fontFamily="Inter"
@@ -111,8 +111,29 @@ export default function NavBarHeader2(props) {
           position="relative"
           padding="0px 0px 0px 0px"
           whiteSpace="pre-wrap"
-          children="Record"
-          {...getOverrideProps(overrides, "Record")}
+          children="Upload"
+          {...getOverrideProps(overrides, "Upload")}
+        ></Text>
+        <Text
+          fontFamily="Inter"
+          fontSize="24px"
+          fontWeight="400"
+          color="rgba(13,26,38,1)"
+          lineHeight="36px"
+          textAlign="left"
+          display="block"
+          direction="column"
+          justifyContent="unset"
+          width="unset"
+          height="unset"
+          gap="unset"
+          alignItems="unset"
+          shrink="0"
+          position="relative"
+          padding="0px 0px 0px 0px"
+          whiteSpace="pre-wrap"
+          children="Library"
+          {...getOverrideProps(overrides, "Library")}
         ></Text>
         <Text
           fontFamily="Inter"
@@ -147,7 +168,29 @@ export default function NavBarHeader2(props) {
         position="relative"
         padding="0px 0px 0px 0px"
         {...getOverrideProps(overrides, "actions")}
-      ></Flex>
+      >
+        <Text
+          fontFamily="Inter"
+          fontSize="24px"
+          fontWeight="400"
+          color="rgba(13,26,38,1)"
+          lineHeight="36px"
+          textAlign="left"
+          display="block"
+          direction="column"
+          justifyContent="unset"
+          width="unset"
+          height="unset"
+          gap="unset"
+          alignItems="unset"
+          shrink="0"
+          position="relative"
+          padding="0px 0px 0px 0px"
+          whiteSpace="pre-wrap"
+          children="Profile"
+          {...getOverrideProps(overrides, "Profile")}
+        ></Text>
+      </Flex>
     </Flex>
   );
 }
