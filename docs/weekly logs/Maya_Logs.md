@@ -1,5 +1,46 @@
 # Maya Ayaviri Bacarreza's Logs 
 
+## Week 167- Project Log
+
+**Work period January 22nd - January 28th**
+
+### Tasks Completed This Work Period (found on trim-video branch)
+* Added implementation of trim video functionality, however there is still some debugging/fixing that needs to be done in order to allow for the trimmed video to play back or be downloaded by the user.
+
+### Future Tasks
+* Allow user to play or download the trimmed video
+* Prevent users from cutting out their entire video
+* Add tests for the progress bar/trim function
+  
+### Context 
+I was able to get all my Ffmpeg functions running without errors, however getting the actual trimmed video to play/be downloaded is causing some issues which can hopefully be resolved soon.
+Note, for some reason my log from last week was not on main. However I was able to retrieve it from my branch luckily, not sure why this happened. 
+
+
+## Week 16 - Project Log
+
+**Work period January 15th - January 21st**
+
+<img width="714" alt="Screen Shot 2024-01-21 at 9 50 37 PM" src="https://github.com/COSC-499-W2023/year-long-project-team-20/assets/66889922/3df3c4dc-3b5a-4555-a6bf-143d6fb33aaf">
+
+### Tasks Completed This Work Period (found on trim-video branch)
+* Added UI for the trim video function
+* Found library to allow for the implementation of the trim video function (ffmpeg)
+* Initialized and set up ffmpeg within the project, added a function that updates user on the amount of video processing completed
+
+### Future Tasks
+* Complete implementation of trim video function (allows users to cut however many seconds they want off of their videos from either the start or end)
+* Prevent users from cutting out their entire video
+* Add tests for the progress bar
+* Find what other editing functions can be added to the project using ffmpeg
+  
+### Context 
+Like I said last week, the features I was working on previously were different from what I had experience with already in this project. Following a team discussion, where others expressed interest in working on the share video function I decided to switch to working on the trim video function. I already was familiar with working with video so this allows me to get started quicker. 
+
+Ffmpeg seems to be a good resource for working with videos. However, I found they had some big updates as of 2023. This made it a little tricky in finding up to date resources for working on it, but it has good documentation which helped.
+
+I also spent some time trying to figure out why some of our aws tests are not passing, even though the website runs like normal locally. This is something the team is still trying to fix.
+
 ## Week 15 - Project Log
 
 **Work period January 8th - January 14th**
