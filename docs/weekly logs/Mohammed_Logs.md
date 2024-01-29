@@ -153,3 +153,16 @@ Goal was to build the design of the website and start wokrking on the backend.
 ### Goals for next week 
 * Test video upload and makes sure it's organized in the S3 Buckets.
 * retrieve videos that the user filmed 
+
+## Week 2 (Jan 15 - Jan 21)
+### Peer Eval 
+ ![img](https://i.imgur.com/s9AFVQw.png)
+
+ ### Tasks Completed this week
+ * Worked on build the list videos feature (enocountered problems regarding the S3 bucket where the connection between our app and the storage wasn't working properly)
+ * Met with the team to assign tasks for the next few weeks
+
+
+ ### Goals for next week
+ * Build the retrieve feature fully
+ * Write more tests for our app
