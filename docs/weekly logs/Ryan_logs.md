@@ -14,6 +14,10 @@
 - Blur individual frames (detecting faces maybe…)
 - Combine blurred frames
 - Preview blurred video
+
+# Context related to the Regions for AWS Rekognition
+![img](https://i.imgur.com/ShtO5sD.png)
+### Left showing the ca-central-1 options. Right showing us-west-2, options include video analysis
 ### Peer eval screenshot
 ![img](https://i.imgur.com/PMcAs6l.png)
 # Week 14 Dec 4 - Jan 14
