@@ -13,7 +13,7 @@ import {
 import "@aws-amplify/ui-react/styles.css";
 import { Storage } from 'aws-amplify';
 import { FFmpeg } from '@ffmpeg/ffmpeg';
-
+import { fetchFile, toBlobURL } from '@ffmpeg/util';
 
 
 const Recorder = () => {
@@ -26,17 +26,44 @@ const Recorder = () => {
 
   const [recordedVideoUrl, setRecordedVideoUrl] = useState(null);
 
-  const {fetchFile} = FFmpeg;
-
+  const {fetchFile} = new FFmpeg({ log: true })
+  
   //Set up progress bar that loads while video gets trimmed
-  const ffmep = new FFmpeg({ progress: (e) => {
+  const ffmpeg = new FFmpeg({ progress: (e) => {
     var button = document.getElementById("trim-button");
     button.textContent = "Processing video" + e.time;
 
     button.disabled = true;
 
   }});
-  
+
+  //trim video
+  const transcode = async () => {
+    alert("transcoding ");
+
+    //grab and store video 
+    const blob = new Blob(recordedChunks, {
+      type: 'video/mp4',
+    });
+    const name = "trimmedVideo.mp4"
+    const arrayBuffer = await blob.arrayBuffer();
+    const uint8Array = new Uint8Array(arrayBuffer);
+
+    await ffmpeg.load();
+    await ffmpeg.writeFile(name, uint8Array);
+
+    //Use start/end time from user input to trim video 
+    const start = document.querySelector(".trim-start").value;
+    const end = document.querySelector(".trim-end").value;
+    await ffmpeg.exec('-i', name, '-ss', start, '-to', end, await fetchFile('https://raw.githubusercontent.com/ffmpegwasm/testdata/master/Big_Buck_Bunny_180_10s.webm'))
+    
+    //grab trimmed video and let user play video
+     const trimmedBlob = await fetchFile('trimmedVideo.mp4');
+     const trimmedUrl = toBlobURL(trimmedBlob);
+     setRecordedVideoUrl(trimmedUrl);
+  }
+
+
   useEffect(() => {
     // Ask for permission to access user's camera and audio
     navigator.mediaDevices.getUserMedia({ audio: true, video: true }).then((stream) => {
@@ -88,6 +115,7 @@ const Recorder = () => {
     }
   };
 
+  
   const downloadVideo = () => {
       // Store the recorded video in blob
       const blob = new Blob(recordedChunks, {
@@ -103,8 +131,6 @@ const Recorder = () => {
       a.download = 'record.mp4';
       a.click();
   }
-
-
   
   const playRecording = () => {
     //Stop showing stream from user's camera
@@ -165,18 +191,22 @@ const Recorder = () => {
         <Button onClick={playRecording} disabled={recordedChunks.length === 0 || recording} className="play-button">Play Video</Button>
         <Button onClick={uploadVideo} disabled={recordedChunks.length === 0 || recording} className="save-button">Save </Button>
         <Button onClick={downloadVideo} disabled={recordedChunks.length === 0 || recording} className="download-button">Download </Button>
-        
+      
       </div>
-
+      
       <Button
+        onClick={transcode}
          disabled={recordedChunks.length === 0 || recording}
          style={{fontSize: '1.25em', width: '30%', marginTop: '30px'  }}
          className="trim-button"
         > Trim Video </Button>
-         <input type="text" placeholder="Start" style={{ width: '100px', marginRight: '10px', marginLeft: '20px'}} />
-         <input type="text" placeholder="End" style={{ width: '100px', marginRight: '10px' }} />
-
+        
+        <input type="number" placeholder="Start" style={{ width: '100px', marginRight: '10px', marginLeft: '20px'}} className="trim-start"/>
+        <input type="number" placeholder="End" style={{ width: '100px', marginRight: '10px' }} className="trim-end"/>
     </div>
+
+   
+
   );
 };
 
