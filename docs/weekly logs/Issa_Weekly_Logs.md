@@ -298,6 +298,33 @@
 ![text](https://i.imgur.com/veko6O0.png)
 
 
+## Week 3 (Work Period Jan 22nd - Jan 28th, 2023)
+
+### Tasks completed this week
+
+* Team meetings
+* Figured out how to run tests automatically through amplify. Wrote the test section in the yml artifact build file. Now every github branch prior to merge to master can be connected to amplify. This allows the branch to run all our cypress tests and show the results. 
+* While I did write the test section of the yml artifact build file. There was an error with syntax formatting which caused it to not work. Abijit corrected this issue
+* Learnt a bit of figma
+* Used amplify studio along with figma to edit our nav bar to have a upload and library section. Context: This will allow our website to have a page specifically for uploading vidoes as opposed to our previous approach in which a user had to click the record button in the nav bar to see the option to upload video from file system. The library button (currently not functional) in the nav bar will direct users to the page where users can see all vidoes they have uploaded as well as videos shared with them from other users.
+* Wrote code to make the upload button in the nav bar functional. 
+
+### Goals for Next Week
+* Implement font end ui for delete video feature
+* Implement back end for delete video feature
+
+### Recap goals
+* Spend time learning how to code front end to create button for delete video feature
+* Spend time learning how to interact with s3 buckets to implement delete video feature.
+
+
+### Task Completed (from Peer Eval Portal)
+![text](https://i.imgur.com/K73xYWm.png)
+
+### Task Completed vs In Progress
+![text](https://i.imgur.com/7b2MVXM.png)
+
+
 
 
 
