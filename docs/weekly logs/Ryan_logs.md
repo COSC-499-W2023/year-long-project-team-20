@@ -1,4 +1,22 @@
 # Ryan Grant logs
+# Ryan Grant logs
+# T2 Week 3 Jan 22nd-Jan 28th
+# Time spent
+### The first 1/2 of the week I continued trying to find a solution to the permissions problem. Another solution that I tried was changing the permissions that were hardcoded into the lambda functions. This was suggested by this user
+![img](https://i.imgur.com/qFuBhGv.png)
+### After changing the permissions I was still getting a permissions error.
+
+### I then asked Jan (the person who was talking about rekognition in the first week workshop) if he had gotten it working.
+### He let me know that it was not working in ca-central-1 because not all the features of rekognition were in ca-central-1.
+### I only had a chance to bring this up on Saturday to the group and haven't been able to switch the regions. (this seems like a huge commitment) and I don't know if there a simple way to go about it.
+
+## If I get this working it would cover 4 features on the feature list
+- Separate video into frames
+- Blur individual frames (detecting faces maybe…)
+- Combine blurred frames
+- Preview blurred video
+### Peer eval screenshot
+![img](https://i.imgur.com/PMcAs6l.png)
 # Week 14 Dec 4 - Jan 14
 # Time Spent
 ### For all of the winter break I spent no time on the project.
