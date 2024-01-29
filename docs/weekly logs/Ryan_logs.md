@@ -1,5 +1,4 @@
 # Ryan Grant logs
-# Ryan Grant logs
 # T2 Week 3 Jan 22nd-Jan 28th
 # Time spent
 ### The first 1/2 of the week I continued trying to find a solution to the permissions problem. Another solution that I tried was changing the permissions that were hardcoded into the lambda functions. This was suggested by this user
