@@ -166,3 +166,16 @@ Goal was to build the design of the website and start wokrking on the backend.
  ### Goals for next week
  * Build the retrieve feature fully
  * Write more tests for our app
+
+ ## Week 3 (Jan 21- Jan 29)
+ ### Peer Eval 
+ ![img](https://i.imgur.com/QQQOZaF.png)
+ ### Tasks Completed this week
+ * Finished building the video list frontend
+ * build a cloudfront distribution to serve videos at high performance and easier programmatically
+ * Worked on sending video but ran through problems with the graphQL API not responding to requests
+
+ ### Goals for next week
+ * Build the send video feature even if it means following a different approach 
+ * Improve UI of the whole app with Maya
+ * Implement delete video feature with Issa
