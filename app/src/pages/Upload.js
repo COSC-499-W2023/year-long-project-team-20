@@ -46,13 +46,7 @@ const Upload = () => {
 
       {/* Other components like Recorder, etc. can be placed here */}
 
-      <TextField
-        size="large"
-        width="25%"
-        placeholder="Enter a valid email"
-        label="Share your video"
-        outerEndComponent={<Button>Share Video</Button>}
-      />
+    
     </div>
   );
 };

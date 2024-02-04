@@ -76,6 +76,16 @@ const Root = ({ signOut }) => {
               navigate("/upload");
             }
           },
+
+          "Library" : {
+            style: {
+              cursor: "pointer",
+            },
+      
+            onClick: () => {
+              navigate("/library");
+            }
+          },
         
         "About" : {
           style: {
