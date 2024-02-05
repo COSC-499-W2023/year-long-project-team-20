@@ -1,4 +1,27 @@
 # Ryan Grant logs
+# T2 Week 4 Jan 29th-Feb 4th
+# Time spent
+1. After researching and talking with other groups regarding AWS Rekognition I concluded that the issue was with the regions
+2. Small amount of research looking into what it means to be a different AWS region
+3. Bootstraping and deploying the CDK to our AWS with us-west-2 as the region
+
+### For the first time in countless hours of bugfixing the AWS Rekognition works. Here is a short demo of the work in action.
+[![demo](https://img.youtube.com/vi/DXlHxnPn8VU/0.jpg)](https://www.youtube.com/watch?v=DXlHxnPn8VU)
+## This was a great start and covers the following features: 
+- Separate video into frames
+- Blur individual frames (detecting faces maybe…)
+- Combine blurred frames
+
+## However this approach still needs a few touches to integrate with the rest of the system
+1. Frontend option to blur video
+2. Lambda trigger from frontend to move video into blurring process
+3. Preview for video (after blurring)
+
+### I can show you the lambda functions and state machine in class if you can't see through these links.
+https://us-west-2.console.aws.amazon.com/states/home?region=us-west-2#/statemachines/view/arn%3Aaws%3Astates%3Aus-west-2%3A908962261904%3AstateMachine%3AStateMachine2E01A3A5-gxeBY65XUWNI
+### Peer eval screenshot
+![img](https://i.imgur.com/1pOZoWg.png)
+
 # T2 Week 3 Jan 22nd-Jan 28th
 # Time spent
 ### The first 1/2 of the week I continued trying to find a solution to the permissions problem. Another solution that I tried was changing the permissions that were hardcoded into the lambda functions. This was suggested by this user
