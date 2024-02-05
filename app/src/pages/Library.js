@@ -9,6 +9,9 @@ import { Storage } from 'aws-amplify';
 import { Auth } from 'aws-amplify';
 
 
+
+
+
 const Library = () => {
 
   const [videos, setVideos] = useState([]);
@@ -25,7 +28,10 @@ const Library = () => {
       const response = await Storage.list('', { level: 'protected' });
       console.log('response:', response);
       const cloudFrontUrl = 'https://dglw8nnn1gfb2.cloudfront.net/protected/';
-      const videoUrls = response.results.map(video => `${cloudFrontUrl}${identityId}/${video.key}`);
+      const videoUrls = response.results.map(video => ({
+        url: `${cloudFrontUrl}${identityId}/${video.key}`,
+        title: video.key
+      }));
       console.log('videoUrls:', videoUrls);
       setVideos(videoUrls);
     } catch (error) {
@@ -33,15 +39,32 @@ const Library = () => {
     }
   };
 
+  const handleButtonClick = (video) => {
+    // This function is called when a button is clicked for a specific video
+    console.log('Button clicked for video:', video.title);
+    // Prompt the user to confirm deletion
+    const confirmDelete = window.confirm('Are you sure you want to delete this video?');
+    if (confirmDelete) {
+      // You can add your logic here for what should happen when the user confirms deletion
+      console.log('User confirmed deletion of video:', video.title);
+      window.alert('Video successfully deleted');
+    } else {
+      // Handle if user cancels deletion
+      console.log('Deletion cancelled by user');
+    }
+  };
 
   return (
     <div style={{ paddingLeft: '35px' }}>
-
       <h2>Uploaded Videos</h2>
-      {videos.map((videoUrl, index) => (
-        <video key={index} width="400px" controls>
-          <source src={videoUrl} type="video/mp4" />
-        </video>
+      {videos.map((video, index) => (
+        <div key={index}>
+          <video width="400px" controls>
+            <source src={video.url} type="video/mp4" />
+          </video>
+          <p>Title: {video.title}</p>
+          <Button onClick={() => handleButtonClick(video)}>Delete Video</Button>
+        </div>
       ))}
     </div>
   );
