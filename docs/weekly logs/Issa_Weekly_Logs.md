@@ -325,6 +325,32 @@
 ![text](https://i.imgur.com/7b2MVXM.png)
 
 
+## Week 4 (Work Period Jan 29nd - Feb 4th, 2023)
+
+### Tasks completed this week
+
+* Team meetings. We used the feedback gathered from peer testing and created issues in the kanban board. The issues were assigned to people. 
+* Wrote code to make the library button in the nav bar functional.
+* Cleaned up the upload and record pages to only have functionality of uploading and recording respectively.
+* Moved the ability to view uploaded videos to the library page.
+* Added title for every displayed video.
+* Added the front end functionality for delete video feature. Every video has a delete button underneath it. UI prompts/alerts are displayed when user clicks on the delete button. First the user will have to confirm whether they want to delete or not. Then once the video is deleted the UI prompt will confirm that the deletion was successfully. 
+
+### Goals for Next Week
+* Implement back end for delete video feature
+* Work on general UI overhaul for the website. 
+
+### Recap goals
+* Implement font end ui for delete video feature
+* Implement back end for delete video feature
+
+
+### Task Completed (from Peer Eval Portal)
+![text](https://i.imgur.com/GOJ7N7L.png)
+
+### Task Completed vs In Progress
+![text](https://i.imgur.com/h26Aphz.png)
+
 
 
 
