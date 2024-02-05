@@ -1,6 +1,23 @@
 # Maya Ayaviri Bacarreza's Logs 
 
-## Week 167- Project Log
+## Week 18 - Project Log
+
+**Work period January 29th - February 4th**
+<img width="752" alt="Screen Shot 2024-02-04 at 6 07 37 PM" src="https://github.com/COSC-499-W2023/year-long-project-team-20/assets/66889922/3ed5294b-75f5-4283-a163-8e94efc9a7a8">
+
+### Tasks Completed This Work Period (found on trim-video branch)
+* Tried many different approaches to get the ffmpeg video to playback properly
+
+### Future Tasks
+* Fill out home page with instructions on how to navigate/use website
+* Fix profile edit bug
+  
+### Context 
+This week I discovered the library I was using previously (ffmpegwasm) is not compatible with our project, this could explain why I could not get the video to playback. I then tried to use another library (fluent-ffmpeg) that interacts with ffmpeg and should be compatible with the project. However, I encountered problems with this library error as well. I got a  "webpack polyfilling" error, which seemed to require an edit to webpack.config.j to fix. Unfortunately this was not possible, possibly because we used "Create React App" when we started the project (prevents access to this file). Another approach I was to split the video storing array into chunks and discard the first ones, to trim the video down. This did not work either and it seems to be because metadata is stored in the start of the array, so if you discard it ruins the video. The last approach I tried was modifying the parts of the video that the video tag could access/play then downloading that, but that just would download the original content. An approach I considered but did not try was using an API such as cloudinary, the reason I did not try this was because the client mentioned that they wanted features to either be local or done with aws. 
+
+After reviewing the client specifications and discussing with the team, we decided to place focus on other aspects of the website. Specifially, things we found needed to be fixed after peer testing. We got a lot of comments about the home page and the edit profile bug, so I will be working on that this upcoming week. If there is time to come back to work on the edit video feature, perheps an aws service could be used.
+
+## Week 17 - Project Log
 
 **Work period January 22nd - January 28th**
 
