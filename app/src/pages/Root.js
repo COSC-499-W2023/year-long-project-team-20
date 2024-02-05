@@ -95,6 +95,15 @@ const Root = ({ signOut }) => {
           onClick: () => {
             navigate("/About");
           }
+        },
+        "Chat" : {
+          style: {
+            cursor: "pointer",
+          },
+    
+          onClick: () => {
+            navigate("/Chat");
+          }
         }
     
       }
