@@ -1,0 +1,7 @@
+type Video @model @auth(rules: [{allow: owner, operations: [read, update, delete]}, {allow: private, operations: [create, read, delete]}]) {
+  id: ID!
+  link: AWSURL!
+  Date: AWSDate
+  sentBy: String
+}
+ 

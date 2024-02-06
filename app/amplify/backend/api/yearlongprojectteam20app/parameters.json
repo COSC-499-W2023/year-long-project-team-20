@@ -1,0 +1,12 @@
+{
+  "AppSyncApiName": "yearlongprojectteam20app",
+  "DynamoDBBillingMode": "PAY_PER_REQUEST",
+  "DynamoDBEnableServerSideEncryption": false,
+  "AuthCognitoUserPoolId": {
+    "Fn::GetAtt": [
+      "authyearlongprojectteam293285ce2",
+      "Outputs.UserPoolId"
+    ]
+  },
+  "AuthModeLastUpdated": "2024-01-29T19:36:41.878Z"
+}

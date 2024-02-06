@@ -43,4 +43,6 @@ export { default as StandardCard } from "./StandardCard";
 export { default as Stat } from "./Stat";
 export { default as TallCard } from "./TallCard";
 export { default as TextField } from "./TextField";
+export { default as VideoCreateForm } from "./VideoCreateForm";
+export { default as VideoUpdateForm } from "./VideoUpdateForm";
 export { default as studioTheme } from "./studioTheme";
