@@ -31,6 +31,7 @@ const Library = () => {
       const videoUrls = response.results.map(video => ({
         url: `${cloudFrontUrl}${identityId}/${video.key}`,
         title: video.key
+
       }));
       console.log('videoUrls:', videoUrls);
       setVideos(videoUrls);
@@ -39,7 +40,7 @@ const Library = () => {
     }
   };
 
-  const handleButtonClick = (video) => {
+  const deleteVideos = (video) => {
     // This function is called when a button is clicked for a specific video
     console.log('Button clicked for video:', video.title);
     // Prompt the user to confirm deletion
@@ -47,10 +48,16 @@ const Library = () => {
     if (confirmDelete) {
       // You can add your logic here for what should happen when the user confirms deletion
       console.log('User confirmed deletion of video:', video.title);
+      // For example, you can call Storage.remove to delete the video from the S3 bucket
+      Storage.remove(video.title, { level: 'protected' })
+      console.log(video.title + ' deleted')
       window.alert('Video successfully deleted');
+      //refresh the page
+      window.location.reload();
     } else {
       // Handle if user cancels deletion
       console.log('Deletion cancelled by user');
+      return;
     }
   };
 
@@ -63,7 +70,7 @@ const Library = () => {
             <source src={video.url} type="video/mp4" />
           </video>
           <p>Title: {video.title}</p>
-          <Button onClick={() => handleButtonClick(video)}>Delete Video</Button>
+          <Button onClick={() => deleteVideos(video)}>Delete Video</Button>
         </div>
       ))}
     </div>
