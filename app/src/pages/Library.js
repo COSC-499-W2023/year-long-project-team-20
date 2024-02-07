@@ -40,6 +40,16 @@ const Library = () => {
     }
   };
 
+  const getSignedUrl = async (fileKey) => {
+    try {
+      const signedUrl = await Storage.get(fileKey);
+      console.log('Signed URL:', signedUrl);
+      return signedUrl;
+    } catch (error) {
+      console.error('Error getting signed URL:', error);
+    }
+  };
+
   const deleteVideos = (video) => {
     // This function is called when a button is clicked for a specific video
     console.log('Button clicked for video:', video.title);
