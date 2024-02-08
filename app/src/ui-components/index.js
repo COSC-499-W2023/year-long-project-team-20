@@ -21,6 +21,8 @@ export { default as FormCheckout } from "./FormCheckout";
 export { default as Heading } from "./Heading";
 export { default as HeroLayout1 } from "./HeroLayout1";
 export { default as HeroLayout2 } from "./HeroLayout2";
+export { default as InAppMessagingCreateForm } from "./InAppMessagingCreateForm";
+export { default as InAppMessagingUpdateForm } from "./InAppMessagingUpdateForm";
 export { default as ItemCard } from "./ItemCard";
 export { default as Logo } from "./Logo";
 export { default as LogoWithText } from "./LogoWithText";
