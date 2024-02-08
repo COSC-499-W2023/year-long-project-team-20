@@ -9,12 +9,12 @@ import * as React from "react";
 import { Button, Flex, Grid, TextField } from "@aws-amplify/ui-react";
 import { fetchByPath, getOverrideProps, validateField } from "./utils";
 import { API } from "aws-amplify";
-import { getInAppMessaging } from "../graphql/queries";
-import { updateInAppMessaging } from "../graphql/mutations";
-export default function InAppMessagingUpdateForm(props) {
+import { getVideoList } from "../graphql/queries";
+import { updateVideoList } from "../graphql/mutations";
+export default function VideoListUpdateForm(props) {
   const {
     id: idProp,
-    inAppMessaging: inAppMessagingModelProp,
+    videoList: videoListModelProp,
     onSuccess,
     onError,
     onSubmit,
@@ -24,41 +24,48 @@ export default function InAppMessagingUpdateForm(props) {
     ...rest
   } = props;
   const initialValues = {
-    text: "",
-    email: "",
+    User: "",
+    UserID: "",
+    VideoLink: "",
+    VideoName: "",
   };
-  const [text, setText] = React.useState(initialValues.text);
-  const [email, setEmail] = React.useState(initialValues.email);
+  const [User, setUser] = React.useState(initialValues.User);
+  const [UserID, setUserID] = React.useState(initialValues.UserID);
+  const [VideoLink, setVideoLink] = React.useState(initialValues.VideoLink);
+  const [VideoName, setVideoName] = React.useState(initialValues.VideoName);
   const [errors, setErrors] = React.useState({});
   const resetStateValues = () => {
-    const cleanValues = inAppMessagingRecord
-      ? { ...initialValues, ...inAppMessagingRecord }
+    const cleanValues = videoListRecord
+      ? { ...initialValues, ...videoListRecord }
       : initialValues;
-    setText(cleanValues.text);
-    setEmail(cleanValues.email);
+    setUser(cleanValues.User);
+    setUserID(cleanValues.UserID);
+    setVideoLink(cleanValues.VideoLink);
+    setVideoName(cleanValues.VideoName);
     setErrors({});
   };
-  const [inAppMessagingRecord, setInAppMessagingRecord] = React.useState(
-    inAppMessagingModelProp
-  );
+  const [videoListRecord, setVideoListRecord] =
+    React.useState(videoListModelProp);
   React.useEffect(() => {
     const queryData = async () => {
       const record = idProp
         ? (
             await API.graphql({
-              query: getInAppMessaging.replaceAll("__typename", ""),
+              query: getVideoList.replaceAll("__typename", ""),
               variables: { id: idProp },
             })
-          )?.data?.getInAppMessaging
-        : inAppMessagingModelProp;
-      setInAppMessagingRecord(record);
+          )?.data?.getVideoList
+        : videoListModelProp;
+      setVideoListRecord(record);
     };
     queryData();
-  }, [idProp, inAppMessagingModelProp]);
-  React.useEffect(resetStateValues, [inAppMessagingRecord]);
+  }, [idProp, videoListModelProp]);
+  React.useEffect(resetStateValues, [videoListRecord]);
   const validations = {
-    text: [{ type: "Required" }],
-    email: [],
+    User: [{ type: "Required" }],
+    UserID: [{ type: "Required" }],
+    VideoLink: [{ type: "Required" }, { type: "URL" }],
+    VideoName: [{ type: "Required" }],
   };
   const runValidationTasks = async (
     fieldName,
@@ -86,8 +93,10 @@ export default function InAppMessagingUpdateForm(props) {
       onSubmit={async (event) => {
         event.preventDefault();
         let modelFields = {
-          text,
-          email: email ?? null,
+          User,
+          UserID,
+          VideoLink,
+          VideoName,
         };
         const validationResponses = await Promise.all(
           Object.keys(validations).reduce((promises, fieldName) => {
@@ -118,10 +127,10 @@ export default function InAppMessagingUpdateForm(props) {
             }
           });
           await API.graphql({
-            query: updateInAppMessaging.replaceAll("__typename", ""),
+            query: updateVideoList.replaceAll("__typename", ""),
             variables: {
               input: {
-                id: inAppMessagingRecord.id,
+                id: videoListRecord.id,
                 ...modelFields,
               },
             },
@@ -136,58 +145,116 @@ export default function InAppMessagingUpdateForm(props) {
           }
         }
       }}
-      {...getOverrideProps(overrides, "InAppMessagingUpdateForm")}
+      {...getOverrideProps(overrides, "VideoListUpdateForm")}
       {...rest}
     >
       <TextField
-        label="Text"
+        label="User"
         isRequired={true}
         isReadOnly={false}
-        value={text}
+        value={User}
         onChange={(e) => {
           let { value } = e.target;
           if (onChange) {
             const modelFields = {
-              text: value,
-              email,
+              User: value,
+              UserID,
+              VideoLink,
+              VideoName,
             };
             const result = onChange(modelFields);
-            value = result?.text ?? value;
+            value = result?.User ?? value;
           }
-          if (errors.text?.hasError) {
-            runValidationTasks("text", value);
+          if (errors.User?.hasError) {
+            runValidationTasks("User", value);
           }
-          setText(value);
+          setUser(value);
         }}
-        onBlur={() => runValidationTasks("text", text)}
-        errorMessage={errors.text?.errorMessage}
-        hasError={errors.text?.hasError}
-        {...getOverrideProps(overrides, "text")}
+        onBlur={() => runValidationTasks("User", User)}
+        errorMessage={errors.User?.errorMessage}
+        hasError={errors.User?.hasError}
+        {...getOverrideProps(overrides, "User")}
       ></TextField>
       <TextField
-        label="Email"
-        isRequired={false}
+        label="User id"
+        isRequired={true}
         isReadOnly={false}
-        value={email}
+        value={UserID}
         onChange={(e) => {
           let { value } = e.target;
           if (onChange) {
             const modelFields = {
-              text,
-              email: value,
+              User,
+              UserID: value,
+              VideoLink,
+              VideoName,
             };
             const result = onChange(modelFields);
-            value = result?.email ?? value;
+            value = result?.UserID ?? value;
           }
-          if (errors.email?.hasError) {
-            runValidationTasks("email", value);
+          if (errors.UserID?.hasError) {
+            runValidationTasks("UserID", value);
           }
-          setEmail(value);
+          setUserID(value);
         }}
-        onBlur={() => runValidationTasks("email", email)}
-        errorMessage={errors.email?.errorMessage}
-        hasError={errors.email?.hasError}
-        {...getOverrideProps(overrides, "email")}
+        onBlur={() => runValidationTasks("UserID", UserID)}
+        errorMessage={errors.UserID?.errorMessage}
+        hasError={errors.UserID?.hasError}
+        {...getOverrideProps(overrides, "UserID")}
+      ></TextField>
+      <TextField
+        label="Video link"
+        isRequired={true}
+        isReadOnly={false}
+        value={VideoLink}
+        onChange={(e) => {
+          let { value } = e.target;
+          if (onChange) {
+            const modelFields = {
+              User,
+              UserID,
+              VideoLink: value,
+              VideoName,
+            };
+            const result = onChange(modelFields);
+            value = result?.VideoLink ?? value;
+          }
+          if (errors.VideoLink?.hasError) {
+            runValidationTasks("VideoLink", value);
+          }
+          setVideoLink(value);
+        }}
+        onBlur={() => runValidationTasks("VideoLink", VideoLink)}
+        errorMessage={errors.VideoLink?.errorMessage}
+        hasError={errors.VideoLink?.hasError}
+        {...getOverrideProps(overrides, "VideoLink")}
+      ></TextField>
+      <TextField
+        label="Video name"
+        isRequired={true}
+        isReadOnly={false}
+        value={VideoName}
+        onChange={(e) => {
+          let { value } = e.target;
+          if (onChange) {
+            const modelFields = {
+              User,
+              UserID,
+              VideoLink,
+              VideoName: value,
+            };
+            const result = onChange(modelFields);
+            value = result?.VideoName ?? value;
+          }
+          if (errors.VideoName?.hasError) {
+            runValidationTasks("VideoName", value);
+          }
+          setVideoName(value);
+        }}
+        onBlur={() => runValidationTasks("VideoName", VideoName)}
+        errorMessage={errors.VideoName?.errorMessage}
+        hasError={errors.VideoName?.hasError}
+        {...getOverrideProps(overrides, "VideoName")}
       ></TextField>
       <Flex
         justifyContent="space-between"
@@ -200,7 +267,7 @@ export default function InAppMessagingUpdateForm(props) {
             event.preventDefault();
             resetStateValues();
           }}
-          isDisabled={!(idProp || inAppMessagingModelProp)}
+          isDisabled={!(idProp || videoListModelProp)}
           {...getOverrideProps(overrides, "ResetButton")}
         ></Button>
         <Flex
@@ -212,7 +279,7 @@ export default function InAppMessagingUpdateForm(props) {
             type="submit"
             variation="primary"
             isDisabled={
-              !(idProp || inAppMessagingModelProp) ||
+              !(idProp || videoListModelProp) ||
               Object.values(errors).some((e) => e?.hasError)
             }
             {...getOverrideProps(overrides, "SubmitButton")}

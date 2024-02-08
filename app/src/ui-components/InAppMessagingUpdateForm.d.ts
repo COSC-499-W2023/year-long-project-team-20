@@ -22,14 +22,17 @@ export declare type ValidationResponse = {
 };
 export declare type ValidationFunction<T> = (value: T, validationResponse: ValidationResponse) => ValidationResponse | Promise<ValidationResponse>;
 export declare type InAppMessagingUpdateFormInputValues = {
+    text?: string;
     email?: string;
 };
 export declare type InAppMessagingUpdateFormValidationValues = {
+    text?: ValidationFunction<string>;
     email?: ValidationFunction<string>;
 };
 export declare type PrimitiveOverrideProps<T> = Partial<T> & React.DOMAttributes<HTMLDivElement>;
 export declare type InAppMessagingUpdateFormOverridesProps = {
     InAppMessagingUpdateFormGrid?: PrimitiveOverrideProps<GridProps>;
+    text?: PrimitiveOverrideProps<TextFieldProps>;
     email?: PrimitiveOverrideProps<TextFieldProps>;
 } & EscapeHatchProps;
 export declare type InAppMessagingUpdateFormProps = React.PropsWithChildren<{

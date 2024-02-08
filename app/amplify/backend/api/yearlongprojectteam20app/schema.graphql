@@ -1,5 +1,22 @@
+type VideoList @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  User: String!
+  UserID: String!
+  VideoLink: AWSURL!
+  VideoName: String!
+}
+
+type ShareVideo @model @auth(rules: [{allow: public}, {allow: private, operations: [create, read]}, {allow: owner}]) {
+  id: ID!
+  From: String!
+  To: String!
+  Link: AWSURL!
+  Description: String
+}
+
 type InAppMessaging @model @auth(rules: [{allow: public}]) {
   id: ID!
-  email: String!
+  text: String!
+  email: String
 }
  

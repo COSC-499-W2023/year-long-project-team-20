@@ -13,8 +13,8 @@ import {
   AmplifyProvider
 } from "@aws-amplify/ui-react";
 
-import { API, Storage, graphqlOperation } from "aws-amplify";
-import { createInAppMessaging } from '../graphql/mutations';
+import { Auth, API, Storage, graphqlOperation } from "aws-amplify";
+import { createInAppMessaging, createShareVideo, createVideoList } from '../graphql/mutations';
 
 
 const Upload = () => {
@@ -22,10 +22,25 @@ const Upload = () => {
   const [videos, setVideos] = useState([]);
   const [email, setEmail] = useState('');
   const [message, setMessage] = useState('');
+  const cloudFrontUrl = 'https://dglw8nnn1gfb2.cloudfront.net/protected'
 
+  
   const uploadVideo = async () => {
     const file = fileInput.current.files[0];
     const videoContentType = 'video/mp4';
+    const credentials = await Auth.currentCredentials(); // fetch current 
+    const user = await Auth.currentAuthenticatedUser();
+
+    console.log("User:"+ user.username+", UserID:"+ credentials.identityId+", VideoName:"+ file.name);
+    // Auth.currentAuthenticatedUser()
+    //       .then(user => {
+    //         const username = user.username;
+    //         const email = user.attributes.email;
+    //         console.log('Username:', username);
+    //         console.log('Email:', email);
+    //       })
+    //       .catch(err => console.log(err));
+
 
     try {
       // Use the put method to upload the video file.
@@ -34,8 +49,12 @@ const Upload = () => {
         contentType: videoContentType
       });
       console.log('Successfully uploaded video');
-      // If successful, you might want to update your video list
-      setVideos(prevVideos => [...prevVideos, file.name]);
+      // Empty array means this effect will only run once
+      // // Call the createShareVideo mutation
+      const link = `${cloudFrontUrl}/${credentials.identityId}/${file.name}`;
+      console.log('Link:', link);
+      await API.graphql(graphqlOperation(createVideoList, { input: { User: user.username, UserID: credentials.identityId, VideoName: file.name, VideoLink: link } }));
+      
     } catch (error) {
       console.error('Error uploading video:', error);
     }

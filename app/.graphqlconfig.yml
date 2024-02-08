@@ -2,7 +2,7 @@ projects:
   yearlongprojectteam20app:
     schemaPath: amplify/backend/api/yearlongprojectteam20app/build/schema.graphql
     includes:
-      - src/graphql/**/*.js
+      - src/graphql/*/**/
     excludes:
       - ./amplify/**
     extensions:

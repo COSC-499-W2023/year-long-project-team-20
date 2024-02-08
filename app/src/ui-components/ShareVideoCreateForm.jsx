@@ -9,8 +9,8 @@ import * as React from "react";
 import { Button, Flex, Grid, TextField } from "@aws-amplify/ui-react";
 import { fetchByPath, getOverrideProps, validateField } from "./utils";
 import { API } from "aws-amplify";
-import { createInAppMessaging } from "../graphql/mutations";
-export default function InAppMessagingCreateForm(props) {
+import { createShareVideo } from "../graphql/mutations";
+export default function ShareVideoCreateForm(props) {
   const {
     clearOnSuccess = true,
     onSuccess,
@@ -22,20 +22,30 @@ export default function InAppMessagingCreateForm(props) {
     ...rest
   } = props;
   const initialValues = {
-    text: "",
-    email: "",
+    From: "",
+    To: "",
+    Link: "",
+    Description: "",
   };
-  const [text, setText] = React.useState(initialValues.text);
-  const [email, setEmail] = React.useState(initialValues.email);
+  const [From, setFrom] = React.useState(initialValues.From);
+  const [To, setTo] = React.useState(initialValues.To);
+  const [Link, setLink] = React.useState(initialValues.Link);
+  const [Description, setDescription] = React.useState(
+    initialValues.Description
+  );
   const [errors, setErrors] = React.useState({});
   const resetStateValues = () => {
-    setText(initialValues.text);
-    setEmail(initialValues.email);
+    setFrom(initialValues.From);
+    setTo(initialValues.To);
+    setLink(initialValues.Link);
+    setDescription(initialValues.Description);
     setErrors({});
   };
   const validations = {
-    text: [{ type: "Required" }],
-    email: [],
+    From: [{ type: "Required" }],
+    To: [{ type: "Required" }],
+    Link: [{ type: "Required" }, { type: "URL" }],
+    Description: [],
   };
   const runValidationTasks = async (
     fieldName,
@@ -63,8 +73,10 @@ export default function InAppMessagingCreateForm(props) {
       onSubmit={async (event) => {
         event.preventDefault();
         let modelFields = {
-          text,
-          email,
+          From,
+          To,
+          Link,
+          Description,
         };
         const validationResponses = await Promise.all(
           Object.keys(validations).reduce((promises, fieldName) => {
@@ -95,7 +107,7 @@ export default function InAppMessagingCreateForm(props) {
             }
           });
           await API.graphql({
-            query: createInAppMessaging.replaceAll("__typename", ""),
+            query: createShareVideo.replaceAll("__typename", ""),
             variables: {
               input: {
                 ...modelFields,
@@ -115,58 +127,116 @@ export default function InAppMessagingCreateForm(props) {
           }
         }
       }}
-      {...getOverrideProps(overrides, "InAppMessagingCreateForm")}
+      {...getOverrideProps(overrides, "ShareVideoCreateForm")}
       {...rest}
     >
       <TextField
-        label="Text"
+        label="From"
         isRequired={true}
         isReadOnly={false}
-        value={text}
+        value={From}
         onChange={(e) => {
           let { value } = e.target;
           if (onChange) {
             const modelFields = {
-              text: value,
-              email,
+              From: value,
+              To,
+              Link,
+              Description,
             };
             const result = onChange(modelFields);
-            value = result?.text ?? value;
+            value = result?.From ?? value;
           }
-          if (errors.text?.hasError) {
-            runValidationTasks("text", value);
+          if (errors.From?.hasError) {
+            runValidationTasks("From", value);
           }
-          setText(value);
+          setFrom(value);
         }}
-        onBlur={() => runValidationTasks("text", text)}
-        errorMessage={errors.text?.errorMessage}
-        hasError={errors.text?.hasError}
-        {...getOverrideProps(overrides, "text")}
+        onBlur={() => runValidationTasks("From", From)}
+        errorMessage={errors.From?.errorMessage}
+        hasError={errors.From?.hasError}
+        {...getOverrideProps(overrides, "From")}
       ></TextField>
       <TextField
-        label="Email"
-        isRequired={false}
+        label="To"
+        isRequired={true}
         isReadOnly={false}
-        value={email}
+        value={To}
         onChange={(e) => {
           let { value } = e.target;
           if (onChange) {
             const modelFields = {
-              text,
-              email: value,
+              From,
+              To: value,
+              Link,
+              Description,
             };
             const result = onChange(modelFields);
-            value = result?.email ?? value;
+            value = result?.To ?? value;
           }
-          if (errors.email?.hasError) {
-            runValidationTasks("email", value);
+          if (errors.To?.hasError) {
+            runValidationTasks("To", value);
           }
-          setEmail(value);
+          setTo(value);
         }}
-        onBlur={() => runValidationTasks("email", email)}
-        errorMessage={errors.email?.errorMessage}
-        hasError={errors.email?.hasError}
-        {...getOverrideProps(overrides, "email")}
+        onBlur={() => runValidationTasks("To", To)}
+        errorMessage={errors.To?.errorMessage}
+        hasError={errors.To?.hasError}
+        {...getOverrideProps(overrides, "To")}
+      ></TextField>
+      <TextField
+        label="Link"
+        isRequired={true}
+        isReadOnly={false}
+        value={Link}
+        onChange={(e) => {
+          let { value } = e.target;
+          if (onChange) {
+            const modelFields = {
+              From,
+              To,
+              Link: value,
+              Description,
+            };
+            const result = onChange(modelFields);
+            value = result?.Link ?? value;
+          }
+          if (errors.Link?.hasError) {
+            runValidationTasks("Link", value);
+          }
+          setLink(value);
+        }}
+        onBlur={() => runValidationTasks("Link", Link)}
+        errorMessage={errors.Link?.errorMessage}
+        hasError={errors.Link?.hasError}
+        {...getOverrideProps(overrides, "Link")}
+      ></TextField>
+      <TextField
+        label="Description"
+        isRequired={false}
+        isReadOnly={false}
+        value={Description}
+        onChange={(e) => {
+          let { value } = e.target;
+          if (onChange) {
+            const modelFields = {
+              From,
+              To,
+              Link,
+              Description: value,
+            };
+            const result = onChange(modelFields);
+            value = result?.Description ?? value;
+          }
+          if (errors.Description?.hasError) {
+            runValidationTasks("Description", value);
+          }
+          setDescription(value);
+        }}
+        onBlur={() => runValidationTasks("Description", Description)}
+        errorMessage={errors.Description?.errorMessage}
+        hasError={errors.Description?.hasError}
+        {...getOverrideProps(overrides, "Description")}
       ></TextField>
       <Flex
         justifyContent="space-between"
