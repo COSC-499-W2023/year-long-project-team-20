@@ -1,0 +1,13 @@
+.video-container {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+  }
+  
+  .video {
+    width: 30%; /* adjust as needed */
+  }
+
+  #delete_video:hover {
+        background-color: #ff0000;
+    }

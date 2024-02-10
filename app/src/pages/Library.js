@@ -7,6 +7,9 @@ import {
 } from "@aws-amplify/ui-react";
 import { Storage } from 'aws-amplify';
 import { Auth } from 'aws-amplify';
+import {
+  ShareVideoForm3
+} from '../ui-components';
 
 
 
@@ -15,6 +18,7 @@ import { Auth } from 'aws-amplify';
 const Library = () => {
 
   const [videos, setVideos] = useState([]);
+  const [showForm, setShowForm] = useState(false);
 
   useEffect(() => {
     fetchVideos();
@@ -81,6 +85,16 @@ const Library = () => {
           </video>
           <p>Title: {video.title}</p>
           <Button onClick={() => deleteVideos(video)}>Delete Video</Button>
+          <Button onClick={() => setShowForm(true)}>Share Video</Button>
+
+          {showForm && (
+            <ShareVideoForm3
+              onSubmit={(fields) => {
+                console.log('Form submitted with fields:', fields);
+                setShowForm(false);
+              }}
+            />
+          )}
         </div>
       ))}
     </div>
