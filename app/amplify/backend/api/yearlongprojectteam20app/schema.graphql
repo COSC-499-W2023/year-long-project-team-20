@@ -13,10 +13,4 @@ type ShareVideo @model @auth(rules: [{allow: public}, {allow: private, operation
   Link: AWSURL!
   Description: String
 }
-
-type InAppMessaging @model @auth(rules: [{allow: public}]) {
-  id: ID!
-  text: String!
-  email: String
-}
  
