@@ -15,7 +15,7 @@ export default function NavBarHeader2(props) {
       gap="10px"
       direction="row"
       width="1440px"
-      height="unset"
+      height="85px"
       justifyContent="space-between"
       alignItems="center"
       overflow="hidden"

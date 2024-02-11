@@ -7,6 +7,7 @@ import {
 } from "@aws-amplify/ui-react";
 import { Storage } from 'aws-amplify';
 import { Auth } from 'aws-amplify';
+import VideoCard from "../ui-components/VideoCard";
 
 
 
@@ -74,9 +75,22 @@ const Library = () => {
   return (
     <div style={{ paddingLeft: '35px' }}>
       <h2>Uploaded Videos</h2>
+     
+
+      
+
+      <VideoCard
+        videoSource = {
+          <video width="400px" controls>
+<source src="https://dglw8nnn1gfb2.cloudfront.net/protected/ca-central-1:dbc1eb3a-03a5-42e7-aa27-08892f9b892a/recorded_video_2024-02-06T20:33:48.308Z.mp4" type="video/mp4"></source>
+        </video>
+         
+        }
+
+      />
       {videos.map((video, index) => (
         <div key={index}>
-          <video width="400px" controls>
+          <video width="300px" controls>
             <source src={video.url} type="video/mp4" />
           </video>
           <p>Title: {video.title}</p>
