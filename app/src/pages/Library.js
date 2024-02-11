@@ -50,26 +50,37 @@ const Library = () => {
     }
   };
 
-  const deleteVideos = (video) => {
-    // This function is called when a button is clicked for a specific video
-    console.log('Button clicked for video:', video.title);
-    // Prompt the user to confirm deletion
-    const confirmDelete = window.confirm('Are you sure you want to delete this video?');
-    if (confirmDelete) {
-      // You can add your logic here for what should happen when the user confirms deletion
-      console.log('User confirmed deletion of video:', video.title);
-      // For example, you can call Storage.remove to delete the video from the S3 bucket
-      Storage.remove(video.title, { level: 'protected' })
-      console.log(video.title + ' deleted')
-      window.alert('Video successfully deleted');
-      //refresh the page
-      window.location.reload();
-    } else {
-      // Handle if user cancels deletion
-      console.log('Deletion cancelled by user');
-      return;
+
+  // This function is called when delet video button is clicked
+  const deleteVideos = async (video) => {
+
+    try {
+      console.log('Button clicked for video:', video.title);
+      //prompt user to confirm whether to proceed with delete or not
+      const confirmDelete = window.confirm('Are you sure you want to delete this video?');
+
+      if (confirmDelete) {
+        //Logic for what should happen when the user confirms deletion
+        console.log('User confirmed deletion of video:', video.title);
+        // Storage.remove to delete the video from the S3 bucket
+        Storage.remove(video.title, { level: 'protected' })
+        console.log(video.title + ' deleted')
+        window.alert('Video successfully deleted');
+        //refresh the page
+        window.location.reload();
+      } else {
+        // Handle if user cancels deletion
+        console.log('Deletion cancelled by user');
+        return;
+      }
     }
-  };
+    // error with deletion process
+    catch (error){
+      console.error('Error deleting video:', error);
+      window.alert('Error deleting video. Please try again later.');
+   }
+  }
+  
 
   return (
     <div style={{ paddingLeft: '35px' }}>
@@ -80,7 +91,7 @@ const Library = () => {
             <source src={video.url} type="video/mp4" />
           </video>
           <p>Title: {video.title}</p>
-          <Button onClick={() => deleteVideos(video)}>Delete Video</Button>
+          <Button onClick={() => deleteVideos(video)} className ="delete-video">Delete Video</Button>
         </div>
       ))}
     </div>
