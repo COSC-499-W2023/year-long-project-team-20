@@ -1,12 +1,12 @@
 describe('Delete Video Functionality', () => {
 
   beforeEach(()=> {
-    cy.visit('http://localhost:3000');
+    cy.visit('https://www.cocs499team20.com');
     cy.get('input[name="username"]').type('testuser');
     cy.get('input[name="password"]').type('testuser1234');
     cy.get('button[type="submit"]').click();
     cy.wait(5000); 
-    cy.visit('http://localhost:3000/library');
+    cy.visit('https://www.cosc499team20.com/library');
     
 })
 
