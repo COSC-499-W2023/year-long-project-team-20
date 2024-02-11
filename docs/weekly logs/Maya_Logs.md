@@ -1,5 +1,25 @@
 # Maya Ayaviri Bacarreza's Logs 
 
+## Week 19 - Project Log
+
+**Work period January 5th - February 11th**
+
+<img width="864" alt="Screen Shot 2024-02-11 at 12 16 57 PM" src="https://github.com/COSC-499-W2023/year-long-project-team-20/assets/66889922/30e58266-a0a7-4c27-9b1b-0529bfcb9e40">
+
+### Tasks Completed This Work Period (found on trim-video branch)
+* Fixed profile edit bug, added email re-verification feature
+* Added instructions to home page to show user how to use the website
+* Attend team meetings/add team log
+
+### Future Tasks
+* Add prompts to record video page
+* Expand on general UI for record video
+* Try to use FFMPEG with lambdas in aws
+  
+### Context 
+When I took a look at the edit profile feature, I noticed that the users email was not being changed because it was not asking the user to reverify their email. Additionally, the username is immutable. So I removed the option to edit the username and added a re-verification system for the new users email. Now the user can change their email, as long as they enter the correct confirmation code sent to their new email. Additionally, I added images and instructions to the home page to make it more user friendly for new vistors. I made these changes on two branches, however when I went to deploy the branches on amplify I recieved a build error. This appears to be because there were changes made on the amplify backend (unelated to my changes) that need to be fixed. We could not fix it at this last team meeting but will try to at our next in person meeting. 
+
+
 ## Week 18 - Project Log
 
 **Work period January 29th - February 4th**
