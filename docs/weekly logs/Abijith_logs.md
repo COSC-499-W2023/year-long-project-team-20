@@ -1,4 +1,14 @@
 # Abijith Ashok Log
+## Week 18 (January 28th to February 4th)
+## Features worked on
+- Started work on in app messaging with amplify
+- Set up database and graphql to take in messages and save videoURLs
+- Started work on frontend of the chat feature
+## Goals for next week
+- Finish working the chat feature
+- Have atleast one way of sharing videos among users
+![Week 18 Logs](https://imgur.com/dB6YvWX.png)
+
 ## Week 14 (January 8th to January 14th)
 ## Features worked on 
 - Fixing the build error bug (posted on aws-amplify discord and amplify hosting github issues page)

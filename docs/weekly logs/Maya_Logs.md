@@ -1,6 +1,43 @@
 # Maya Ayaviri Bacarreza's Logs 
 
-## Week 167- Project Log
+## Week 19 - Project Log
+
+**Work period February 5th - February 11th**
+
+<img width="864" alt="Screen Shot 2024-02-11 at 12 16 57 PM" src="https://github.com/COSC-499-W2023/year-long-project-team-20/assets/66889922/30e58266-a0a7-4c27-9b1b-0529bfcb9e40">
+
+### Tasks Completed This Work Period (found on "edit profile fix" and "updated home page" draft pull requests)
+* Fixed profile edit bug, added email re-verification feature
+* Added instructions to home page to show user how to use the website
+* Attend team meetings/add team log
+
+### Future Tasks
+* Add prompts to record video page
+* Expand on general UI for record video
+* Try to use FFMPEG with lambdas in aws
+  
+### Context 
+When I took a look at the edit profile feature, I noticed that the users email was not being changed because it was not asking the user to reverify their email. Additionally, the username is immutable. So I removed the option to edit the username and added a re-verification system for the new users email. Now the user can change their email, as long as they enter the correct confirmation code sent to their new email. Additionally, I added images and instructions to the home page to make it more user friendly for new vistors. I made these changes on two branches (which are draft pull requests right now), however when I went to deploy the branches on amplify I recieved a build error. This appears to be because there were changes made on the amplify backend (unelated to my changes) that need to be fixed. We could not fix it at this last team meeting but will try to at our next in person meeting. 
+
+
+## Week 18 - Project Log
+
+**Work period January 29th - February 4th**
+<img width="752" alt="Screen Shot 2024-02-04 at 6 07 37 PM" src="https://github.com/COSC-499-W2023/year-long-project-team-20/assets/66889922/3ed5294b-75f5-4283-a163-8e94efc9a7a8">
+
+### Tasks Completed This Work Period (found on trim-video branch)
+* Tried many different approaches to get the ffmpeg video to playback properly
+
+### Future Tasks
+* Fill out home page with instructions on how to navigate/use website
+* Fix profile edit bug
+  
+### Context 
+This week I discovered the library I was using previously (ffmpegwasm) is not compatible with our project, this could explain why I could not get the video to playback. I then tried to use another library (fluent-ffmpeg) that interacts with ffmpeg and should be compatible with the project. However, I encountered problems with this library error as well. I got a  "webpack polyfilling" error, which seemed to require an edit to webpack.config.j to fix. Unfortunately this was not possible, possibly because we used "Create React App" when we started the project (prevents access to this file). Another approach I was to split the video storing array into chunks and discard the first ones, to trim the video down. This did not work either and it seems to be because metadata is stored in the start of the array, so if you discard it ruins the video. The last approach I tried was modifying the parts of the video that the video tag could access/play then downloading that, but that just would download the original content. An approach I considered but did not try was using an API such as cloudinary, the reason I did not try this was because the client mentioned that they wanted features to either be local or done with aws. 
+
+After reviewing the client specifications and discussing with the team, we decided to place focus on other aspects of the website. Specifially, things we found needed to be fixed after peer testing. We got a lot of comments about the home page and the edit profile bug, so I will be working on that this upcoming week. If there is time to come back to work on the edit video feature, perheps an aws service could be used.
+
+## Week 17 - Project Log
 
 **Work period January 22nd - January 28th**
 
