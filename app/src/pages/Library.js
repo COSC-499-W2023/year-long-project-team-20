@@ -80,7 +80,7 @@ const Library = () => {
             <source src={video.url} type="video/mp4" />
           </video>
           <p>Title: {video.title}</p>
-          <Button onClick={() => deleteVideos(video)}>Delete Video</Button>
+          <Button onClick={() => deleteVideos(video)} className ="delete-video">Delete Video</Button>
         </div>
       ))}
     </div>
