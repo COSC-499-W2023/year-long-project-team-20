@@ -352,6 +352,34 @@
 ![text](https://i.imgur.com/h26Aphz.png)
 
 
+## Week 5 (Work Period Jan 29nd - Feb 4th, 2023)
+
+### Tasks completed this week
+
+* Team meetings. Discussion on how to proceed further now that majority of MVP features are completed.
+* Worked with MO to finish the backend for delete video feature. Peer programming session. Code was committed by MO.
+* Peer programming session with MO. We tried to figure out how to make our front end more presentable. We learnt how to make forms using amplify that we can use in our share video feature. 
+* Spent a lot of time learning figma to be able to use amplify's figma to react code feature. My skill with figma is now at the level where I understand how to create components to be able to use in react. 
+* Created a video card in figma and attempted to use it to display videos in 2 column grid. As I was spending more time in this method, I realized that this sort of approach could be more trouble than worth for displaying videos. It would have been ideal for image display but for videos this may not be the case. I created a draft pr to showcase my work. Will discuss with MO and see if the work I did could be useful or not.
+* Wrote a cypress e2e testing for delete video functionality. This took pretty much the whole sunday to write as there were not enough tutorials online and some of the tutorials were very complicated. I wrote my own logic/method for this test. Also, I had to rewrite the delete video function to make it testable. 
+
+
+### Goals for Next Week
+* Front end coding to allow users to edit, share, or delete video from displayed video.
+* Front end coding to create forms for sha
+* Learn React at indepth level for front end coding
+### Recap goals
+* Implement font end ui for delete video feature
+* Implement back end for delete video feature
+
+
+### Task Completed (from Peer Eval Portal)
+![text](https://i.imgur.com/GOJ7N7L.png)
+
+### Task Completed vs In Progress
+![text](https://i.imgur.com/TNRmQBf.png)
+
+
 
 
 
