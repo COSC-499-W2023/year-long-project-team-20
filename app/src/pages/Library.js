@@ -62,8 +62,8 @@ const Library = () => {
       if (confirmDelete) {
         //Logic for what should happen when the user confirms deletion
         console.log('User confirmed deletion of video:', video.title);
-        // Storage.remove to delete the video from the S3 bucket
-        Storage.remove(video.title, { level: 'protected' })
+        // await waits for Storage.remove to delete the video from the S3 bucket
+        await Storage.remove(video.title, { level: 'protected' })
         console.log(video.title + ' deleted')
         window.alert('Video successfully deleted');
         //refresh the page
