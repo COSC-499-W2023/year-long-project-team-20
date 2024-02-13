@@ -180,7 +180,7 @@ Goal was to build the design of the website and start wokrking on the backend.
  * Improve UI of the whole app with Maya
  * Implement delete video feature with Issa
 
- ## Week 3 (Jan 29 - Jan 21)
+ ## Week 4 (Jan 29 - Feb 7)
  ### Peer Eval 
  ![img](https://i.imgur.com/tQzzaah.png)
  ### Tasks Completed this week
@@ -192,4 +192,15 @@ Goal was to build the design of the website and start wokrking on the backend.
  * Build the send video feature even if it means following a different approach 
  * Improve UI of the whole app with Maya
  * Implement delete video feature with Issa
+ 
+ ## Week 5 (Feb 7 - Feb 13)
+ ### Peer Eval 
+ ![img](https://i.imgur.com/BK5MfIE.png)
+ ### Tasks Completed this week
+ * Worked with Issa on some frontend tasks
+ * Created the form for sending video and made it functional, I need to fix some bugs before merging
+
+ ### Goals for next week
+ * Fix the bugs in sending video and merge
+* work on the frontend with Issa to make it look nicer
  
