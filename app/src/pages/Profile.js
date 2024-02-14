@@ -16,11 +16,18 @@ import {
   Flex,
   AmplifyProvider
 } from "@aws-amplify/ui-react";
+import { Hub } from 'aws-amplify';
+
+import { Authenticator } from '@aws-amplify/ui-react';
+import '@aws-amplify/ui-react/styles.css';
 
 function App() {
   const [user, setUser] = useState(null);
   const [isEditing, setIsEditing] = useState(false);
   const [editableUser, setEditableUser] = useState({ username: '', email: '' });
+
+  const [showValidationCodeUI, setShowValidationCodeUI] = useState(false);
+  const [hasChanges, setHasChanges] = useState(false);
 
   useEffect(() => {
     Auth.currentAuthenticatedUser()
@@ -35,27 +42,73 @@ function App() {
     setIsEditing(!isEditing);
   };
 
+  //When input is changed allow user to save changes
   const handleInputChange = (event) => {
     setEditableUser({ ...editableUser, [event.target.name]: event.target.value });
+    setHasChanges(true);
   };
-
-  const saveChanges = async () => {
-    // Save changes to the user's information here
+  
+  //Send verification code to the new email
+  async function updateUserEmail() {
+    
     try {
-      const currentUser = await Auth.currentAuthenticatedUser();
-      await Auth.updateUserAttributes(currentUser, {
-        'email': editableUser.email,
-        // Note: 'username' cannot be updated as it's an immutable attribute.
-      });
-      // Update the user state
-      setUser({ ...user, attributes: { ...user.attributes, email: editableUser.email } });
-      
-    // Then exit edit mode
+      const user = await Auth.currentAuthenticatedUser();
+
+      //Pass new email
+      await Auth.updateUserAttributes(user, {
+      email: editableUser.email
+    });
+
+    alert('a verification code has been sent');
+  
+  } catch (err) {
+    alert('there was an issue, try again')
+    console.log('failed with error', err);
+  }
+}
+
+//Check if user verified code correctly
+async function verifyEmailValidationCode(code) {
+  try {
+    await Auth.verifyCurrentUserAttributeSubmit('email', code);
+    alert('email verified successfully');
+    //reload page with updated user info
+    const updatedUser = await Auth.currentAuthenticatedUser({bypassCache: true});
+    setShowValidationCodeUI(false);
     setIsEditing(false);
-    } catch (error) {
-      console.error("Error updating user attributes", error);
-    }
-  };
+    window.location.reload()
+
+  } catch (err) {
+    alert('email verified failed', err);
+    setShowValidationCodeUI(false);
+    setIsEditing(false);
+    window.location.reload()
+  }
+}
+
+//UI that lets user enter their confirmation code
+function ValidationCodeForm() {
+  const [validationCode, setValidationCode] = useState(null);
+  return (
+    <div>
+      <label>
+        Verification Code: 
+        <br /> 
+        <input
+          onChange={(e) => {
+            setValidationCode(e.target.value);
+          }}
+          type="text"
+          name="vc"
+        />
+      </label>
+      <br /> 
+      <Button onClick={() => verifyEmailValidationCode(validationCode)}>
+        Confirm Code
+      </Button>
+    </div>
+  );
+}
 
   const deleteUser = async () => {
     const confirmation = window.confirm("Are you sure you want to delete your account?")
@@ -86,9 +139,22 @@ function App() {
             <>
               {isEditing ? (
                 <>
-                  <input name="username" value={editableUser.username} onChange={handleInputChange} />
+                  <Text variant="h2">Username: {user.username}</Text>
                   <input name="email" value={editableUser.email} onChange={handleInputChange} />
-                  <Button onClick={saveChanges}>Save Changes</Button>
+                  
+                  {/* Check if user needs to validate a code */}
+
+                  {showValidationCodeUI === false && (
+                   <Button onClick={async () => { await updateUserEmail();  setShowValidationCodeUI(true);}} disabled={!hasChanges}>
+                    Save Changes</Button>
+                    
+                  )}
+                  {showValidationCodeUI === true && <ValidationCodeForm />}
+
+                  <Button onClick={editUser}>Cancel</Button>
+                  
+
+
                 </>
               ) : (
                 <>
@@ -99,6 +165,7 @@ function App() {
               )}
               <Button onClick={signOut} variant="brand">Sign Out</Button>
               <Button onClick={deleteUser} className="delete-button" variant="destructive">Delete Profile</Button>
+              
             </>
           )}
         </Flex>
