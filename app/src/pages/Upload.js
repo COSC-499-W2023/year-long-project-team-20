@@ -13,16 +13,20 @@ import {
   AmplifyProvider
 } from "@aws-amplify/ui-react";
 
-import { Storage } from "aws-amplify";
+import { Auth, API, Storage, graphqlOperation } from "aws-amplify";
+import { createVideoList } from '../graphql/mutations';
 
 
 const Upload = () => {
   const fileInput = useRef(null);
   const [videos, setVideos] = useState([]);
+  const cloudfrontUrl = 'https://dglw8nnn1gfb2.cloudfront.net/protected';
 
   const uploadVideo = async () => {
     const file = fileInput.current.files[0];
     const videoContentType = 'video/mp4';
+    const credentials = await Auth.currentCredentials(); // fetch current usercredentials
+    const user = await Auth.currentAuthenticatedUser();
 
     try {
       // Use the put method to upload the video file.
@@ -31,8 +35,15 @@ const Upload = () => {
         contentType: videoContentType
       });
       console.log('Successfully uploaded video');
-      // If successful, you might want to update your video list
-      setVideos(prevVideos => [...prevVideos, file.name]);
+  
+      const link = `${cloudfrontUrl}/${credentials.identityId}/${file.name}`;
+
+      try{
+        await API.graphql(graphqlOperation(createVideoList, { input: { User: user.username, UserID: credentials.identityId, VideoName: file.name, VideoLink: link } }));
+      }catch(e){
+        console.log("Error Updating Video List: ", e);
+      }
+      
     } catch (error) {
       console.error('Error uploading video:', error);
     }

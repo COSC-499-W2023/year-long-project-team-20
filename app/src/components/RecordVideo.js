@@ -11,7 +11,8 @@ import {
   AmplifyProvider
 } from "@aws-amplify/ui-react";
 import "@aws-amplify/ui-react/styles.css";
-import { Storage } from 'aws-amplify';
+import { Auth, API, Storage, graphqlOperation } from "aws-amplify";
+import { createVideoList } from '../graphql/mutations';
 
 
 const Recorder = () => {
@@ -23,8 +24,6 @@ const Recorder = () => {
   const mediaStream = useRef(null);
 
   const [recordedVideoUrl, setRecordedVideoUrl] = useState(null);
-
-
 
   useEffect(() => {
     // Ask for permission to access user's camera and audio
@@ -130,14 +129,26 @@ const Recorder = () => {
   };
   
   const uploadToStorage = async (blob, fileName) => {
+    const credentials = await Auth.currentCredentials(); // fetch current usercredentials
+    const user = await Auth.currentAuthenticatedUser();
+    const cloudfrontUrl = 'https://dglw8nnn1gfb2.cloudfront.net/protected';
+
     try {
       // Use the put method to upload the video file.
       await Storage.put(fileName, blob, {
         level: 'protected',
         contentType: 'video/mp4',
       });
-  
       console.log('Successfully uploaded video to storage');
+
+      const link = `${cloudfrontUrl}/${credentials.identityId}/${fileName}`;
+
+      try{
+        await API.graphql(graphqlOperation(createVideoList, { input: { User: user.username, UserID: credentials.identityId, VideoName: fileName, VideoLink: link } }));
+      }catch(e){
+        console.log("Error Updating Video List: ", e);
+      }
+
     } catch (error) {
       console.error('Error uploading video to storage:', error);
     }
