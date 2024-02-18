@@ -1,12 +1,12 @@
 describe('Delete Video Functionality', () => {
 
   beforeEach(()=> {
-    cy.visit('https://www.cosc499team20.com');
+    cy.visit('http://localhost:3000');
     cy.get('input[name="username"]').type('testuser');
     cy.get('input[name="password"]').type('testuser1234');
     cy.get('button[type="submit"]').click();
     cy.wait(5000); 
-    cy.visit('https://www.cosc499team20.com/library');
+    cy.visit('http://localhost:3000/library');
     
 })
 
@@ -27,7 +27,7 @@ describe('Delete video button should delete video', () => {
       cy.wait (5000);
 
       // Wait for the page to reload (adjust the wait time according to your application's reload time)
-      cy.visit('https://www.cosc499team20.com/library');
+      cy.visit('http://localhost:3000/library');
 
       cy.wait(5000);
 
