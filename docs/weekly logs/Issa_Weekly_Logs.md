@@ -385,13 +385,15 @@
 * Team meetings. There has been a lot of issues with the AWS backend. User account pools are currently not being recognized; therefore, team meetings were spenting trying to come up with a solution for this problem.
 * During team meetings we realized that we did not have an upload video test spec for cypress. As upload video is one of the core features of our website, I decided to write a test spec.
 * Used figma to make upgrade UI for our navigation bar. Replaced the text button with an icon button on the navigation. Added css styling to navigation bar such as hover effects and text decoration. Acheiving this required me to first create a navigation bar from scratch in figma as our old navigation bar was generated from default amplify library components which was not easy to edit. I found free to use icons (MIT license) to use in the navigation bar for profile and website logo. I converted the navigation bar to react code using amplify studio. Finally, I learnt how to apply css styling to code amplify react components.
-* Work with Mo and Abhijit to fix the issues with AWS backend.
-* I am learing react at an indepth level.
+* Worked with Mo and Abhijit to fix the issue with the AWS backend not recognizing the user pool. At first we assumed that this issue was a fault of our own; but, as we kept investigating we found that this is a know bug/issue with AWS amplify and found similar issues in the AWS amplify repository. See https://github.com/aws-amplify/amplify-studio/issues/730. So we tried a lot of different suggestions we found on stackoverflow/github; but utimately when we disabled our amplify studio, renabled it, and changed our build settings our user pool started to get recognized again.
+* Learnt a lot of react as we will need it to make our front end look polished.
 
 ### Goals for Next Week
-* Front end coding to allow users to edit, share, or delete video from displayed video.
-* Front end coding to create forms for sharing video
-* Learn React at indepth level for front end coding
+* Keep learning react 
+* Make a custom component that will serve as a container for retrieved videos from the s3 bucket.
+* Help implement front end UI for sharing video.
+
+
 ### Recap goals
 * Front end coding to allow users to edit, share, or delete video from displayed video.
 * Front end coding to create forms for sharing video
@@ -399,10 +401,10 @@
 
 
 ### Task Completed (from Peer Eval Portal)
-![text](https://i.imgur.com/GOJ7N7L.png)
+![text](https://i.imgur.com/UldzSe5.png)
 
 ### Task Completed vs In Progress
-![text](https://i.imgur.com/TNRmQBf.png)
+![text](https://i.imgur.com/FTYEUW0.png)
 
 
 
