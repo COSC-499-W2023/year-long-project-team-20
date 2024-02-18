@@ -3,12 +3,12 @@
     
     // Before each, visit website, log in, and navigate to record video section
     beforeEach(()=> {
-        cy.visit('https://www.cosc499team20.com');
+        cy.visit('http://localhost:3000');
         cy.get('input[name="username"]').type('mohdsm');
         cy.get('input[name="password"]').type('m1234567890');
         cy.get('button[type="submit"]').click();
         cy.wait(5000); 
-        cy.visit('https://www.cosc499team20.com/record');
+        cy.visit('http://localhost:3000/record');
         
     })
 

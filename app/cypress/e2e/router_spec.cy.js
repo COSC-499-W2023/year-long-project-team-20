@@ -3,9 +3,9 @@ describe('test navigating through the website urls', function() {
     // Before each, visit website and log in 
     beforeEach(()=> {
       
-        cy.visit('https://www.cosc499team20.com');
-        cy.get('input[name="username"]').type('mohdsm');
-        cy.get('input[name="password"]').type('m1234567890');
+        cy.visit('http://localhost:3000');
+        cy.get('input[name="username"]').type('testuser');
+        cy.get('input[name="password"]').type('testuser1234');
         cy.get('button[type="submit"]').click();
 
     })
@@ -17,24 +17,23 @@ describe('test navigating through the website urls', function() {
         cy.wait(3000);
        
         // Check that the user sees the welcome message on the home page 
-        cy.contains('Welcome Back').should('be.visible');
+        cy.contains('Instant and Secure Video Sharing').should('be.visible');
 
         // Visit the Profile page
-        cy.visit('https://www.cosc499team20.com/profile');
+        cy.visit('http://localhost:3000/profile');
         //Verify the url is correct
-        cy.url().should('include', 'https://www.cosc499team20.com/profile');
+        cy.url().should('include', 'http://localhost:3000/profile');
 
         // Visit the record page
-        cy.visit('https://www.cosc499team20.com/record');
+        cy.visit('http://localhost:3000/record');
         //Verify the url is correct
-        cy.url().should('include', 'https://www.cosc499team20.com/record');
+        cy.url().should('include', 'http://localhost:3000/record');
 
 
         // Visit the about page
-        cy.visit('https://www.cosc499team20.com/about');
+        cy.visit('http://localhost:3000/about');
         //Verify the url is correct
-        cy.url().should('include', 'https://www.cosc499team20.com/about');
-        
+        cy.url().should('include', 'http://localhost:3000/about');
         
         //
       })
