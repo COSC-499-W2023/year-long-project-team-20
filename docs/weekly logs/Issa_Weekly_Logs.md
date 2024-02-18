@@ -352,7 +352,7 @@
 ![text](https://i.imgur.com/h26Aphz.png)
 
 
-## Week 5 (Work Period Jan 29nd - Feb 4th, 2023)
+## Week 5 (Work Period Feb 5th - Feb 11th, 2023)
 
 ### Tasks completed this week
 
@@ -362,7 +362,6 @@
 * Spent a lot of time learning figma to be able to use amplify's figma to react code feature. My skill with figma is now at the level where I understand how to create components to be able to use in react. 
 * Created a video card in figma and attempted to use it to display videos in 2 column grid. As I was spending more time in this method, I realized that this sort of approach could be more trouble than worth for displaying videos. It would have been ideal for image display but for videos this may not be the case. I created a draft pr to showcase my work. Will discuss with MO and see if the work I did could be useful or not.
 * Wrote a cypress e2e testing for delete video functionality. This took pretty much the whole sunday to write as there were not enough tutorials online and some of the tutorials were very complicated. I wrote my own logic/method for this test. Also, I had to rewrite the delete video function to make it testable. 
-
 
 ### Goals for Next Week
 * Front end coding to allow users to edit, share, or delete video from displayed video.
@@ -378,6 +377,33 @@
 
 ### Task Completed vs In Progress
 ![text](https://i.imgur.com/TNRmQBf.png)
+
+
+## Week 6 (Work Period Feb 12th - Feb 18th, 2023)
+### Tasks completed this week
+
+* Team meetings. There has been a lot of issues with the AWS backend. User account pools are currently not being recognized; therefore, team meetings were spenting trying to come up with a solution for this problem.
+* During team meetings we realized that we did not have an upload video test spec for cypress. As upload video is one of the core features of our website, I decided to write a test spec.
+* Used figma to make upgrade UI for our navigation bar. Replaced the text button with an icon button on the navigation. Added css styling to navigation bar such as hover effects and text decoration. Acheiving this required me to first create a navigation bar from scratch in figma as our old navigation bar was generated from default amplify library components which was not easy to edit. I found free to use icons (MIT license) to use in the navigation bar for profile and website logo. I converted the navigation bar to react code using amplify studio. Finally, I learnt how to apply css styling to code amplify react components.
+* Work with Mo and Abhijit to fix the issues with AWS backend.
+* I am learing react at an indepth level.
+
+### Goals for Next Week
+* Front end coding to allow users to edit, share, or delete video from displayed video.
+* Front end coding to create forms for sharing video
+* Learn React at indepth level for front end coding
+### Recap goals
+* Front end coding to allow users to edit, share, or delete video from displayed video.
+* Front end coding to create forms for sharing video
+* Learn React at indepth level for front end coding
+
+
+### Task Completed (from Peer Eval Portal)
+![text](https://i.imgur.com/GOJ7N7L.png)
+
+### Task Completed vs In Progress
+![text](https://i.imgur.com/TNRmQBf.png)
+
 
 
 
