@@ -13,7 +13,6 @@ import {
 import "@aws-amplify/ui-react/styles.css";
 import { Storage } from 'aws-amplify';
 
-
 const Recorder = () => {
   const [recording, setRecording] = useState(false);
   const [recordedChunks, setRecordedChunks] = useState([]);
@@ -23,7 +22,6 @@ const Recorder = () => {
   const mediaStream = useRef(null);
 
   const [recordedVideoUrl, setRecordedVideoUrl] = useState(null);
-
 
 
   useEffect(() => {
@@ -69,6 +67,7 @@ const Recorder = () => {
 
   //Stop recording 
   const stopRecording = () => {
+
     if (mediaRecorder.current) {
       mediaRecorder.current.stop();
       setRecording(false);
@@ -122,10 +121,10 @@ const Recorder = () => {
   
       // Upload the video to storage
       await uploadToStorage(blob, fileName);
-  
-      console.log('Successfully uploaded video');
+
     } catch (error) {
-      console.error('Error uploading video:', error);
+      alert('Error uploading video');
+      console.error('Error uploading video : upload:', error);
     }
   };
   
@@ -137,23 +136,40 @@ const Recorder = () => {
         contentType: 'video/mp4',
       });
   
-      console.log('Successfully uploaded video to storage');
+      alert('Successfully uploaded video');
+      console.log('Successfully uploaded video to storage put');
     } catch (error) {
-      console.error('Error uploading video to storage:', error);
+      alert('Error uploaded video');
+      console.error('Error uploading video to storage: put', error);
     }
+
   };
 
   return (
-    <div style={{ paddingTop: '35px', paddingBottom: '35px' }} >
-      <video ref={videoRef} autoPlay muted={recording} />
+    <div style={{ paddingTop: '2em', paddingBottom: '2em'}} >
       
-      <div>
+      {recordedChunks.length > 0 && (recording ? 
+      <h2 className="recording-text">Recording Now in Progress...</h2> : 
+      <h2 className="stop-text">Recording Ended</h2>)
+      }     
+       <video ref={videoRef} autoPlay muted={recording} />
+      
+      <div className="video-buttons">
         <Button onClick={startRecording} disabled={recording} className="start-button">Start Recording</Button>
-        <Button onClick={stopRecording} disabled={!recording} className="stop-button">Stop Recording</Button>
-        
+
+        { recordedChunks.length > 0 && (recording ? 
+        <Button onClick={stopRecording} className="regular-stop-button">Stop Recording </Button> : 
+        <Button onClick={stopRecording} className="stop-button">End Recording </Button> 
+        )} 
+          
+      </div>
+
+      <div className="after-recorded-buttons">
         <Button onClick={playRecording} disabled={recordedChunks.length === 0 || recording} className="play-button">Play Video</Button>
-        <Button onClick={uploadVideo} disabled={recordedChunks.length === 0 || recording} className="save-button">Save </Button>
+        <Button onClick={uploadVideo} disabled={recordedChunks.length === 0 || recording} className="save-button">Upload </Button>
         <Button onClick={downloadVideo} disabled={recordedChunks.length === 0 || recording} className="download-button">Download </Button>
+        </div>
+      <div>
 
       </div>
     </div>
