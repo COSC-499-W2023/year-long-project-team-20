@@ -1,7 +1,7 @@
 describe('Registration', function() {
   // Step 1: setup the application state
   beforeEach(()=> {
-    cy.visit('https://www.cosc499team20.com');
+    cy.visit('http://localhost:3000');
   })
   describe('first visit', () => {
      it ('should display login component with sign in UI visible', () => {
