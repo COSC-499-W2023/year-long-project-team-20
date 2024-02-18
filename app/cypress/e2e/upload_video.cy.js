@@ -17,9 +17,11 @@ describe ('Upload Video',()=>{
     cy.get('[data-testid="uploadVideo"]').should('be.visible');
     cy.get('[data-testid="chooseFile"]').should('be.visible');
 
-    //simulate upload process
-    cy.fixture('testVideo.mp4').then(fileContent =>{
-      cy.get('[data-testid="chooseFile"]').attachFile({
+  
+    // simulate upload process in this section
+    
+    cy.fixture('testVideo.mp4').then(fileContent =>{ //cy.fixture takes a file as parameter that is located inside the fixtures folder
+      cy.get('[data-testid="chooseFile"]').attachFile({ // select the choose file input button and call the attachFile method
         fileContent: fileContent,
         fileName: 'testVideo.mp4',
         mimeType: 'video/mp4'
