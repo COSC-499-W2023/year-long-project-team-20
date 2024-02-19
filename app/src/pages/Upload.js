@@ -42,8 +42,19 @@ const Upload = () => {
   return (
     <div style={{ paddingLeft: '35px' }}>
       <h1>Upload a video from your computer </h1>
-      <input type="file" accept="video/mp4" ref={fileInput} />
-      <Button onClick={uploadVideo}>Upload Video</Button>
+      <input 
+        aria-label ="Choose File"
+        type="file" 
+        accept="video/mp4" 
+        ref={fileInput}
+        data-testid="chooseFile" />
+        
+      <Button
+        aria-label ="Upload Video" // the aria label attribute provides a label ("Upload Video") to dsecribe the buttons purpose, making it accessible to users who rely on screen readers
+        onClick={uploadVideo}
+        data-testid="uploadVideo"
+        >Upload Video
+        </Button>
 
       {/* Other components like Recorder, etc. can be placed here */}
 
