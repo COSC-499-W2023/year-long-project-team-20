@@ -1,5 +1,6 @@
 
 import { Outlet } from "react-router-dom";
+import './navbar.css';
 
 import logo from "../logo.svg";
 import "@aws-amplify/ui-react/styles.css";
@@ -18,10 +19,10 @@ import {
 } from "@aws-amplify/ui-react";
 
 import {
-  NavBarHeader2 
+  Mynavbar 
  } from '../ui-components';
  import { useNavigate } from 'react-router-dom';
-
+ 
 
  //Components that are in root will show up in all pages of our website, such as the navigation bar
 const Root = ({ signOut }) => {
@@ -47,7 +48,7 @@ const Root = ({ signOut }) => {
           }
         },
     
-        "Profile" : {
+        "profile" : {
           style: {
             cursor: "pointer",
           },
@@ -113,8 +114,9 @@ const Root = ({ signOut }) => {
      <View padding="all" className="App">
        <Card>
          <Flex direction="column" align="center" gap="1rem">
-         <NavBarHeader2 width={"100"} 
-         overrides = {navbarOverrides}/> 
+         <Mynavbar width={"100"}
+          overrides={navbarOverrides} 
+         /> 
          <Outlet></Outlet>
          </Flex>
        </Card>

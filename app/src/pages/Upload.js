@@ -10,7 +10,8 @@ import {
   Text,
   Flex,
   TextField,
-  AmplifyProvider
+  AmplifyProvider,
+  ThemeProvider
 } from "@aws-amplify/ui-react";
 
 import { Storage } from "aws-amplify";
