@@ -1,5 +1,15 @@
+type VideoList @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  User: String!
+  UserID: String!
+  VideoName: String!
+  VideoLink: String!
+  Description: String
+}
+
 type InAppMessaging @model @auth(rules: [{allow: public}]) {
   id: ID!
   text: String!
   email: String
 }
+ 

@@ -11,7 +11,9 @@ import {
   AmplifyProvider
 } from "@aws-amplify/ui-react";
 import "@aws-amplify/ui-react/styles.css";
-import { Storage } from 'aws-amplify';
+
+import { Auth, API, Storage, graphqlOperation } from "aws-amplify";
+import { createInAppMessaging, createShareVideo, createVideoList } from '../graphql/mutations';
 
 
 const Recorder = () => {
@@ -23,6 +25,7 @@ const Recorder = () => {
   const mediaStream = useRef(null);
 
   const [recordedVideoUrl, setRecordedVideoUrl] = useState(null);
+  const cloudFrontUrl = 'https://dglw8nnn1gfb2.cloudfront.net/protected';
 
 
 
@@ -123,21 +126,27 @@ const Recorder = () => {
       // Upload the video to storage
       await uploadToStorage(blob, fileName);
   
-      console.log('Successfully uploaded video');
+      alert('Successfully uploaded video');
     } catch (error) {
       console.error('Error uploading video:', error);
     }
   };
   
   const uploadToStorage = async (blob, fileName) => {
+    const credentials = await Auth.currentCredentials(); // fetch current 
+    const user = await Auth.currentAuthenticatedUser();
     try {
       // Use the put method to upload the video file.
       await Storage.put(fileName, blob, {
         level: 'protected',
         contentType: 'video/mp4',
       });
+
+      // Empty array means this effect will only run once
+      // // Call the createShareVideo mutation
+      const link = `${cloudFrontUrl}/${credentials.identityId}/${fileName}`;
+      await API.graphql(graphqlOperation(createVideoList, { input: { User: user.username, UserID: credentials.identityId, VideoName: fileName, VideoLink: link } }));
   
-      console.log('Successfully uploaded video to storage');
     } catch (error) {
       console.error('Error uploading video to storage:', error);
     }
@@ -160,4 +169,4 @@ const Recorder = () => {
   );
 };
 
-export default Recorder;
+export default withAuthenticator(Recorder);
