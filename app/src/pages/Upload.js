@@ -40,7 +40,8 @@ const Upload = () => {
       const link = `${cloudFrontUrl}/${credentials.identityId}/${file.name}`;
       await API.graphql(graphqlOperation(createVideoList, { input: { User: user.username, UserID: credentials.identityId, VideoName: file.name, VideoLink: link } }));
       alert('Successfully uploaded video');
-      
+      console.log('Successfully uploaded video');
+
     } catch (error) {
       console.error('Error uploading video:', error);
       alert('Error uploading video:');
