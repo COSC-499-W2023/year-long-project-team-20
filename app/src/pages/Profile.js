@@ -20,6 +20,7 @@ import { Hub } from 'aws-amplify';
 
 import { Authenticator } from '@aws-amplify/ui-react';
 import '@aws-amplify/ui-react/styles.css';
+import Swal from 'sweetalert2';
 
 function App() {
   const [user, setUser] = useState(null);
@@ -59,10 +60,18 @@ function App() {
       email: editableUser.email
     });
 
-    alert('a verification code has been sent');
+    Swal.fire({
+      icon: 'info',
+      title: 'Verification Code Sent',
+      text: 'A verification code has been sent',
+    });
   
   } catch (err) {
-    alert('there was an issue, try again')
+    Swal.fire({
+      icon: 'error',
+      title: 'Issue',
+      text: 'There was an issue, please try again',
+    });
     console.log('failed with error', err);
   }
 }
@@ -71,15 +80,23 @@ function App() {
 async function verifyEmailValidationCode(code) {
   try {
     await Auth.verifyCurrentUserAttributeSubmit('email', code);
-    alert('email verified successfully');
-    //reload page with updated user info
-    const updatedUser = await Auth.currentAuthenticatedUser({bypassCache: true});
-    setShowValidationCodeUI(false);
-    setIsEditing(false);
-    window.location.reload()
-
+    Swal.fire({
+      icon: 'success',
+      title: 'Email Verified',
+      text: 'Email verified successfully',
+    }).then(async () => {
+      //reload page with updated user info
+      const updatedUser = await Auth.currentAuthenticatedUser({bypassCache: true});
+      setShowValidationCodeUI(false);
+      setIsEditing(false);
+      window.location.reload();
+    });
   } catch (err) {
-    alert('email verified failed', err);
+    Swal.fire({
+      icon: 'error',
+      title: 'Email Verification Failed',
+      text: 'Failed to verify email',
+    });
     setShowValidationCodeUI(false);
     setIsEditing(false);
     window.location.reload()

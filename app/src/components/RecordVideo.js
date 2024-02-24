@@ -14,7 +14,7 @@ import "@aws-amplify/ui-react/styles.css";
 
 import { Auth, API, Storage, graphqlOperation } from "aws-amplify";
 import { createInAppMessaging, createShareVideo, createVideoList } from '../graphql/mutations';
-
+import Swal from 'sweetalert2';
 
 const Recorder = () => {
   const [recording, setRecording] = useState(false);
@@ -119,16 +119,50 @@ const Recorder = () => {
     try {
       // Store the recorded video in blob
       const blob = new Blob(recordedChunks, { type: 'video/mp4' });
-  
+
       // Generate a unique name for the video
       const fileName = `recorded_video_${new Date().toISOString()}.mp4`;
-  
-      // Upload the video to storage
-      await uploadToStorage(blob, fileName);
-  
-      alert('Successfully uploaded video');
+
+      // Confirm if the user wants to upload the video
+      const result = await Swal.fire({
+        title: 'Are you sure?',
+        text: 'Do you want to upload the video to your cloud?',
+        icon: 'question',
+        showCancelButton: true,
+        confirmButtonText: 'Yes, upload it!',
+        cancelButtonText: 'No, cancel'
+      });
+
+      if (result.isConfirmed) {
+        // Display a loading alert
+        let swalInstance = Swal.fire({
+          title: 'Uploading...',
+          text: 'Please wait while we upload your video. (This may take a while, we will notify you when it is done!)',
+          allowOutsideClick: false,
+        });
+        
+        // Upload the video to storage
+        await uploadToStorage(blob, fileName);
+
+        console.log('Successfully uploaded video');
+        Swal.fire({ 
+          title: 'Success!',
+          text: 'Your video has been uploaded.',
+          icon: 'success',
+          confirmButtonText: 'Cool'
+        });
+      } else {
+        console.log('User cancelled the upload');
+      }
+
     } catch (error) {
       console.error('Error uploading video:', error);
+      Swal.fire({
+        title: 'Error!',
+        text: 'There was an error uploading your video.',
+        icon: 'error',
+        confirmButtonText: 'Try Again'
+      });
     }
   };
   
@@ -149,6 +183,12 @@ const Recorder = () => {
   
     } catch (error) {
       console.error('Error uploading video to storage:', error);
+      Swal.fire({
+        title: 'Error!',
+        text: 'There was an error uploading your video.',
+        icon: 'error',
+        confirmButtonText: 'Try Again'
+      });
     }
   };
 

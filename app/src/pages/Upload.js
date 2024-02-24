@@ -16,6 +16,7 @@ import {
 
 import { Auth, API, Storage, graphqlOperation } from "aws-amplify";
 import { createInAppMessaging, createShareVideo, createVideoList } from '../graphql/mutations';
+import Swal from 'sweetalert2';
 
 
 const Upload = () => {
@@ -29,25 +30,59 @@ const Upload = () => {
     const credentials = await Auth.currentCredentials(); // fetch current 
     const user = await Auth.currentAuthenticatedUser();
 
-    try {
-      // Use the put method to upload the video file.
-      await Storage.put(file.name, file, {
-        level: 'protected',
-        contentType: videoContentType
-      });
-      // Empty array means this effect will only run once
-      // // Call the createShareVideo mutation
-      const link = `${cloudFrontUrl}/${credentials.identityId}/${file.name}`;
-      await API.graphql(graphqlOperation(createVideoList, { input: { User: user.username, UserID: credentials.identityId, VideoName: file.name, VideoLink: link } }));
-      alert('Successfully uploaded video');
-      console.log('Successfully uploaded video');
+    // Confirm if the user wants to upload the video
+    const result = await Swal.fire({
+      title: 'Are you sure?',
+      text: 'Do you want to upload the video to your cloud?',
+      icon: 'question',
+      showCancelButton: true,
+      confirmButtonText: 'Yes, upload it!',
+      cancelButtonText: 'No, cancel'
+    });
 
-    } catch (error) {
-      console.error('Error uploading video:', error);
-      alert('Error uploading video:');
+    if (result.isConfirmed) {
+      try {
+        // Display a loading alert
+        let swalInstance = Swal.fire({
+          title: 'Uploading...',
+          text: 'Please wait while we upload your video. (This may take a while, we will notify you when it is done!)',
+          allowOutsideClick: false,
+        });
+
+        // Use the put method to upload the video file.
+        await Storage.put(file.name, file, {
+          level: 'protected',
+          contentType: videoContentType
+        });
+
+        // Call the createShareVideo mutation
+        const link = `${cloudFrontUrl}/${credentials.identityId}/${file.name}`;
+        await API.graphql(graphqlOperation(createVideoList, { input: { User: user.username, UserID: credentials.identityId, VideoName: file.name, VideoLink: link } }));
+
+        // Close the loading alert and display a success message
+        swalInstance.close();
+        Swal.fire({
+          title: 'Success!',
+          text: 'Your video has been uploaded.',
+          icon: 'success',
+          confirmButtonText: 'Cool'
+        });
+
+        console.log('Successfully uploaded video');
+
+      } catch (error) {
+        console.error('Error uploading video:', error);
+        Swal.fire({
+          title: 'Error!',
+          text: 'There was an error uploading your video.',
+          icon: 'error',
+          confirmButtonText: 'Try Again'
+        });
+      }
+    } else {
+      console.log('User cancelled the upload');
     }
   };
-
   return (
     <div style={{ paddingLeft: '35px' }}>
       <h1>Upload a video from your computer </h1>
