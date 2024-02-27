@@ -12,6 +12,8 @@ import {
 } from "@aws-amplify/ui-react";
 import "@aws-amplify/ui-react/styles.css";
 import { Storage } from 'aws-amplify';
+//import { FFmpeg } from '@ffmpeg/ffmpeg';
+//import { fetchFile, toBlobURL } from '@ffmpeg/util';
 
 
 const Recorder = () => {
@@ -24,8 +26,74 @@ const Recorder = () => {
 
   const [recordedVideoUrl, setRecordedVideoUrl] = useState(null);
 
+  // Would allow user to preview shorter sections of their video
+  // function previewEdit() {
 
+      // Grab elements
+  //   const modifiedVideo = document.getElementById('modified-video');
+  //   const originalVideo = document.getElementById(modifiedVideo.dataset.from);
 
+  //   [...originalVideo.children].forEach(child => {
+  //       modifiedVideo.appendChild(child.cloneNode());
+  //   });
+
+      // Modify start and end time of the video based on video data info
+  //   modifiedVideo.duration = Number(modifiedVideo.dataset.end) - Number(modifiedVideo.dataset.start);
+  //   modifiedVideo.currentTime = modifiedVideo.dataset.start;
+
+  //   modifiedVideo.addEventListener('timeupdate', (e) => {
+  //       if (modifiedVideo.currentTime >= modifiedVideo.dataset.end) {
+  //           modifiedVideo.pause();
+  //           modifiedVideo.currentTime = modifiedVideo.dataset.start;
+  //           if (modifiedVideo.dataset.autoreplay === "true") {
+  //               modifiedVideo.play();
+  //           }
+  //       }
+  //   });
+  // }
+// Associated video element, that function would use
+//    <video id="modified-video" width="320" height="240" data-from="original-video" data-start="3" data-end="10" data-autoreplay="true" muted></video
+
+// FFFmpeg 
+//
+//  const {fetchFile} = new FFmpeg({ log: true })
+  
+  // //Set up progress bar that loads while video gets trimmed
+  // const ffmpeg = new FFmpeg({ progress: (e) => {
+  //   var button = document.getElementById("trim-button");
+  //   button.textContent = "Processing video" + e.time;
+
+  //   button.disabled = true;
+
+  // }});
+
+  // //trim video
+  // const transcode = async () => {
+  //   alert("transcoding ");
+
+  //   //grab and store video 
+  //   const blob = new Blob(recordedChunks, {
+  //     type: 'video/mp4',
+  //   });
+  //   const name = "trimmedVideo.mp4"
+  //   const arrayBuffer = await blob.arrayBuffer();
+  //   const uint8Array = new Uint8Array(arrayBuffer);
+
+  //   await ffmpeg.load();
+  //   await ffmpeg.writeFile(name, uint8Array);
+
+  //   //Use start/end time from user input to trim video 
+  //   const start = document.querySelector(".trim-start").value;
+  //   const end = document.querySelector(".trim-end").value;
+  //   await ffmpeg.exec('-i', name, '-ss', start, '-to', end, await fetchFile(arrayBuffer))
+    
+  //   //grab trimmed video and let user play video
+  //    const trimmedBlob = await fetchFile('trimmedVideo.mp4');
+  //    const trimmedUrl = toBlobURL(trimmedBlob);
+  //    setRecordedVideoUrl(trimmedUrl);
+  // }
+
+  
   useEffect(() => {
     // Ask for permission to access user's camera and audio
     navigator.mediaDevices.getUserMedia({ audio: true, video: true }).then((stream) => {
@@ -77,6 +145,7 @@ const Recorder = () => {
     }
   };
 
+  
   const downloadVideo = () => {
       // Store the recorded video in blob
       const blob = new Blob(recordedChunks, {
@@ -92,8 +161,6 @@ const Recorder = () => {
       a.download = 'record.mp4';
       a.click();
   }
-
-
   
   const playRecording = () => {
     //Stop showing stream from user's camera
@@ -144,8 +211,8 @@ const Recorder = () => {
   };
 
   return (
-    <div style={{ paddingTop: '35px', paddingBottom: '35px' }} >
-      <video ref={videoRef} autoPlay muted={recording} />
+    <div style={{ paddingTop: '35px', paddingBottom: '35px'}} >
+      <video id="original-video" ref={videoRef} autoPlay muted={recording} />
       
       <div>
         <Button onClick={startRecording} disabled={recording} className="start-button">Start Recording</Button>
@@ -154,9 +221,21 @@ const Recorder = () => {
         <Button onClick={playRecording} disabled={recordedChunks.length === 0 || recording} className="play-button">Play Video</Button>
         <Button onClick={uploadVideo} disabled={recordedChunks.length === 0 || recording} className="save-button">Save </Button>
         <Button onClick={downloadVideo} disabled={recordedChunks.length === 0 || recording} className="download-button">Download </Button>
-
+      
       </div>
-    </div>
+      
+      <Button
+       // onClick={previewEdit}
+         disabled={recordedChunks.length === 0 || recording}
+         style={{fontSize: '1.25em', width: '30%', marginTop: '30px'  }}
+         className="trim-button"
+        > Trim Video </Button>
+        
+        <input type="number" placeholder="Start" style={{ width: '100px', marginRight: '10px', marginLeft: '20px'}} className="trim-start"/>
+        <input type="number" placeholder="End" style={{ width: '100px', marginRight: '10px' }} className="trim-end"/>    
+        
+    </div> 
+
   );
 };
 

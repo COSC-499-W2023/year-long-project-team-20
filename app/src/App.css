@@ -13,3 +13,13 @@
   color: white;
 }
 
+
+.trim-button:disabled {
+  background-color: #cccccc; /* Muted red color when disabled */
+  color: #808080; /* Text color for disabled state cccccc */ 
+}
+
+.trim-button:enabled {
+  background-color: #e73512; /* Brighter red color when enabled */
+  color: #ffffff; /* Text color for enabled state */
+}
