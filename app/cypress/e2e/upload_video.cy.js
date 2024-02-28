@@ -43,7 +43,15 @@ describe ('Upload Video',()=>{
     //check if the video is visible in Library
     cy.visit('http://localhost:3000/library');
     cy.wait(5000);
-    cy.get('video > source').should('have.attr', 'src').and('include', 'testVideo.mp4');
-
+    
+    //check if the video is visible in the library
+    let found = false;
+    cy.get('video > source').each(($el, index, $list) => {
+      if ($el.attr('src').includes('testVideo.mp4')) {
+        found = true;
+      }
+    }).then(() => {
+      expect(found).to.be.true;
+    });
   })
 })
