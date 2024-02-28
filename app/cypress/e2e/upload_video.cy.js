@@ -30,17 +30,20 @@ describe ('Upload Video',()=>{
 
     // click upload button
     cy.get('[data-testid="uploadVideo"]').click();
+    //click the confirm button in the alert
+    cy.get('.swal2-confirm').click();
+    //click the ok button in the wait alert
+    cy.get('.swal2-confirm').click();
 
-     // Wait for the console log indicating that upload is completed
-     cy.window().then((win) => {
-      cy.spy(win.console, 'log').as('consoleLog')
-    })
+    //wait for 10 seconds
+    cy.wait(10000);
+    //click the ok buttom in the success alert
+    cy.get('.swal2-confirm').click();
 
-    //
-    cy.get('@consoleLog').should('be.calledWith', 'Successfully uploaded video') 
-    // this concludes the test for now
-    // test could be expanded to by navigating to the upload page and checking to see if the video that was uploaded is present
-
+    //check if the video is visible in Library
+    cy.visit('http://localhost:3000/library');
+    cy.wait(5000);
+    cy.get('video > source').should('have.attr', 'src').and('include', 'testVideo.mp4');
 
   })
 })

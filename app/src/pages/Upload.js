@@ -59,8 +59,10 @@ const Upload = () => {
         const link = `${cloudFrontUrl}/${credentials.identityId}/${file.name}`;
         await API.graphql(graphqlOperation(createVideoList, { input: { User: user.username, UserID: credentials.identityId, VideoName: file.name, VideoLink: link } }));
 
-        // Close the loading alert and display a success message
+        // Close the loading alert
         swalInstance.close();
+
+        // Display a success message
         Swal.fire({
           title: 'Success!',
           text: 'Your video has been uploaded.',
@@ -68,6 +70,7 @@ const Upload = () => {
           confirmButtonText: 'Cool'
         });
 
+        // Log success message
         console.log('Successfully uploaded video');
 
       } catch (error) {
