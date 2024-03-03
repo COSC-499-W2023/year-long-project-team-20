@@ -11,7 +11,8 @@ import {
   Card,
   Text,
   Flex,
-  AmplifyProvider
+  AmplifyProvider,
+  ThemeProvider
 } from "@aws-amplify/ui-react";
 
 
@@ -104,7 +105,15 @@ function App() {
     }
   };
 
-  return <RouterProvider router={router}/>;
+  return (
+    <AmplifyProvider>
+      <ThemeProvider >
+          <RouterProvider router={router}/>
+      </ThemeProvider>
+       
+    </AmplifyProvider>
+   
+  ) 
 
 }
 
