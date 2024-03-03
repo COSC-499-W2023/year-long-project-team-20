@@ -14,7 +14,7 @@ import {
   Flex,
   AmplifyProvider
 } from "@aws-amplify/ui-react";
-import '../Home.css';
+import '../css/Home.css';
 import { useNavigate } from 'react-router-dom';
 
 //Once logged in, user will be sent here

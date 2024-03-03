@@ -23,7 +23,6 @@ import Record from "./pages/Record";
 import Root from "./pages/Root";
 import Upload from "./pages/Upload";
 import Library from "./pages/Library";
-import Chat from "./pages/Chat";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 
 //Set up paths for the different pages shown in the nav bar
@@ -38,7 +37,6 @@ const router = createBrowserRouter([
       {path: '/library', element: <Library/>},
       {path: '/about', element: <About/>},
       {path: '/profile', element: <Profile/>},   
-      {path: '/chat', element: <Chat/>},
     ],
   },
 
