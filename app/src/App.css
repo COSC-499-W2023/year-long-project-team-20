@@ -8,7 +8,7 @@
   color: white;
 }
 
-.stop-button:hover, .stop-button {
+.stop-button:hover, .stop-button[enabled] {
   background-color: red;
   color: white;
 }

@@ -123,8 +123,7 @@ const Recorder = () => {
       await uploadToStorage(blob, fileName);
 
     } catch (error) {
-      alert('Error uploading video');
-      console.error('Error uploading video : upload:', error);
+
     }
   };
   
@@ -139,7 +138,7 @@ const Recorder = () => {
       alert('Successfully uploaded video');
       console.log('Successfully uploaded video to storage put');
     } catch (error) {
-      alert('Error uploaded video');
+      alert('Error uploading video');
       console.error('Error uploading video to storage: put', error);
     }
 
@@ -148,18 +147,23 @@ const Recorder = () => {
   return (
     <div style={{ paddingTop: '2em', paddingBottom: '2em'}} >
       
-      {recordedChunks.length > 0 && (recording ? 
-      <h2 className="recording-text">Recording Now in Progress...</h2> : 
-      <h2 className="stop-text">Recording Ended</h2>)
-      }     
+      {
+        recordedChunks.length > 0 ? (
+          recording ? 
+            <h1 className="recording-text">Recording Now in Progress...</h1> : 
+            <h1 className="stop-text">Recording Ended</h1>
+        ) : (
+          <h1>Record a Video</h1>
+        )
+      }
        <video ref={videoRef} autoPlay muted={recording} />
       
       <div className="video-buttons">
         <Button onClick={startRecording} disabled={recording} className="start-button">Start Recording</Button>
 
         { recordedChunks.length > 0 && (recording ? 
-        <Button onClick={stopRecording} className="regular-stop-button">Stop Recording </Button> : 
-        <Button onClick={stopRecording} className="stop-button">End Recording </Button> 
+        <Button onClick={stopRecording} disabled={false} className="stop-button">Stop Recording </Button> : 
+        <Button onClick={stopRecording} disabled={true} className="stop-button">Stop Recording </Button> 
         )} 
           
       </div>
