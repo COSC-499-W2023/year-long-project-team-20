@@ -12,6 +12,7 @@ import {
 } from "@aws-amplify/ui-react";
 import "@aws-amplify/ui-react/styles.css";
 import { Storage } from 'aws-amplify';
+import ProgressBar from './/ProgressBar.js'; 
 
 const Recorder = () => {
   const [recording, setRecording] = useState(false);
@@ -22,6 +23,7 @@ const Recorder = () => {
   const mediaStream = useRef(null);
 
   const [recordedVideoUrl, setRecordedVideoUrl] = useState(null);
+  const [uploadProgress, setUploadProgress] = useState({ loaded: 0, total: 0, percentage: 0 });
 
 
   useEffect(() => {
@@ -129,10 +131,22 @@ const Recorder = () => {
   
   const uploadToStorage = async (blob, fileName) => {
     try {
+      console.log('progress loading: ')
+      const progressCallback = (progress) => {
+        console.log(`Progress: ${progress.loaded}/${progress.total}`);
+        setUploadProgress({ 
+          loaded: progress.loaded, 
+          total: progress.total,
+          percentage: Math.round((progress.loaded / progress.total) * 100)
+        });
+
+      };
+
       // Use the put method to upload the video file.
       await Storage.put(fileName, blob, {
         level: 'protected',
         contentType: 'video/mp4',
+        progressCallback,
       });
   
       alert('Successfully uploaded video');
@@ -145,7 +159,10 @@ const Recorder = () => {
   };
 
   return (
-    <div style={{ paddingTop: '2em', paddingBottom: '2em'}} >
+
+    <div>
+    <div style={{ paddingTop: '35px', paddingBottom: '35px'}} >
+      <video ref={videoRef} autoPlay muted={recording} />
       
       {
         recordedChunks.length > 0 ? (
@@ -177,6 +194,15 @@ const Recorder = () => {
 
       </div>
     </div>
+    <div>
+    <ProgressBar percentage={uploadProgress.percentage} />
+    
+    
+
+
+    </div>
+    </div>
+
   );
 };
 
