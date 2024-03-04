@@ -12,7 +12,7 @@ const Record = () => {
    
   return (
     <div style={{ paddingLeft: '35px' }}>
-      <h1>Record a Video</h1>
+      
       <Recorder />
     </div>
   );
