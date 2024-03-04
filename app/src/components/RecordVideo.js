@@ -159,11 +159,8 @@ const Recorder = () => {
   };
 
   return (
-
     <div>
-    <div style={{ paddingTop: '35px', paddingBottom: '35px'}} >
-      <video ref={videoRef} autoPlay muted={recording} />
-      
+    <div >      
       {
         recordedChunks.length > 0 ? (
           recording ? 
@@ -196,10 +193,6 @@ const Recorder = () => {
     </div>
     <div>
     <ProgressBar percentage={uploadProgress.percentage} />
-    
-    
-
-
     </div>
     </div>
 
