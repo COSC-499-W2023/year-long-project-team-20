@@ -6,16 +6,17 @@
 
 /* eslint-disable */
 import * as React from "react";
-import { getOverrideProps } from "./utils";
+import { getOverrideProps, useNavigateAction } from "./utils";
 import { Flex, Image, Text } from "@aws-amplify/ui-react";
 export default function NavBarHeader2(props) {
   const { overrides, ...rest } = props;
+  const profileOnClick = useNavigateAction({ type: "url", url: "" });
   return (
     <Flex
       gap="10px"
       direction="row"
       width="1440px"
-      height="unset"
+      height="85px"
       justifyContent="space-between"
       alignItems="center"
       overflow="hidden"
@@ -188,6 +189,9 @@ export default function NavBarHeader2(props) {
           padding="0px 0px 0px 0px"
           whiteSpace="pre-wrap"
           children="Profile"
+          onClick={() => {
+            profileOnClick();
+          }}
           {...getOverrideProps(overrides, "Profile")}
         ></Text>
       </Flex>

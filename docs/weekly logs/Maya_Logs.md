@@ -1,4 +1,24 @@
 # Maya Ayaviri Bacarreza's Logs 
+## Week 20 - Project Log
+
+**Work period February 12th - February 18th**
+<img width="990" alt="Screen Shot 2024-02-18 at 9 30 18 AM" src="https://github.com/COSC-499-W2023/year-long-project-team-20/assets/66889922/7de34650-d787-481e-a942-1cc3128d2f90">
+
+### Tasks Completed This Work Period (found on "record-ui-changes" pull request)
+* Added prompts to record video page
+* Added text to be more responsive to user (Clearly lets user know when video recording is in progress or when it has stopped)
+* Changed button styling to align with peer feedback (Larger text, colour changed after pressed)
+* Re-verification feature from last week was merged to master
+
+### Future Tasks
+* Add a progress bar for when video is uploading to back end (to record video and upload video page)
+* Allow user to upload multiple videos simultaneously on upload video page
+* Use FFMPEG with lambdas in aws
+  
+### Context 
+The issue we faced last week with certain tests not passing was fixed this week, however it appears we have a different bug in the backend preventing users from uploading their videos to the backend. This week I was able to apply advice we got from the peer feedback to the recording video page. Users expressed confusion on if their video successfully uploaded to the backend, now we have an alert to let them know if it did or did not. Additionally text was added that indicates to the user if a video recording is in progress or if they have stopped it. Lastly, the button styling was changed to be more easily understood. The previous design was not responsive enough to the user. With these changes the site more clearly displays to the user what is currently going on. 
+
+For the next work period, hopefully the backend issue will be resolved and I can work on implementing a progress upload bar to let the user to know how long it will take to upload their video to the backend. Additionally, I will try to allow a user to upload multiple videos on the upload video page, each upload should have its own progress bar as well. 
 
 ## Week 19 - Project Log
 
