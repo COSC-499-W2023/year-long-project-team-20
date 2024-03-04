@@ -1,4 +1,20 @@
 # Maya Ayaviri Bacarreza's Logs 
+## Week 22 - Project Log
+**Work period February 26th - March 3rd**
+<img width="745" alt="Screen Shot 2024-03-03 at 8 25 10 PM" src="https://github.com/COSC-499-W2023/year-long-project-team-20/assets/66889922/3e9dda51-565e-4755-b89c-16bf439d0419">
+
+
+### Tasks Completed This Work Period (found on "record-ui-changes" pull request)
+* Added progress bar that updates on the percentage of their video that has been uploaded https://github.com/COSC-499-W2023/year-long-project-team-20/pull/165
+* Made some minor improvements to the changes from last week https://github.com/COSC-499-W2023/year-long-project-team-20/pull/163
+   
+### Future Tasks
+* Allow user to upload multiple videos simultaneously on upload video page, updating user on progress of each one
+* Use FFMPEG with lambdas in aws
+
+### Context 
+The test issue from last week was resolved. I was able to implement a progress bar that lets the user know how much of the video has been uploaded. Next week I will work on allowing users to upload multiple videos, each displaying its own progress bar. If time allows I will pick back up trying to use ffmpeg with lambdas. Otherwise I will work on UI improvements or bugs found during peer eval.
+
 ## Week 20 - Project Log
 
 **Work period February 12th - February 18th**

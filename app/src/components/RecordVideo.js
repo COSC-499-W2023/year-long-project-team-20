@@ -12,7 +12,7 @@ import {
 } from "@aws-amplify/ui-react";
 import "@aws-amplify/ui-react/styles.css";
 import { Storage } from 'aws-amplify';
-
+import ProgressBar from './/ProgressBar.js'; 
 
 const Recorder = () => {
   const [recording, setRecording] = useState(false);
@@ -23,7 +23,7 @@ const Recorder = () => {
   const mediaStream = useRef(null);
 
   const [recordedVideoUrl, setRecordedVideoUrl] = useState(null);
-
+  const [uploadProgress, setUploadProgress] = useState({ loaded: 0, total: 0, percentage: 0 });
 
 
   useEffect(() => {
@@ -69,6 +69,7 @@ const Recorder = () => {
 
   //Stop recording 
   const stopRecording = () => {
+
     if (mediaRecorder.current) {
       mediaRecorder.current.stop();
       setRecording(false);
@@ -122,41 +123,79 @@ const Recorder = () => {
   
       // Upload the video to storage
       await uploadToStorage(blob, fileName);
-  
-      console.log('Successfully uploaded video');
+
     } catch (error) {
-      console.error('Error uploading video:', error);
+
     }
   };
   
   const uploadToStorage = async (blob, fileName) => {
     try {
+      console.log('progress loading: ')
+      const progressCallback = (progress) => {
+        console.log(`Progress: ${progress.loaded}/${progress.total}`);
+        setUploadProgress({ 
+          loaded: progress.loaded, 
+          total: progress.total,
+          percentage: Math.round((progress.loaded / progress.total) * 100)
+        });
+
+      };
+
       // Use the put method to upload the video file.
       await Storage.put(fileName, blob, {
         level: 'protected',
         contentType: 'video/mp4',
+        progressCallback,
       });
   
-      console.log('Successfully uploaded video to storage');
+      alert('Successfully uploaded video');
+      console.log('Successfully uploaded video to storage put');
     } catch (error) {
-      console.error('Error uploading video to storage:', error);
+      alert('Error uploading video');
+      console.error('Error uploading video to storage: put', error);
     }
+
   };
 
   return (
-    <div style={{ paddingTop: '35px', paddingBottom: '35px' }} >
-      <video ref={videoRef} autoPlay muted={recording} />
+    <div>
+    <div >      
+      {
+        recordedChunks.length > 0 ? (
+          recording ? 
+            <h1 className="recording-text">Recording Now in Progress...</h1> : 
+            <h1 className="stop-text">Recording Ended</h1>
+        ) : (
+          <h1>Record a Video</h1>
+        )
+      }
+       <video ref={videoRef} autoPlay muted={recording} />
       
-      <div>
+      <div className="video-buttons">
         <Button onClick={startRecording} disabled={recording} className="start-button">Start Recording</Button>
-        <Button onClick={stopRecording} disabled={!recording} className="stop-button">Stop Recording</Button>
-        
+
+        { recordedChunks.length > 0 && (recording ? 
+        <Button onClick={stopRecording} disabled={false} className="stop-button">Stop Recording </Button> : 
+        <Button onClick={stopRecording} disabled={true} className="stop-button">Stop Recording </Button> 
+        )} 
+          
+      </div>
+
+      <div className="after-recorded-buttons">
         <Button onClick={playRecording} disabled={recordedChunks.length === 0 || recording} className="play-button">Play Video</Button>
-        <Button onClick={uploadVideo} disabled={recordedChunks.length === 0 || recording} className="save-button">Save </Button>
+        <Button onClick={uploadVideo} disabled={recordedChunks.length === 0 || recording} className="save-button">Upload </Button>
         <Button onClick={downloadVideo} disabled={recordedChunks.length === 0 || recording} className="download-button">Download </Button>
+        </div>
+      <div>
 
       </div>
     </div>
+    <div>
+    <ProgressBar percentage={uploadProgress.percentage} />
+    </div>
+    </div>
+
   );
 };
 
