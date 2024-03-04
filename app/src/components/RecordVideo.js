@@ -131,10 +131,16 @@ const Recorder = () => {
   
   const uploadToStorage = async (blob, fileName) => {
     try {
+      console.log('progress loading: ')
+      const progressCallback = (progress) => {
+        console.log(`Progress: ${progress.loaded}/${progress.total}`);
+      };
+
       // Use the put method to upload the video file.
       await Storage.put(fileName, blob, {
         level: 'protected',
         contentType: 'video/mp4',
+        progressCallback,
       });
   
       console.log('Successfully uploaded video to storage');
