@@ -5,8 +5,10 @@ export const getInAppMessaging = /* GraphQL */ `
   query GetInAppMessaging($id: ID!) {
     getInAppMessaging(id: $id) {
       id
-      text
-      email
+      from
+      to
+      link
+      Description
       createdAt
       updatedAt
       __typename
@@ -22,8 +24,10 @@ export const listInAppMessagings = /* GraphQL */ `
     listInAppMessagings(filter: $filter, limit: $limit, nextToken: $nextToken) {
       items {
         id
-        text
-        email
+        from
+        to
+        link
+        Description
         createdAt
         updatedAt
         __typename

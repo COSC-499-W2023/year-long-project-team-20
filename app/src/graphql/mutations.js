@@ -8,8 +8,10 @@ export const createInAppMessaging = /* GraphQL */ `
   ) {
     createInAppMessaging(input: $input, condition: $condition) {
       id
-      text
-      email
+      from
+      to
+      link
+      Description
       createdAt
       updatedAt
       __typename
@@ -23,8 +25,10 @@ export const updateInAppMessaging = /* GraphQL */ `
   ) {
     updateInAppMessaging(input: $input, condition: $condition) {
       id
-      text
-      email
+      from
+      to
+      link
+      Description
       createdAt
       updatedAt
       __typename
@@ -38,8 +42,10 @@ export const deleteInAppMessaging = /* GraphQL */ `
   ) {
     deleteInAppMessaging(input: $input, condition: $condition) {
       id
-      text
-      email
+      from
+      to
+      link
+      Description
       createdAt
       updatedAt
       __typename

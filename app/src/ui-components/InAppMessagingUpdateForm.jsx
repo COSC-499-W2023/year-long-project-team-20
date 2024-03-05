@@ -24,18 +24,26 @@ export default function InAppMessagingUpdateForm(props) {
     ...rest
   } = props;
   const initialValues = {
-    text: "",
-    email: "",
+    from: "",
+    to: "",
+    link: "",
+    Description: "",
   };
-  const [text, setText] = React.useState(initialValues.text);
-  const [email, setEmail] = React.useState(initialValues.email);
+  const [from, setFrom] = React.useState(initialValues.from);
+  const [to, setTo] = React.useState(initialValues.to);
+  const [link, setLink] = React.useState(initialValues.link);
+  const [Description, setDescription] = React.useState(
+    initialValues.Description
+  );
   const [errors, setErrors] = React.useState({});
   const resetStateValues = () => {
     const cleanValues = inAppMessagingRecord
       ? { ...initialValues, ...inAppMessagingRecord }
       : initialValues;
-    setText(cleanValues.text);
-    setEmail(cleanValues.email);
+    setFrom(cleanValues.from);
+    setTo(cleanValues.to);
+    setLink(cleanValues.link);
+    setDescription(cleanValues.Description);
     setErrors({});
   };
   const [inAppMessagingRecord, setInAppMessagingRecord] = React.useState(
@@ -57,8 +65,10 @@ export default function InAppMessagingUpdateForm(props) {
   }, [idProp, inAppMessagingModelProp]);
   React.useEffect(resetStateValues, [inAppMessagingRecord]);
   const validations = {
-    text: [{ type: "Required" }],
-    email: [],
+    from: [{ type: "Required" }],
+    to: [{ type: "Required" }],
+    link: [{ type: "Required" }],
+    Description: [],
   };
   const runValidationTasks = async (
     fieldName,
@@ -86,8 +96,10 @@ export default function InAppMessagingUpdateForm(props) {
       onSubmit={async (event) => {
         event.preventDefault();
         let modelFields = {
-          text,
-          email: email ?? null,
+          from,
+          to,
+          link,
+          Description: Description ?? null,
         };
         const validationResponses = await Promise.all(
           Object.keys(validations).reduce((promises, fieldName) => {
@@ -140,54 +152,112 @@ export default function InAppMessagingUpdateForm(props) {
       {...rest}
     >
       <TextField
-        label="Text"
+        label="From"
         isRequired={true}
         isReadOnly={false}
-        value={text}
+        value={from}
         onChange={(e) => {
           let { value } = e.target;
           if (onChange) {
             const modelFields = {
-              text: value,
-              email,
+              from: value,
+              to,
+              link,
+              Description,
             };
             const result = onChange(modelFields);
-            value = result?.text ?? value;
+            value = result?.from ?? value;
           }
-          if (errors.text?.hasError) {
-            runValidationTasks("text", value);
+          if (errors.from?.hasError) {
+            runValidationTasks("from", value);
           }
-          setText(value);
+          setFrom(value);
         }}
-        onBlur={() => runValidationTasks("text", text)}
-        errorMessage={errors.text?.errorMessage}
-        hasError={errors.text?.hasError}
-        {...getOverrideProps(overrides, "text")}
+        onBlur={() => runValidationTasks("from", from)}
+        errorMessage={errors.from?.errorMessage}
+        hasError={errors.from?.hasError}
+        {...getOverrideProps(overrides, "from")}
       ></TextField>
       <TextField
-        label="Email"
-        isRequired={false}
+        label="To"
+        isRequired={true}
         isReadOnly={false}
-        value={email}
+        value={to}
         onChange={(e) => {
           let { value } = e.target;
           if (onChange) {
             const modelFields = {
-              text,
-              email: value,
+              from,
+              to: value,
+              link,
+              Description,
             };
             const result = onChange(modelFields);
-            value = result?.email ?? value;
+            value = result?.to ?? value;
           }
-          if (errors.email?.hasError) {
-            runValidationTasks("email", value);
+          if (errors.to?.hasError) {
+            runValidationTasks("to", value);
           }
-          setEmail(value);
+          setTo(value);
         }}
-        onBlur={() => runValidationTasks("email", email)}
-        errorMessage={errors.email?.errorMessage}
-        hasError={errors.email?.hasError}
-        {...getOverrideProps(overrides, "email")}
+        onBlur={() => runValidationTasks("to", to)}
+        errorMessage={errors.to?.errorMessage}
+        hasError={errors.to?.hasError}
+        {...getOverrideProps(overrides, "to")}
+      ></TextField>
+      <TextField
+        label="Link"
+        isRequired={true}
+        isReadOnly={false}
+        value={link}
+        onChange={(e) => {
+          let { value } = e.target;
+          if (onChange) {
+            const modelFields = {
+              from,
+              to,
+              link: value,
+              Description,
+            };
+            const result = onChange(modelFields);
+            value = result?.link ?? value;
+          }
+          if (errors.link?.hasError) {
+            runValidationTasks("link", value);
+          }
+          setLink(value);
+        }}
+        onBlur={() => runValidationTasks("link", link)}
+        errorMessage={errors.link?.errorMessage}
+        hasError={errors.link?.hasError}
+        {...getOverrideProps(overrides, "link")}
+      ></TextField>
+      <TextField
+        label="Description"
+        isRequired={false}
+        isReadOnly={false}
+        value={Description}
+        onChange={(e) => {
+          let { value } = e.target;
+          if (onChange) {
+            const modelFields = {
+              from,
+              to,
+              link,
+              Description: value,
+            };
+            const result = onChange(modelFields);
+            value = result?.Description ?? value;
+          }
+          if (errors.Description?.hasError) {
+            runValidationTasks("Description", value);
+          }
+          setDescription(value);
+        }}
+        onBlur={() => runValidationTasks("Description", Description)}
+        errorMessage={errors.Description?.errorMessage}
+        hasError={errors.Description?.hasError}
+        {...getOverrideProps(overrides, "Description")}
       ></TextField>
       <Flex
         justifyContent="space-between"
