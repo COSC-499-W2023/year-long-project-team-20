@@ -1,4 +1,31 @@
 # Ryan Grant logs
+
+# T2 Week 8 Feb 26th - March 3rd
+## Due to complicatations with my mental health I am very behind where I want to be. This week was spent mostly on figuring out where I left off, where my group was at in the project and figuring out what would be the most useful thing I could do. 
+
+1. The group needed the bluring configured to the website
+## My goals for this week:
+1. Research
+2. Code 1/2 of my feature
+## Research:
+1. My group members had all done work in amplify and I was completely out of the loop. I needed to figure out how to use Amplify to send videos from one S3 bucket to the next
+2. How I can comunicate information between the two services
+3. After learning Amplify can only connect to one S3 bucket I would need a workaround. The solution seems to be use a lambda function to manage the data. 
+## Basic data representation to help visualize what I am doing
+![data representation](https://i.imgur.com/jGwo0gM.png)
+- The connection between Bucket 2 and Bucket 3 is automatically done per my previous feature 
+## This feature can be broken down into 2 parts:
+1. Create a lambda function to send a specified video from Bucket 1 -> Bucket 2
+2. Add an amplify request to initiate the lambda function
+3. Add a lambda function to detect video entering Bucket, 3 rename video to indicate that it is blurred, automatically move it back to bucket 1 (this step should be straight forward if part 1 is done)
+## Possible other steps 
+1. If any steps fail add a way to communicate that back to amplify and move video back to bucket 1
+
+## Code: 
+https://us-west-2.console.aws.amazon.com/lambda/home?region=us-west-2#/functions/generalBucketToPreprocessed?newFunction=true&tab=code
+![lambdafunction](https://i.imgur.com/m0jGWck.png)
+# Peer Eval Screenshot
+![peer eval](https://i.imgur.com/3Tp2t6s.png)
 # T2 Week 4 Jan 29th-Feb 4th
 # Time spent
 1. After researching and talking with other groups regarding AWS Rekognition I concluded that the issue was with the regions

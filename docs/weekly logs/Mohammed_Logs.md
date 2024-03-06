@@ -166,3 +166,16 @@ Goal was to build the design of the website and start wokrking on the backend.
  ### Goals for next week
  * Build the retrieve feature fully
  * Write more tests for our app
+
+ ## Week 8 (Feb 27 - Mar 3)
+### Peer Eval 
+ ![img](https://i.imgur.com/8fjaUIH.png)
+
+ ### Tasks Completed this week
+ * Worked on project cleanup with issa
+ * completed the share video feature
+ * started building the blur video feature
+
+ ### Goals for next week
+ * Complete the blur video feature including the frontend code, lambda function, rekognition setup 
+ * Build tests for the features I built this week and last week

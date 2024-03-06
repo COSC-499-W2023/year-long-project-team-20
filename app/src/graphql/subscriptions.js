@@ -58,8 +58,10 @@ export const onCreateInAppMessaging = /* GraphQL */ `
   ) {
     onCreateInAppMessaging(filter: $filter) {
       id
-      text
-      email
+      from
+      to
+      link
+      Description
       createdAt
       updatedAt
       __typename
@@ -72,8 +74,10 @@ export const onUpdateInAppMessaging = /* GraphQL */ `
   ) {
     onUpdateInAppMessaging(filter: $filter) {
       id
-      text
-      email
+      from
+      to
+      link
+      Description
       createdAt
       updatedAt
       __typename
@@ -86,8 +90,10 @@ export const onDeleteInAppMessaging = /* GraphQL */ `
   ) {
     onDeleteInAppMessaging(filter: $filter) {
       id
-      text
-      email
+      from
+      to
+      link
+      Description
       createdAt
       updatedAt
       __typename

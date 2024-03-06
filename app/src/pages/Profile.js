@@ -4,7 +4,7 @@ import logo from "../logo.svg";
 import "@aws-amplify/ui-react/styles.css";
 import React, { useEffect, useState } from 'react';
 import { Auth } from 'aws-amplify';
-import "../App.css";
+import "../css/App.css";
 import {
   withAuthenticator,
   Button,

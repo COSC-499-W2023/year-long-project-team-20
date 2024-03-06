@@ -9,7 +9,9 @@ type VideoList @model @auth(rules: [{allow: public}]) {
 
 type InAppMessaging @model @auth(rules: [{allow: public}]) {
   id: ID!
-  text: String!
-  email: String
+  from: String!
+  to: String!
+  link: String!
+  Description: String
 }
  
