@@ -47,4 +47,6 @@ export { default as Stat } from "./Stat";
 export { default as TallCard } from "./TallCard";
 export { default as TextField } from "./TextField";
 export { default as VideoCard } from "./VideoCard";
+export { default as VideoListCreateForm } from "./VideoListCreateForm";
+export { default as VideoListUpdateForm } from "./VideoListUpdateForm";
 export { default as studioTheme } from "./studioTheme";

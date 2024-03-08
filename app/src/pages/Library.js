@@ -5,9 +5,11 @@ import {
   Button,
   TextField
 } from "@aws-amplify/ui-react";
+
 import { Auth, API, graphqlOperation, Storage } from 'aws-amplify';
 import { createInAppMessaging } from '../graphql/mutations';
 import { listInAppMessagings } from '../graphql/queries';
+import Swal from 'sweetalert2';
 
 const Library = () => {
 
@@ -96,32 +98,43 @@ const Library = () => {
   const deleteVideos = async (video) => {
 
     try {
-      console.log('Button clicked for video:', video.title);
-      //prompt user to confirm whether to proceed with delete or not
-      const confirmDelete = window.confirm('Are you sure you want to delete this video?');
-
-      if (confirmDelete) {
-        //Logic for what should happen when the user confirms deletion
-        console.log('User confirmed deletion of video:', video.title);
-        // await waits for Storage.remove to delete the video from the S3 bucket
-        await Storage.remove(video.title, { level: 'protected' })
-        console.log(video.title + ' deleted')
-        window.alert('Video successfully deleted');
-        //refresh the page
-        window.location.reload();
-      } else {
-        // Handle if user cancels deletion
-        console.log('Deletion cancelled by user');
-        return;
+        console.log('Button clicked for video:', video.title);
+        //prompt user to confirm whether to proceed with delete or not
+        Swal.fire({
+          title: 'Are you sure?',
+          text: 'You will not be able to recover this video!',
+          icon: 'warning',
+          showCancelButton: true,
+          confirmButtonText: 'Yes, delete it!',
+          cancelButtonText: 'No, keep it'
+        }).then(async (result) => {
+          if (result.isConfirmed) {
+            //Logic for what should happen when the user confirms deletion
+            console.log('User confirmed deletion of video:', video.title);
+            // await waits for Storage.remove to delete the video from the S3 bucket
+            await Storage.remove(video.title, { level: 'protected' })
+            console.log(video.title + ' deleted')
+            Swal.fire('Deleted!', 'Your video has been deleted.', 'success')
+              .then(() => {
+                //refresh the page
+                window.location.reload();
+              });
+          } else if (result.dismiss === Swal.DismissReason.cancel) {
+            // Handle if user cancels deletion
+            console.log('Deletion cancelled by user');
+            Swal.fire('Cancelled', 'Your video is safe :)', 'error');
+          }
+        });
+      } catch (error) {
+          console.error('Error deleting video:', error);
+          Swal.fire({
+            title: 'Error!',
+            text: 'There was an error deleting your video.',
+            icon: 'error',
+            confirmButtonText: 'Try Again'
+          });
+        }
       }
-    }
-    // error with deletion process
-    catch (error) {
-      console.error('Error deleting video:', error);
-      window.alert('Error deleting video. Please try again later.');
-    }
-  }
-
 
   return (
     <div style={{ paddingLeft: '35px' }}>
