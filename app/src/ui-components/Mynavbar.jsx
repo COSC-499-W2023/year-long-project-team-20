@@ -14,7 +14,7 @@ export default function Mynavbar(props) {
     <Flex
       gap="0"
       direction="row"
-      width="1440px"
+      width="1433px"
       height="unset"
       justifyContent="space-between"
       alignItems="center"
@@ -30,9 +30,9 @@ export default function Mynavbar(props) {
       <Flex
         gap="26px"
         direction="row"
-        width="638px"
+        width="unset"
         height="unset"
-        justifyContent="space-between"
+        justifyContent="flex-start"
         alignItems="center"
         shrink="0"
         position="relative"
@@ -43,13 +43,14 @@ export default function Mynavbar(props) {
         <Flex
           gap="10px"
           direction="row"
-          width="123px"
+          width="unset"
           height="unset"
-          justifyContent="space-between"
+          justifyContent="flex-start"
           alignItems="center"
           shrink="0"
           position="relative"
           padding="5px 0px 5px 0px"
+          id="logoButton"
           {...getOverrideProps(overrides, "logo")}
         >
           <View
@@ -313,6 +314,43 @@ export default function Mynavbar(props) {
           borderRadius="5px"
           padding="10px 10px 10px 10px"
           className="navContainer"
+          {...getOverrideProps(overrides, "request")}
+        >
+          <Text
+            fontFamily="Inter"
+            fontSize="18px"
+            fontWeight="400"
+            color="rgba(92,102,112,1)"
+            lineHeight="27px"
+            textAlign="center"
+            display="block"
+            direction="column"
+            justifyContent="unset"
+            width="unset"
+            height="unset"
+            gap="unset"
+            alignItems="unset"
+            shrink="0"
+            position="relative"
+            padding="0px 0px 0px 0px"
+            whiteSpace="pre-wrap"
+            id="requestText"
+            children="Request"
+            {...getOverrideProps(overrides, "Request")}
+          ></Text>
+        </Flex>
+        <Flex
+          gap="10px"
+          direction="row"
+          width="unset"
+          height="unset"
+          justifyContent="flex-start"
+          alignItems="center"
+          shrink="0"
+          position="relative"
+          borderRadius="5px"
+          padding="10px 10px 10px 10px"
+          className="navContainer"
           {...getOverrideProps(overrides, "about")}
         >
           <Text
@@ -342,12 +380,11 @@ export default function Mynavbar(props) {
       <Flex
         gap="0"
         direction="row"
-        width="80px"
+        width="unset"
         height="unset"
         justifyContent="center"
         alignItems="center"
         shrink="0"
-        alignSelf="stretch"
         position="relative"
         borderRadius="100px"
         padding="10px 10px 10px 10px"
