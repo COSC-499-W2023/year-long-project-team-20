@@ -11,7 +11,7 @@ import Recorder from "../components/RecordVideo";
 const Record = () => {
    
   return (
-    <div style={{ paddingLeft: '35px' }}>
+    <div>
       
       <Recorder />
     </div>

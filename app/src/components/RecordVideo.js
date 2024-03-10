@@ -11,6 +11,7 @@ import {
   AmplifyProvider
 } from "@aws-amplify/ui-react";
 import "@aws-amplify/ui-react/styles.css";
+import "../css/RecordVideo.css"
 import ProgressBar from './/ProgressBar.js';
 
 import { Auth, API, Storage, graphqlOperation } from "aws-amplify";
@@ -216,8 +217,7 @@ const Recorder = () => {
   };
 
   return (
-    <div>
-    <div >      
+    <div className="center-container">
       {
         recordedChunks.length > 0 ? (
           recording ? 
@@ -227,33 +227,31 @@ const Recorder = () => {
           <h1>Record a Video</h1>
         )
       }
-       <video ref={videoRef} autoPlay muted={recording} />
-      
-      <div className="video-buttons">
-        <Button onClick={startRecording} disabled={recording} className="start-button">Start Recording</Button>
-
-        { recordedChunks.length > 0 && (recording ? 
-        <Button onClick={stopRecording} disabled={false} className="stop-button">Stop Recording </Button> : 
-        <Button onClick={stopRecording} disabled={true} className="stop-button">Stop Recording </Button> 
-        )} 
-          
-      </div>
-
-      <div className="after-recorded-buttons">
-        <Button onClick={playRecording} disabled={recordedChunks.length === 0 || recording} className="play-button">Play Video</Button>
-        <Button onClick={uploadVideo} disabled={recordedChunks.length === 0 || recording} className="save-button">Upload </Button>
-        <Button onClick={downloadVideo} disabled={recordedChunks.length === 0 || recording} className="download-button">Download </Button>
+      <div className="video-container">
+        <video className="video-responsive" ref={videoRef} autoPlay muted={recording} />
+        <div className="buttons-container">
+          <div className="button-group">
+            <Button onClick={startRecording} disabled={recording} className="start-button">Start Recording</Button>
+            {recordedChunks.length > 0 && (recording ? 
+              <Button onClick={stopRecording} disabled={false} className="stop-button">Stop Recording</Button> : 
+              <Button onClick={stopRecording} disabled={true} className="stop-button">Stop Recording</Button>
+            )}
+            <Button onClick={playRecording} disabled={recordedChunks.length === 0 || recording} className="play-button">Play Video</Button>
+          </div>
+          <div className="button-group">
+            <Button onClick={uploadVideo} disabled={recordedChunks.length === 0 || recording} className="save-button">Upload</Button>
+            <Button onClick={downloadVideo} disabled={recordedChunks.length === 0 || recording} className="download-button">Download</Button>
+          </div>
         </div>
-      <div>
-
       </div>
-    </div>
-    <div>
       {isUploading && <ProgressBar percentage={uploadProgress.percentage} />}
     </div>
-    </div>
-
   );
+  
+  
+  
+  
+  
 };
 
 export default withAuthenticator(Recorder);
