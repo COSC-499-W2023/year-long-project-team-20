@@ -242,9 +242,13 @@ const Recorder = () => {
             <Button onClick={uploadVideo} disabled={recordedChunks.length === 0 || recording} className="save-button">Upload</Button>
             <Button onClick={downloadVideo} disabled={recordedChunks.length === 0 || recording} className="download-button">Download</Button>
           </div>
+
+          <div className="button-group" style={{ width: '100vw' }}> 
+          { isUploading &&
+          <ProgressBar percentage={uploadProgress.percentage} />
+          }</div>
         </div>
       </div>
-      {isUploading && <ProgressBar percentage={uploadProgress.percentage} />}
     </div>
   );
   
