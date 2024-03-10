@@ -34,55 +34,57 @@ const Recorder = () => {
 
 
   useEffect(() => {
-    // Ask for permission to access user's camera and audio
-    navigator.mediaDevices.getUserMedia({ audio: true, video: true }).then((stream) => {
-      mediaStream.current = stream;
 
-      // Allow the user to see a preview of the video before they hit record
-      videoRef.current.srcObject = stream;
-      mediaRecorder.current = new MediaRecorder(stream);
-
-      mediaRecorder.current.ondataavailable = function (e) {
-        if (e.data.size > 0) {
-          setRecordedChunks((prevChunks) => [...prevChunks, e.data]);
-        }
-      };
-    });
-
-
-    //Mute preview (prevents echo sound)
-    videoRef.current.muted = true;
-
+    startCamera();
+  
     return () => {
-      // stop recording and release media stream 
-      if (mediaRecorder.current) {
-        mediaRecorder.current.stop();
+      // Stop any media tracks if they exist
+      if (mediaStream.current) {
         mediaStream.current.getTracks().forEach((track) => track.stop());
       }
     };
   }, []);
 
-  //Begins recording 
+  //Connect to users camera 
+  const startCamera = () => {
+    navigator.mediaDevices.getUserMedia({ audio: true, video: true }).then((stream) => {
+      mediaStream.current = stream;
+      videoRef.current.srcObject = stream;
+
+      // Mute the video preview to prevent echo
+      videoRef.current.muted = true; 
+      mediaRecorder.current = new MediaRecorder(stream);
+      mediaRecorder.current.ondataavailable = (e) => {
+        if (e.data.size > 0) {
+          setRecordedChunks((prevChunks) => [...prevChunks, e.data]);
+        }
+      };
+    });
+  };
+
+
+
+  //Begin recording 
   const startRecording = () => {
     setIsUploading(false);
-    //clear any previous recordings 
-     setRecordedChunks([]);
-     videoRef.current.srcObject = mediaStream.current;
-
-    if (mediaRecorder.current) {
+    setRecordedChunks([]);
+    if (!mediaStream.current) startCamera(); 
+    if (mediaRecorder.current && mediaStream.current) {
       mediaRecorder.current.start(1000);
       setRecording(true);
     }
   };
 
-  //Stop recording 
   const stopRecording = () => {
-
     if (mediaRecorder.current) {
       mediaRecorder.current.stop();
       setRecording(false);
       videoRef.current.pause();
-      
+      // Disconnect the camera after stopping the recording
+      if (mediaStream.current) {
+        mediaStream.current.getTracks().forEach((track) => track.stop());
+        mediaStream.current = null;
+      }
     }
   };
 
