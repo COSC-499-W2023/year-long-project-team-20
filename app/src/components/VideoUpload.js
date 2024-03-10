@@ -14,7 +14,7 @@ const VideoUpload = () => {
 
   //Function extracted from upload.js 
   const uploadVideo = async () => {  
-    setIsUploading(true)
+    
     const file = fileInput.current.files[0];
     const videoContentType = 'video/mp4';
     const credentials = await Auth.currentCredentials(); // fetch current 
@@ -32,6 +32,7 @@ const VideoUpload = () => {
 
     if (result.isConfirmed) {
       try {
+        setIsUploading(true)
         // Display a loading alert
         let swalInstance = Swal.fire({
           title: 'Uploading...',
@@ -77,6 +78,7 @@ const VideoUpload = () => {
         console.log('Successfully uploaded video');
 
       } catch (error) {
+        setIsUploading(false)
         console.error('Error uploading video:', error);
         Swal.fire({
           title: 'Error!',

@@ -125,7 +125,7 @@ const Recorder = () => {
   };
 
   const uploadVideo = async () => {
-    setIsUploading(true);
+    
     try {
       // Store the recorded video in blob
       const blob = new Blob(recordedChunks, { type: 'video/mp4' });
@@ -144,6 +144,7 @@ const Recorder = () => {
       });
 
       if (result.isConfirmed) {
+        setIsUploading(true);
         // Display a loading alert
         let swalInstance = Swal.fire({
           title: 'Uploading...',
@@ -166,6 +167,7 @@ const Recorder = () => {
       }
 
     } catch (error) {
+      setIsUploading(false)
       console.error('Error uploading video:', error);
       Swal.fire({
         title: 'Error!',
