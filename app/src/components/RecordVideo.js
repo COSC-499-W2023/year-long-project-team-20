@@ -29,6 +29,7 @@ const Recorder = () => {
 
   const cloudFrontUrl = 'https://dglw8nnn1gfb2.cloudfront.net/protected';
   const [uploadProgress, setUploadProgress] = useState({ loaded: 0, total: 0, percentage: 0 });
+  const [isUploading, setIsUploading] = useState(false);
 
 
 
@@ -63,6 +64,7 @@ const Recorder = () => {
 
   //Begins recording 
   const startRecording = () => {
+    setIsUploading(false);
     //clear any previous recordings 
      setRecordedChunks([]);
      videoRef.current.srcObject = mediaStream.current;
@@ -120,6 +122,7 @@ const Recorder = () => {
   };
 
   const uploadVideo = async () => {
+    setIsUploading(true);
     try {
       // Store the recorded video in blob
       const blob = new Blob(recordedChunks, { type: 'video/mp4' });
@@ -244,7 +247,7 @@ const Recorder = () => {
       </div>
     </div>
     <div>
-    <ProgressBar percentage={uploadProgress.percentage} />
+      {isUploading && <ProgressBar percentage={uploadProgress.percentage} />}
     </div>
     </div>
 
