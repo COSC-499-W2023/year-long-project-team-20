@@ -102,13 +102,14 @@ const Root = ({ signOut }) => {
         navigate("/About");
       },
     },
-    Chat: {
+
+    logo: {
       style: {
         cursor: "pointer",
       },
 
       onClick: () => {
-        navigate("/Chat");
+        navigate("/");
       },
     },
   };
