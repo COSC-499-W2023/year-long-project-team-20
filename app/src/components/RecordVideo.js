@@ -11,8 +11,11 @@ import {
   AmplifyProvider
 } from "@aws-amplify/ui-react";
 import "@aws-amplify/ui-react/styles.css";
-import { Storage } from 'aws-amplify';
-import ProgressBar from './/ProgressBar.js'; 
+import ProgressBar from './/ProgressBar.js';
+
+import { Auth, API, Storage, graphqlOperation } from "aws-amplify";
+import { createInAppMessaging, createShareVideo, createVideoList } from '../graphql/mutations';
+import Swal from 'sweetalert2';
 
 const Recorder = () => {
   const [recording, setRecording] = useState(false);
@@ -23,7 +26,10 @@ const Recorder = () => {
   const mediaStream = useRef(null);
 
   const [recordedVideoUrl, setRecordedVideoUrl] = useState(null);
+
+  const cloudFrontUrl = 'https://dglw8nnn1gfb2.cloudfront.net/protected';
   const [uploadProgress, setUploadProgress] = useState({ loaded: 0, total: 0, percentage: 0 });
+
 
 
   useEffect(() => {
@@ -117,19 +123,56 @@ const Recorder = () => {
     try {
       // Store the recorded video in blob
       const blob = new Blob(recordedChunks, { type: 'video/mp4' });
-  
+
       // Generate a unique name for the video
       const fileName = `recorded_video_${new Date().toISOString()}.mp4`;
-  
-      // Upload the video to storage
-      await uploadToStorage(blob, fileName);
+
+      // Confirm if the user wants to upload the video
+      const result = await Swal.fire({
+        title: 'Are you sure?',
+        text: 'Do you want to upload the video to your cloud?',
+        icon: 'question',
+        showCancelButton: true,
+        confirmButtonText: 'Yes, upload it!',
+        cancelButtonText: 'No, cancel'
+      });
+
+      if (result.isConfirmed) {
+        // Display a loading alert
+        let swalInstance = Swal.fire({
+          title: 'Uploading...',
+          text: 'Please wait while we upload your video. (This may take a while, we will notify you when it is done!)',
+          allowOutsideClick: false,
+        });
+        
+        // Upload the video to storage
+        await uploadToStorage(blob, fileName);
+
+        console.log('Successfully uploaded video');
+        Swal.fire({ 
+          title: 'Success!',
+          text: 'Your video has been uploaded.',
+          icon: 'success',
+          confirmButtonText: 'Cool'
+        });
+      } else {
+        console.log('User cancelled the upload');
+      }
 
     } catch (error) {
-
+      console.error('Error uploading video:', error);
+      Swal.fire({
+        title: 'Error!',
+        text: 'There was an error uploading your video.',
+        icon: 'error',
+        confirmButtonText: 'Try Again'
+      });
     }
   };
   
   const uploadToStorage = async (blob, fileName) => {
+    const credentials = await Auth.currentCredentials(); // fetch current 
+    const user = await Auth.currentAuthenticatedUser();
     try {
       console.log('progress loading: ')
       const progressCallback = (progress) => {
@@ -148,12 +191,21 @@ const Recorder = () => {
         contentType: 'video/mp4',
         progressCallback,
       });
+
+      // Empty array means this effect will only run once
+      // // Call the createShareVideo mutation
+      const link = `${cloudFrontUrl}/${credentials.identityId}/${fileName}`;
+      await API.graphql(graphqlOperation(createVideoList, { input: { User: user.username, UserID: credentials.identityId, VideoName: fileName, VideoLink: link } }));
   
-      alert('Successfully uploaded video');
-      console.log('Successfully uploaded video to storage put');
+
     } catch (error) {
-      alert('Error uploading video');
-      console.error('Error uploading video to storage: put', error);
+      console.error('Error uploading video to storage:', error);
+      Swal.fire({
+        title: 'Error!',
+        text: 'There was an error uploading your video.',
+        icon: 'error',
+        confirmButtonText: 'Try Again'
+      });
     }
 
   };
@@ -199,4 +251,4 @@ const Recorder = () => {
   );
 };
 
-export default Recorder;
+export default withAuthenticator(Recorder);

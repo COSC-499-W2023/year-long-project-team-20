@@ -1,6 +1,60 @@
 /* eslint-disable */
 // this is an auto generated file. This will be overwritten
 
+export const createVideoList = /* GraphQL */ `
+  mutation CreateVideoList(
+    $input: CreateVideoListInput!
+    $condition: ModelVideoListConditionInput
+  ) {
+    createVideoList(input: $input, condition: $condition) {
+      id
+      User
+      UserID
+      VideoName
+      VideoLink
+      Description
+      createdAt
+      updatedAt
+      __typename
+    }
+  }
+`;
+export const updateVideoList = /* GraphQL */ `
+  mutation UpdateVideoList(
+    $input: UpdateVideoListInput!
+    $condition: ModelVideoListConditionInput
+  ) {
+    updateVideoList(input: $input, condition: $condition) {
+      id
+      User
+      UserID
+      VideoName
+      VideoLink
+      Description
+      createdAt
+      updatedAt
+      __typename
+    }
+  }
+`;
+export const deleteVideoList = /* GraphQL */ `
+  mutation DeleteVideoList(
+    $input: DeleteVideoListInput!
+    $condition: ModelVideoListConditionInput
+  ) {
+    deleteVideoList(input: $input, condition: $condition) {
+      id
+      User
+      UserID
+      VideoName
+      VideoLink
+      Description
+      createdAt
+      updatedAt
+      __typename
+    }
+  }
+`;
 export const createInAppMessaging = /* GraphQL */ `
   mutation CreateInAppMessaging(
     $input: CreateInAppMessagingInput!
@@ -8,8 +62,10 @@ export const createInAppMessaging = /* GraphQL */ `
   ) {
     createInAppMessaging(input: $input, condition: $condition) {
       id
-      text
-      email
+      from
+      to
+      link
+      Description
       createdAt
       updatedAt
       __typename
@@ -23,8 +79,10 @@ export const updateInAppMessaging = /* GraphQL */ `
   ) {
     updateInAppMessaging(input: $input, condition: $condition) {
       id
-      text
-      email
+      from
+      to
+      link
+      Description
       createdAt
       updatedAt
       __typename
@@ -38,8 +96,10 @@ export const deleteInAppMessaging = /* GraphQL */ `
   ) {
     deleteInAppMessaging(input: $input, condition: $condition) {
       id
-      text
-      email
+      from
+      to
+      link
+      Description
       createdAt
       updatedAt
       __typename

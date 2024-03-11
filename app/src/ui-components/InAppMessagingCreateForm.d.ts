@@ -24,22 +24,25 @@ export declare type ValidationFunction<T> = (value: T, validationResponse: Valid
 export declare type InAppMessagingCreateFormInputValues = {
     To?: string;
     Description?: string;
-    text?: string;
-    email?: string;
+    from?: string;
+    to?: string;
+    link?: string;
 };
 export declare type InAppMessagingCreateFormValidationValues = {
     To?: ValidationFunction<string>;
     Description?: ValidationFunction<string>;
-    text?: ValidationFunction<string>;
-    email?: ValidationFunction<string>;
+    from?: ValidationFunction<string>;
+    to?: ValidationFunction<string>;
+    link?: ValidationFunction<string>;
 };
 export declare type PrimitiveOverrideProps<T> = Partial<T> & React.DOMAttributes<HTMLDivElement>;
 export declare type InAppMessagingCreateFormOverridesProps = {
     InAppMessagingCreateFormGrid?: PrimitiveOverrideProps<GridProps>;
     To?: PrimitiveOverrideProps<TextFieldProps>;
     Description?: PrimitiveOverrideProps<TextFieldProps>;
-    text?: PrimitiveOverrideProps<TextFieldProps>;
-    email?: PrimitiveOverrideProps<TextFieldProps>;
+    from?: PrimitiveOverrideProps<TextFieldProps>;
+    to?: PrimitiveOverrideProps<TextFieldProps>;
+    link?: PrimitiveOverrideProps<TextFieldProps>;
 } & EscapeHatchProps;
 export declare type InAppMessagingCreateFormProps = React.PropsWithChildren<{
     overrides?: InAppMessagingCreateFormOverridesProps | undefined | null;
