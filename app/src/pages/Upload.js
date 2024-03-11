@@ -11,10 +11,11 @@ import {
   Flex,
   TextField,
   AmplifyProvider,
-  ThemeProvider
+  ThemeProvider,
 } from "@aws-amplify/ui-react";
 
 import { Auth, API, Storage, graphqlOperation } from "aws-amplify";
+
 import { createInAppMessaging, createShareVideo, createVideoList } from '../graphql/mutations';
 import Swal from 'sweetalert2';
 import VideoUpload from "../components/VideoUpload";
@@ -36,9 +37,9 @@ const Upload = () => {
       <h1>Upload a video from your computer </h1>
       {videoUploads}
       <Button onClick={addVideoUpload}>Upload Another Video</Button>
+
     </div>
   );
 };
-
 
 export default withAuthenticator(Upload);

@@ -1,50 +1,56 @@
-
 /* styles.css */
 .navContainer {
-    transition: background-color 0.3s, border-radius 0.3s
+  transition: background-color 0.3s, border-radius 0.3s;
   /* Your base styles for the navContainer */
 }
 
 /* Apply hover effect */
 .navContainer:hover {
-    background-color:hsl(190, 75%, 95%)
+  background-color: hsl(190, 75%, 95%);
   /* Your hover styles */
 }
 
 /* Apply text decoration */
 #homeText {
-    text-decoration: none;
-    transition: text-decoration 0.3s ease;
+  text-decoration: none;
+  transition: text-decoration 0.3s ease;
 }
 #recordText {
-    text-decoration: none;
-    transition: text-decoration 0.3s ease;
+  text-decoration: none;
+  transition: text-decoration 0.3s ease;
 }
 #uploadText {
-    text-decoration: none;
-    transition: text-decoration 0.3s ease;
+  text-decoration: none;
+  transition: text-decoration 0.3s ease;
 }
 #libraryText {
-    text-decoration: none;
-    transition: text-decoration 0.3s ease;
+  text-decoration: none;
+  transition: text-decoration 0.3s ease;
+}
+#requestText {
+  text-decoration: none;
+  transition: text-decoration 0.3s ease;
 }
 #aboutText {
-    text-decoration: none;
-    transition: text-decoration 0.3s ease;
+  text-decoration: none;
+  transition: text-decoration 0.3s ease;
 }
 
 #homeText:hover {
-    text-decoration: underline
+  text-decoration: underline;
 }
 #recordText:hover {
-    text-decoration: underline
+  text-decoration: underline;
 }
 #uploadText:hover {
-    text-decoration: underline
+  text-decoration: underline;
 }
 #libraryText:hover {
-    text-decoration: underline
+  text-decoration: underline;
+}
+#requestText:hover {
+  text-decoration: underline;
 }
 #aboutText:hover {
-    text-decoration: underline
+  text-decoration: underline;
 }
