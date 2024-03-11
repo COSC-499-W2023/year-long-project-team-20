@@ -33,6 +33,8 @@ export declare type MynavbarOverridesProps = {
     Upload?: PrimitiveOverrideProps<TextProps>;
     library?: PrimitiveOverrideProps<FlexProps>;
     Library?: PrimitiveOverrideProps<TextProps>;
+    request?: PrimitiveOverrideProps<FlexProps>;
+    Request?: PrimitiveOverrideProps<TextProps>;
     about?: PrimitiveOverrideProps<FlexProps>;
     About?: PrimitiveOverrideProps<TextProps>;
     profile?: PrimitiveOverrideProps<FlexProps>;
