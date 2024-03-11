@@ -1,4 +1,25 @@
 # Maya Ayaviri Bacarreza's Logs 
+## Week 23 - Project Log
+**Work period March 4th - March 10th**
+
+<img width="793" alt="Screen Shot 2024-03-10 at 4 24 54 PM" src="https://github.com/COSC-499-W2023/year-long-project-team-20/assets/66889922/9cd3f616-ea00-4277-9389-9bc9dc811451">
+
+### Tasks Completed This Work Period (found on "allow multiple video uploads at once" pull request https://github.com/COSC-499-W2023/year-long-project-team-20/pull/183)
+* Allow user to upload multiple videos simultaneously on upload video page, updating user on progress of each one
+* Only show the progress update bar when upload video is hit, and hide the progress bar if an error occurs
+* Stop camera access when end recording is hit, restart camera access when start recording is hit
+* Centred recording component and buttons, made the size of the reocrding component dependant on users browser window size 
+   
+### Future Tasks
+* Develop request video ui
+* Make fixes to the progress bar suggested such as update colors to match theme and make it so that the progress bars still display ongoing progress if the user navigates to another page
+* Use FFMPEG with lambdas in aws
+
+### Context 
+This week we had the peer evaluation session which was very useful in helping us find things to change or update. The changes to the video recording and the progress bar component were based off of the feedback we got from users during the peer evaluation. With the changes made, now in the upload page a user can upload many videos at once easily and view how long each one will take based off the progress bar. Next week I'll be woking on the request video ui since it is a feature we are aiming to get done. 
+
+
+# Maya Ayaviri Bacarreza's Logs 
 ## Week 22 - Project Log
 **Work period February 26th - March 3rd**
 <img width="745" alt="Screen Shot 2024-03-03 at 8 25 10 PM" src="https://github.com/COSC-499-W2023/year-long-project-team-20/assets/66889922/3e9dda51-565e-4755-b89c-16bf439d0419">
