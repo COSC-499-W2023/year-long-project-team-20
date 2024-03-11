@@ -226,7 +226,7 @@ const Recorder = () => {
             <h1 className="recording-text">Recording Now in Progress...</h1> : 
             <h1 className="stop-text">Recording Ended</h1>
         ) : (
-          <h1>Record a Video</h1>
+          <h1 style={{ paddingLeft: "35px" }}>Record a Video</h1>
         )
       }
       <div className="video-container">

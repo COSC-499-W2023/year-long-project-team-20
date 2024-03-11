@@ -7,7 +7,6 @@ const Record = () => {
   return (
 
     <div>
-    <div style={{ paddingLeft: "35px" }}>
       <Recorder />
     </div>
   );
