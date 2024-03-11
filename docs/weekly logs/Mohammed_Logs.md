@@ -179,3 +179,20 @@ Goal was to build the design of the website and start wokrking on the backend.
  ### Goals for next week
  * Complete the blur video feature including the frontend code, lambda function, rekognition setup 
  * Build tests for the features I built this week and last week
+
+ ## Week 9 (Mar 3 - Mar 11)
+### Peer Eval 
+ ![img](https://i.imgur.com/qdTYmFy.png)
+
+ ### Tasks Completed this week
+ * Worked on the blur video feature but the rest was allocated to Ryan
+ * Worked on the UI and how our website looked.
+
+ ### Goals for next week
+ * Most of our feedback was related to UI, so I will be working on improving that in our project
+ * Attempt a request video feature (not included in MVC)
+
+ ### Context
+ I started this week with fixing the send video feature I built last week but it broke because of an Amplify issue, I then started working on blur video since Ryan hasn't made progress in this feature for a long time. I talked to Ryan and he said he will complete the feature on his own so I left it to him.
+
+ Most of our feedback was regarding the UI of our website, So I want to simplify and make the navigation more intuitive, I am also adding minor UI features like better looking forms, alerts when things happen in the website that are in theme.
