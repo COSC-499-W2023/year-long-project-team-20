@@ -1,5 +1,48 @@
 # Ryan Grant logs
+# T2 Week 9 March 4th - March 10th
+## Context
+### Again I will have a longer weekly log to showcase the work that I'm doing. This week I should be done with the lambda functions, leaving next week to integrate AWS amplify. 
+## Goals for the week
+1. Create a lambda function to send a specified video from Bucket 1 -> Bucket 2
+2. Add an amplify request to initiate the lambda function
+3. Add a lambda function to detect video entering Bucket, 3 rename video to indicate that it is blurred, automatically move it back to bucket 1 (this step should be straight forward if part 1 is done)
 
+## Problems
+- My initial idea of automatically detecting a video does not work for a few reasons
+- The copy function from bucket 1->2 is copying the entire folder stack
+protected/userfolder/video
+- Files are failing the blur (I will talk with other groups to see if theyre encountering similar problems)
+### The only three solutions I see available are:
+1. Do a frequent pass through the subfolders to create a list of all videos
+- This would create added operating costs, additionally would add a delay to the bluring feature.
+2. Find a way to detect a video entering a subfolder
+3. Take the entire file path and just copy the file (this seems like the most straight forwards)
+
+## Research 
+1. https://stackoverflow.com/questions/71016610/trigger-lambda-function-by-s3-put-in-subfolder-of-undefined-folder
+- one user has a solution: "You can't add a dynamic value for your trigger. So a solution is to get the event at a generic level like /prefix and then get the path of object. Extract the data you want and call your actual lambda. You can do this in 1 lambda as well and don't have to create 2."
+S3 -> Lambda (extract path here) -> (actual) Lambda
+2. Learning how to have a lambda trigger from amplify
+## Work Done this week
+1. Configure the S3 bucket trigger to detect new object creation 
+2. Manage roles on the Lambda function for correct permissions
+3. Reconfigure code to strip file from filepath
+    - Done by adding this code
+    ``` 
+    key_with_folders = event['Records'][0]['s3']['object']['key']    
+    filename = key_with_folders.split('/')[-1] 
+    ```
+4. Files now automatically go from uploaded to bluring
+5. Added lambda function to detect video in blur output move file to a processing folder, then call next lambda function
+[![link to aws](https://i.imgur.com/PMc9YtB.png)](https://ca-central-1.console.aws.amazon.com/lambda/home?region=ca-central-1#/functions/detectOutputBlur?newFunction=true&tab=code)
+6. Added lambda function to find existing file, rename current file and then move it to existing file
+[![img](https://i.imgur.com/oz20xVp.png)](https://ca-central-1.console.aws.amazon.com/lambda/home?region=ca-central-1#/functions/findRenameMove?newFunction=true&tab=code)
+## For next week
+1. Fix the blurring issue
+2. Fix the rename and move code
+
+### Peer Eval Screenshot
+![peer eval](https://i.imgur.com/z2QNR5K.png)
 # T2 Week 8 Feb 26th - March 3rd
 ## Due to complicatations with my mental health I am very behind where I want to be. This week was spent mostly on figuring out where I left off, where my group was at in the project and figuring out what would be the most useful thing I could do. 
 
