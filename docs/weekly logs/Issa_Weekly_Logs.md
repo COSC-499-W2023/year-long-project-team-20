@@ -466,3 +466,32 @@
 ### Task Completed vs In Progress
 
 ![text](https://i.imgur.com/YrnCwBC.png)
+
+## Week 9 (Work Period March 04th - March 10th)
+
+### Tasks completed this week
+
+- Team meetings. Setting up issues in GitHub from peer evaluation feedback.
+- Spent a lot of time learing react this week as well. 8 to 10 hours. I now understand component props and beginning to learn about component state management. Our website is struggling on the UI front due to lack of expertise with react component and state management so I should be able to help a lot from next week onwards.
+- Edited the nav bar to have another page for handling video requests. Along with routing and css changes.
+
+### Goals for Next Week
+
+- My goals for next week remains the same
+- Keep learning react
+- Make custom react components to manage user tasks in the library page
+- Make custom react components to manage user tasks in the requests video page
+
+### Recap goals
+
+- My goals for next week remains the same
+- Keep learning react
+- Make custom react components to mange user tasks in the library page
+
+### Task Completed (from Peer Eval Portal)
+
+![text](https://i.imgur.com/QhscbLV.png)
+
+### Task Completed vs In Progress
+
+![text](https://i.imgur.com/4QwIqkP.png)
