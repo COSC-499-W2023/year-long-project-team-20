@@ -139,8 +139,8 @@ const Library = () => {
   return (
     <div style={{ paddingLeft: "35px" }}>
       <div>
-        <Button onClick={() => setDisplayOption('uploaded')}>Uploaded Videos</Button>
-        <Button onClick={() => setDisplayOption('received')}>Received Videos</Button>
+        <Button disabled={displayOption==='uploaded'} onClick={() => setDisplayOption('uploaded')}>Uploaded Videos</Button>
+        <Button disabled={displayOption==='received'} onClick={() => setDisplayOption('received')}>Received Videos</Button>
       </div>
       {displayOption === 'uploaded' ? (
     <>
