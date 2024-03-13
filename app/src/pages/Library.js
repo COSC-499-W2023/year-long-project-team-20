@@ -53,12 +53,24 @@ const Library = () => {
       const receivedVideos = result.data.listInAppMessagings.items.filter(
         (message) => message.to === username
       );
+      const validVideos = [];
       console.log("Received videos:", receivedVideos);
-      return receivedVideos.map((video) => ({
-        url: video.link,
-        from: video.from,
-        description: video.Description,
-      }));
+      for (const video of receivedVideos) {
+        try {
+          const response = await fetch(video.link);
+          if (response.ok) {
+            validVideos.push({
+              url: video.link,
+              from: video.from,
+              description: video.Description,
+            });
+          }
+        } catch (error) {
+          console.error("Error fetching video:", error);
+        }
+      }
+  
+      return validVideos;
     } catch (error) {
       console.error("Error fetching received videos:", error);
     }
@@ -138,7 +150,7 @@ const Library = () => {
 
   return (
     <div style={{ paddingLeft: "35px" }}>
-      <div>
+      <div className="display-options">
         <Button disabled={displayOption==='uploaded'} onClick={() => setDisplayOption('uploaded')}>Uploaded Videos</Button>
         <Button disabled={displayOption==='received'} onClick={() => setDisplayOption('received')}>Received Videos</Button>
       </div>

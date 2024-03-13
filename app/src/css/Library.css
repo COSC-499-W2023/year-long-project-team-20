@@ -64,3 +64,8 @@ video {
     border-radius: 5px;
     border: 1px solid #000000;
 }
+.display-options {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
