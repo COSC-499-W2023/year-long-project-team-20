@@ -6,11 +6,16 @@ import { Auth, API, graphqlOperation, Storage } from "aws-amplify";
 import { createInAppMessaging } from "../graphql/mutations";
 import { listInAppMessagings } from "../graphql/queries";
 import Swal from "sweetalert2";
+import Modal from "react-modal";
+import "../css/Library.css";
+
+Modal.setAppElement('#root');
 
 const Library = () => {
   const [videos, setVideos] = useState([]);
   const [username, setUsername] = useState(null);
   const [receivedVideos, setReceivedVideos] = useState([]);
+  const [displayOption, setDisplayOption] = useState("uploaded");
 
   useEffect(() => {
     fetchVideos();
@@ -48,12 +53,24 @@ const Library = () => {
       const receivedVideos = result.data.listInAppMessagings.items.filter(
         (message) => message.to === username
       );
+      const validVideos = [];
       console.log("Received videos:", receivedVideos);
-      return receivedVideos.map((video) => ({
-        url: video.link,
-        from: video.from,
-        description: video.Description,
-      }));
+      for (const video of receivedVideos) {
+        try {
+          const response = await fetch(video.link);
+          if (response.ok) {
+            validVideos.push({
+              url: video.link,
+              from: video.from,
+              description: video.Description,
+            });
+          }
+        } catch (error) {
+          console.error("Error fetching video:", error);
+        }
+      }
+  
+      return validVideos;
     } catch (error) {
       console.error("Error fetching received videos:", error);
     }
@@ -133,57 +150,126 @@ const Library = () => {
 
   return (
     <div style={{ paddingLeft: "35px" }}>
+      <div className="display-options">
+        <Button disabled={displayOption==='uploaded'} onClick={() => setDisplayOption('uploaded')}>Uploaded Videos</Button>
+        <Button disabled={displayOption==='received'} onClick={() => setDisplayOption('received')}>Received Videos</Button>
+      </div>
+      {displayOption === 'uploaded' ? (
+    <>
       <h2>Uploaded Videos</h2>
-      {videos.map((video, index) => (
-        <div key={index}>
-          <video width="400px" controls>
-            <source src={video.url} type="video/mp4" />
-          </video>
-          <p>Title: {video.title}</p>
-          <Button onClick={() => deleteVideos(video)} className="delete-video">
-            Delete Video
-          </Button>
-          <form
-            onSubmit={(event) => {
-              event.preventDefault();
-              sendMessage(
-                username,
-                event.target.elements.to.value,
-                video.url,
-                event.target.elements.description.value
-              );
-              console.log(
-                username,
-                event.target.elements.to.value,
-                video.url,
-                event.target.elements.description.value
-              );
-            }}
-          >
-            <label>
-              To:
-              <input type="text" name="to" required />
-            </label>
-            <label>
-              Description:
-              <textarea name="description" />
-            </label>
-            <Button type="submit">Send Video</Button>
-          </form>
-        </div>
-      ))}
+      <Videos
+        videos={videos}
+        deleteVideos={deleteVideos}
+        sendMessage={sendMessage}
+        username={username}
+      />
+    </>
+  ) : (
+    <>
       <h2>Received Videos</h2>
-      {receivedVideos.map((video, index) => (
-        <div key={index}>
-          <video width="400px" controls>
-            <source src={video.url} type="video/mp4" />
-          </video>
-          <p>From: {video.from}</p>
-          <p>Description: {video.description}</p>
-        </div>
-      ))}
+      <Videos
+        videos={receivedVideos}
+      ></Videos>
+    </>
+  )}
     </div>
   );
 };
 
 export default withAuthenticator(Library);
+
+
+function VideoCard({ video, index, deleteVideos, sendMessage, username }) {
+  const [modalIsOpen, setModalIsOpen] = useState(false);
+  const openModal = () => {
+    setModalIsOpen(true);
+  };
+  const closeModal = () => {
+    setModalIsOpen(false);
+  };
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    sendMessage(
+      username,
+      event.target.elements.to.value,
+      video.url,
+      event.target.elements.description.value
+    );
+    console.log(
+      username,
+      event.target.elements.to.value,
+      video.url,
+      event.target.elements.description.value
+    );
+    closeModal();
+  };
+
+
+  return (
+    <div key={index} className="video-card">
+      <video controls>
+        <source src={video.url} type="video/mp4" />
+      </video>
+      <p>{video.title}</p>
+      <Button onClick={() => deleteVideos(video)} className="delete-video">
+        Delete Video
+      </Button>
+      <Button onClick={openModal} className="send-video">Send Video</Button>
+      <Modal
+        isOpen={modalIsOpen}
+        onRequestClose={closeModal}
+        contentLabel="Send Video Modal"
+      >
+        <button onClick={closeModal} id="x-button">X</button>
+
+        <form onSubmit={handleSubmit} className="send-form">
+          <h2>Send Video</h2>
+          <p>{video.title}</p>
+          <input type="text" name="to" required placeholder="Receiver's username" />
+          <br />
+          <textarea name="description" placeholder="Description" />
+          <Button type="submit">Send Video</Button>
+        </form>
+      </Modal>
+    </div>
+  );
+}
+
+function RecVideoCard({ video }) {
+  return (
+    <div className="video-card">
+      <video controls>
+        <source src={video.url} type="video/mp4" />
+      </video>
+      <p>{video.title}</p>
+      <p>From: {video.from}</p>
+      <p className="description">Description: {video.description}</p>
+    </div>
+  );
+}
+
+function Videos({ videos, deleteVideos, sendMessage, username }) {
+  if (deleteVideos !== undefined) {
+    return (
+      <div className="videos">
+        {videos.map((video, index) => (
+          <VideoCard
+            video={video}
+            index={index}
+            deleteVideos={deleteVideos}
+            sendMessage={sendMessage}
+            username={username}
+          />
+        ))}
+      </div>
+    );
+  } else {
+    return (
+      <div className="videos">
+        {videos.map((video, index) => (
+          <RecVideoCard video={video} />
+        ))}
+      </div>
+    );
+  }
+}
