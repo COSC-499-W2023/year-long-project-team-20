@@ -8,6 +8,7 @@ import { listInAppMessagings } from "../graphql/queries";
 import Swal from "sweetalert2";
 import Modal from "react-modal";
 import "../css/Library.css";
+import ToggleButton from '../components/ToggleButton';
 
 Modal.setAppElement('#root');
 
@@ -15,7 +16,11 @@ const Library = () => {
   const [videos, setVideos] = useState([]);
   const [username, setUsername] = useState(null);
   const [receivedVideos, setReceivedVideos] = useState([]);
-  const [displayOption, setDisplayOption] = useState("uploaded");
+  const [activeView, setActiveView] = useState('Uploaded Videos');
+  const handleToggle = (view) => {
+    setActiveView(view);
+};
+
 
   useEffect(() => {
     fetchVideos();
@@ -150,11 +155,18 @@ const Library = () => {
 
   return (
     <div style={{ paddingLeft: "35px" }}>
+
       <div className="display-options">
-        <Button disabled={displayOption==='uploaded'} onClick={() => setDisplayOption('uploaded')}>Uploaded Videos</Button>
-        <Button disabled={displayOption==='received'} onClick={() => setDisplayOption('received')}>Received Videos</Button>
+        <ToggleButton 
+          leftTitle='Uploaded Videos'
+          rightTitle='Received Videos'
+          activeView={activeView}
+          onToggle={handleToggle}
+        />
       </div>
-      {displayOption === 'uploaded' ? (
+
+
+      {activeView === 'uploaded' ? (
     <>
       <h2>Uploaded Videos</h2>
       <Videos
