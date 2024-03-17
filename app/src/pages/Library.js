@@ -166,7 +166,7 @@ const Library = () => {
       </div>
 
 
-      {activeView === 'uploaded' ? (
+      {activeView === 'Uploaded Videos' ? (
     <>
       <h2>Uploaded Videos</h2>
       <Videos
