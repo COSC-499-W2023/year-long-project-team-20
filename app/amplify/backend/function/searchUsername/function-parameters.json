@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "auth": {
+      "yearlongprojectteam293285ce2": [
+        "read"
+      ]
+    }
+  },
+  "lambdaLayers": []
+}

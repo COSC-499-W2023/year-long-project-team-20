@@ -17,6 +17,9 @@
       },
       "storage": {
         "videoshare": {}
+      },
+      "function": {
+        "searchUsername": {}
       }
     }
   }

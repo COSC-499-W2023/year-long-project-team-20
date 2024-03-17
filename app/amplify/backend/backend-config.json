@@ -49,6 +49,22 @@
       "service": "Cognito"
     }
   },
+  "function": {
+    "searchUsername": {
+      "build": true,
+      "dependsOn": [
+        {
+          "attributes": [
+            "UserPoolId"
+          ],
+          "category": "auth",
+          "resourceName": "yearlongprojectteam293285ce2"
+        }
+      ],
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda"
+    }
+  },
   "notifications": {},
   "storage": {
     "videoshare": {

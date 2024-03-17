@@ -69,7 +69,7 @@ const Library = () => {
           console.error("Error fetching video:", error);
         }
       }
-  
+
       return validVideos;
     } catch (error) {
       console.error("Error fetching received videos:", error);
@@ -151,27 +151,27 @@ const Library = () => {
   return (
     <div style={{ paddingLeft: "35px" }}>
       <div className="display-options">
-        <Button disabled={displayOption==='uploaded'} onClick={() => setDisplayOption('uploaded')}>Uploaded Videos</Button>
-        <Button disabled={displayOption==='received'} onClick={() => setDisplayOption('received')}>Received Videos</Button>
+        <Button disabled={displayOption === 'uploaded'} onClick={() => setDisplayOption('uploaded')}>Uploaded Videos</Button>
+        <Button disabled={displayOption === 'received'} onClick={() => setDisplayOption('received')}>Received Videos</Button>
       </div>
       {displayOption === 'uploaded' ? (
-    <>
-      <h2>Uploaded Videos</h2>
-      <Videos
-        videos={videos}
-        deleteVideos={deleteVideos}
-        sendMessage={sendMessage}
-        username={username}
-      />
-    </>
-  ) : (
-    <>
-      <h2>Received Videos</h2>
-      <Videos
-        videos={receivedVideos}
-      ></Videos>
-    </>
-  )}
+        <>
+          <h2>Uploaded Videos</h2>
+          <Videos
+            videos={videos}
+            deleteVideos={deleteVideos}
+            sendMessage={sendMessage}
+            username={username}
+          />
+        </>
+      ) : (
+        <>
+          <h2>Received Videos</h2>
+          <Videos
+            videos={receivedVideos}
+          ></Videos>
+        </>
+      )}
     </div>
   );
 };
@@ -180,6 +180,7 @@ export default withAuthenticator(Library);
 
 
 function VideoCard({ video, index, deleteVideos, sendMessage, username }) {
+  const [search, setSearch] = useState("");
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const openModal = () => {
     setModalIsOpen(true);
@@ -201,6 +202,20 @@ function VideoCard({ video, index, deleteVideos, sendMessage, username }) {
       video.url,
       event.target.elements.description.value
     );
+    useEffect(() => {
+      if (search.length > 0) {
+        // Call the Lambda function
+        fetch('https://your-api-gateway-url.com/usernameSearch?query=' + encodeURIComponent(search), {
+          method: 'GET',
+        })
+          .then(response => response.json())
+          .then(usernames => {
+            setUsernames(usernames);
+          })
+          .catch(error => console.error('Error:', error));
+      }
+    }, [search]);
+
     closeModal();
   };
 
@@ -225,8 +240,12 @@ function VideoCard({ video, index, deleteVideos, sendMessage, username }) {
         <form onSubmit={handleSubmit} className="send-form">
           <h2>Send Video</h2>
           <p>{video.title}</p>
-          <input type="text" name="to" required placeholder="Receiver's username" />
-          <br />
+          <input type="text" name="to" required placeholder="Receiver's username" onChange={e => setSearch(e.target.value)} />
+          <ul>
+            {usernames.map((username, index) => (
+              <li key={index}>{username}</li>
+            ))}
+          </ul>
           <textarea name="description" placeholder="Description" />
           <Button type="submit">Send Video</Button>
         </form>
