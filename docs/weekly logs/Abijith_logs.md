@@ -1,4 +1,16 @@
 # Abijith Ashok Log
+## Week 22 (March 10th to March 17th)
+## Features worked on
+- Finished writing the Lambda to send emails based on the InAppMessaging 
+- Set up Amazons Simple Email Service to send emails to verified users
+- Started working on the request video feature
+
+## Goals for next week
+- Finish the Request Video Feature
+- Finish share video using email
+- Set up email notifications
+![Week 22 Logs](https://imgur.com/ET5anPj.png)
+
 ## Week 18 (January 28th to February 4th)
 ## Features worked on
 - Started work on in app messaging with amplify
