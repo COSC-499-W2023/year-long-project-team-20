@@ -1,4 +1,41 @@
 # Ryan Grant logs
+# T2 Week 10 March 11th - March 17
+## Context 
+### The team really needs bluring feature done this week as it is the last major feature needed for MVP. This will be top priority this week. I've spent close to 25 hours this week, how much to qualify as two weeks worth? (I have many weeks with 0 so any bonus marks would be greatly appricated)
+## Goals for the week
+1. Fix the blurring issue
+2. Fix the rename and move code
+## Problems
+1. Managing S3 buckets with lambdas in two different regions require alternate triggers
+2. Video that are .mp4 are not working with the blurring feature. While videos being recorded by a default camera app do work. 
+## Research
+1. Find where in the bluring process videos are failing
+2. Find solutions to start_face_detection() not working/logging
+## Work Done this week
+1. fixed the lambda function detectOutputBlur, this required setting the correct lambda trigger, also modified to code to no longer move to processed folder as this was no longer needed.
+2. fixed the findRenameMove lambda function. While I had the right logic for this function, 50% of the code had to be modified due to syntax errors, using correct dict/keys.
+3. This function now does the following:
+    1. Gets invoked by detectOutputBlur with the filename as context.
+    2. Uses list_objects_v2() to get a list of all files in the main storage bucket.
+    3. Strips the subfolders from each filename (each file is listed as protected/userfolder/filename).
+    4. locates a matching file (the unblurred video)
+    5. creates a new variable for the destination path.
+    6. modifies the file adding -blur to differentiate between the two files.
+    7. moves the file to the correct path.
+    8. deletes the copy in the Output S3 bucket.
+
+## Here is what findRenameMove looks like now:
+[![img](https://i.imgur.com/EtUPHBi.png)](https://us-west-2.console.aws.amazon.com/lambda/home?region=us-west-2#/functions/findRenameMove?fullscreen=true&tab=code)
+## As there are many parts in this system of bluring I have included as flow diagram for reference:
+![img](https://i.imgur.com/2eIwpi3.png)
+## Unresolved issues
+1. There seems to be a codec issue with how we are recording videos for the project. While the video says its a .mp4 video, it does not work in AWS Rekognition, while videos recorded on a camera app do. 
+- 99% sure this can't be resolved through tweaking my code for blurring
+## Goals for next week
+1. Setup for react/amplify
+2. configure frontend to show either blurred or unblurred depending on option selected
+## Peer Evaluation
+![img](https://i.imgur.com/gtMTfqJ.png)
 # T2 Week 9 March 4th - March 10th
 ## Context
 ### Again I will have a longer weekly log to showcase the work that I'm doing. This week I should be done with the lambda functions, leaving next week to integrate AWS amplify. 
