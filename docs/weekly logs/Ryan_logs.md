@@ -1,5 +1,85 @@
 # Ryan Grant logs
+# T2 Week 10 March 11th - March 17
+## Context 
+### The team really needs bluring feature done this week as it is the last major feature needed for MVP. This will be top priority this week. I've spent close to 25 hours this week, how much to qualify as two weeks worth? (I have many weeks with 0 so any bonus marks would be greatly appricated)
+## Goals for the week
+1. Fix the blurring issue
+2. Fix the rename and move code
+## Problems
+1. Managing S3 buckets with lambdas in two different regions require alternate triggers
+2. Video that are .mp4 are not working with the blurring feature. While videos being recorded by a default camera app do work. 
+## Research
+1. Find where in the bluring process videos are failing
+2. Find solutions to start_face_detection() not working/logging
+## Work Done this week
+1. fixed the lambda function detectOutputBlur, this required setting the correct lambda trigger, also modified to code to no longer move to processed folder as this was no longer needed.
+2. fixed the findRenameMove lambda function. While I had the right logic for this function, 50% of the code had to be modified due to syntax errors, using correct dict/keys.
+3. This function now does the following:
+    1. Gets invoked by detectOutputBlur with the filename as context.
+    2. Uses list_objects_v2() to get a list of all files in the main storage bucket.
+    3. Strips the subfolders from each filename (each file is listed as protected/userfolder/filename).
+    4. locates a matching file (the unblurred video)
+    5. creates a new variable for the destination path.
+    6. modifies the file adding -blur to differentiate between the two files.
+    7. moves the file to the correct path.
+    8. deletes the copy in the Output S3 bucket.
 
+## Here is what findRenameMove looks like now:
+[![img](https://i.imgur.com/EtUPHBi.png)](https://us-west-2.console.aws.amazon.com/lambda/home?region=us-west-2#/functions/findRenameMove?fullscreen=true&tab=code)
+## As there are many parts in this system of bluring I have included as flow diagram for reference:
+![img](https://i.imgur.com/2eIwpi3.png)
+## Unresolved issues
+1. There seems to be a codec issue with how we are recording videos for the project. While the video says its a .mp4 video, it does not work in AWS Rekognition, while videos recorded on a camera app do. 
+- 99% sure this can't be resolved through tweaking my code for blurring
+## Goals for next week
+1. Setup for react/amplify
+2. configure frontend to show either blurred or unblurred depending on option selected
+## Peer Evaluation
+![img](https://i.imgur.com/gtMTfqJ.png)
+# T2 Week 9 March 4th - March 10th
+## Context
+### Again I will have a longer weekly log to showcase the work that I'm doing. This week I should be done with the lambda functions, leaving next week to integrate AWS amplify. 
+## Goals for the week
+1. Create a lambda function to send a specified video from Bucket 1 -> Bucket 2
+2. Add an amplify request to initiate the lambda function
+3. Add a lambda function to detect video entering Bucket, 3 rename video to indicate that it is blurred, automatically move it back to bucket 1 (this step should be straight forward if part 1 is done)
+
+## Problems
+- My initial idea of automatically detecting a video does not work for a few reasons
+- The copy function from bucket 1->2 is copying the entire folder stack
+protected/userfolder/video
+- Files are failing the blur (I will talk with other groups to see if theyre encountering similar problems)
+### The only three solutions I see available are:
+1. Do a frequent pass through the subfolders to create a list of all videos
+- This would create added operating costs, additionally would add a delay to the bluring feature.
+2. Find a way to detect a video entering a subfolder
+3. Take the entire file path and just copy the file (this seems like the most straight forwards)
+
+## Research 
+1. https://stackoverflow.com/questions/71016610/trigger-lambda-function-by-s3-put-in-subfolder-of-undefined-folder
+- one user has a solution: "You can't add a dynamic value for your trigger. So a solution is to get the event at a generic level like /prefix and then get the path of object. Extract the data you want and call your actual lambda. You can do this in 1 lambda as well and don't have to create 2."
+S3 -> Lambda (extract path here) -> (actual) Lambda
+2. Learning how to have a lambda trigger from amplify
+## Work Done this week
+1. Configure the S3 bucket trigger to detect new object creation 
+2. Manage roles on the Lambda function for correct permissions
+3. Reconfigure code to strip file from filepath
+    - Done by adding this code
+    ``` 
+    key_with_folders = event['Records'][0]['s3']['object']['key']    
+    filename = key_with_folders.split('/')[-1] 
+    ```
+4. Files now automatically go from uploaded to bluring
+5. Added lambda function to detect video in blur output move file to a processing folder, then call next lambda function
+[![link to aws](https://i.imgur.com/PMc9YtB.png)](https://ca-central-1.console.aws.amazon.com/lambda/home?region=ca-central-1#/functions/detectOutputBlur?newFunction=true&tab=code)
+6. Added lambda function to find existing file, rename current file and then move it to existing file
+[![img](https://i.imgur.com/oz20xVp.png)](https://ca-central-1.console.aws.amazon.com/lambda/home?region=ca-central-1#/functions/findRenameMove?newFunction=true&tab=code)
+## For next week
+1. Fix the blurring issue
+2. Fix the rename and move code
+
+### Peer Eval Screenshot
+![peer eval](https://i.imgur.com/z2QNR5K.png)
 # T2 Week 8 Feb 26th - March 3rd
 ## Due to complicatations with my mental health I am very behind where I want to be. This week was spent mostly on figuring out where I left off, where my group was at in the project and figuring out what would be the most useful thing I could do. 
 

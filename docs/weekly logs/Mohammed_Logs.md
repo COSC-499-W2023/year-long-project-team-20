@@ -179,3 +179,36 @@ Goal was to build the design of the website and start wokrking on the backend.
  ### Goals for next week
  * Complete the blur video feature including the frontend code, lambda function, rekognition setup 
  * Build tests for the features I built this week and last week
+
+ ## Week 9 (Mar 3 - Mar 11)
+### Peer Eval 
+ ![img](https://i.imgur.com/qdTYmFy.png)
+
+ ### Tasks Completed this week
+ * Worked on the blur video feature but the rest was allocated to Ryan
+ * Worked on the UI and how our website looked.
+
+ ### Goals for next week
+ * Most of our feedback was related to UI, so I will be working on improving that in our project
+ * Attempt a request video feature (not included in MVC)
+
+ ### Context
+ I started this week with fixing the send video feature I built last week but it broke because of an Amplify issue, I then started working on blur video since Ryan hasn't made progress in this feature for a long time. I talked to Ryan and he said he will complete the feature on his own so I left it to him.
+
+ Most of our feedback was regarding the UI of our website, So I want to simplify and make the navigation more intuitive, I am also adding minor UI features like better looking forms, alerts when things happen in the website that are in theme.
+
+ ## Week 10 (Mar 12 - Mar 17)
+ ![img](https://i.imgur.com/UfRwi1e.png)
+
+ ### Tasks complete this week
+ * I built a sophisticated UI for the Library page, including modals, interactive buttons and video cards, I had to restructure our code to achieve that and make it more readable and understandable
+ * I build a lambda function that will handle search inquiries to use in building a search bar that will help user's find the user they want to send a video to
+
+ ### Goals for next week
+ * Discuss with the team on any UI improvement we can incorporate and build it.
+ * Finish building the search bar 
+ * transfer some methods from the client side to the server side (lambda functions) to make the app more secure
+
+ ### Context 
+ I started the week with building significant improvements on the UI for the library page, I made it more interactive and intuitive. This indluded building a modal for sending videos insetead of having a form under each video. I then seperated "uploaded videos" and "Received videos" using an interactive button that switches the DOM between the two lists, I also build video cards for the videos that look better and are easier to manipulate within the code. 
+ I also started building a search bar which will make sending the video to the right user easier, I built the lambda function for this feature and made progress on the frontend of the search bar. The feature isn't functional yet.

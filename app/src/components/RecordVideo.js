@@ -11,6 +11,7 @@ import {
   AmplifyProvider
 } from "@aws-amplify/ui-react";
 import "@aws-amplify/ui-react/styles.css";
+import "../css/RecordVideo.css"
 import ProgressBar from './/ProgressBar.js';
 
 import { Auth, API, Storage, graphqlOperation } from "aws-amplify";
@@ -29,58 +30,62 @@ const Recorder = () => {
 
   const cloudFrontUrl = 'https://dglw8nnn1gfb2.cloudfront.net/protected';
   const [uploadProgress, setUploadProgress] = useState({ loaded: 0, total: 0, percentage: 0 });
+  const [isUploading, setIsUploading] = useState(false);
 
 
 
   useEffect(() => {
-    // Ask for permission to access user's camera and audio
-    navigator.mediaDevices.getUserMedia({ audio: true, video: true }).then((stream) => {
-      mediaStream.current = stream;
 
-      // Allow the user to see a preview of the video before they hit record
-      videoRef.current.srcObject = stream;
-      mediaRecorder.current = new MediaRecorder(stream);
-
-      mediaRecorder.current.ondataavailable = function (e) {
-        if (e.data.size > 0) {
-          setRecordedChunks((prevChunks) => [...prevChunks, e.data]);
-        }
-      };
-    });
-
-
-    //Mute preview (prevents echo sound)
-    videoRef.current.muted = true;
-
+    startCamera();
+  
     return () => {
-      // stop recording and release media stream 
-      if (mediaRecorder.current) {
-        mediaRecorder.current.stop();
+      // Stop any media tracks if they exist
+      if (mediaStream.current) {
         mediaStream.current.getTracks().forEach((track) => track.stop());
       }
     };
   }, []);
 
-  //Begins recording 
-  const startRecording = () => {
-    //clear any previous recordings 
-     setRecordedChunks([]);
-     videoRef.current.srcObject = mediaStream.current;
+  //Connect to users camera 
+  const startCamera = () => {
+    navigator.mediaDevices.getUserMedia({ audio: true, video: true }).then((stream) => {
+      mediaStream.current = stream;
+      videoRef.current.srcObject = stream;
 
-    if (mediaRecorder.current) {
+      // Mute the video preview to prevent echo
+      videoRef.current.muted = true; 
+      mediaRecorder.current = new MediaRecorder(stream);
+      mediaRecorder.current.ondataavailable = (e) => {
+        if (e.data.size > 0) {
+          setRecordedChunks((prevChunks) => [...prevChunks, e.data]);
+        }
+      };
+    });
+  };
+
+
+
+  //Begin recording 
+  const startRecording = () => {
+    setIsUploading(false);
+    setRecordedChunks([]);
+    if (!mediaStream.current) startCamera(); 
+    if (mediaRecorder.current && mediaStream.current) {
       mediaRecorder.current.start(1000);
       setRecording(true);
     }
   };
 
-  //Stop recording 
   const stopRecording = () => {
-
     if (mediaRecorder.current) {
       mediaRecorder.current.stop();
       setRecording(false);
       videoRef.current.pause();
-      
+      // Disconnect the camera after stopping the recording
+      if (mediaStream.current) {
+        mediaStream.current.getTracks().forEach((track) => track.stop());
+        mediaStream.current = null;
+      }
     }
   };
 
@@ -120,6 +125,7 @@ const Recorder = () => {
   };
 
   const uploadVideo = async () => {
+    
     try {
       // Store the recorded video in blob
       const blob = new Blob(recordedChunks, { type: 'video/mp4' });
@@ -138,6 +144,7 @@ const Recorder = () => {
       });
 
       if (result.isConfirmed) {
+        setIsUploading(true);
         // Display a loading alert
         let swalInstance = Swal.fire({
           title: 'Uploading...',
@@ -160,6 +167,7 @@ const Recorder = () => {
       }
 
     } catch (error) {
+      setIsUploading(false)
       console.error('Error uploading video:', error);
       Swal.fire({
         title: 'Error!',
@@ -211,44 +219,45 @@ const Recorder = () => {
   };
 
   return (
-    <div>
-    <div >      
+    <div className="center-container">
       {
         recordedChunks.length > 0 ? (
           recording ? 
             <h1 className="recording-text">Recording Now in Progress...</h1> : 
             <h1 className="stop-text">Recording Ended</h1>
         ) : (
-          <h1>Record a Video</h1>
+          <h1 style={{ paddingLeft: "35px" }}>Record a Video</h1>
         )
       }
-       <video ref={videoRef} autoPlay muted={recording} />
-      
-      <div className="video-buttons">
-        <Button onClick={startRecording} disabled={recording} className="start-button">Start Recording</Button>
+      <div className="video-container">
+        <video className="video-responsive" ref={videoRef} autoPlay muted={recording} />
+        <div className="buttons-container">
+          <div className="button-group">
+            <Button onClick={startRecording} disabled={recording} className="start-button">Start Recording</Button>
+            {recordedChunks.length > 0 && (recording ? 
+              <Button onClick={stopRecording} disabled={false} className="stop-button">Stop Recording</Button> : 
+              <Button onClick={stopRecording} disabled={true} className="stop-button">Stop Recording</Button>
+            )}
+            <Button onClick={playRecording} disabled={recordedChunks.length === 0 || recording} className="play-button">Play Video</Button>
+          </div>
+          <div className="button-group">
+            <Button onClick={uploadVideo} disabled={recordedChunks.length === 0 || recording} className="save-button">Upload</Button>
+            <Button onClick={downloadVideo} disabled={recordedChunks.length === 0 || recording} className="download-button">Download</Button>
+          </div>
 
-        { recordedChunks.length > 0 && (recording ? 
-        <Button onClick={stopRecording} disabled={false} className="stop-button">Stop Recording </Button> : 
-        <Button onClick={stopRecording} disabled={true} className="stop-button">Stop Recording </Button> 
-        )} 
-          
-      </div>
-
-      <div className="after-recorded-buttons">
-        <Button onClick={playRecording} disabled={recordedChunks.length === 0 || recording} className="play-button">Play Video</Button>
-        <Button onClick={uploadVideo} disabled={recordedChunks.length === 0 || recording} className="save-button">Upload </Button>
-        <Button onClick={downloadVideo} disabled={recordedChunks.length === 0 || recording} className="download-button">Download </Button>
+          <div className="button-group" style={{ width: '130vw' }}> 
+          { isUploading &&
+          <ProgressBar percentage={uploadProgress.percentage} />
+          }</div>
         </div>
-      <div>
-
       </div>
     </div>
-    <div>
-    <ProgressBar percentage={uploadProgress.percentage} />
-    </div>
-    </div>
-
   );
+  
+  
+  
+  
+  
 };
 
 export default withAuthenticator(Recorder);
