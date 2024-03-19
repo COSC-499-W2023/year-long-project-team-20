@@ -115,9 +115,7 @@ function App() {
 
   return (
     <AmplifyProvider>
-      <ThemeProvider>
-        <RouterProvider router={router} />
-      </ThemeProvider>
+      <RouterProvider router={router} />
     </AmplifyProvider>
   );
 }
