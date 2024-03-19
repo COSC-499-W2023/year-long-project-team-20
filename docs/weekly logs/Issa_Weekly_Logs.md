@@ -495,3 +495,34 @@
 ### Task Completed vs In Progress
 
 ![text](https://i.imgur.com/4QwIqkP.png)
+
+## Week 10 (Work Period March 11th - March 18th)
+
+### Tasks completed this week
+
+- Team meetings.
+- Spent a lot of time learing react this week as well
+- I helped Mo understand how to use states in react which he then used to update how the videos in library are viewed. mo_issa_ui branch.
+- As i didn't much done this week besides working with Mo. I am hoping to make it up next week.
+
+### Goals for Next Week
+
+- Keep learning react.
+- Implement a visusually asthetic learn more page.
+- Implement front end functionality for blur video
+- Implement front end for managing video requests. Be able to view requests. Mark them as complete or delete them.
+- Identify areas where css can be implemented and try to implement CSS.
+
+### Recap goals
+
+- My goals for next week remains the same
+- Keep learning react
+- Make custom react components to mange user tasks in the library page
+
+### Task Completed (from Peer Eval Portal)
+
+![text](https://i.imgur.com/6N1RyVF.jpeg)
+
+### Task Completed vs In Progress
+
+![text](https://i.imgur.com/NdbeGYn.png)
