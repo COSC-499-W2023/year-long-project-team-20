@@ -100,3 +100,63 @@ export const onDeleteInAppMessaging = /* GraphQL */ `
     }
   }
 `;
+export const onCreateRequestVideo = /* GraphQL */ `
+  subscription OnCreateRequestVideo(
+    $filter: ModelSubscriptionRequestVideoFilterInput
+  ) {
+    onCreateRequestVideo(filter: $filter) {
+      created
+      duedate
+      from
+      to
+      fromEmail
+      toEmail
+      isRead
+      isCompleted
+      message
+      createdAt
+      updatedAt
+      __typename
+    }
+  }
+`;
+export const onUpdateRequestVideo = /* GraphQL */ `
+  subscription OnUpdateRequestVideo(
+    $filter: ModelSubscriptionRequestVideoFilterInput
+  ) {
+    onUpdateRequestVideo(filter: $filter) {
+      created
+      duedate
+      from
+      to
+      fromEmail
+      toEmail
+      isRead
+      isCompleted
+      message
+      createdAt
+      updatedAt
+      __typename
+    }
+  }
+`;
+export const onDeleteRequestVideo = /* GraphQL */ `
+  subscription OnDeleteRequestVideo(
+    $filter: ModelSubscriptionRequestVideoFilterInput
+  ) {
+    onDeleteRequestVideo(filter: $filter) {
+      created
+      duedate
+      from
+      to
+      fromEmail
+      toEmail
+      isRead
+      isCompleted
+      message
+      createdAt
+      updatedAt
+      __typename
+    }
+  }
+`;

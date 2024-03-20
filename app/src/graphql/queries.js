@@ -75,3 +75,127 @@ export const listInAppMessagings = /* GraphQL */ `
     }
   }
 `;
+export const getRequestVideo = /* GraphQL */ `
+  query GetRequestVideo($created: AWSDateTime!) {
+    getRequestVideo(created: $created) {
+      created
+      duedate
+      from
+      to
+      fromEmail
+      toEmail
+      isRead
+      isCompleted
+      message
+      createdAt
+      updatedAt
+      __typename
+    }
+  }
+`;
+export const listRequestVideos = /* GraphQL */ `
+  query ListRequestVideos(
+    $created: AWSDateTime
+    $filter: ModelRequestVideoFilterInput
+    $limit: Int
+    $nextToken: String
+    $sortDirection: ModelSortDirection
+  ) {
+    listRequestVideos(
+      created: $created
+      filter: $filter
+      limit: $limit
+      nextToken: $nextToken
+      sortDirection: $sortDirection
+    ) {
+      items {
+        created
+        duedate
+        from
+        to
+        fromEmail
+        toEmail
+        isRead
+        isCompleted
+        message
+        createdAt
+        updatedAt
+        __typename
+      }
+      nextToken
+      __typename
+    }
+  }
+`;
+export const requestVideosByToAndCreated = /* GraphQL */ `
+  query RequestVideosByToAndCreated(
+    $to: String!
+    $created: ModelStringKeyConditionInput
+    $sortDirection: ModelSortDirection
+    $filter: ModelRequestVideoFilterInput
+    $limit: Int
+    $nextToken: String
+  ) {
+    requestVideosByToAndCreated(
+      to: $to
+      created: $created
+      sortDirection: $sortDirection
+      filter: $filter
+      limit: $limit
+      nextToken: $nextToken
+    ) {
+      items {
+        created
+        duedate
+        from
+        to
+        fromEmail
+        toEmail
+        isRead
+        isCompleted
+        message
+        createdAt
+        updatedAt
+        __typename
+      }
+      nextToken
+      __typename
+    }
+  }
+`;
+export const requestVideosByToAndDuedate = /* GraphQL */ `
+  query RequestVideosByToAndDuedate(
+    $to: String!
+    $duedate: ModelStringKeyConditionInput
+    $sortDirection: ModelSortDirection
+    $filter: ModelRequestVideoFilterInput
+    $limit: Int
+    $nextToken: String
+  ) {
+    requestVideosByToAndDuedate(
+      to: $to
+      duedate: $duedate
+      sortDirection: $sortDirection
+      filter: $filter
+      limit: $limit
+      nextToken: $nextToken
+    ) {
+      items {
+        created
+        duedate
+        from
+        to
+        fromEmail
+        toEmail
+        isRead
+        isCompleted
+        message
+        createdAt
+        updatedAt
+        __typename
+      }
+      nextToken
+      __typename
+    }
+  }
+`;
