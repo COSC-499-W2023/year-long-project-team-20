@@ -106,3 +106,66 @@ export const deleteInAppMessaging = /* GraphQL */ `
     }
   }
 `;
+export const createRequestVideo = /* GraphQL */ `
+  mutation CreateRequestVideo(
+    $input: CreateRequestVideoInput!
+    $condition: ModelRequestVideoConditionInput
+  ) {
+    createRequestVideo(input: $input, condition: $condition) {
+      created
+      duedate
+      from
+      to
+      fromEmail
+      toEmail
+      isRead
+      isCompleted
+      message
+      createdAt
+      updatedAt
+      __typename
+    }
+  }
+`;
+export const updateRequestVideo = /* GraphQL */ `
+  mutation UpdateRequestVideo(
+    $input: UpdateRequestVideoInput!
+    $condition: ModelRequestVideoConditionInput
+  ) {
+    updateRequestVideo(input: $input, condition: $condition) {
+      created
+      duedate
+      from
+      to
+      fromEmail
+      toEmail
+      isRead
+      isCompleted
+      message
+      createdAt
+      updatedAt
+      __typename
+    }
+  }
+`;
+export const deleteRequestVideo = /* GraphQL */ `
+  mutation DeleteRequestVideo(
+    $input: DeleteRequestVideoInput!
+    $condition: ModelRequestVideoConditionInput
+  ) {
+    deleteRequestVideo(input: $input, condition: $condition) {
+      created
+      duedate
+      from
+      to
+      fromEmail
+      toEmail
+      isRead
+      isCompleted
+      message
+      createdAt
+      updatedAt
+      __typename
+    }
+  }
+`;
