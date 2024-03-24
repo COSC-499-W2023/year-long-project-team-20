@@ -133,7 +133,7 @@ const Recorder = () => {
       // Generate a unique name for the video
       let fileName = `recorded_video_${new Date().toISOString()}.mp4`;
       fileName = fileName.replace(/:/g, "-"); 
-      alert(fileName)
+    
 
       // Confirm if the user wants to upload the video
       const result = await Swal.fire({
