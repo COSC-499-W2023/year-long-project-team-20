@@ -78,6 +78,7 @@ const Request = () => {
                 sender="Bob Smith"
                 description="Complete the following video"
                 dueDate="2024-03-25"
+                isCompleteInitial={true}
                 isRead={true}
               />
 

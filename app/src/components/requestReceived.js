@@ -6,9 +6,13 @@ import '../css/requestReceived.css';
 function RequestCard({ sender, description, dueDate, isCompleteInitial, isRead }) {
   const [isComplete, setIsComplete] = useState(isCompleteInitial);
   const navigate = useNavigate();
-  const toggleComplete = () => setIsComplete(!isComplete);
 
-  //Check if card is read o not
+  function toggleComplete() {
+    setIsComplete(!isComplete);
+    cardRead();
+  }
+
+  //Check if card is read or not
   const initialCardClass = isRead ? "read-card" : "req-card";
   const [cardClass, setCardClass] = useState(initialCardClass);
 
@@ -39,7 +43,7 @@ function RequestCard({ sender, description, dueDate, isCompleteInitial, isRead }
       </label>
       </div>
 
-      <Button onClick={cardRead}>Record</Button>
+      <Button onClick={() => navigate("/record")}>Record</Button>
 
     </div>
   );
