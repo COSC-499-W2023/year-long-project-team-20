@@ -1,5 +1,5 @@
 import { Outlet } from "react-router-dom";
-import logo from "../logo.svg";
+
 import "@aws-amplify/ui-react/styles.css";
 import React, { useEffect, useState } from "react";
 import { Auth } from "aws-amplify";
@@ -21,7 +21,7 @@ import { Authenticator } from "@aws-amplify/ui-react";
 import "@aws-amplify/ui-react/styles.css";
 import Swal from "sweetalert2";
 
-function App() {
+function Profile() {
   const [user, setUser] = useState(null);
   const [isEditing, setIsEditing] = useState(false);
   const [editableUser, setEditableUser] = useState({ username: "", email: "" });
@@ -212,4 +212,4 @@ function App() {
   );
 }
 
-export default withAuthenticator(App);
+export default withAuthenticator(Profile);
