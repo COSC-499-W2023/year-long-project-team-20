@@ -3,14 +3,23 @@ import { Button } from "@aws-amplify/ui-react";
 import { useNavigate } from "react-router-dom";
 import '../css/requestReceived.css'; 
 
-function RequestCard({ sender, description, dueDate, isCompleteInitial}) {
+function RequestCard({ sender, description, dueDate, isCompleteInitial, isRead }) {
   const [isComplete, setIsComplete] = useState(isCompleteInitial);
   const navigate = useNavigate();
-
   const toggleComplete = () => setIsComplete(!isComplete);
 
+  //Check if card is read o not
+  const initialCardClass = isRead ? "read-card" : "req-card";
+  const [cardClass, setCardClass] = useState(initialCardClass);
+
+  //sets card as read (must be modified to update card status in database)
+  const cardRead = () => {
+    setCardClass(prevClass => prevClass === "req-card" ? "read-card" : "req-card"); 
+    //navigate("/record")
+  };
+
   return (
-    <div className="req-card">
+    <div className={cardClass}>
       <p className="from">From:  
       <span className="sender"> { sender}</span>
       </p>
@@ -30,7 +39,7 @@ function RequestCard({ sender, description, dueDate, isCompleteInitial}) {
       </label>
       </div>
 
-      <Button onClick={() => navigate("/record")} >Record</Button>
+      <Button onClick={cardRead}>Record</Button>
 
     </div>
   );

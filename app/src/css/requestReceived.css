@@ -11,7 +11,15 @@
 
 
 .read-card {
-  filter: opacity(50%); 
+  width: 100%;
+  height: auto;
+  border: 1px solid #ccc;
+  padding: 20px;
+  margin-bottom: 10px;
+  box-sizing: border-box;
+  font-size: 18px; 
+  position: relative;
+  filter: opacity(30%); 
 }
 
 .bold-text, .status-text {
@@ -45,6 +53,12 @@
 }
 
 .req-card > button {
+  position: absolute;
+  right: 20px; 
+  bottom: 20px; 
+}
+
+.read-card > button {
   position: absolute;
   right: 20px; 
   bottom: 20px; 

@@ -71,13 +71,14 @@ const Request = () => {
                 description="Complete the following video"
                 dueDate="2024-03-25"
                 isCompleteInitial={false}
+                isRead={false}
               />
               
               <RequestCard
                 sender="Bob Smith"
                 description="Complete the following video"
                 dueDate="2024-03-25"
-                isCompleteInitial={false}
+                isRead={true}
               />
 
               
