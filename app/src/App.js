@@ -1,6 +1,19 @@
+import logo from "./logo.svg";
 import "@aws-amplify/ui-react/styles.css";
-
-import { withAuthenticator, AmplifyProvider } from "@aws-amplify/ui-react";
+import React, { useEffect, useState } from "react";
+import { Auth } from "aws-amplify";
+import {
+  withAuthenticator,
+  Button,
+  Heading,
+  Image,
+  View,
+  Card,
+  Text,
+  Flex,
+  AmplifyProvider,
+  ThemeProvider,
+} from "@aws-amplify/ui-react";
 
 import Home from "./pages/Home";
 import Profile from "./pages/Profile";
@@ -30,6 +43,76 @@ const router = createBrowserRouter([
 ]);
 
 function App() {
+  const [user, setUser] = useState(null);
+  const [isEditing, setIsEditing] = useState(false);
+  const [editableUser, setEditableUser] = useState({ username: "", email: "" });
+
+  useEffect(() => {
+    Auth.currentAuthenticatedUser()
+      .then((user) => {
+        setUser(user);
+        setEditableUser({
+          username: user.username,
+          email: user.attributes.email,
+        });
+      })
+      .catch((err) => console.log(err));
+  }, []);
+
+  const editUser = () => {
+    setIsEditing(!isEditing);
+  };
+
+  const handleInputChange = (event) => {
+    setEditableUser({
+      ...editableUser,
+      [event.target.name]: event.target.value,
+    });
+  };
+
+  const saveChanges = async () => {
+    // Save changes to the user's information here
+    try {
+      const currentUser = await Auth.currentAuthenticatedUser();
+      await Auth.updateUserAttributes(currentUser, {
+        email: editableUser.email,
+        // Note: 'username' cannot be updated as it's an immutable attribute.
+      });
+      // Update the user state
+      setUser({
+        ...user,
+        attributes: { ...user.attributes, email: editableUser.email },
+      });
+
+      // Then exit edit mode
+      setIsEditing(false);
+    } catch (error) {
+      console.error("Error updating user attributes", error);
+    }
+  };
+
+  const deleteUser = async () => {
+    const confirmation = window.confirm(
+      "Are you sure you want to delete your account?"
+    );
+    if (confirmation) {
+      try {
+        await Auth.currentAuthenticatedUser();
+        await Auth.deleteUser();
+      } catch (error) {
+        console.error("Error deleting user", error);
+      }
+    }
+  };
+
+  const signOut = async () => {
+    try {
+      await Auth.signOut();
+    } catch (error) {
+      console.error("Error signing out", error);
+    }
+  };
+
   return (
     <AmplifyProvider>
       <RouterProvider router={router} />
@@ -38,74 +121,3 @@ function App() {
 }
 
 export default withAuthenticator(App);
-
-// this code was in this page but was not being used to do anything so I removed it all and put it down here - Issa
-// const [user, setUser] = useState(null);
-// const [isEditing, setIsEditing] = useState(false);
-// const [editableUser, setEditableUser] = useState({ username: "", email: "" });
-
-// useEffect(() => {
-//   Auth.currentAuthenticatedUser()
-//     .then((user) => {
-//       setUser(user);
-//       setEditableUser({
-//         username: user.username,
-//         email: user.attributes.email,
-//       });
-//     })
-//     .catch((err) => console.log(err));
-// }, []);
-
-// const editUser = () => {
-//   setIsEditing(!isEditing);
-// };
-
-// const handleInputChange = (event) => {
-//   setEditableUser({
-//     ...editableUser,
-//     [event.target.name]: event.target.value,
-//   });
-// };
-
-// const saveChanges = async () => {
-//   // Save changes to the user's information here
-//   try {
-//     const currentUser = await Auth.currentAuthenticatedUser();
-//     await Auth.updateUserAttributes(currentUser, {
-//       email: editableUser.email,
-//       // Note: 'username' cannot be updated as it's an immutable attribute.
-//     });
-//     // Update the user state
-//     setUser({
-//       ...user,
-//       attributes: { ...user.attributes, email: editableUser.email },
-//     });
-
-//     // Then exit edit mode
-//     setIsEditing(false);
-//   } catch (error) {
-//     console.error("Error updating user attributes", error);
-//   }
-// };
-
-// const deleteUser = async () => {
-//   const confirmation = window.confirm(
-//     "Are you sure you want to delete your account?"
-//   );
-//   if (confirmation) {
-//     try {
-//       await Auth.currentAuthenticatedUser();
-//       await Auth.deleteUser();
-//     } catch (error) {
-//       console.error("Error deleting user", error);
-//     }
-//   }
-// };
-
-// const signOut = async () => {
-//   try {
-//     await Auth.signOut();
-//   } catch (error) {
-//     console.error("Error signing out", error);
-//   }
-// };
