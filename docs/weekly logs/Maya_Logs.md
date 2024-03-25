@@ -1,5 +1,5 @@
 # Maya Ayaviri Bacarreza's Logs 
-## Week 23 - Project Log
+## Week 24 - Project Log
 **Work period March 18th - March 24th**
 <img width="648" alt="Screen Shot 2024-03-24 at 9 26 59 PM" src="https://github.com/COSC-499-W2023/year-long-project-team-20/assets/66889922/2898284c-bd91-4f1a-aefb-e71bb2174c32">
 
@@ -19,6 +19,25 @@ can be drawn to requests that have not yet been completed. Additionally, I added
 that requests will have an associated due date. 
 
 I also coordinated with ryan to make an adjustment to the names that we were using to save videos to the backend. 
+
+# Maya Ayaviri Bacarreza's Logs 
+## Week 23 - Project Log
+**Work period March 11th - March 17th**
+
+<img width="700" alt="Screen Shot 2024-03-17 at 3 38 04 PM" src="https://github.com/COSC-499-W2023/year-long-project-team-20/assets/66889922/08a54f61-2c88-4077-9656-bb2c77ab9bd7">
+
+### Tasks Completed This Work Period (found on https://github.com/COSC-499-W2023/year-long-project-team-20/pull/195)
+* Develop request video ui (involved making a new toggle button component to let users switch between two screen display options)
+* Update library page ui to use new toggle button
+   
+### Future Tasks
+* Find way to have toggle button remember the selected view even after the user navigates away 
+* Make fixes to the progress bar suggested such as update colors to match theme and make it so that the progress bars still display ongoing progress if the user navigates to another page
+
+### Context 
+This week I worked on the request video UI. On the request tab we wanted users to be able to select between the option of sending a video request to another user or to view requests that have been sent to them. This is similar to the libray tab which allows users to pick between seeing their uploaded video and videos sent to them. So I created a toggle button component (that user can click on to switch between two given views) that could be used on both pages to allow our design to be consistent and easily understandable for the user. After the toggle button was implemented and working, I made the request video form to be shown when the user wants to request a video. And then I modified the library.js code to use the toggle button as well.
+
+
 
 
 # Maya Ayaviri Bacarreza's Logs 
