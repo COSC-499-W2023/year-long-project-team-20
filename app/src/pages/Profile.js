@@ -8,16 +8,12 @@ import {
   withAuthenticator,
   Button,
   Heading,
-  Image,
   View,
   Card,
   Text,
   Flex,
-  AmplifyProvider,
 } from "@aws-amplify/ui-react";
-import { Hub } from "aws-amplify";
 
-import { Authenticator } from "@aws-amplify/ui-react";
 import "@aws-amplify/ui-react/styles.css";
 import Swal from "sweetalert2";
 

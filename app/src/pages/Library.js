@@ -1,6 +1,6 @@
-import React, { useRef, useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import "@aws-amplify/ui-react/styles.css";
-import { withAuthenticator, Button, TextField } from "@aws-amplify/ui-react";
+import { withAuthenticator, Button } from "@aws-amplify/ui-react";
 
 import { Auth, API, graphqlOperation, Storage } from "aws-amplify";
 import { createInAppMessaging } from "../graphql/mutations";
@@ -9,7 +9,6 @@ import Swal from "sweetalert2";
 import Modal from "react-modal";
 import "../css/Library.css";
 import ToggleButton from "../components/ToggleButton";
-import { func } from "prop-types";
 
 Modal.setAppElement("#root");
 
@@ -92,15 +91,15 @@ const Library = () => {
     }
   }
 
-  const getSignedUrl = async (fileKey) => {
-    try {
-      const signedUrl = await Storage.get(fileKey);
-      console.log("Signed URL:", signedUrl);
-      return signedUrl;
-    } catch (error) {
-      console.error("Error getting signed URL:", error);
-    }
-  };
+  // const getSignedUrl = async (fileKey) => {
+  //   try {
+  //     const signedUrl = await Storage.get(fileKey);
+  //     console.log("Signed URL:", signedUrl);
+  //     return signedUrl;
+  //   } catch (error) {
+  //     console.error("Error getting signed URL:", error);
+  //   }
+  // };
 
   async function sendMessage(from, to, link, description) {
     const newMessage = {
