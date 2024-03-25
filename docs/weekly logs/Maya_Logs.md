@@ -1,5 +1,27 @@
 # Maya Ayaviri Bacarreza's Logs 
 ## Week 24 - Project Log
+**Work period March 18th - March 24th**
+<img width="648" alt="Screen Shot 2024-03-24 at 9 26 59 PM" src="https://github.com/COSC-499-W2023/year-long-project-team-20/assets/66889922/2898284c-bd91-4f1a-aefb-e71bb2174c32">
+
+### Tasks Completed This Work Period (found on pull request https://github.com/COSC-499-W2023/year-long-project-team-20/pull/218)
+* Develop receieved requests UI to be used to display any requests other users have sent the logged in user
+* Changed the filename of recorded videos to not contain any colons in collaboration with Ryan, after he informed the group that it was causing issues in the backed for blur video
+   
+### Future Tasks
+* Develop sent requests UI
+* Find way to have toggle button remember the selected view even after the user navigates away 
+* Make fixes to the progress bar suggested such as update colors to match theme and make it so that the progress bars still display ongoing progress if the user navigates to another page
+
+### Context 
+This week I worked on the receiving requests UI, I created a component that displays the information about a request like who sent it, its description, 
+when it is due by, and if it is or is not complete. I set up the UI to decrease the opacity of the card if it is marked as completed, so that the users attention
+can be drawn to requests that have not yet been completed. Additionally, I added a date selector to the send a request page after it was discussed in a team meeting 
+that requests will have an associated due date. 
+
+I also coordinated with ryan to make an adjustment to the names that we were using to save videos to the backend. 
+
+# Maya Ayaviri Bacarreza's Logs 
+## Week 23 - Project Log
 **Work period March 11th - March 17th**
 
 <img width="700" alt="Screen Shot 2024-03-17 at 3 38 04 PM" src="https://github.com/COSC-499-W2023/year-long-project-team-20/assets/66889922/08a54f61-2c88-4077-9656-bb2c77ab9bd7">
@@ -17,8 +39,9 @@ This week I worked on the request video UI. On the request tab we wanted users t
 
 
 
+
 # Maya Ayaviri Bacarreza's Logs 
-## Week 23 - Project Log
+## Week 22 - Project Log
 **Work period March 4th - March 10th**
 
 <img width="793" alt="Screen Shot 2024-03-10 at 4 24 54 PM" src="https://github.com/COSC-499-W2023/year-long-project-team-20/assets/66889922/9cd3f616-ea00-4277-9389-9bc9dc811451">
@@ -39,7 +62,7 @@ This week we had the peer evaluation session which was very useful in helping us
 
 
 # Maya Ayaviri Bacarreza's Logs 
-## Week 22 - Project Log
+## Week 21 - Project Log
 **Work period February 26th - March 3rd**
 <img width="745" alt="Screen Shot 2024-03-03 at 8 25 10 PM" src="https://github.com/COSC-499-W2023/year-long-project-team-20/assets/66889922/3e9dda51-565e-4755-b89c-16bf439d0419">
 
