@@ -526,3 +526,39 @@
 ### Task Completed vs In Progress
 
 ![text](https://i.imgur.com/NdbeGYn.png)
+
+## Week 11 (Work Period March 19th - March 24th)
+
+### Tasks completed this week
+
+- Team meetings.
+- I created the Frequently Asked Questions Component of our app on monday. This component will help new users familiarize themselves on how to use our webplatform. Care was taken to ensure that the component is reactive and has clean state managment. Also, time was spent ensuring that the component looks asthetically please as well which was accomplished by conditional css. As discussed in class, please consider this work under week 10 and not week 11 if possible.
+- We documented a lot of issues/tasks to be completed in our webplatform as we are almost at the end of our project. This was done so we can priortize where to focus our efforts on. I wanted to focus my effort on creating a search bar that will let users search videos by description or title of the videos in the library page. However, I could not directly being working on this as the code in the library page was really messy and hard to follow. Therefore, my first step was to understand the way the current code is working in the library page. After that I worked on improving the code and documenting the logic with detailed comments.
+- I was not able to commit my work this week as midway through working on my code I noticed an issue with our app. The issue is infinite network requests being made to the amazon storage for retreiving received videos. After a few minutes, the app crashes due to out of memory error. I was not sure if this issue was caused by my efforts in cleaning up some code, so we had to revert one of my pull requests. However, the out of memory issue still persisted. I was not able to find a way to fix this issue so we will need to tackle it next week.
+- I also decided to clean up code in other files where variables and functions are declared but never used.
+- I also tried to find a solution on how to manage a global state for a component. Currently in our upload page, when a user uploads a video a progress bar shows what the progress of the upload is. However, the default react behaviour is that the state is reset whenever user navigates away from the current page. As a result, when the user comes back to the upload page there the status of which files are being uploaded and their progress is completely lost. Therefore, we need to manage the state of files that are being uploaded and the progress of each upload in a global state variable. There are a few ways to achieve this - one way is to use redux, another way is to use context API, another way is to store it locally on the browser, and another way is to store in the url (this is probably the worst approach for this case). I am leaning towards storing it locally on the browswer. However, it would be better for our project if we could implement context api or redux to manage global states. Time is the limiting factor currently and it is better to opt for an easier approach rather than an optimal one.
+
+### Goals for Next Week
+
+- Implement a search feature in library page.
+- Connect requests front end and back end
+- Create a separate view for blurred videos.
+- Fix the out of memory app crash issue as a result of infinite received video requests.
+- Implement a footer
+- Implement a search feature in requests page.
+
+### Recap goals
+
+- Keep learning react.
+- Implement a visusually asthetic learn more page.
+- Implement front end functionality for blur video
+- Implement front end for managing video requests. Be able to view requests. Mark them as complete or delete them.
+- Identify areas where css can be implemented and try to implement CSS.
+
+### Task Completed (from Peer Eval Portal)
+
+![text](https://i.imgur.com/tdeMEXL.png)
+
+### Task Completed vs In Progress
+
+![text](https://i.imgur.com/hroBSiW.png)
