@@ -212,3 +212,18 @@ Goal was to build the design of the website and start wokrking on the backend.
  ### Context 
  I started the week with building significant improvements on the UI for the library page, I made it more interactive and intuitive. This indluded building a modal for sending videos insetead of having a form under each video. I then seperated "uploaded videos" and "Received videos" using an interactive button that switches the DOM between the two lists, I also build video cards for the videos that look better and are easier to manipulate within the code. 
  I also started building a search bar which will make sending the video to the right user easier, I built the lambda function for this feature and made progress on the frontend of the search bar. The feature isn't functional yet.
+
+ ## Week 11 (Mar 17 - Mar 25)
+ ![img](https://i.imgur.com/ejxi1qo.png)
+ ### Tasks complete this week
+ * I built a sophisticated UI for the Library page, including modals, interactive buttons and video cards, I had to restructure our code to achieve that and make it more readable and understandable
+ * I build a lambda function that will handle search inquiries to use in building a search bar that will help user's find the user they want to send a video to
+
+ ### Goals for next week
+ * Discuss with the team on any UI improvement we can incorporate and build it.
+ * Finish building the search bar 
+ * transfer some methods from the client side to the server side (lambda functions) to make the app more secure
+
+ ### Context 
+ I started the week with building significant improvements on the UI for the library page, I made it more interactive and intuitive. This indluded building a modal for sending videos insetead of having a form under each video. I then seperated "uploaded videos" and "Received videos" using an interactive button that switches the DOM between the two lists, I also build video cards for the videos that look better and are easier to manipulate within the code. 
+ I also started building a search bar which will make sending the video to the right user easier, I built the lambda function for this feature and made progress on the frontend of the search bar. The feature isn't functional yet.
