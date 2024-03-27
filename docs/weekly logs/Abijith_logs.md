@@ -1,8 +1,12 @@
 # Abijith Ashok Log
 ## Week 22 (March 10th to March 17th)
 ## Features worked on
-- Finished writing the Lambda to send emails based on the InAppMessaging 
+- Finished writing the Lambda to send emails based on the InAppMessaging
+- - Lambda can be found under docs/weekly logs/lambda_function.py
+- - Lambda was set up with a trigger on our share video feature table
+![Lambda Trigger](https://imgur.com/13Ryvea.png)
 - Set up Amazons Simple Email Service to send emails to verified users
+![Email Format](https://imgur.com/zz4E4iI.png)
 - Started working on the request video feature
 
 ## Goals for next week
