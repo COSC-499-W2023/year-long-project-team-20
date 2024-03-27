@@ -41,6 +41,8 @@ export { default as ProductCard } from "./ProductCard";
 export { default as ProductDetail } from "./ProductDetail";
 export { default as ProfileCard } from "./ProfileCard";
 export { default as ProfileComponent } from "./ProfileComponent";
+export { default as RequestVideoCreateForm } from "./RequestVideoCreateForm";
+export { default as RequestVideoUpdateForm } from "./RequestVideoUpdateForm";
 export { default as ReviewCard } from "./ReviewCard";
 export { default as SearchComponent } from "./SearchComponent";
 export { default as ShareVideoComponent } from "./ShareVideoComponent";

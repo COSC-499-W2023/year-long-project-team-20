@@ -131,7 +131,9 @@ const Recorder = () => {
       const blob = new Blob(recordedChunks, { type: 'video/mp4' });
 
       // Generate a unique name for the video
-      const fileName = `recorded_video_${new Date().toISOString()}.mp4`;
+      let fileName = `recorded_video_${new Date().toISOString()}.mp4`;
+      fileName = fileName.replace(/:/g, "-"); 
+    
 
       // Confirm if the user wants to upload the video
       const result = await Swal.fire({

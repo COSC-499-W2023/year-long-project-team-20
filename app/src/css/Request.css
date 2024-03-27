@@ -62,3 +62,6 @@ button[type="submit"]:hover {
     align-self: flex-start; 
   }
   
+  h1 {
+    padding: 15px 0;
+  }

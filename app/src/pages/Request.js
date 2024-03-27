@@ -2,6 +2,7 @@ import "@aws-amplify/ui-react/styles.css";
 import React, { useState } from 'react';
 import { withAuthenticator } from "@aws-amplify/ui-react";
 import ToggleButton from '../components/ToggleButton';
+import RequestCard from '../components/requestReceived';
 import "../css/Request.css";
 
 const Request = () => {
@@ -18,7 +19,8 @@ const Request = () => {
     event.preventDefault();
     const username = event.target.username.value;
     const littleText = event.target.littleText.value;
-    console.log("Username: ", username, ", Your Text: ", littleText);
+    const dueDate = event.target.dueDate.value; 
+    console.log("Username: ", username, ", Your Text: ", littleText, ", Due Date: ", dueDate);
   };
   
 
@@ -45,15 +47,45 @@ const Request = () => {
                 <input type="text" id="username" name="username" required />
               </div>
               <div className="form-group">
-                <label htmlFor="littleText">Description:</label>
+                <label htmlFor="description">Description:</label>
                 <input type="text" id="littleText" name="littleText" required />
               </div>
+
+              <div className="form-group">
+                <label htmlFor="dueDate">Due Date:</label>
+                 <input type="date" id="dueDate" name="dueDate" required />
+               </div>
+          
               <button type="submit">Submit</button>
             </form>
           </div>
         ) : (
           <div>
             <h1>Requests Received</h1>
+            <div style={{ width: '100%' }}>
+              
+              {/* Modify to grab requests sent to this user from database  */}
+              
+              <RequestCard
+                sender="John Doe"
+                description="Complete the following video"
+                dueDate="2024-03-25"
+                isCompleteInitial={false}
+                isRead={false}
+              />
+              
+              <RequestCard
+                sender="Bob Smith"
+                description="Complete the following video"
+                dueDate="2024-03-25"
+                isCompleteInitial={true}
+                isRead={true}
+              />
+
+              
+
+
+            </div>
           </div>
         )}
       </div>
