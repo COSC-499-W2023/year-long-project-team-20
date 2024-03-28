@@ -1,13 +1,46 @@
 # Abijith Ashok Log
+## Week 23 (March 18th to March 24th)
+## Feature worked on
+- Created the table RequestVideo with the following Fields and indexes:
+- - created: tracks the time the request was created
+- - dueDate: sets the time by which the request must be completed by
+- - from: lets the current user know the user (by username) requested for the video
+- - to: tracks who the request is supposed to go to
+- - fromEmail/toEmail: lets the current user choose whether to notify the recipient of the request by email or username, if they choose email then a lambda will send an email to notify them of the request
+- - isRead: tracks the read status of the request by the recipient
+- - isCompleted: tracks which requests have been completed
+- - message: stores the message that the current user wants to send to the recipient
+- - There are also two indexes on this table for quick look-up: The first index partitions the table based on the recipient usernames and sorts the tuples based on the DueDate, the second index also paritition the table based on the recipient usernames and sorts the tuples based on their creation time. 
+
+- Finished writing the first version fo the request video feature
+- - Users can now use the Requests page to send request to other users asking them to upload a video. 
+- - Users can also provide a due data and message along with their request
+- - I used conditional css to make sure the cards change in appearance based on whether the request has been completed or not. 
+- - There is also a blue dot to indicate if a request has been read or not. 
+- - I also wrote a lambda to send an email to the recipient if the current user chooses to send their request via email
+
+## Goals for next week
+- Implement a simple notification system on the app to let the user know whether some other user has shared a vidoe with them or requested a video from them
+- Implement a send request page to see the status of the request that was send from the current user
+- Request production access to extend the email feature functionality of the app to non-verified Amazon Simple Email Service (SES) users (Essentially all users of the app)
+- Buy a domain to incorporate with Amazon SES
+- Clean up the UI for the Request Video and Share Video
+![Week 23 Logs](https://imgur.com/D81wsL0.png)
+
+
 ## Week 22 (March 10th to March 17th)
 ## Features worked on
-- Finished writing the Lambda to send emails based on the InAppMessaging
-- - Lambda can be found under docs/weekly logs/lambda_function.py
-- - Lambda was set up with a trigger on our share video feature table
-![Lambda Trigger](https://imgur.com/13Ryvea.png)
+- Finished writing the Lambda to send emails based on the InAppMessaging 
+- - Lambda code can be found in the docs/weekly logs/lambda function
+- - Lambda is set to trigger on every update to the shareVideo InAppMessaging table
+![Lamda Trigger Configurations](https://imgur.com/13Ryvea.png)
 - Set up Amazons Simple Email Service to send emails to verified users
+- - Each user receives a custom email send to their email whenever a video is shared
+- - The email uses Inline HTML to format the email to the desired template
 ![Email Format](https://imgur.com/zz4E4iI.png)
 - Started working on the request video feature
+- - Decided on the table that will be used to make the request feature table
+- - Request will have a due date and read status
 
 ## Goals for next week
 - Finish the Request Video Feature
