@@ -27,7 +27,11 @@
   
 }
 
-.request-description, .due-date {
+.due-date, .created-at {
+  font-weight: normal;
+}
+
+.request-description{
   font-weight: normal;
 }
 

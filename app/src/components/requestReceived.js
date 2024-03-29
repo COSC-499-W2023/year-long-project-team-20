@@ -9,6 +9,8 @@ function RequestCard({ sender, description, dueDate, isCompleteInitial, isRead, 
   const [isComplete, setIsComplete] = useState(isCompleteInitial);
   const [Read, setRead] = useState(isRead);
   const navigate = useNavigate();
+  const date = new Date(createdAt);
+  const formattedDateTime = date.toLocaleString([], { year: 'numeric', month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit' });
 
   function toggleComplete() {
     setIsComplete(!isComplete);
@@ -65,7 +67,7 @@ function RequestCard({ sender, description, dueDate, isCompleteInitial, isRead, 
       
       <p className="bold-text">Description: <span className="request-description">{description}</span></p>
       <p className="bold-text">Due Date: <span className="due-date">{dueDate}</span></p>
-      
+      <p className="bold-text">Created At: <span className="created-at">{formattedDateTime}</span></p>
       <div className="checkbox-div">  
         <label className="checkbox-label">
           <span className="status-text">{isComplete ? 'Complete' : 'Incomplete'}</span>
