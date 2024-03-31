@@ -16,8 +16,9 @@ const VideoUpload = () => {
 
   //Function extracted from upload.js 
   const uploadVideo = async () => {  
-    setVideoName(file.name);
     const file = fileInput.current.files[0];
+    setVideoName(file.name);
+    
     const videoContentType = 'video/mp4';
     const credentials = await Auth.currentCredentials(); // fetch current 
     const user = await Auth.currentAuthenticatedUser();
