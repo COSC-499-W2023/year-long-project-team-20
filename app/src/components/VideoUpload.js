@@ -4,13 +4,16 @@ import Swal from "sweetalert2";
 import { Auth, Storage, API, graphqlOperation } from "aws-amplify";
 import { createVideoList } from "../graphql/mutations";
 import ProgressBar from './/ProgressBar.js';
+import { useUploadProgress } from '../contexts/UploadProgressContext.js';
 
 
 const VideoUpload = () => {
   const fileInput = useRef(null);
   const cloudFrontUrl = 'https://dglw8nnn1gfb2.cloudfront.net/protected';
-  const [uploadProgress, setUploadProgress] = useState({ loaded: 0, total: 0, percentage: 0 });
-  const [isUploading, setIsUploading] = useState(false);
+
+  //Get status of upload bar 
+  const { uploadProgress, setUploadProgress, isUploading, setIsUploading } = useUploadProgress();
+
 
   //Function extracted from upload.js 
   const uploadVideo = async () => {  

@@ -24,6 +24,7 @@ import Upload from "./pages/Upload";
 import Library from "./pages/Library";
 import Request from "./pages/Request";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
+import { UploadProgressProvider } from './contexts/UploadProgressContext.js';
 
 //Set up paths for the different pages shown in the nav bar
 const router = createBrowserRouter([
@@ -115,7 +116,9 @@ function App() {
 
   return (
     <AmplifyProvider>
+       <UploadProgressProvider> 
       <RouterProvider router={router} />
+      </UploadProgressProvider> 
     </AmplifyProvider>
   );
 }
