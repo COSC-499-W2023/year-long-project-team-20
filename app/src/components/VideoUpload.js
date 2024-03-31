@@ -11,13 +11,12 @@ const VideoUpload = () => {
   const fileInput = useRef(null);
   const cloudFrontUrl = 'https://dglw8nnn1gfb2.cloudfront.net/protected';
 
-  //Get status of upload bar 
-  const { uploadProgress, setUploadProgress, isUploading, setIsUploading } = useUploadProgress();
-
+  //Get current status of upload bar 
+  const { uploadProgress, setUploadProgress, isUploading, setIsUploading, setVideoName } = useUploadProgress();
 
   //Function extracted from upload.js 
   const uploadVideo = async () => {  
-    
+    setVideoName(file.name);
     const file = fileInput.current.files[0];
     const videoContentType = 'video/mp4';
     const credentials = await Auth.currentCredentials(); // fetch current 
