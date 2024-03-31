@@ -48,11 +48,13 @@ const Library = () => {
       const credentials = await Auth.currentCredentials(); // fetch current authenticated user credentials including identityId
       const identityId = credentials.identityId;
       const response = await Storage.list("", { level: "protected" });
+      console.log(response);
 
       const cloudFrontUrl = "https://dglw8nnn1gfb2.cloudfront.net/protected/";
       const videoUrls = response.results.map((video) => ({
         url: `${cloudFrontUrl}${identityId}/${video.key}`,
         title: video.key,
+        eTag: video.eTag,
       }));
       console.log("videoUrls:", videoUrls);
       setUploadedVideos(videoUrls);
@@ -215,6 +217,7 @@ function UploadedVideosCollection({
             deleteVideos={deleteVideos}
             sendMessage={sendMessage}
             username={username}
+            key={video.title + "-" + video.eTag}
           />
         ))}
       </div>
@@ -227,7 +230,7 @@ function ReceivedVideosCollection({ receivedVideos }) {
   return (
     <div className="videos">
       {receivedVideos.map((video, index) => (
-        <RecVideoCard video={video} key={video.title} /> // key prop was undefined previously. I added it to as we may need it later to manage state of received videos
+        <RecVideoCard video={video} key={video.title + "-" + video.url} /> // key prop was undefined previously. I added it to as we may need it later to manage state of received videos
       ))}
     </div>
   );
