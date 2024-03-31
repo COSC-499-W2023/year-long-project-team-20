@@ -9,6 +9,7 @@ import Swal from "sweetalert2";
 import Modal from "react-modal";
 import "../css/Library.css";
 import ToggleButton from '../components/ToggleButton';
+import { useViewContext } from '../context/ViewContext.js';
 
 Modal.setAppElement('#root');
 
@@ -16,11 +17,16 @@ const Library = () => {
   const [videos, setVideos] = useState([]);
   const [username, setUsername] = useState(null);
   const [receivedVideos, setReceivedVideos] = useState([]);
-  const [activeView, setActiveView] = useState('Uploaded Videos');
+
+   //Load view selected from context
+  const { viewSelections, updateViewSelection } = useViewContext();
+  const [activeView, setActiveView] = useState(viewSelections.libraryPage);
+    
+ //store changed view in context
   const handleToggle = (view) => {
     setActiveView(view);
-};
-
+    updateViewSelection('libraryPage', view);
+  };
 
   useEffect(() => {
     fetchVideos();
