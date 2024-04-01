@@ -1,7 +1,6 @@
 import { Outlet } from "react-router-dom";
 import "../css/navbar.css";
 
-import logo from "../logo.svg";
 import "@aws-amplify/ui-react/styles.css";
 import React, { useEffect, useState } from "react";
 import { Auth } from "aws-amplify";

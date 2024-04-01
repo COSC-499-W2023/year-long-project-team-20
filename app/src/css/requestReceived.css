@@ -27,7 +27,11 @@
   
 }
 
-.request-description, .due-date {
+.due-date, .created-at {
+  font-weight: normal;
+}
+
+.request-description{
   font-weight: normal;
 }
 
@@ -62,4 +66,14 @@
   position: absolute;
   right: 20px; 
   bottom: 20px; 
+}
+
+.unread-dot {
+  height: 10px;
+  width: 10px;
+  background-color: blue;
+  border-radius: 50%;
+  position: absolute;
+  right: 10px;
+  top: 10px;
 }
