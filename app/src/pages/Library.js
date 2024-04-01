@@ -25,7 +25,7 @@ const Library = () => {
   const [activeView, setActiveView] = useState(viewSelections.libraryPage);
     
  //store changed view in context
-  const handleToggle = (view) => {
+  const handleActiveView = (view) => {
     setActiveView(view);
     updateViewSelection('libraryPage', view);
   };
