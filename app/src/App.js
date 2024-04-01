@@ -113,6 +113,7 @@ function App() {
     }
   };
 
+  //View Provider loads information about selected view for reuqest and library pages
   return (
     <AmplifyProvider>
       <ViewProvider> 
