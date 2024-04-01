@@ -1,4 +1,27 @@
 # Maya Ayaviri Bacarreza's Logs 
+## Week 25 - Project Log
+**Work period March 25th - March 31st**
+
+
+<img width="708" alt="Screen Shot 2024-03-31 at 8 55 46 PM" src="https://github.com/COSC-499-W2023/year-long-project-team-20/assets/66889922/615b8747-dafc-4c84-8b6f-36aab269d598">
+
+
+### Tasks Completed This Work Period (found on pull request https://github.com/COSC-499-W2023/year-long-project-team-20/pull/228)
+* Added ViewContext to store information about which page view the user has selected in library or request pages
+* Updated library and request pages to load information from ViewContext and save information to it
+* started UI for sent requests to allow user to edit requests (found on viewSentRequestsMaya branch)
+* started to store progress bar info in context to display ongoing process even if user leaves the page
+   
+### Future Tasks
+* Continue to develop sent requests UI
+* Make fixes to the progress bar suggested such as update colors to match theme and make it so that the progress bars still updates if the user navigates to another page
+
+### Context 
+This week I added the ViewContext page to store which view user has last selected in the library and request pages. This allows for the user to make a selection, navigate to another page, navigate back and see the view that they last selected. Previously, for example, in the library page it would default back to the uploaded videos page even if you selected recieved videos. With the changes made it will no longer switch to the default. 
+I also tried to use context for the progress bars, but since there can be multiple progress bars it is more complicated to implement. If there is time next week I'll continue to work on this. But, I will be more focused on finishing the ui for sent requests that will allow users to edit requests.
+
+
+# Maya Ayaviri Bacarreza's Logs 
 ## Week 24 - Project Log
 **Work period March 18th - March 24th**
 <img width="648" alt="Screen Shot 2024-03-24 at 9 26 59 PM" src="https://github.com/COSC-499-W2023/year-long-project-team-20/assets/66889922/2898284c-bd91-4f1a-aefb-e71bb2174c32">
