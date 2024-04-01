@@ -562,3 +562,35 @@
 ### Task Completed vs In Progress
 
 ![text](https://i.imgur.com/hroBSiW.png)
+
+## Week 12 (Work Period March 25th - March 31st)
+
+### Tasks completed this week
+
+- Team meetings
+- Finished organizing the code in library page but did not get started on the search bar feature for the library page. Hope to get it done next week alongside the individual project report.
+
+### Goals for Next Week
+
+- Implement a search feature in library page.
+- Implement a search feature in requests page.
+- Create a separate view for blurred videos.
+- Fix the out of memory app crash issue as a result of infinite received video requests.
+- Implement a footer
+
+### Recap goals
+
+- Implement a search feature in library page.
+- Connect requests front end and back end
+- Create a separate view for blurred videos.
+- Fix the out of memory app crash issue as a result of infinite received video requests.
+- Implement a footer
+- Implement a search feature in requests page.
+
+### Task Completed (from Peer Eval Portal)
+
+![text](https://i.imgur.com/Pc3FNMe.png)
+
+### Task Completed vs In Progress
+
+![text](https://i.imgur.com/a6mvXxW.png)
