@@ -10,6 +10,7 @@ import Modal from "react-modal";
 import "../css/Library.css";
 import ToggleButton from "../components/ToggleButton";
 import { func } from "prop-types";
+import { useViewContext } from '../context/ViewContext.js';
 
 Modal.setAppElement("#root");
 
@@ -20,9 +21,15 @@ const Library = () => {
   const [activeView, setActiveView] = useState("Uploaded Videos"); // default view is Uploaded videos.
   const [searchTerm, setSearchTerm] = useState("");
 
-  // this function handles the state of active view
+
+   //Load view selected from context
+  const { viewSelections, updateViewSelection } = useViewContext();
+  const [activeView, setActiveView] = useState(viewSelections.libraryPage);
+    
+ //store changed view in context
   const handleActiveView = (view) => {
     setActiveView(view);
+    updateViewSelection('libraryPage', view);
   };
 
   //this function handles user input on the search bar. so when user types something into the search bar it sets the state of the searchTerm to what the user typed
