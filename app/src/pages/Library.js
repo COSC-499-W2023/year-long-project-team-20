@@ -36,6 +36,11 @@ const Library = () => {
     setSearchTerm(e.target.value);
   }
 
+  // this fucntion resets the searchTerm back to ""
+  const handleClearSearch = () => {
+    setSearchTerm("");
+  };
+
   // this useEffect fetches received videos and is executed on the inital mount of the app and whenever the state of the received Video changes
   useEffect(() => {
     Auth.currentAuthenticatedUser()
@@ -184,16 +189,20 @@ const Library = () => {
 
   return (
     <div>
-      <div className="display-options">
-        <ToggleButton
-          leftTitle="Uploaded Videos"
-          rightTitle="Received Videos"
-          activeView={activeView}
-          onToggle={handleActiveView} // changed name of prop to match naming conventions of handling functions related to state. In this case our state that is being updated is activeView. Therfore, the prop function name that updates the state should be handleActiveView
-        />
+      <div className="flex-container1">
+        <div className="display-options">
+          <ToggleButton
+            leftTitle="Uploaded Videos"
+            rightTitle="Received Videos"
+            activeView={activeView}
+            onToggle={handleActiveView} // changed name of prop to match naming conventions of handling functions related to state. In this case our state that is being updated is activeView. Therfore, the prop function name that updates the state should be handleActiveView
+          />
+        </div>
+
         <SearchVideos
           searchTerm={searchTerm}
           onSearchChange={handleSearchChange}
+          onClearSearch={handleClearSearch}
         ></SearchVideos>
       </div>
 
@@ -352,15 +361,21 @@ function RecVideoCard({ video }) {
 
 //this component function is responsible for searching a list of videos.
 // receives the props searchTeam (which the current state of searchTerm) and the prop onSearchChange which calls the function handleSearchChange
-function SearchVideos({ searchTerm, onSearchChange }) {
+function SearchVideos({ searchTerm, onSearchChange, onClearSearch }) {
   return (
-    <div>
+    <div className="search-bar-div">
       <input
+        className="search-bar"
         type="text"
-        placeholder="Search Videos"
+        placeholder="Search videos by title..."
         value={searchTerm}
         onChange={onSearchChange}
       ></input>
+      {searchTerm && (
+        <button onClick={onClearSearch} className="clear-search">
+          &times;
+        </button>
+      )}
     </div>
   );
 }

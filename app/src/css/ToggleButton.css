@@ -2,23 +2,22 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100%; 
+  height: 100%;
 }
 
 .toggle-buttons {
   border: 1px solid #ccc;
   border-radius: 40px;
   display: flex;
-  justify-content: center; 
+  justify-content: center;
   width: 40vw;
   min-width: 150px;
-  
 }
 
 .toggle-button {
-  padding: 0.5em 1em; 
-  flex-grow: 1; 
-  font-size: 1.2rem; 
+  padding: 0.5em 1em;
+  flex-grow: 1;
+  font-size: 1.2rem;
   font-weight: bold;
   border: none;
   background-color: transparent;
@@ -27,7 +26,7 @@
 }
 
 .toggle-button.active {
-  background-color: #047D95;
+  background-color: #047d95;
   color: white;
   border-radius: 50px;
 }
