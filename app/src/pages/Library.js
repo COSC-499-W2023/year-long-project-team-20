@@ -9,9 +9,8 @@ import Swal from "sweetalert2";
 import Modal from "react-modal";
 import "../css/Library.css";
 
-import ToggleButton from '../components/ToggleButton';
-import { useViewContext } from '../context/ViewContext.js';
-
+import ToggleButton from "../components/ToggleButton";
+import { useViewContext } from "../context/ViewContext.js";
 
 Modal.setAppElement("#root");
 
@@ -19,16 +18,23 @@ const Library = () => {
   const [uploadedVideos, setUploadedVideos] = useState([]); // this state is used to manage user's uploaded videos
   const [username, setUsername] = useState(null);
   const [receivedVideos, setReceivedVideos] = useState([]);
+  const [searchTerm, setSearchTerm] = useState(""); // this state is used to manage the user inputs in search bar
 
-   //Load view selected from context
+  //Load view selected from context
   const { viewSelections, updateViewSelection } = useViewContext();
   const [activeView, setActiveView] = useState(viewSelections.libraryPage);
-    
- //store changed view in context
+
+  //store changed view in context
   const handleActiveView = (view) => {
     setActiveView(view);
-    updateViewSelection('libraryPage', view);
+    updateViewSelection("libraryPage", view);
   };
+
+  //this function handles user input on the search bar. so when user types something into the search bar it sets the state of the searchTerm to what the user typed
+  // we can then use the searchTerm state to filter videos accordingly.
+  function handleSearchChange(e) {
+    setSearchTerm(e.target.value);
+  }
 
   // this useEffect fetches received videos and is executed on the inital mount of the app and whenever the state of the received Video changes
   useEffect(() => {
@@ -110,6 +116,13 @@ const Library = () => {
   //   }
   // };
 
+  // in this function we take the uploaded videos array and filter it based on the search term
+  // if the search term is null then nothing will be filtered.
+  // This filteredUploadVidoes is rendered on the users screen as it passed as a prop to UploadedVidoesCollection component
+  const filteredUploadedVideos = uploadedVideos.filter((video) =>
+    video.title.toLowerCase().includes(searchTerm.toLowerCase())
+  );
+
   async function sendMessage(from, to, link, description) {
     const newMessage = {
       from,
@@ -178,6 +191,10 @@ const Library = () => {
           activeView={activeView}
           onToggle={handleActiveView} // changed name of prop to match naming conventions of handling functions related to state. In this case our state that is being updated is activeView. Therfore, the prop function name that updates the state should be handleActiveView
         />
+        <SearchVideos
+          searchTerm={searchTerm}
+          onSearchChange={handleSearchChange}
+        ></SearchVideos>
       </div>
 
       {/*Here we need to render the active views. there are two views that could be rendered. Uploaded videos or received videos. it should directly return the whole view  */}
@@ -185,12 +202,17 @@ const Library = () => {
       {activeView === "Uploaded Videos" ? (
         // if active view is uploaded videos, then we need to render the uploaded videos collection
         <>
-          <UploadedVideosCollection
-            uploadedVideos={uploadedVideos} // passing the array of uploaded videos
-            deleteVideos={deleteVideos} // passing the delete video function
-            sendMessage={sendMessage} // passing the sendMessage function
-            username={username} // passing the userName value
-          />
+          {/* if filteredUploaded vidoes is more than 0 then render the uploaded videos collection else display a message that no vidoes found*/}
+          {filteredUploadedVideos.length > 0 ? (
+            <UploadedVideosCollection
+              uploadedVideos={filteredUploadedVideos} // passing the array of uploaded videos
+              deleteVideos={deleteVideos} // passing the delete video function
+              sendMessage={sendMessage} // passing the sendMessage function
+              username={username} // passing the userName value
+            />
+          ) : (
+            <div>No videos found that match your search</div>
+          )}
         </>
       ) : (
         <>
@@ -324,6 +346,21 @@ function RecVideoCard({ video }) {
       <p>{video.title}</p>
       <p>From: {video.from}</p>
       <p className="description">Description: {video.description}</p>
+    </div>
+  );
+}
+
+//this component function is responsible for searching a list of videos.
+// receives the props searchTeam (which the current state of searchTerm) and the prop onSearchChange which calls the function handleSearchChange
+function SearchVideos({ searchTerm, onSearchChange }) {
+  return (
+    <div>
+      <input
+        type="text"
+        placeholder="Search Videos"
+        value={searchTerm}
+        onChange={onSearchChange}
+      ></input>
     </div>
   );
 }
