@@ -20,6 +20,8 @@ const Library = () => {
   const [receivedVideos, setReceivedVideos] = useState([]);
   const [searchTerm, setSearchTerm] = useState(""); // this state is used to manage the user inputs in search bar
 
+  const [sortOrder, setSortOrder] = useState("dateDesc"); // sortOrder state keeps track of what category to sort the videos on
+
   //Load view selected from context
   const { viewSelections, updateViewSelection } = useViewContext();
   const [activeView, setActiveView] = useState(viewSelections.libraryPage);
@@ -34,6 +36,21 @@ const Library = () => {
   // we can then use the searchTerm state to filter videos accordingly.
   function handleSearchChange(e) {
     setSearchTerm(e.target.value);
+  }
+
+  // this function sets the state of setSortOrder which is the state that keeps track of what category the vidoes are supposed to be sorted by
+  function handleSortChange(e) {
+    setSortOrder(e.target.value);
+  }
+
+  // this function formats the lastModified Date value which is in the form of Mon Apr 01 2024 18:17:16 GMT-0700 (Pacific Daylight Time) to Apr 01, 2024
+  function formatDate(dateString) {
+    const date = new Date(dateString);
+    return date.toLocaleDateString("en-CA", {
+      month: "short",
+      day: "2-digit",
+      year: "numeric",
+    });
   }
 
   // this useEffect fetches received videos and is executed on the inital mount of the app and whenever the state of the received Video changes
@@ -61,13 +78,15 @@ const Library = () => {
       const credentials = await Auth.currentCredentials(); // fetch current authenticated user credentials including identityId
       const identityId = credentials.identityId;
       const response = await Storage.list("", { level: "protected" });
-      console.log(response);
+      console.log("Response: ", response);
 
       const cloudFrontUrl = "https://dglw8nnn1gfb2.cloudfront.net/protected/";
       const videoUrls = response.results.map((video) => ({
         url: `${cloudFrontUrl}${identityId}/${video.key}`,
         title: video.key,
         eTag: video.eTag,
+        formattedDate: formatDate(video.lastModified),
+        date: video.lastModified,
       }));
       console.log("videoUrls:", videoUrls);
       setUploadedVideos(videoUrls);
@@ -118,10 +137,23 @@ const Library = () => {
 
   // in this function we take the uploaded videos array and filter it based on the search term
   // if the search term is null then nothing will be filtered.
-  // This filteredUploadVidoes is rendered on the users screen as it passed as a prop to UploadedVidoesCollection component
-  const filteredUploadedVideos = uploadedVideos.filter((video) =>
-    video.title.toLowerCase().includes(searchTerm.toLowerCase())
-  );
+  // after the array is filtered on the search term, it is then sorted on the date value.
+  // default sorting is newest videos first
+  // finally this filteredUploaded Vidoes is passed as a prop to uploadedVideosCollection.
+  const filteredUploadedVideos = uploadedVideos
+    .filter((video) =>
+      video.title.toLowerCase().includes(searchTerm.toLowerCase())
+    )
+    .sort((a, b) => {
+      const dateA = new Date(a.date).getTime();
+      const dateB = new Date(b.date).getTime();
+      if (sortOrder === "dateAsc") {
+        return dateA - dateB;
+      } else if (sortOrder === "dateDesc") {
+        return dateB - dateA;
+      }
+      return 0;
+    });
 
   async function sendMessage(from, to, link, description) {
     const newMessage = {
@@ -195,6 +227,10 @@ const Library = () => {
           searchTerm={searchTerm}
           onSearchChange={handleSearchChange}
         ></SearchVideos>
+        <SortVideos
+          sortOrder={sortOrder} // pass sort order and onSortChange as props to sortVideos component
+          onSortChange={handleSortChange}
+        ></SortVideos>
       </div>
 
       {/*Here we need to render the active views. there are two views that could be rendered. Uploaded videos or received videos. it should directly return the whole view  */}
@@ -302,7 +338,8 @@ function UploadedVideoCard({
       <video controls>
         <source src={video.url} type="video/mp4" />
       </video>
-      <p>{video.title}</p>
+      <p>{`Title: ${video.title}`}</p>
+      <p>{`Date: ${video.formattedDate}`}</p>
       <Button onClick={() => deleteVideos(video)} className="delete-video">
         Delete Video
       </Button>
@@ -361,6 +398,20 @@ function SearchVideos({ searchTerm, onSearchChange }) {
         value={searchTerm}
         onChange={onSearchChange}
       ></input>
+    </div>
+  );
+}
+
+// this component function is responsible for sorting videos based on date value. could be expanded in the future to sort on other values as well.
+function SortVideos({ sortOrder, onSortChange }) {
+  return (
+    <div>
+      <select onChange={onSortChange} value={sortOrder}>
+        {/*Newest first is descending as the newest video would have the largest date value */}
+        <option value="dateDesc">Sort by: Newest First</option>
+        {/*Oldest first is ascending as the oldest video would have the smallest date value */}
+        <option value="dateAsc">Sort by: Oldest First</option>
+      </select>
     </div>
   );
 }
