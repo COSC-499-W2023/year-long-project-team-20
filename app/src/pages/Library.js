@@ -9,6 +9,7 @@ import Swal from "sweetalert2";
 import Modal from "react-modal";
 import "../css/Library.css";
 import ToggleButton from "../components/ToggleButton";
+import { func } from "prop-types";
 
 Modal.setAppElement("#root");
 
@@ -17,11 +18,18 @@ const Library = () => {
   const [username, setUsername] = useState(null);
   const [receivedVideos, setReceivedVideos] = useState([]);
   const [activeView, setActiveView] = useState("Uploaded Videos"); // default view is Uploaded videos.
+  const [searchTerm, setSearchTerm] = useState("");
 
   // this function handles the state of active view
   const handleActiveView = (view) => {
     setActiveView(view);
   };
+
+  //this function handles user input on the search bar. so when user types something into the search bar it sets the state of the searchTerm to what the user typed
+  // we can then use the searchTerm state to filter videos accordingly.
+  function handleSearchChange(e) {
+    setSearchTerm(e.target.value);
+  }
 
   // this useEffect fetches received videos and is executed on the inital mount of the app and whenever the state of the received Video changes
   useEffect(() => {
@@ -103,6 +111,13 @@ const Library = () => {
   //   }
   // };
 
+  // in this function we take the uploaded videos array and filter it based on the search term
+  // if the search term is null then nothing will be filtered.
+  // This filteredUploadVidoes is rendered on the users screen as it passed as a prop to UploadedVidoesCollection component
+  const filteredUploadedVideos = uploadedVideos.filter((video) =>
+    video.title.toLowerCase().includes(searchTerm.toLowerCase())
+  );
+
   async function sendMessage(from, to, link, description) {
     const newMessage = {
       from,
@@ -171,19 +186,29 @@ const Library = () => {
           activeView={activeView}
           onToggle={handleActiveView} // changed name of prop to match naming conventions of handling functions related to state. In this case our state that is being updated is activeView. Therfore, the prop function name that updates the state should be handleActiveView
         />
+        <SearchVideos
+          searchTerm={searchTerm}
+          onSearchChange={handleSearchChange}
+        ></SearchVideos>
       </div>
 
       {/*Here we need to render the active views. there are two views that could be rendered. Uploaded videos or received videos. it should directly return the whole view  */}
       {/* first step is to decide what is the active view*/}
+
       {activeView === "Uploaded Videos" ? (
         // if active view is uploaded videos, then we need to render the uploaded videos collection
         <>
-          <UploadedVideosCollection
-            uploadedVideos={uploadedVideos} // passing the array of uploaded videos
-            deleteVideos={deleteVideos} // passing the delete video function
-            sendMessage={sendMessage} // passing the sendMessage function
-            username={username} // passing the userName value
-          />
+          {/* if filteredUploaded vidoes is more than 0 then render the uploaded videos collection else display a message that no vidoes found*/}
+          {filteredUploadedVideos.length > 0 ? (
+            <UploadedVideosCollection
+              uploadedVideos={filteredUploadedVideos} // passing the array of uploaded videos
+              deleteVideos={deleteVideos} // passing the delete video function
+              sendMessage={sendMessage} // passing the sendMessage function
+              username={username} // passing the userName value
+            />
+          ) : (
+            <div>No videos found that match your search</div>
+          )}
         </>
       ) : (
         <>
@@ -198,6 +223,21 @@ const Library = () => {
 };
 
 export default withAuthenticator(Library);
+
+//this component function is responsible for searching a list of videos.
+// receives the props searchTeam (which the current state of searchTerm) and the prop onSearchChange which calls the function handleSearchChange
+function SearchVideos({ searchTerm, onSearchChange }) {
+  return (
+    <div>
+      <input
+        type="text"
+        placeholder="Search Videos"
+        value={searchTerm}
+        onChange={onSearchChange}
+      ></input>
+    </div>
+  );
+}
 
 // this component function is responsible for rendering a collection of uploaded video cards/tiles
 function UploadedVideosCollection({
