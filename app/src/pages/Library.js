@@ -8,7 +8,10 @@ import { listInAppMessagings } from "../graphql/queries";
 import Swal from "sweetalert2";
 import Modal from "react-modal";
 import "../css/Library.css";
-import ToggleButton from "../components/ToggleButton";
+
+import ToggleButton from '../components/ToggleButton';
+import { useViewContext } from '../context/ViewContext.js';
+
 
 Modal.setAppElement("#root");
 
@@ -16,11 +19,15 @@ const Library = () => {
   const [uploadedVideos, setUploadedVideos] = useState([]); // this state is used to manage user's uploaded videos
   const [username, setUsername] = useState(null);
   const [receivedVideos, setReceivedVideos] = useState([]);
-  const [activeView, setActiveView] = useState("Uploaded Videos"); // default view is Uploaded videos.
 
-  // this function handles the state of active view
+   //Load view selected from context
+  const { viewSelections, updateViewSelection } = useViewContext();
+  const [activeView, setActiveView] = useState(viewSelections.libraryPage);
+    
+ //store changed view in context
   const handleActiveView = (view) => {
     setActiveView(view);
+    updateViewSelection('libraryPage', view);
   };
 
   // this useEffect fetches received videos and is executed on the inital mount of the app and whenever the state of the received Video changes

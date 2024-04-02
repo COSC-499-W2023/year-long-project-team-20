@@ -8,14 +8,23 @@ import "../css/Request.css";
 import { Auth, API, graphqlOperation } from "aws-amplify";
 import { createRequestVideo } from '../graphql/mutations';
 import { requestVideosByToAndDuedate } from '../graphql/queries';
+import { useViewContext } from '../context/ViewContext.js';
+
 const Request = () => {
-  //Set default view 
-  const [activeView, setActiveView] = useState('Send a Request');
+
+
   const [items, setItems] = useState([]);
   const [itemsToShow, setItemsToShow] = useState(10);
   const user = Auth.currentAuthenticatedUser();
+
+  //Load view selected from context
+  const { viewSelections, updateViewSelection } = useViewContext();
+  const [activeView, setActiveView] = useState(viewSelections.requestPage);
+  
+  //store changed view in context
   const handleToggle = (view) => {
     setActiveView(view);
+    updateViewSelection('requestPage', view);
   };
 
   useEffect(() => {
