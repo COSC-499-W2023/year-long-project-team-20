@@ -9,6 +9,8 @@ import { Auth, API, graphqlOperation } from "aws-amplify";
 import { createRequestVideo } from '../graphql/mutations';
 import { requestVideosByToAndDuedate } from '../graphql/queries';
 import { useViewContext } from '../context/ViewContext.js';
+import SentRequest from "../components/SentRequest.js";
+import RequestForm from "../components/RequestForm.js";
 
 const Request = () => {
 
@@ -96,26 +98,24 @@ const Request = () => {
       <div className="views">
         {activeView === 'Send a Request' ? (
           <div>
-            <h1>Submit Your Video Request</h1>
-            <form id="userForm" onSubmit={sendRequest}>
-            <div className="form-group" style={{ display: 'flex', alignItems: 'center' }}>
-              <label htmlFor="username" style={{ marginRight: '10px' }}>Username:</label>
-              <input type="text" id="username" name="username" required style={{ width: '300px', marginRight: '10px' }} />
-              <label htmlFor="isEmail" style={{ marginRight: '10px' }}>Is this an email?</label>
-              <input type="checkbox" id="isEmail" name="isEmail" />
-            </div>
-              <div className="form-group">
-                <label htmlFor="description">Description:</label>
-                <input type="text" id="littleText" name="littleText" required />
-              </div>
+            
 
-              <div className="form-group">
-                <label htmlFor="dueDate">Due Date:</label>
-                 <input type="date" id="dueDate" name="dueDate" required />
-               </div>
-          
-              <button type="submit">Submit</button>
-            </form>
+            <RequestForm sendRequest={sendRequest} />
+            
+            <div className="sent-vids-container">
+            <h1>Sent Videos</h1>
+
+            {/* Update to pull sent requests from database*/}
+            <SentRequest
+              sentTo="Jill"
+              description="Please provide a summary video."
+              dueDate= "2023-03-31"
+              isCompleteInitial={false}
+              isRead={true}
+              createdAt="2023-03-31"
+            />
+            </div>
+
           </div>
         ) : (
           <div>
@@ -132,6 +132,7 @@ const Request = () => {
                   isRead={item.isRead}
                   createdAt={item.created}
                 />
+                
               ))}
               {items.length > itemsToShow && (
                 <button onClick={showMoreItems} className="show-more-button">Next Page</button>
