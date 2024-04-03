@@ -17,7 +17,8 @@ const RequestForm = ({ sendRequest }) => {
         id='expand-request-button'
         onClick={toggleCollapse}
       >
-        <h2> Submit a Video Request </h2>
+         <h2> {isOpen ? 'Submit a Video Request' : 'Submit a Video Request'} </h2>
+         <h2 className='icon'> {isOpen ? '-' : '+'} </h2>
 
       </button>
       <div className={`content ${isOpen ? 'show' : ''}`}>
