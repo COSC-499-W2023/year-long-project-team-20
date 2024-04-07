@@ -1,4 +1,13 @@
 # Abijith Ashok Log
+## Week 24 (March 26th to April 2nd)
+- Created a lambda that enables the user to send requests as email notifications to the user's email
+- Created a page where users can view the status of the requests that they sent
+
+## Goals for next Week
+- Finish working on the documentation of the app
+- Fix any remaining major bugs
+![Week 24 Logs](https://imgur.com/D81wsL0.png)
+
 ## Week 23 (March 18th to March 24th)
 ## Feature worked on
 - Created the table RequestVideo with the following Fields and indexes:
