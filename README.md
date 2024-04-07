@@ -1,28 +1,32 @@
-# Getting Started with the React App 
-# 1. Prequisites: 
-i. Install git:
-    a. For Windows, Go to https://git-scm.com/download/win and Download and run the installer of your choice from the webpage
-    b. For MacOS, you need to have homebrew installed:
-            if you don't, you can run this command: 
+# Getting Started with the React App:
+## I. Prequisites: 
 
-                /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+1. Install git:
+    
+    a. For Windows, Go to https://git-scm.com/download/win and Download and run the installer of your choice from the webpage.
 
-        assuming you now have homebrew installed you can run: 
+    b. For MacOS, you need to have homebrew installef,if you don't, you can run this command: 
 
-                brew install git
+        /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+
+    assuming you now have homebrew installed you can run: 
+
+        brew install git
 
     c. For Linux, 
 
-            sudo apt install git
+        sudo apt install git
 
-ii. Set up git credentials on github.
+2. Set up git credentials on github:  
+    
     a. Configure github credentials by running this command:
-        
         git config --global user.name "Your Name"
 
         git config --global user.email "your_email@example.com" 
+   b. You should follow this guide to authenticate with your github account with git: https://docs.github.com/en/get-started/getting-started-with-git/set-up-git
 
-iii. Install node by going to this website https://nodejs.org/en/download and selecting the latest node version for you operating system
+3. Install node by going to this website https://nodejs.org/en/download and selecting the latest node version for you operating system
+    
     a. For Linux:
 
         sudo apt install nodejs npm
@@ -31,41 +35,65 @@ iii. Install node by going to this website https://nodejs.org/en/download and se
 
         brew install node
 
-iv. update npm to the latest version: 
+4. update npm to the latest version: 
 
-    npm install -g npm@latest
+        npm install -g npm@latest
 
-v. Install VScode (or another IDE of your choice) (optional)
+5. Install VScode (or another IDE of your choice) (optional).
 
-vi. Install aws cli (this will depend on the type of AWS account you have as well as the operating software).Therefore please see link on installation guide. https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html 
+6. Install AWS CLI (this will depend on the type of AWS account you have as well as the operating software).Therefore please see link on installation guide. https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html 
 
 
-Configure AWS CLI credentials. This step is dependent on the type of AWS account that you have and the access credientials. Therefore, refer to this documentation: https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-configure.html
-However you can refer to this guide for  for general  Run AWS Configure SSO
-Install amplify cli
-https://docs.amplify.aws/javascript/tools/cli/start/set-up-cli/
+7. Configure AWS CLI credentials. This step is dependent on the type of AWS account that you have and the access credientials. There are also many ways in which one can configure their credentials. Therefore, refer to this documentation: https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-configure.html \
+One way to configure the CLI is to run:
 
-After the pre-requisities are installed. Clone our repo using the following command: https://github.com/COSC-499-W2023/year-long-project-team-20.git
-After cloning repo change directory into the app directory of the repository.
-Use this command to install all node dependcies and packages
-mac or linux: $ sudo npm install
-windows: npm install
-Use this command to pull the amplify backend for this app:$ amplify pull --appId d2z50th821pl3w --envName staging
-Finally use this command to run the app on your localhost: 
-mac or linux: $ sudo npm run start
-windows: npm run start
-Install or update to the latest version of the AWS CLI - AWS Comman...
-Instructions to install or update the AWS CLI on your system.
-Configure the AWS CLI - AWS Command Line Interface
-Configure settings that the AWS CLI uses to interact with AWS.
-Set up Amplify CLI - JavaScript - AWS Amplify Documentation
-How to install and configure Amplify CLI AWS Amplify Documentation
-Image
+        aws configure
+        aws configure ssoYou will be prompted
+    You will be prompted to login to your aws account and then you will be prompted to enter your credentials in the terminal.
+
+8. Install amplify cli. You can refer to the documentation here: https://docs.amplify.aws/javascript/tools/cli/start/set-up-cli/
+
+        npm install -g @aws-amplify/cli
+    Then run 
+
+        amplify configure
+    This will prompt you to login to your AWS account and then take you to the IAM Identity and Access Management page on the console. There you will be prompted to either select an existing User or create a new User and attach IAM policies and roles. For our project we selected the CapStonePowerUser role that was assigned to us. 
+
+## II. Installation
+
+1. Clone our repo using the following command: 
+
+        git clone https://github.com/COSC-499-W2023/year-long-project-team-20.git
+
+2. After cloning repo change directory into the app directory of the repository.
+
+        cd year-long-project-team-20/app
+
+3. Install all node dependcies and packages
+
+    a. mac or linux: 
+
+        sudo npm install
+    
+    b. windows: 
+    
+        npm install
+4. Use this command to pull the amplify backend for this app:
+        
+        amplify pull --appId d2z50th821pl3w --envName staging
+5. Finally use this command to run the app on your localhost: 
+    
+    a. mac or linux: 
+        
+        sudo npm run start
+    b. windows: 
+        
+        npm run start
 
 
 ## Available Scripts
 
-In the project directory, you can run:
+In the project's app directory, you can run:
 
 ### `npm start`
 
@@ -75,10 +103,10 @@ Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 The page will reload when you make changes.\
 You may also see any lint errors in the console.
 
-### `npm test`
+### `npx cypress open`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Launches the test runner in the interactive mode.\
+See the section about [running tests](https://docs.cypress.io/guides/getting-started/opening-the-app) for more information.
 
 ### `npm run build`
 
@@ -99,33 +127,3 @@ If you aren't satisfied with the build tool and configuration choices, you can `
 Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
 
 You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)

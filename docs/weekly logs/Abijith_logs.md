@@ -6,6 +6,7 @@
 ## Goals for next Week
 - Finish working on the documentation of the app
 - Fix any remaining major bugs
+![Week 24 Logs](https://imgur.com/D81wsL0.png)
 
 ## Week 23 (March 18th to March 24th)
 ## Feature worked on
