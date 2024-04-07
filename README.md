@@ -48,7 +48,7 @@
 One way to configure the CLI is to run:
 
         aws configure
-        aws configure ssoYou will be prompted
+        aws configure sso
     You will be prompted to login to your aws account and then you will be prompted to enter your credentials in the terminal.
 
 8. Install amplify cli. You can refer to the documentation here: https://docs.amplify.aws/javascript/tools/cli/start/set-up-cli/
