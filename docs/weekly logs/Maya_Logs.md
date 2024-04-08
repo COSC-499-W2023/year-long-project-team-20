@@ -1,4 +1,19 @@
 # Maya Ayaviri Bacarreza's Logs 
+## Week 26 - Project Log
+**Work period April 1st - April 7th**
+
+<img width="619" alt="Screen Shot 2024-04-07 at 6 41 36 PM" src="https://github.com/COSC-499-W2023/year-long-project-team-20/assets/66889922/17a0b767-d50b-4855-b52e-9ff631b38055">
+
+
+### Tasks Completed This Work Period (found on pull request https://github.com/COSC-499-W2023/year-long-project-team-20/pull/236)
+* Created UI for component that can be used to show user requests that they sent to others, which they can edit 
+* Complete Final Report and Video
+* Attended team meetings  
+   
+### Context 
+Earlier in the week I worked on creating the component to show user requests that they sent to others. They can edit this component to enter a new description or a new due date. Later in the week I worked on my individual report, attended team meetings to discuss what features everybody worked on/what the overall architecture of the website looks like. 
+
+# Maya Ayaviri Bacarreza's Logs 
 ## Week 25 - Project Log
 **Work period March 25th - March 31st**
 
