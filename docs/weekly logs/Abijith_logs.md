@@ -1,4 +1,11 @@
 # Abijith Ashok Log
+## Week 25 (April 2nd to April 7th)
+## Features worked on
+- Wrote the ReadMe for the installation and setup instructions
+- Attended all team meetings
+- Completed the system architecture
+![Week 24 Logs](https://imgur.com/D81wsL0.png)
+
 ## Week 24 (March 26th to April 2nd)
 - Created a lambda that enables the user to send requests as email notifications to the user's email
 - Created a page where users can view the status of the requests that they sent
