@@ -1,4 +1,56 @@
 # Ryan Grant logs
+# T2 Week 13 April 1st - April 7th
+# This week:
+1. Start and finish final report
+2. Talk with Abijith on how DynamoDB graphQL and associated lambdas work within out system
+3. Multiple meetings with Abijith Maya and Issa (Mo was MIA all week) regarding our final document system feature list discussing DFD / how our system components integrate with others
+4. Recording video demonstration for our project
+## Peer Evaluation
+![img](https://i.imgur.com/7Im5SQQ.png)
+# T2 Week 11 March 18th - March 24th
+## Context 
+### After posting logs for last week I posted a request for help regarding videos not working in aws rekognition. After talking with a few people in discord Paul from group 1 asked if it was a encoding issue. He ran CLI ffmpeg to reencode the video to ".mp4" AND IT FIXED THE ISSUE. This let me narrow the issue down to: The files that we were recording from our project were named .mp4 but were actually encoded differently. This issue occurs because videos recorded on browser are saved in a webm container. For example running ffprobe on one of the videos:
+![ffprobe](https://i.imgur.com/QGmevEB.png)
+## This meant that it was an issue that I would be able to solve through the use of lambdas. 
+## I spoke again with Paul about how he solved this issue for his group and we spoke about ffmpeg, docker, containers, images. And then after a bit more reseach I found a lambda layer that contained ffmpeg and decided that would be the best way for me to proceed.
+## Goals for the week
+1. Re-encode videos before blurring
+2. Fix video redirection failing in certain cases. 
+
+## Work done this week
+1. Setup, redirect generalBucketToPreprocessed to new S3 bucket: change-encoding-to-mp4
+2. create new lambda function named: changeEncodingToMP4 triggers off s3 put in change-encoding-to-mp4
+- function should reencode video file to .mp4 then move to rekognitionvideofaceblurr-inputimagebucket
+3. deployed ffmpeg-lambda-layer, then added it to my function
+
+## Problems encountered
+1. ran into tons of issues getting the layer to work, mostly due to my inexperience
+1. not setting the directory correctly, should be ffmpeg = '/opt/bin/ffmpeg'
+2. trying to run the ffmpeg command off of the s3 object, have to actually download the file to a tmp dir
+3. then not really understanding the tmp file system had to add os.chdir("/tmp/") and use the file name by doing tmp_file_name = tmp_file.name
+After doing these changes, the cloudfront logs showed what looked like the correct output format but the file was not being reencoded
+4. after messing around a bit more I talked with paul again and he had no idea
+
+5. Continued to test, adding stderr, and stdout for error messages but that didnt help diagnose the issue
+6. Then after a few hours of testing I found a logic error where I was uploading not the new file but the old file
+7. This introduced a few more bugs that needed to be fixed such as needing a secondary tmp file and adding a few more inputs to the ffmpeg command
+such as -y to force overwrite and -f "mp4" to force .mp4 file output
+## At this point most videos works 
+- Fixed issue with the encoding function which would fail on files with a colon in it needed the following 
+``` 
+import urllib.parse
+urllib.parse.unquote_plus()
+ ```
+- Then I needed a similar fix when searching the file in findRenameMove lambda function 
+## changeEncodingToMP4
+[![changeEncodingToMP4](https://i.imgur.com/2HLraHo.png)](https://us-west-2.console.aws.amazon.com/lambda/home?region=us-west-2#/functions/changeEncodingToMP4?fullscreen=true&tab=code)
+
+## Now all videos recorded in our website are re-encoded -> Blurred -> Renamed -> added back to the original folder. 
+### What is left (to do next week)
+1. Frontend UI to only show one of either the blurred video or the non-blurred video
+2. A way for the frontend to receive updates from each step along the way. IE after encoding send a message like "video has been re-encoded moving to blur", after blurring send message. Same thing for failure if that occurs. 
+## Peer Evaluation
+![img](https://i.imgur.com/vk4LEE4.png)
 # T2 Week 10 March 11th - March 17
 ## Context 
 ### The team really needs bluring feature done this week as it is the last major feature needed for MVP. This will be top priority this week. I've spent close to 25 hours this week, how much to qualify as two weeks worth? (I have many weeks with 0 so any bonus marks would be greatly appricated)

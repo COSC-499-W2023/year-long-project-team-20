@@ -23,6 +23,7 @@ import Upload from "./pages/Upload";
 import Library from "./pages/Library";
 import Request from "./pages/Request";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
+import { ViewProvider } from './context/ViewContext.js';
 
 //Set up paths for the different pages shown in the nav bar
 const router = createBrowserRouter([
@@ -112,9 +113,12 @@ function App() {
     }
   };
 
+  //View Provider loads information about selected view for reuqest and library pages
   return (
     <AmplifyProvider>
+      <ViewProvider> 
       <RouterProvider router={router} />
+      </ViewProvider>
     </AmplifyProvider>
   );
 }
