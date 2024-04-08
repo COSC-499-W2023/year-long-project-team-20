@@ -594,3 +594,34 @@
 ### Task Completed vs In Progress
 
 ![text](https://i.imgur.com/a6mvXxW.png)
+
+## Week 13 (April 1st - April 7th)
+
+### Tasks completed this week
+
+- Team meetings
+- Working on individual project report.
+- Verifying installation process
+- Drawing the systems architecture on figma
+- Annotating the systems feature list
+- Implemented the search feature in the upload page. Users can type in the search bar to search through video titles.
+- CSS styling implemented for the search bar in the upload page.
+- Implemented the sort by feature in the library page. Users can sort the list of videos by newest first or oldest first based on date.
+- Won best dressed at Ballroom dance club party tonight ☺
+
+### Goals for Next Week
+
+- None
+
+### Recap goals
+
+- Implement a search feature in library page.
+- Connect requests front end and back end
+- Create a separate view for blurred videos.
+- Fix the out of memory app crash issue as a result of infinite received video requests.
+- Implement a footer
+- Implement a search feature in requests page.
+
+### Task Completed (from Peer Eval Portal)
+
+![text](https://i.imgur.com/Pc3FNMe.png)
