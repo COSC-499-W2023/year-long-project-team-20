@@ -1,0 +1,31 @@
+type VideoList @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  User: String!
+  UserID: String!
+  VideoName: String!
+  VideoLink: String!
+  Description: String
+}
+
+type InAppMessaging @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  from: String!
+  to: String!
+  link: String!
+  Description: String
+}
+
+type RequestVideo @model @auth(rules: [{allow: public}]){
+  created: AWSDateTime! @primaryKey 
+  duedate: AWSDate
+  from: String!
+  to: String! @index(name: "byRecipientbyCreated", sortKeyFields:["created"]) @index(name: "byRecipientbyDuedate", sortKeyFields:["duedate"])
+  fromEmail: AWSEmail
+  toEmail: AWSEmail
+  isRead: Boolean 
+  isCompleted: Boolean 
+  message: String
+}
+
+
+ 
